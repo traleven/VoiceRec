@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  CompilerViewController.swift
 //  VoiceRec
 //
 //  Created by Ivan Dolgushin on 28.02.19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class CompilerViewController: UITableViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
