@@ -9,18 +9,18 @@
 import UIKit
 import AVKit
 
-class RecorderViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
+class RecorderViewController: UIViewController, AVAudioRecorderDelegate {
 
-	@IBOutlet var recordingTimeLabel: UILabel!
-	@IBOutlet var record_btn_ref: NSObject!
+	@IBOutlet var record_btn_ref: UIButton!
+	@IBOutlet var progress_ref: UIProgressView!
+	@IBOutlet var language_ref: UILabel!
 
-	var audioRecorder: AVAudioRecorder!
-	var audioPlayer : AVAudioPlayer!
-	var meterTimer: Timer!
-
+	var recorder: AudioRecorder!
+	var player: AudioPlayer?
 	var isAudioRecordingGranted: Bool!
-	var isRecording: Bool! = false
-	var isPlaying: Bool! = false
+	var languageName: String?
+	var phrase: String?
+	var filePath: URL!
 
 
 	override func viewDidLoad() {
@@ -28,6 +28,99 @@ class RecorderViewController: UIViewController, AVAudioRecorderDelegate, AVAudio
 
 		// Do any additional setup after loading the view, typically from a nib.
 		check_record_permission()
+		recorder = AudioRecorder()
+
+		if (FileManager.default.fileExists(atPath: filePath.path)) {
+			player = AudioPlayer(filePath)
+			record_btn_ref.setTitle("Play", for: .normal)
+		}
+	}
+
+
+	override func viewWillAppear(_ animated: Bool) {
+
+		language_ref?.text = languageName
+	}
+
+
+	func setData(directoryUrl: URL!, language: String!, phrase: String!) {
+
+		self.phrase = phrase
+		self.languageName = language
+		self.filePath = directoryUrl.appendingPathComponent(String.init(format: "%@.m4a", language), isDirectory: false)
+
+		language_ref?.text = language
+	}
+
+
+	func getFileUrl() -> URL {
+
+		let filename = String.init(format: "%@.%@", languageName ?? "default", "m4a")
+		let filePath = FileUtils.getDirectory("recordings", phrase ?? "default").appendingPathComponent(filename)
+		return filePath
+	}
+
+
+	@IBAction func togglePlayMode(_ sender: Any) {
+
+		if (player != nil) {
+			if (player!.isPlaying) {
+				player!.stop()
+			} else {
+				player!.play(onProgress: { (_ progress: TimeInterval, _ total: TimeInterval) in
+					self.progress_ref.progress = Float(progress.magnitude / total.magnitude)
+				}, onFinish: {
+					self.progress_ref.progress = 0
+					self.record_btn_ref.setTitle("Play", for: .normal)
+				})
+			}
+		} else {
+			if (recorder.isRecording) {
+				recorder.finishAudioRecording()
+			} else {
+				recorder.start_recording(filePath, progress: { (_ progress: TimeInterval) in
+					let hr = Int((progress / 60) / 60)
+					let min = Int(progress / 60)
+					let sec = Int(progress.truncatingRemainder(dividingBy: 60))
+					let totalTimeString = String(format: "%02d:%02d:%02d", hr, min, sec)
+					self.record_btn_ref.setTitle(totalTimeString, for: .normal)
+				}) { (_ success: Bool) in
+					if (success) {
+						self.player = AudioPlayer(self.filePath)
+						self.record_btn_ref.setTitle("Play", for: .normal)
+					} else {
+						self.record_btn_ref.setTitle("Record", for: .normal)
+					}
+				}
+			}
+		}
+	}
+
+
+	@IBAction func deleteFile() {
+
+		if (FileManager.default.fileExists(atPath: filePath.path)) {
+			let ac = UIAlertController(title: "Delete audio?", message: "Are you sure?", preferredStyle: .actionSheet)
+
+			ac.addAction(UIAlertAction(title: "Delete", style: .destructive)
+			{
+				(result : UIAlertAction) -> Void in
+				_ = self.navigationController?.popViewController(animated: true)
+				do {
+					try FileManager.default.removeItem(at: self.filePath)
+				} catch let error {
+					NSLog(error.localizedDescription)
+				}
+			})
+
+			ac.addAction(UIAlertAction(title: "Cancel", style: .cancel)
+			{
+				(result : UIAlertAction) -> Void in
+				_ = self.navigationController?.popViewController(animated: true)
+			})
+
+			self.present(ac, animated: true)
+		}
 	}
 
 
@@ -54,149 +147,4 @@ class RecorderViewController: UIViewController, AVAudioRecorderDelegate, AVAudio
 			break
 		}
 	}
-
-
-	func setup_recorder(){
-
-		let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
-		do {
-			try audioSession.setCategory(.playAndRecord, mode: .default, options: .duckOthers)
-			try audioSession.setActive(true)
-
-			let recordSettings = [AVFormatIDKey:Int(kAudioFormatMPEG4AAC),
-								  AVSampleRateKey:44100,
-								  AVNumberOfChannelsKey:2,
-								  //AVEncoderBitRateKey:12800,
-								  //AVLinearPCMBitDepthKey:16,
-								  AVEncoderAudioQualityKey:AVAudioQuality.high.rawValue]
-
-			audioRecorder = try AVAudioRecorder(url: getFileUrl(), settings: recordSettings)
-			audioRecorder.delegate = self
-			audioRecorder.isMeteringEnabled = true
-			audioRecorder.prepareToRecord()
-
-		} catch let error {
-			NSLog(error.localizedDescription);
-		}
-	}
-
-
-	func getFileUrl() -> URL {
-
-		let date = NSDate()
-		let filename = String.init(format: "%@.%@", date, "m4a")
-		let filePath = FileUtils.getDocumentsDirectory().appendingPathComponent(filename)
-		return filePath
-	}
-
-
-	@objc func updateAudioMeter(timer: Timer) {
-
-		if audioRecorder.isRecording
-		{
-			let hr = Int((audioRecorder.currentTime / 60) / 60)
-			let min = Int(audioRecorder.currentTime / 60)
-			let sec = Int(audioRecorder.currentTime.truncatingRemainder(dividingBy: 60))
-			let totalTimeString = String(format: "%02d:%02d:%02d", hr, min, sec)
-			recordingTimeLabel.text = totalTimeString
-			audioRecorder.updateMeters()
-		}
-	}
-
-
-	@IBAction func toggleRecording(_ sender: NSObject) {
-
-		if isRecording {
-			finishAudioRecording(sender)
-		} else {
-			start_recording(sender)
-		}
-	}
-
-
-	@IBAction func start_recording(_ sender: NSObject) {
-
-		setup_recorder()
-
-		audioRecorder.record()
-		meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
-		recordingTimeLabel.text = "Recording..."
-		isRecording = true
-	}
-
-
-	@IBAction func finishAudioRecording(_ sender: NSObject) {
-
-		audioRecorder.stop()
-		audioRecorder = nil
-		meterTimer.invalidate()
-		print("recorded successfully.")
-
-		recordingTimeLabel.text = "Recorded"
-		isRecording = false
-	}
-
-
-	func prepare_play() {
-
-		do
-		{
-			audioPlayer = try AVAudioPlayer(contentsOf: getFileUrl())
-			audioPlayer.delegate = self
-			audioPlayer.prepareToPlay()
-		}
-		catch{
-			print("Error")
-		}
-	}
-
-
-	@IBAction func play_recording(_ sender: Any) {
-
-		if(isPlaying)
-		{
-			audioPlayer.stop()
-			isPlaying = false
-		}
-		else
-		{
-			if FileManager.default.fileExists(atPath: getFileUrl().path)
-			{
-				prepare_play()
-				audioPlayer.play()
-				isPlaying = true
-			}
-			else
-			{
-				display_alert(msg_title: "Error", msg_desc: "Audio file is missing.", action_title: "OK")
-			}
-		}
-	}
-
-
-	func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-
-		if !flag
-		{
-			display_alert(msg_title: "Error", msg_desc: "Recording failed.", action_title: "OK")
-		}
-	}
-
-
-	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-
-	}
-
-	
-	func display_alert(msg_title : String , msg_desc : String ,action_title : String) {
-		
-		let ac = UIAlertController(title: msg_title, message: msg_desc, preferredStyle: .alert)
-		ac.addAction(UIAlertAction(title: action_title, style: .default)
-		{
-			(result : UIAlertAction) -> Void in
-		_ = self.navigationController?.popViewController(animated: true)
-		})
-		present(ac, animated: true)
-	}
 }
-
