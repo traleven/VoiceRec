@@ -81,7 +81,9 @@ class CompilerViewController: UIViewController {
 
 
 	func playVoice() {
+
 		let phrase = getRandom(fromArray: voice)
+
 		let playNextPhraseBlock = {
 			self.voiceTimer = Timer(timeInterval: TimeInterval.random(in: 3...5), repeats: false, block: { (timer: Timer) in
 				timer.invalidate()
@@ -90,6 +92,7 @@ class CompilerViewController: UIViewController {
 			})
 			RunLoop.main.add(self.voiceTimer, forMode: RunLoop.Mode.default)
 		}
+
 		let playChineseBlock = {
 			self.voiceTimer = Timer(timeInterval: TimeInterval.random(in: 1...3), repeats: false, block: { (timer: Timer) in
 				timer.invalidate()
@@ -98,6 +101,7 @@ class CompilerViewController: UIViewController {
 			})
 			RunLoop.main.add(self.voiceTimer, forMode: RunLoop.Mode.default)
 		}
+
 		voicePlayer = AudioPlayer(buildVoiceURL(phrase, language: "English"))
 		voicePlayer.play(onProgress: { (_:TimeInterval, _:TimeInterval) in }, onFinish: playChineseBlock)
 	}

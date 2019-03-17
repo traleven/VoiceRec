@@ -11,11 +11,15 @@ import UIKit
 
 struct DirectoryData {
 	var url: URL!
+	var relativePath: String!
 	var compose: Bool!
+	var isPhrase: Bool!
 
-	init(url: URL) {
+	init(url: URL, parent: DirectoryData?) {
 		self.url = url
+		self.relativePath = (parent?.relativePath?.appending("/") ?? "").appending(url.lastPathComponent)
 		self.compose = false
+		self.isPhrase = FileUtils.isPhraseDirectory(url)
 	}
 }
 
@@ -24,12 +28,14 @@ class FSTableDirectoryDataSource : NSObject, UITableViewDataSource {
 
 	var baseUrl: URL
 	var cellId: String
+	var groupCellId: String?
 	var data: [DirectoryData]
 
-	init(_ url: URL, withCellId: String) {
+	init(_ url: URL, parent: DirectoryData?, withCellId: String, andGroupCellId: String?) {
 
 		baseUrl = url
 		cellId = withCellId
+		groupCellId = andGroupCellId
 		data = []
 
 		do {
@@ -39,7 +45,7 @@ class FSTableDirectoryDataSource : NSObject, UITableViewDataSource {
 			for url in files {
 				let isDir = try url.resourceValues(forKeys: [.isDirectoryKey])
 				if (isDir.isDirectory!) {
-					data.append(DirectoryData(url: url))
+					data.append(DirectoryData(url: url, parent: parent))
 				}
 			}
 
@@ -57,8 +63,16 @@ class FSTableDirectoryDataSource : NSObject, UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-		let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? DirectoryCell
-		cell?.setData(data[indexPath.row])
+		let cellData = data[indexPath.row]
+
+		if !cellData.isPhrase && groupCellId != nil {
+			let cell = tableView.dequeueReusableCell(withIdentifier: groupCellId!) as? DirectoryCell
+			cell?.setData(cellData)
+			return cell!
+		}
+
+		let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? PhraseCell
+		cell?.setData(cellData)
 		return cell!
 	}
 }

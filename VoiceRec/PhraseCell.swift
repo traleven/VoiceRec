@@ -2,15 +2,16 @@
 //  DirectoryCell.swift
 //  VoiceRec
 //
-//  Created by Ivan Dolgushin on 16.03.19.
+//  Created by Ivan Dolgushin on 03.03.19.
 //  Copyright © 2019 traleven. All rights reserved.
 //
 
 import UIKit
 
-class DirectoryCell: UITableViewCell {
+class PhraseCell: UITableViewCell {
 
 	@IBOutlet var title: UILabel!
+	@IBOutlet var composeSwitch: UISwitch!
 
 	var data: DirectoryData?
 
@@ -18,13 +19,14 @@ class DirectoryCell: UITableViewCell {
 
 		self.data = data
 		title.text = self.data?.url?.lastPathComponent
+		composeSwitch.setOn(DB.phrases.getValue(forKey: self.data?.relativePath ?? "") == "y", animated: false)
 	}
 
 
 	@IBAction func toggle_composer(_ sender: UISwitch) {
 
 		self.data?.compose = sender.isOn
-		DB.phrases.setValue(forKey: title.text ?? "", value: sender.isOn ? "y" : "n")
+		DB.phrases.setValue(forKey: self.data?.relativePath ?? "", value: sender.isOn ? "y" : "n")
 		DB.phrases.flush()
 	}
 }

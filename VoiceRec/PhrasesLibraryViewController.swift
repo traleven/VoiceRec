@@ -11,14 +11,18 @@ import UIKit
 class PhrasesLibraryViewController: UITableViewController {
 
 	var dataSource: FSTableDirectoryDataSource!
-	var rootDirectory: URL!
+	var rootDirectory: URL?
+	var parentData: DirectoryData?
 	@IBInspectable var cellId: String!
+	@IBInspectable var groupCellId: String?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		// Do any additional setup after loading the view, typically from a nib.
-		rootDirectory = FileUtils.getDirectory(cellId)
+		if rootDirectory == nil {
+			rootDirectory = FileUtils.getDirectory(cellId)
+		}
 		refresh_data()
 	}
 
@@ -43,9 +47,10 @@ class PhrasesLibraryViewController: UITableViewController {
 
 	func refresh_data() {
 
-		dataSource = FSTableDirectoryDataSource(rootDirectory, withCellId: cellId)
+		dataSource = FSTableDirectoryDataSource(rootDirectory!, parent: parentData, withCellId: cellId, andGroupCellId: groupCellId)
 		tableView.dataSource = dataSource
 		tableView.reloadData()
+		NSLog("Show data from: %@", rootDirectory!.path)
 	}
 
 
@@ -54,11 +59,18 @@ class PhrasesLibraryViewController: UITableViewController {
 		if segue.identifier == "phrase",
 			let dest = segue.destination as? PhraseDetailsViewController {
 			if let idx = tableView.indexPathForSelectedRow,
-				let cell = tableView.cellForRow(at: idx) as? DirectoryCell
-			{
+				let cell = tableView.cellForRow(at: idx) as? PhraseCell {
 				dest.setRootDirectory(cell.data!.url)
 			} else if let senderUrl = sender as? URL {
 				dest.setRootDirectory(senderUrl)
+			}
+		} else if segue.identifier == "subdirectory",
+			let dest = segue.destination as? PhraseLibraryContainerViewController {
+			if let idx = tableView.indexPathForSelectedRow,
+				let cell = tableView.cellForRow(at: idx) as? DirectoryCell {
+				dest.parentData = cell.data!
+				dest.rootDirectory = cell.data!.url
+				NSLog("Set url to: %@", dest.rootDirectory!.path)
 			}
 		}
 	}

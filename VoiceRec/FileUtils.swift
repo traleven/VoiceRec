@@ -10,10 +10,12 @@ import Foundation
 
 class FileUtils {
 
+	static var documentsDirectory: URL = getDocumentsDirectory()
+
 	class func getDocumentsDirectory() -> URL {
 
 		let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-		let documentsDirectory = paths[0]
+		let documentsDirectory = URL.init(fileURLWithPath: ".", relativeTo: paths[0])
 		FileUtils.ensureDirectory(documentsDirectory)
 		return documentsDirectory
 	}
@@ -21,7 +23,6 @@ class FileUtils {
 
 	class func getDirectory(_ dir: String) -> URL {
 
-		let documentsDirectory = getDocumentsDirectory()
 		let targetDirectory = documentsDirectory.appendingPathComponent(dir, isDirectory: true)
 		FileUtils.ensureDirectory(targetDirectory)
 		return targetDirectory
@@ -30,7 +31,6 @@ class FileUtils {
 
 	class func getDirectory(_ dir: String, _ dir2: String) -> URL {
 
-		let documentsDirectory = getDocumentsDirectory()
 		let targetDirectory = documentsDirectory.appendingPathComponent(dir, isDirectory: true).appendingPathComponent(dir2)
 		FileUtils.ensureDirectory(targetDirectory)
 		return targetDirectory
@@ -48,5 +48,21 @@ class FileUtils {
 		} catch let error {
 			NSLog(error.localizedDescription)
 		}
+	}
+
+
+	class func isPhraseDirectory(_ url: URL) -> Bool {
+
+		if FileManager.default.fileExists(atPath: url.appendingPathComponent("info.meta").path) {
+			return true
+		}
+		// convertion code
+		if FileManager.default.fileExists(atPath: url.appendingPathComponent("English.m4a").path)
+			|| FileManager.default.fileExists(atPath: url.appendingPathComponent("Chinese.m4a").path) {
+			FileManager.default.createFile(atPath: url.appendingPathComponent("info.meta").path, contents: nil)
+			return true
+		}
+		// end of convertion code
+		return false
 	}
 }

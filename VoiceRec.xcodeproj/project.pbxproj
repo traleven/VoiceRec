@@ -21,13 +21,14 @@
 		DB2F417A22280BFA009D6EB6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2F417922280BFA009D6EB6 /* AVKit.framework */; };
 		DB2F417C222818D6009D6EB6 /* FSTableAudioDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */; };
 		DB86F93B222C117E00C565E7 /* FSTableDirectoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F93A222C117E00C565E7 /* FSTableDirectoryDataSource.swift */; };
-		DB86F93D222C148E00C565E7 /* DirectoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F93C222C148E00C565E7 /* DirectoryCell.swift */; };
+		DB86F93D222C148E00C565E7 /* PhraseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F93C222C148E00C565E7 /* PhraseCell.swift */; };
 		DB86F93F222C159B00C565E7 /* PhrasesLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F93E222C159B00C565E7 /* PhrasesLibraryViewController.swift */; };
 		DB86F941222D2AFA00C565E7 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F940222D2AFA00C565E7 /* AudioRecorder.swift */; };
 		DB86F943222E968200C565E7 /* PhraseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F942222E968200C565E7 /* PhraseDetailsViewController.swift */; };
 		DB86F945222F775700C565E7 /* PhraseLibraryContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F944222F775700C565E7 /* PhraseLibraryContainerViewController.swift */; };
 		DB86F947222F812B00C565E7 /* NotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F946222F812B00C565E7 /* NotificationUtils.swift */; };
 		DB86F949222FA65400C565E7 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F948222FA65400C565E7 /* DB.swift */; };
+		DBC3EA2F223D161D00B46E7A /* DirectoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,13 +61,14 @@
 		DB2F417922280BFA009D6EB6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSTableAudioDataSource.swift; sourceTree = "<group>"; };
 		DB86F93A222C117E00C565E7 /* FSTableDirectoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSTableDirectoryDataSource.swift; sourceTree = "<group>"; };
-		DB86F93C222C148E00C565E7 /* DirectoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCell.swift; sourceTree = "<group>"; };
+		DB86F93C222C148E00C565E7 /* PhraseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCell.swift; sourceTree = "<group>"; };
 		DB86F93E222C159B00C565E7 /* PhrasesLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesLibraryViewController.swift; sourceTree = "<group>"; };
 		DB86F940222D2AFA00C565E7 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		DB86F942222E968200C565E7 /* PhraseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseDetailsViewController.swift; sourceTree = "<group>"; };
 		DB86F944222F775700C565E7 /* PhraseLibraryContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseLibraryContainerViewController.swift; sourceTree = "<group>"; };
 		DB86F946222F812B00C565E7 /* NotificationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtils.swift; sourceTree = "<group>"; };
 		DB86F948222FA65400C565E7 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +113,8 @@
 				DB2F416422280630009D6EB6 /* RecorderViewController.swift */,
 				DB86F944222F775700C565E7 /* PhraseLibraryContainerViewController.swift */,
 				DB0130F422294E98003CBFE7 /* AudioCell.swift */,
-				DB86F93C222C148E00C565E7 /* DirectoryCell.swift */,
+				DB86F93C222C148E00C565E7 /* PhraseCell.swift */,
+				DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */,
 				DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */,
 				DB86F93A222C117E00C565E7 /* FSTableDirectoryDataSource.swift */,
 				DB86F948222FA65400C565E7 /* DB.swift */,
@@ -216,7 +219,7 @@
 				DB2F417722280A8A009D6EB6 /* CompilerViewController.swift in Sources */,
 				DB2F416322280630009D6EB6 /* AppDelegate.swift in Sources */,
 				DB0130F7222A5099003CBFE7 /* AudioPlayer.swift in Sources */,
-				DB86F93D222C148E00C565E7 /* DirectoryCell.swift in Sources */,
+				DB86F93D222C148E00C565E7 /* PhraseCell.swift in Sources */,
 				DB0130F322290DA0003CBFE7 /* FileUtils.swift in Sources */,
 				DB0130F522294E98003CBFE7 /* AudioCell.swift in Sources */,
 				DB86F93B222C117E00C565E7 /* FSTableDirectoryDataSource.swift in Sources */,
@@ -226,6 +229,7 @@
 				DB0130F9222A517D003CBFE7 /* UIUtils.swift in Sources */,
 				DB2F416522280630009D6EB6 /* RecorderViewController.swift in Sources */,
 				DB2F417C222818D6009D6EB6 /* FSTableAudioDataSource.swift in Sources */,
+				DBC3EA2F223D161D00B46E7A /* DirectoryCell.swift in Sources */,
 				DB86F93F222C159B00C565E7 /* PhrasesLibraryViewController.swift in Sources */,
 				DB86F949222FA65400C565E7 /* DB.swift in Sources */,
 			);
