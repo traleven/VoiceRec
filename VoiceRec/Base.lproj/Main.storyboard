@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqs-ao-a4G">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <connections>
                                     <segue destination="VOh-Xn-Xe2" kind="embed" id="IHy-z8-A66"/>
                                 </connections>
@@ -67,7 +67,7 @@
             <objects>
                 <tableViewController id="VOh-Xn-Xe2" customClass="PhrasesLibraryViewController" customModule="VoiceRec" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="v24-TN-6c2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -79,13 +79,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ph9-wm-JYY">
-                                            <rect key="frame" x="28" y="12" width="506" height="21"/>
+                                            <rect key="frame" x="24" y="12" width="285" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="F3o-My-Zcj">
-                                            <rect key="frame" x="542" y="6" width="52" height="31.5"/>
+                                            <rect key="frame" x="317" y="6" width="52" height="31.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="F3o-My-Zcj" secondAttribute="height" multiplier="49:31" id="Kmo-bP-O1Z"/>
                                             </constraints>
@@ -93,19 +93,30 @@
                                                 <action selector="toggle_composer:" destination="S5W-LW-tAI" eventType="valueChanged" id="hIB-YB-ikv"/>
                                             </connections>
                                         </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GSG-NT-50E">
+                                            <rect key="frame" x="321" y="10" width="42" height="23.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Ph9-wm-JYY" firstAttribute="leading" secondItem="I1N-bo-ssr" secondAttribute="leadingMargin" constant="8" id="0zn-UP-dbj"/>
                                         <constraint firstAttribute="trailing" secondItem="F3o-My-Zcj" secondAttribute="trailing" constant="8" id="ANI-v0-ZTO"/>
                                         <constraint firstItem="Ph9-wm-JYY" firstAttribute="top" secondItem="I1N-bo-ssr" secondAttribute="topMargin" constant="1" id="J4S-sN-iZU"/>
+                                        <constraint firstItem="F3o-My-Zcj" firstAttribute="trailing" secondItem="GSG-NT-50E" secondAttribute="trailing" priority="750" constant="4" id="VdD-Bp-4WL"/>
                                         <constraint firstItem="Ph9-wm-JYY" firstAttribute="bottom" secondItem="I1N-bo-ssr" secondAttribute="bottomMargin" id="ZB6-7Y-L5A"/>
                                         <constraint firstAttribute="bottom" secondItem="F3o-My-Zcj" secondAttribute="bottom" constant="6" id="cUd-0s-CyT"/>
+                                        <constraint firstItem="F3o-My-Zcj" firstAttribute="bottom" secondItem="GSG-NT-50E" secondAttribute="bottom" priority="750" constant="4" id="ddm-sE-Svo"/>
+                                        <constraint firstItem="GSG-NT-50E" firstAttribute="leading" secondItem="F3o-My-Zcj" secondAttribute="leading" priority="750" constant="4" id="fhu-OM-R7T"/>
                                         <constraint firstItem="Ph9-wm-JYY" firstAttribute="trailing" secondItem="F3o-My-Zcj" secondAttribute="leading" constant="-8" id="kpC-zu-qSl"/>
+                                        <constraint firstItem="GSG-NT-50E" firstAttribute="top" secondItem="F3o-My-Zcj" secondAttribute="top" priority="750" constant="4" id="oR8-5h-2O2"/>
                                         <constraint firstItem="F3o-My-Zcj" firstAttribute="top" secondItem="I1N-bo-ssr" secondAttribute="top" constant="6" id="wJi-Ob-mJ2"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="composeSwitch" destination="F3o-My-Zcj" id="UDK-I9-viE"/>
+                                    <outlet property="presetLabel" destination="GSG-NT-50E" id="p4U-S2-D1Q"/>
                                     <outlet property="title" destination="Ph9-wm-JYY" id="Yb9-a1-BLC"/>
                                     <segue destination="gfe-cI-Kmj" kind="show" identifier="phrase" id="gGj-0C-gRO"/>
                                 </connections>
@@ -118,13 +129,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oe-v3-IKg">
-                                            <rect key="frame" x="28" y="12" width="502" height="21"/>
+                                            <rect key="frame" x="24" y="12" width="285" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="second" translatesAutoresizingMaskIntoConstraints="NO" id="PI9-Bv-9an">
-                                            <rect key="frame" x="538" y="6" width="50" height="31.5"/>
+                                            <rect key="frame" x="317" y="6" width="50" height="31.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="PI9-Bv-9an" secondAttribute="height" multiplier="49:31" id="lsA-TR-lvB"/>
                                             </constraints>
@@ -332,7 +343,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSW-eh-Ub4">
-                                            <rect key="frame" x="22" y="4" width="35.5" height="35.5"/>
+                                            <rect key="frame" x="18" y="4" width="35.5" height="35.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="MSW-eh-Ub4" secondAttribute="height" multiplier="1:1" id="vH0-XS-5p3"/>
                                             </constraints>
@@ -342,13 +353,13 @@
                                             </connections>
                                         </button>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sC4-IG-etw">
-                                            <rect key="frame" x="57.5" y="37.5" width="475.5" height="2"/>
+                                            <rect key="frame" x="53.5" y="37.5" width="254.5" height="2"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="9Nh-1P-2cx"/>
                                             </constraints>
                                         </progressView>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fnv-2Y-vdx">
-                                            <rect key="frame" x="541" y="5" width="53" height="33.5"/>
+                                            <rect key="frame" x="316" y="5" width="53" height="33.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="fnv-2Y-vdx" secondAttribute="height" multiplier="47:31" id="hmH-lL-72O"/>
                                             </constraints>
@@ -357,7 +368,7 @@
                                             </connections>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOL-Pn-wO6">
-                                            <rect key="frame" x="60.5" y="0.0" width="472.5" height="37.5"/>
+                                            <rect key="frame" x="56.5" y="0.0" width="251.5" height="37.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -407,7 +418,7 @@
             <objects>
                 <viewController id="gfe-cI-Kmj" userLabel="Phrase" customClass="PhraseDetailsViewController" customModule="VoiceRec" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dI3-Rq-I2D">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vb-BC-ize">
@@ -431,16 +442,16 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWh-F6-d7Z">
-                                <rect key="frame" x="0.0" y="64" width="375" height="490"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxH-Km-CFQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="297.5"/>
                                         <connections>
                                             <segue destination="8qT-yn-fqg" kind="embed" identifier="English" id="ZgG-Fw-8dP"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Wh-Gn-iXF">
-                                        <rect key="frame" x="0.0" y="249" width="375" height="241"/>
+                                        <rect key="frame" x="0.0" y="305.5" width="375" height="297.5"/>
                                         <connections>
                                             <segue destination="8qT-yn-fqg" kind="embed" identifier="Chinese" id="Ozs-1O-JH5"/>
                                         </connections>
@@ -484,11 +495,11 @@
             <objects>
                 <viewController id="8qT-yn-fqg" customClass="RecorderViewController" customModule="VoiceRec" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T7y-hn-qn5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="297.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22R-Hl-7uc">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="297.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgf-uf-Bmb">
                                         <rect key="frame" x="8" y="28" width="359" height="21"/>
@@ -500,14 +511,14 @@
                                         <rect key="frame" x="8" y="57" width="359" height="2"/>
                                     </progressView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elM-5q-kTk">
-                                        <rect key="frame" x="8" y="67" width="359" height="120"/>
+                                        <rect key="frame" x="8" y="67" width="359" height="176.5"/>
                                         <state key="normal" title="Record"/>
                                         <connections>
                                             <action selector="togglePlayMode:" destination="8qT-yn-fqg" eventType="primaryActionTriggered" id="r2O-xU-saL"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUO-ob-8F6">
-                                        <rect key="frame" x="277" y="195" width="90" height="38"/>
+                                        <rect key="frame" x="277" y="251.5" width="90" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="l0s-sU-0en"/>
                                             <constraint firstAttribute="width" constant="90" id="peb-GO-aC6"/>
@@ -563,6 +574,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ozs-1O-JH5"/>
-        <segue reference="lqc-Ku-eWq"/>
+        <segue reference="Mos-WW-M3x"/>
     </inferredMetricsTieBreakers>
 </document>

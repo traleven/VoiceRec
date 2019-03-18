@@ -10,15 +10,17 @@ import Foundation
 import UIKit
 
 struct DirectoryData {
-	var url: URL!
-	var relativePath: String!
-	var compose: Bool!
-	var isPhrase: Bool!
+	var url: URL
+	var relativePath: String
+	var compose: Bool
+	var preset: String
+	var isPhrase: Bool
 
 	init(url: URL, parent: DirectoryData?) {
 		self.url = url
-		self.relativePath = (parent?.relativePath?.appending("/") ?? "").appending(url.lastPathComponent)
-		self.compose = false
+		self.relativePath = (parent?.relativePath.appending("/") ?? "").appending(url.lastPathComponent)
+		self.preset = DB.phrases.getValue(forKey: self.relativePath)
+		self.compose = self.preset != ""
 		self.isPhrase = FileUtils.isPhraseDirectory(url)
 	}
 }

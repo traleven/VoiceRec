@@ -17,6 +17,7 @@ class AudioCell: UITableViewCell {
 
 	var data: AudioData?
 
+
 	func setData(_ data: AudioData!) {
 
 		self.data = data

@@ -28,6 +28,9 @@
 		DB86F945222F775700C565E7 /* PhraseLibraryContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F944222F775700C565E7 /* PhraseLibraryContainerViewController.swift */; };
 		DB86F947222F812B00C565E7 /* NotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F946222F812B00C565E7 /* NotificationUtils.swift */; };
 		DB86F949222FA65400C565E7 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F948222FA65400C565E7 /* DB.swift */; };
+		DBB56C88223FD8BD00E63FCC /* DictionaryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB56C87223FD8BD00E63FCC /* DictionaryDB.swift */; };
+		DBB56C8A223FD90300E63FCC /* ArrayDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB56C89223FD90300E63FCC /* ArrayDB.swift */; };
+		DBB56C8C223FDB3800E63FCC /* VoiceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */; };
 		DBC3EA2F223D161D00B46E7A /* DirectoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +71,9 @@
 		DB86F944222F775700C565E7 /* PhraseLibraryContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseLibraryContainerViewController.swift; sourceTree = "<group>"; };
 		DB86F946222F812B00C565E7 /* NotificationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtils.swift; sourceTree = "<group>"; };
 		DB86F948222FA65400C565E7 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		DBB56C87223FD8BD00E63FCC /* DictionaryDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDB.swift; sourceTree = "<group>"; };
+		DBB56C89223FD90300E63FCC /* ArrayDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDB.swift; sourceTree = "<group>"; };
+		DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSequence.swift; sourceTree = "<group>"; };
 		DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,9 +121,12 @@
 				DB0130F422294E98003CBFE7 /* AudioCell.swift */,
 				DB86F93C222C148E00C565E7 /* PhraseCell.swift */,
 				DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */,
+				DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */,
 				DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */,
 				DB86F93A222C117E00C565E7 /* FSTableDirectoryDataSource.swift */,
 				DB86F948222FA65400C565E7 /* DB.swift */,
+				DBB56C87223FD8BD00E63FCC /* DictionaryDB.swift */,
+				DBB56C89223FD90300E63FCC /* ArrayDB.swift */,
 				DB0130F222290DA0003CBFE7 /* FileUtils.swift */,
 				DB0130F8222A517D003CBFE7 /* UIUtils.swift */,
 				DB86F946222F812B00C565E7 /* NotificationUtils.swift */,
@@ -219,6 +228,8 @@
 				DB2F417722280A8A009D6EB6 /* CompilerViewController.swift in Sources */,
 				DB2F416322280630009D6EB6 /* AppDelegate.swift in Sources */,
 				DB0130F7222A5099003CBFE7 /* AudioPlayer.swift in Sources */,
+				DBB56C8A223FD90300E63FCC /* ArrayDB.swift in Sources */,
+				DBB56C8C223FDB3800E63FCC /* VoiceSequence.swift in Sources */,
 				DB86F93D222C148E00C565E7 /* PhraseCell.swift in Sources */,
 				DB0130F322290DA0003CBFE7 /* FileUtils.swift in Sources */,
 				DB0130F522294E98003CBFE7 /* AudioCell.swift in Sources */,
@@ -230,6 +241,7 @@
 				DB2F416522280630009D6EB6 /* RecorderViewController.swift in Sources */,
 				DB2F417C222818D6009D6EB6 /* FSTableAudioDataSource.swift in Sources */,
 				DBC3EA2F223D161D00B46E7A /* DirectoryCell.swift in Sources */,
+				DBB56C88223FD8BD00E63FCC /* DictionaryDB.swift in Sources */,
 				DB86F93F222C159B00C565E7 /* PhrasesLibraryViewController.swift in Sources */,
 				DB86F949222FA65400C565E7 /* DB.swift in Sources */,
 			);
