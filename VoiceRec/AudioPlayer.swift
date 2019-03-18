@@ -39,6 +39,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 
 			audioPlayer = try AVAudioPlayer(contentsOf: url)
 			audioPlayer!.delegate = self
+			audioPlayer!.isMeteringEnabled = false
 			audioPlayer!.prepareToPlay()
 
 		} catch let error {

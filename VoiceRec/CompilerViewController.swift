@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class CompilerViewController: UIViewController {
 
 	var musicPlayer: AudioPlayer!
-	var voicePlayer: AudioPlayer!
+	var phrase: VoiceSequence!
 
 	var music: [String] = [String]()
 	var voice: [String] = [String]()
@@ -24,12 +25,12 @@ class CompilerViewController: UIViewController {
 	}
 
 
-	@IBAction func doTheThing(_ sender: UIButton) {
+	@IBAction func playTheThing(_ sender: UIButton) {
 
 		if (musicPlayer?.isPlaying ?? false) {
 			voiceTimer?.invalidate()
 			musicPlayer.stop(silent: true)
-			voicePlayer.stop(silent: true)
+			phrase.stop()
 			sender.setTitle("Play", for: .normal)
 		} else {
 			prepare_data()
@@ -52,11 +53,13 @@ class CompilerViewController: UIViewController {
 	}
 
 
-	func buildVoiceURL(_ forKey: String, language: String) -> URL {
+	func buildMusicURLs(_ filenames: [String]) -> [URL] {
 
-		return FileUtils.getDirectory("recordings")
-			.appendingPathComponent(forKey)
-			.appendingPathComponent(language.appending(".m4a"))
+		var result = [URL]()
+		for filename in filenames {
+			result.append(buildMusicURL(filename))
+		}
+		return result
 	}
 
 
@@ -82,27 +85,133 @@ class CompilerViewController: UIViewController {
 
 	func playVoice() {
 
-		let phrase = getRandom(fromArray: voice)
+		phrase = VoiceSequence(withPhrase: getRandom(fromArray: voice))
+		phrase.play(sequence:"ECECC") {
+			self.playVoice()
+		}
+	}
 
-		let playNextPhraseBlock = {
-			self.voiceTimer = Timer(timeInterval: TimeInterval.random(in: 3...5), repeats: false, block: { (timer: Timer) in
-				timer.invalidate()
-				self.voiceTimer = nil
-				self.playVoice()
-			})
-			RunLoop.main.add(self.voiceTimer, forMode: RunLoop.Mode.default)
+
+	func merge(audioUrls: [URL]) {
+
+		//Create AVMutableComposition Object.This object will hold our multiple AVMutableCompositionTrack.
+		let composition = AVMutableComposition()
+
+
+		//create new file to receive data
+		//let documentDirectoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+		let resultNameWithExtension = "test.m4a"//Date().description + ".m4a"
+		let fileDestinationUrl = FileUtils.getDirectory("export").appendingPathComponent(resultNameWithExtension)
+		FileManager.default.createFile(atPath: fileDestinationUrl.path, contents: nil)
+		do { try FileManager.default.removeItem(at: fileDestinationUrl) } catch {}
+		//print(fileDestinationUrl)
+
+		var avAssets: [AVURLAsset] = []
+		var assetTracks: [AVAssetTrack] = []
+		var timeRanges: [CMTimeRange] = []
+
+		for audioUrl in audioUrls {
+			let compositionAudioTrack:AVMutableCompositionTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID:kCMPersistentTrackID_Invalid)!
+
+			let avAsset = AVURLAsset(url: audioUrl, options: nil)
+			avAssets.append(avAsset)
+
+			let assetTrack = avAsset.tracks(withMediaType: AVMediaType.audio)
+			assetTracks.append(contentsOf: assetTrack)
+
+			let duration = assetTrack[0].timeRange.duration
+			let timeRange = CMTimeRangeMake(start: CMTime.zero, duration: duration)
+			timeRanges.append(timeRange)
+
+			NSLog("Input %d tracks from %@", assetTrack.count, audioUrl.lastPathComponent)
+			do {
+				try compositionAudioTrack.insertTimeRange(timeRange, of: assetTrack[0], at: CMTime.zero)
+			} catch let error as NSError {
+				print("compositionAudioTrack insert error: \(error)")
+			}
 		}
 
-		let playChineseBlock = {
-			self.voiceTimer = Timer(timeInterval: TimeInterval.random(in: 1...3), repeats: false, block: { (timer: Timer) in
-				timer.invalidate()
-				self.voicePlayer = AudioPlayer(self.buildVoiceURL(phrase, language: "Chinese"))
-				self.voicePlayer.play(onProgress: { (_:TimeInterval, _:TimeInterval) in }, onFinish: playNextPhraseBlock)
-			})
-			RunLoop.main.add(self.voiceTimer, forMode: RunLoop.Mode.default)
-		}
+		let assetExport = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough)!
+		assetExport.shouldOptimizeForNetworkUse = true
+		assetExport.outputFileType = AVFileType.m4a
+		assetExport.outputURL = fileDestinationUrl
+		assetExport.exportAsynchronously(completionHandler: {
+			DispatchQueue.main.async {
+				UIUtils.display_alert(at_view_controller: self, msg_title: "Mixture export: ".appending(assetExport.error?.localizedDescription ?? "OK"), msg_desc: "Export complete to: ".appending(fileDestinationUrl.path), action_title: "OK")
+			}
+			//NSLog("Supported formats: %@", assetExport.supportedFileTypes)
+		})
+	}
+}
 
-		voicePlayer = AudioPlayer(buildVoiceURL(phrase, language: "English"))
-		voicePlayer.play(onProgress: { (_:TimeInterval, _:TimeInterval) in }, onFinish: playChineseBlock)
+class VoiceSequence: NSObject {
+
+	var phrase: String
+	var english: URL
+	var chinese: URL
+
+	var player: AudioPlayer?
+	var timer: Timer?
+
+	init(withPhrase: String) {
+
+		phrase = withPhrase
+		english = VoiceSequence.buildVoiceURL(withPhrase, language: "English")
+		chinese = VoiceSequence.buildVoiceURL(withPhrase, language: "Chinese")
+	}
+
+
+	class func buildVoiceURL(_ forKey: String, language: String) -> URL {
+
+		return FileUtils.getDirectory("recordings")
+			.appendingPathComponent(forKey)
+			.appendingPathComponent(language.appending(".m4a"))
+	}
+
+
+	func play(language: String, then: @escaping () -> Void) {
+
+		player = AudioPlayer(language == "English" ? english : chinese)
+		player?.play(onProgress: { (_ : TimeInterval, _ : TimeInterval) in
+		}, onFinish: { self.wait(forInterval: 1, then: then) })
+	}
+
+
+	func play(sequence: String, then: @escaping () -> Void) {
+
+		play(sequence: ArraySlice(Array<Character>(sequence)), then: then)
+	}
+
+
+	func play(sequence: ArraySlice<Character>, then: @escaping () -> Void) {
+
+		NSLog("Play sequence \(sequence)")
+		if (sequence.count > 0) {
+			self.play(language: sequence[sequence.startIndex] == "E" ? "English" : "Chinese") {
+				self.play(sequence: sequence[(sequence.startIndex+1)...], then: then)
+			}
+		} else {
+			wait(forInterval: 3, then: then)
+		}
+	}
+
+
+	func wait(forInterval: TimeInterval, then: @escaping () -> Void) {
+
+		timer?.invalidate()
+		timer = Timer(timeInterval: forInterval, repeats: false, block: { (timer: Timer) in
+			timer.invalidate()
+			self.timer = nil
+			then()
+		})
+		RunLoop.main.add(self.timer!, forMode: RunLoop.Mode.default)
+	}
+
+
+	func stop() {
+
+		player?.stop(silent: true)
+		timer?.invalidate()
+		timer = nil
 	}
 }

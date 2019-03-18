@@ -56,7 +56,7 @@ class AudioRecorder : NSObject, AVAudioRecorderDelegate {
 		if audioRecorder.isRecording
 		{
 			onProgress?(audioRecorder.currentTime)
-			audioRecorder.updateMeters()
+			//audioRecorder.updateMeters()
 		}
 	}
 
@@ -79,7 +79,7 @@ class AudioRecorder : NSObject, AVAudioRecorderDelegate {
 
 			audioRecorder = try AVAudioRecorder(url: url, settings: recordSettings)
 			audioRecorder.delegate = self
-			audioRecorder.isMeteringEnabled = true
+			audioRecorder.isMeteringEnabled = false
 			audioRecorder.prepareToRecord()
 
 		} catch let error {
