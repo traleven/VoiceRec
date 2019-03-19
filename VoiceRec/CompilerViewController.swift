@@ -11,6 +11,8 @@ import MediaPlayer
 
 class CompilerViewController: UIViewController {
 
+	@IBOutlet var activityIndicator: UIActivityIndicatorView!
+
 	var musicPlayer: AudioPlayer!
 	var phrase: VoiceSequence!
 
@@ -63,19 +65,9 @@ class CompilerViewController: UIViewController {
 	}
 
 
-	func getRandom(fromArray: [String]) -> String {
-
-		if (fromArray.count > 0) {
-			let count = fromArray.count
-			return fromArray[Int.random(in: 0...count-1)]
-		}
-		return ""
-	}
-
-
 	func playMusic() {
 
-		musicPlayer = AudioPlayer(buildMusicURL(getRandom(fromArray: music)))
+		musicPlayer = AudioPlayer(buildMusicURL(music.getRandom()!))
 		musicPlayer.play(onProgress: { (_: TimeInterval, _: TimeInterval) in
 		}) {
 			self.playMusic()
@@ -85,62 +77,87 @@ class CompilerViewController: UIViewController {
 
 	func playVoice() {
 
-		let phraseKey = getRandom(fromArray: voice)
-		phrase = VoiceSequence(withPhrase: phraseKey)
-		phrase.play(sequence: DB.phrases.getValue(forKey: phraseKey)) {
+		phrase = VoiceSequence(withPhrase: voice.getRandom()!)
+		phrase.playSequence() {
 			self.playVoice()
 		}
 	}
 
 
-	func merge(audioUrls: [URL]) {
+	@IBAction func export() {
 
-		//Create AVMutableComposition Object.This object will hold our multiple AVMutableCompositionTrack.
-		let composition = AVMutableComposition()
+		activityIndicator.startAnimating()
 
+		prepare_data()
 
-		//create new file to receive data
-		//let documentDirectoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-		let resultNameWithExtension = "test.m4a"//Date().description + ".m4a"
-		let fileDestinationUrl = FileUtils.getDirectory("export").appendingPathComponent(resultNameWithExtension)
-		FileManager.default.createFile(atPath: fileDestinationUrl.path, contents: nil)
-		do { try FileManager.default.removeItem(at: fileDestinationUrl) } catch {}
-		//print(fileDestinationUrl)
+		let composer = ExportComposer(withMusic: buildMusicURLs(music), andPhrases: voice)
 
-		var avAssets: [AVURLAsset] = []
-		var assetTracks: [AVAssetTrack] = []
-		var timeRanges: [CMTimeRange] = []
+		let resultFileName = Date().description + ".m4a"
+		let destinationUrl = FileUtils.getDirectory("export").appendingPathComponent(resultFileName)
+		do { try FileManager.default.removeItem(at: destinationUrl) } catch {}
 
-		for audioUrl in audioUrls {
-			let compositionAudioTrack:AVMutableCompositionTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID:kCMPersistentTrackID_Invalid)!
-
-			let avAsset = AVURLAsset(url: audioUrl, options: nil)
-			avAssets.append(avAsset)
-
-			let assetTrack = avAsset.tracks(withMediaType: AVMediaType.audio)
-			assetTracks.append(contentsOf: assetTrack)
-
-			let duration = assetTrack[0].timeRange.duration
-			let timeRange = CMTimeRangeMake(start: CMTime.zero, duration: duration)
-			timeRanges.append(timeRange)
-
-			NSLog("Input %d tracks from %@", assetTrack.count, audioUrl.lastPathComponent)
-			do {
-				try compositionAudioTrack.insertTimeRange(timeRange, of: assetTrack[0], at: CMTime.zero)
-			} catch let error as NSError {
-				print("compositionAudioTrack insert error: \(error)")
-			}
-		}
-
-		let assetExport = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetPassthrough)!
+		let assetExport = AVAssetExportSession(asset: composer.compose(), presetName: AVAssetExportPresetAppleM4A)!
 		assetExport.shouldOptimizeForNetworkUse = true
 		assetExport.outputFileType = AVFileType.m4a
-		assetExport.outputURL = fileDestinationUrl
+		assetExport.outputURL = destinationUrl
+
 		assetExport.exportAsynchronously(completionHandler: {
 			DispatchQueue.main.async {
-				UIUtils.display_alert(at_view_controller: self, msg_title: "Mixture export: ".appending(assetExport.error?.localizedDescription ?? "OK"), msg_desc: "Export complete to: ".appending(fileDestinationUrl.path), action_title: "OK")
+				self.activityIndicator.stopAnimating()
+				UIUtils.display_alert(at_view_controller: self, msg_title: "Mixture export: ".appending(assetExport.error?.localizedDescription ?? "OK"), msg_desc: "Export complete to: ".appending(destinationUrl.path), action_title: "OK")
 			}
 			//NSLog("Supported formats: %@", assetExport.supportedFileTypes)
 		})
+	}
+}
+
+
+class ExportComposer : NSObject {
+
+	var music: [URL]
+	var phrases: [String]
+
+	init(withMusic:[URL], andPhrases: [String]) {
+
+		music = withMusic
+		phrases = andPhrases
+	}
+
+	func compose() -> AVComposition {
+
+		let composition = AVMutableComposition()
+
+		let musicTrack:AVMutableCompositionTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID:kCMPersistentTrackID_Invalid)!
+
+		for audioUrl in music.shuffled() {
+
+			let newAsset = AVURLAsset(url: audioUrl)
+			let range = CMTimeRangeMake(start: CMTime.zero, duration: newAsset.duration)
+			let end = musicTrack.timeRange.end
+			if let track = newAsset.tracks(withMediaType: AVMediaType.audio).first {
+				try! musicTrack.insertTimeRange(range, of: track, at: end)
+			}
+		}
+
+		let voiceTrack:AVMutableCompositionTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID:kCMPersistentTrackID_Invalid)!
+
+		var phrase: VoiceSequence
+		repeat {
+			phrase = VoiceSequence(withPhrase: phrases.getRandom()!)
+		} while phrase.tryPlayInto(voiceTrack, at:voiceTrack.timeRange.end, before:musicTrack.timeRange.end)
+
+		return composition
+	}
+}
+
+extension Array  {
+
+	func getRandom() -> Element? {
+
+		if (self.count > 0) {
+			let count = self.count
+			return self[Int.random(in: 0...count-1)]
+		}
+		return nil
 	}
 }

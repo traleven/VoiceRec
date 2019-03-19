@@ -249,78 +249,89 @@
                                     <navigationItem title="Composer" id="2dh-KC-9hL"/>
                                 </items>
                             </navigationBar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="C38-HE-c3T">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OKb-uC-Wzi">
-                                <rect key="frame" x="0.0" y="64" width="375" height="464"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here should be options" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szH-1w-uG8">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But for now it is just a stub" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ez-FL-kpJ">
-                                        <rect key="frame" x="0.0" y="77.5" width="375" height="77"/>
+                                        <rect key="frame" x="0.0" y="69.5" width="375" height="69"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="And everything is random" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmI-LQ-coD">
-                                        <rect key="frame" x="0.0" y="154.5" width="375" height="77.5"/>
+                                        <rect key="frame" x="0.0" y="138.5" width="375" height="69.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you changed any switches" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRv-uY-1OA">
-                                        <rect key="frame" x="0.0" y="232" width="375" height="77.5"/>
+                                        <rect key="frame" x="0.0" y="208" width="375" height="69"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restart the play" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1M-a8-6eg">
-                                        <rect key="frame" x="0.0" y="309.5" width="375" height="77"/>
+                                        <rect key="frame" x="0.0" y="277" width="375" height="69.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="!!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohy-DQ-Jua">
-                                        <rect key="frame" x="0.0" y="386.5" width="375" height="77.5"/>
+                                        <rect key="frame" x="0.0" y="346.5" width="375" height="69"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izQ-4p-KY9">
+                                        <rect key="frame" x="0.0" y="415.5" width="375" height="69.5"/>
+                                        <state key="normal" title="Export"/>
+                                        <connections>
+                                            <action selector="export" destination="PTG-rL-Wnu" eventType="primaryActionTriggered" id="eVD-Dd-ANV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="js0-o3-FgX">
+                                        <rect key="frame" x="0.0" y="485" width="375" height="69"/>
+                                        <state key="normal" title="Play"/>
+                                        <connections>
+                                            <action selector="playTheThing:" destination="PTG-rL-Wnu" eventType="primaryActionTriggered" id="NPg-Lx-fX6"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="szH-1w-uG8" firstAttribute="leading" secondItem="OKb-uC-Wzi" secondAttribute="leading" id="Tif-FX-If7"/>
                                     <constraint firstAttribute="trailing" secondItem="szH-1w-uG8" secondAttribute="trailing" id="rBO-eD-Wgt"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="js0-o3-FgX">
-                                <rect key="frame" x="0.0" y="528" width="375" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="frh-kh-lrS"/>
-                                </constraints>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="playTheThing:" destination="PTG-rL-Wnu" eventType="primaryActionTriggered" id="NPg-Lx-fX6"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Goq-8Z-Lft" firstAttribute="trailing" secondItem="OKb-uC-Wzi" secondAttribute="trailing" id="1d6-o5-bvl"/>
                             <constraint firstItem="7Zi-Rp-mUc" firstAttribute="trailing" secondItem="Goq-8Z-Lft" secondAttribute="trailing" id="7FQ-ot-BIW"/>
+                            <constraint firstItem="Goq-8Z-Lft" firstAttribute="trailing" secondItem="C38-HE-c3T" secondAttribute="trailing" id="8no-MT-F5A"/>
+                            <constraint firstItem="Goq-8Z-Lft" firstAttribute="bottom" secondItem="OKb-uC-Wzi" secondAttribute="bottom" id="ClG-eA-hVs"/>
+                            <constraint firstItem="Goq-8Z-Lft" firstAttribute="bottom" secondItem="C38-HE-c3T" secondAttribute="bottom" id="JIy-fn-KE1"/>
+                            <constraint firstItem="C38-HE-c3T" firstAttribute="top" secondItem="Goq-8Z-Lft" secondAttribute="top" id="NmN-NX-DUK"/>
                             <constraint firstItem="7Zi-Rp-mUc" firstAttribute="top" secondItem="Goq-8Z-Lft" secondAttribute="top" id="TfF-5X-Hiv"/>
                             <constraint firstItem="OKb-uC-Wzi" firstAttribute="leading" secondItem="Goq-8Z-Lft" secondAttribute="leading" id="Vth-0O-nu8"/>
-                            <constraint firstItem="Goq-8Z-Lft" firstAttribute="bottom" secondItem="js0-o3-FgX" secondAttribute="bottom" id="dyp-VN-zLF"/>
-                            <constraint firstItem="js0-o3-FgX" firstAttribute="leading" secondItem="Goq-8Z-Lft" secondAttribute="leading" id="h4Z-BJ-T6o"/>
                             <constraint firstItem="7Zi-Rp-mUc" firstAttribute="leading" secondItem="Goq-8Z-Lft" secondAttribute="leading" id="qEv-I0-NM4"/>
-                            <constraint firstItem="Goq-8Z-Lft" firstAttribute="trailing" secondItem="js0-o3-FgX" secondAttribute="trailing" id="uYQ-za-btt"/>
-                            <constraint firstItem="js0-o3-FgX" firstAttribute="top" secondItem="OKb-uC-Wzi" secondAttribute="bottom" id="v1X-ab-ZHq"/>
                             <constraint firstItem="OKb-uC-Wzi" firstAttribute="top" secondItem="7Zi-Rp-mUc" secondAttribute="bottom" id="xrH-km-Bzh"/>
+                            <constraint firstItem="C38-HE-c3T" firstAttribute="leading" secondItem="Goq-8Z-Lft" secondAttribute="leading" id="y61-oC-cFX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Goq-8Z-Lft"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Composer" image="first" id="84i-CJ-gCJ"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="C38-HE-c3T" id="Zwg-5G-rqc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tve-jo-Whu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -42,6 +42,12 @@ class VoiceSequence: NSObject {
 	}
 
 
+	func playSequence(then: @escaping () -> Void) {
+
+		play(sequence: DB.phrases.getValue(forKey: phrase), then: then)
+	}
+
+
 	func play(sequence: String, then: @escaping () -> Void) {
 
 		play(sequence: ArraySlice(Array<Character>(sequence)), then: then)
@@ -77,5 +83,30 @@ class VoiceSequence: NSObject {
 		player?.stop(silent: true)
 		timer?.invalidate()
 		timer = nil
+	}
+
+
+	func tryPlayInto(_ compositionTrack: AVMutableCompositionTrack, at:CMTime, before:CMTime) -> Bool {
+
+		let sequence = Array(DB.phrases.getValue(forKey: phrase))
+		var position = at + CMTime(seconds: 3, preferredTimescale: at.timescale)
+		for code in sequence {
+
+			let newAsset = AVURLAsset(url: code == "E" ? english : chinese)
+			if position.seconds + newAsset.duration.seconds > before.seconds {
+				NSLog("\(position.seconds + newAsset.duration.seconds) > \(before.seconds)")
+				return false
+			}
+
+			let range = CMTimeRangeMake(start: CMTime.zero, duration: newAsset.duration)
+			if let track = newAsset.tracks(withMediaType: AVMediaType.audio).first {
+				try! compositionTrack.insertTimeRange(range, of: track, at: position)
+				NSLog("\(code) at \(position)")
+			}
+			position = position + CMTime(seconds: 1, preferredTimescale: position.timescale)
+			position = position + newAsset.duration
+
+		}
+		return true
 	}
 }
