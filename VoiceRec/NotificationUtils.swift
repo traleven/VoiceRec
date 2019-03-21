@@ -11,4 +11,5 @@ import UIKit
 extension Notification.Name {
 	static let refreshPhrases = Notification.Name("refresh_phrases")
 	static let refreshMusic = Notification.Name("refresh_music")
+	static let appGoesBackground = Notification.Name("background")
 }

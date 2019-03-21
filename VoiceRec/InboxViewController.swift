@@ -17,7 +17,7 @@ class InboxViewController: UIViewController, AVAudioRecorderDelegate {
 	var isAudioRecordingGranted: Bool!
 	var filePath: URL!
 	var record_btn_title: String?
-
+	var token: NSObjectProtocol?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,6 +25,29 @@ class InboxViewController: UIViewController, AVAudioRecorderDelegate {
 		check_record_permission()
 		recorder = AudioRecorder()
 		record_btn_title = record_btn_ref.title(for: .normal)
+	}
+
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		token = NotificationCenter.default.addObserver(forName: .appGoesBackground, object: nil, queue: .main) { (_ notification : Notification) in
+			self.stopRecording()
+		}
+	}
+
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+
+		NotificationCenter.default.removeObserver(token!, name: .appGoesBackground, object: nil)
+		stopRecording()
+	}
+
+
+	func getRootDirectory() -> URL {
+
+		return FileUtils.getDirectory("INBOX")
 	}
 
 
@@ -40,7 +63,7 @@ class InboxViewController: UIViewController, AVAudioRecorderDelegate {
 
 	@IBAction func startRecording() {
 
-		self.filePath = FileUtils.getDirectory("INBOX").appendingPathComponent("\(Date().description).m4a", isDirectory: false)
+		self.filePath = getRootDirectory().appendingPathComponent("\(Date().description).m4a", isDirectory: false)
 
 		if !recorder.isRecording {
 			recorder.start_recording(filePath, progress: {

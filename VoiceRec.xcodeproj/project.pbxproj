@@ -34,7 +34,22 @@
 		DBB56C8C223FDB3800E63FCC /* VoiceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */; };
 		DBC3EA2F223D161D00B46E7A /* DirectoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */; };
 		DBE9B26322434F1200FD1CBC /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9B26222434F1200FD1CBC /* InboxViewController.swift */; };
+		DBE9B26A22437A7100FD1CBC /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE9B26922437A7100FD1CBC /* NotificationCenter.framework */; };
+		DBE9B26D22437A7100FD1CBC /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9B26C22437A7100FD1CBC /* TodayViewController.swift */; };
+		DBE9B27022437A7100FD1CBC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBE9B26E22437A7100FD1CBC /* MainInterface.storyboard */; };
+		DBE9B27422437A7100FD1CBC /* OneClickRecorder.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DBE9B26822437A7100FD1CBC /* OneClickRecorder.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DBE9B27822437DBF00FD1CBC /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F940222D2AFA00C565E7 /* AudioRecorder.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DBE9B27222437A7100FD1CBC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB2F415722280630009D6EB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBE9B26722437A7100FD1CBC;
+			remoteInfo = OneClickRecorder;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		DB0130F122290B7F003CBFE7 /* Embed App Extensions */ = {
@@ -43,6 +58,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				DBE9B27422437A7100FD1CBC /* OneClickRecorder.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,7 +70,7 @@
 		DB0130F422294E98003CBFE7 /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
 		DB0130F6222A5099003CBFE7 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		DB0130F8222A517D003CBFE7 /* UIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
-		DB2F415F22280630009D6EB6 /* VoiceRec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRec.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB2F415F22280630009D6EB6 /* Spoken.ly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spoken.ly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2F416222280630009D6EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB2F416422280630009D6EB6 /* RecorderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderViewController.swift; sourceTree = "<group>"; };
 		DB2F416622280630009D6EB6 /* AudioLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioLibraryViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +95,14 @@
 		DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSequence.swift; sourceTree = "<group>"; };
 		DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCell.swift; sourceTree = "<group>"; };
 		DBE9B26222434F1200FD1CBC /* InboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
+		DBE9B26822437A7100FD1CBC /* OneClickRecorder.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneClickRecorder.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBE9B26922437A7100FD1CBC /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		DBE9B26C22437A7100FD1CBC /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		DBE9B26F22437A7100FD1CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DBE9B27122437A7100FD1CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBE9B27C2243845A00FD1CBC /* VoiceRec.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VoiceRec.entitlements; sourceTree = "<group>"; };
+		DBE9B27D2243848800FD1CBC /* OneClickRecorder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneClickRecorder.entitlements; sourceTree = "<group>"; };
+		DBE9B2832243AFE400FD1CBC /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +114,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBE9B26522437A7100FD1CBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBE9B26A22437A7100FD1CBC /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -97,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				DB2F416122280630009D6EB6 /* VoiceRec */,
+				DBE9B26B22437A7100FD1CBC /* OneClickRecorder */,
 				DB2F416022280630009D6EB6 /* Products */,
 				DB2F417822280BFA009D6EB6 /* Frameworks */,
 			);
@@ -105,7 +138,8 @@
 		DB2F416022280630009D6EB6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB2F415F22280630009D6EB6 /* VoiceRec.app */,
+				DB2F415F22280630009D6EB6 /* Spoken.ly.app */,
+				DBE9B26822437A7100FD1CBC /* OneClickRecorder.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,6 +147,7 @@
 		DB2F416122280630009D6EB6 /* VoiceRec */ = {
 			isa = PBXGroup;
 			children = (
+				DBE9B27C2243845A00FD1CBC /* VoiceRec.entitlements */,
 				DB2F416222280630009D6EB6 /* AppDelegate.swift */,
 				DB0130F6222A5099003CBFE7 /* AudioPlayer.swift */,
 				DB86F940222D2AFA00C565E7 /* AudioRecorder.swift */,
@@ -148,16 +183,29 @@
 			isa = PBXGroup;
 			children = (
 				DB2F417922280BFA009D6EB6 /* AVKit.framework */,
+				DBE9B26922437A7100FD1CBC /* NotificationCenter.framework */,
+				DBE9B2832243AFE400FD1CBC /* ReplayKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DBE9B26B22437A7100FD1CBC /* OneClickRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				DBE9B27D2243848800FD1CBC /* OneClickRecorder.entitlements */,
+				DBE9B26C22437A7100FD1CBC /* TodayViewController.swift */,
+				DBE9B26E22437A7100FD1CBC /* MainInterface.storyboard */,
+				DBE9B27122437A7100FD1CBC /* Info.plist */,
+			);
+			path = OneClickRecorder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DB2F415E22280630009D6EB6 /* VoiceRec */ = {
+		DB2F415E22280630009D6EB6 /* Spoken.ly */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB2F417322280631009D6EB6 /* Build configuration list for PBXNativeTarget "VoiceRec" */;
+			buildConfigurationList = DB2F417322280631009D6EB6 /* Build configuration list for PBXNativeTarget "Spoken.ly" */;
 			buildPhases = (
 				DB2F415B22280630009D6EB6 /* Sources */,
 				DB2F415C22280630009D6EB6 /* Frameworks */,
@@ -167,11 +215,29 @@
 			buildRules = (
 			);
 			dependencies = (
+				DBE9B27322437A7100FD1CBC /* PBXTargetDependency */,
 			);
-			name = VoiceRec;
+			name = Spoken.ly;
 			productName = VoiceRec;
-			productReference = DB2F415F22280630009D6EB6 /* VoiceRec.app */;
+			productReference = DB2F415F22280630009D6EB6 /* Spoken.ly.app */;
 			productType = "com.apple.product-type.application";
+		};
+		DBE9B26722437A7100FD1CBC /* OneClickRecorder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBE9B27522437A7100FD1CBC /* Build configuration list for PBXNativeTarget "OneClickRecorder" */;
+			buildPhases = (
+				DBE9B26422437A7100FD1CBC /* Sources */,
+				DBE9B26522437A7100FD1CBC /* Frameworks */,
+				DBE9B26622437A7100FD1CBC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneClickRecorder;
+			productName = OneClickRecorder;
+			productReference = DBE9B26822437A7100FD1CBC /* OneClickRecorder.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -179,14 +245,25 @@
 		DB2F415722280630009D6EB6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = traleven;
 				TargetAttributes = {
 					DB2F415E22280630009D6EB6 = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
 							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
+					};
+					DBE9B26722437A7100FD1CBC = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
 							};
 						};
@@ -206,7 +283,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DB2F415E22280630009D6EB6 /* VoiceRec */,
+				DB2F415E22280630009D6EB6 /* Spoken.ly */,
+				DBE9B26722437A7100FD1CBC /* OneClickRecorder */,
 			);
 		};
 /* End PBXProject section */
@@ -219,6 +297,14 @@
 				DB2F416F22280631009D6EB6 /* LaunchScreen.storyboard in Resources */,
 				DB2F416C22280631009D6EB6 /* Assets.xcassets in Resources */,
 				DB2F416A22280630009D6EB6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBE9B26622437A7100FD1CBC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBE9B27022437A7100FD1CBC /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +341,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBE9B26422437A7100FD1CBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBE9B27822437DBF00FD1CBC /* AudioRecorder.swift in Sources */,
+				DBE9B26D22437A7100FD1CBC /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DBE9B27322437A7100FD1CBC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBE9B26722437A7100FD1CBC /* OneClickRecorder */;
+			targetProxy = DBE9B27222437A7100FD1CBC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DB2F416822280630009D6EB6 /* Main.storyboard */ = {
@@ -272,6 +375,14 @@
 				DB2F416E22280631009D6EB6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DBE9B26E22437A7100FD1CBC /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DBE9B26F22437A7100FD1CBC /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -406,7 +517,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.diplomat.VoiceRec;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -427,9 +538,57 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.diplomat.VoiceRec;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DBE9B27622437A7100FD1CBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P49RX2B23K;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"NO_NC=1",
+				);
+				INFOPLIST_FILE = OneClickRecorder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly.OneTapRecorder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DBE9B27722437A7100FD1CBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P49RX2B23K;
+				GCC_PREPROCESSOR_DEFINITIONS = "NO_NC=1";
+				INFOPLIST_FILE = OneClickRecorder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly.OneTapRecorder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -447,11 +606,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB2F417322280631009D6EB6 /* Build configuration list for PBXNativeTarget "VoiceRec" */ = {
+		DB2F417322280631009D6EB6 /* Build configuration list for PBXNativeTarget "Spoken.ly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB2F417422280631009D6EB6 /* Debug */,
 				DB2F417522280631009D6EB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBE9B27522437A7100FD1CBC /* Build configuration list for PBXNativeTarget "OneClickRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBE9B27622437A7100FD1CBC /* Debug */,
+				DBE9B27722437A7100FD1CBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

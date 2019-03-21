@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DB2F415E22280630009D6EB6"
-               BuildableName = "VoiceRec.app"
-               BlueprintName = "VoiceRec"
+               BuildableName = "Spoken.ly.app"
+               BlueprintName = "Spoken.ly"
                ReferencedContainer = "container:VoiceRec.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB2F415E22280630009D6EB6"
-            BuildableName = "VoiceRec.app"
-            BlueprintName = "VoiceRec"
+            BuildableName = "Spoken.ly.app"
+            BlueprintName = "Spoken.ly"
             ReferencedContainer = "container:VoiceRec.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB2F415E22280630009D6EB6"
-            BuildableName = "VoiceRec.app"
-            BlueprintName = "VoiceRec"
+            BuildableName = "Spoken.ly.app"
+            BlueprintName = "Spoken.ly"
             ReferencedContainer = "container:VoiceRec.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB2F415E22280630009D6EB6"
-            BuildableName = "VoiceRec.app"
-            BlueprintName = "VoiceRec"
+            BuildableName = "Spoken.ly.app"
+            BlueprintName = "Spoken.ly"
             ReferencedContainer = "container:VoiceRec.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

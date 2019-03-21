@@ -17,7 +17,7 @@ class AudioLibraryViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		rootDirectory = FileUtils.getDirectory(cellId)
+		rootDirectory = getRootDirectory()
 		refresh_data()
 	}
 
@@ -36,6 +36,12 @@ class AudioLibraryViewController: UITableViewController {
 		super.viewDidDisappear(animated)
 
 		NotificationCenter.default.removeObserver(self)
+	}
+
+
+	func getRootDirectory() -> URL {
+
+		return FileUtils.getDirectory(cellId)
 	}
 
 
