@@ -21,13 +21,13 @@ class AudioCell: UITableViewCell {
 	func setData(_ data: AudioData!) {
 
 		self.data = data
-		title.text = self.data?.url?.lastPathComponent
-		playButton.setTitle((data.audioPlayer?.isPlaying ?? false) ? "(||)" : "(>)", for: .normal)
-		composeSwitch.setOn(DB.music.getValue(forKey: title.text ?? "") == "y", animated: false)
+		title?.text = self.data?.url?.lastPathComponent
+		playButton?.setTitle((data.audioPlayer?.isPlaying ?? false) ? "(||)" : "(>)", for: .normal)
+		composeSwitch?.setOn(DB.music.getValue(forKey: title.text ?? "") == "y", animated: false)
 	}
 
 
-	@IBAction func toggle_play(_ sender: UIButton) {
+	@IBAction func toggle_play(_ sender: UIButton?) {
 
 		if (data?.audioPlayer?.isPlaying ?? true) {
 			data?.audioPlayer?.stop()

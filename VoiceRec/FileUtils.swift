@@ -65,4 +65,21 @@ class FileUtils {
 		// end of convertion code
 		return false
 	}
+
+
+	class func makePhraseDirectory(_ phraseUrl: URL) {
+
+		ensureDirectory(phraseUrl)
+		if !isPhraseDirectory(phraseUrl) {
+
+			do {
+				try FileManager.default.createDirectory(at: phraseUrl, withIntermediateDirectories: true)
+				let metaUrl = phraseUrl.appendingPathComponent("info.meta", isDirectory: false)
+				FileManager.default.createFile(atPath: metaUrl.path, contents: nil)
+				NotificationCenter.default.post(name: .refreshPhrases, object: phraseUrl)
+			} catch let error {
+				NSLog(error.localizedDescription)
+			}
+		}
+	}
 }

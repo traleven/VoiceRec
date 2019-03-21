@@ -11,11 +11,13 @@ import UIKit
 
 struct AudioData {
 	var url: URL!
+	var filename: String!
 	var audioPlayer: AudioPlayer?
 	var compose: Bool!
 
 	init(url: URL) {
 		self.url = url
+		self.filename = url.lastPathComponent
 		self.audioPlayer = AudioPlayer(url)
 		self.compose = false
 	}
@@ -40,6 +42,9 @@ class FSTableAudioDataSource : NSObject, UITableViewDataSource {
 			
 			for url in files {
 				data.append(AudioData(url: url))
+			}
+			data.sort { (lhv: AudioData, rhv: AudioData) -> Bool in
+				return lhv.filename > rhv.filename
 			}
 
 		} catch let error {

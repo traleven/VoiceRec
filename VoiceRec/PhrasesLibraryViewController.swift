@@ -50,7 +50,6 @@ class PhrasesLibraryViewController: UITableViewController {
 		dataSource = FSTableDirectoryDataSource(rootDirectory!, parent: parentData, withCellId: cellId, andGroupCellId: groupCellId)
 		tableView.dataSource = dataSource
 		tableView.reloadData()
-		NSLog("Show data from: %@", rootDirectory!.path)
 	}
 
 
@@ -70,7 +69,6 @@ class PhrasesLibraryViewController: UITableViewController {
 				let cell = tableView.cellForRow(at: idx) as? DirectoryCell {
 				dest.parentData = cell.data!
 				dest.rootDirectory = cell.data!.url
-				NSLog("Set url to: %@", dest.rootDirectory!.path)
 			}
 		}
 	}

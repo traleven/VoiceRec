@@ -35,7 +35,6 @@ class VoiceSequence: NSObject {
 
 	func play(language: String, then: @escaping () -> Void) {
 
-		NSLog("Play \(phrase) with \(language) language")
 		player = AudioPlayer(language == "English" ? english : chinese)
 		player?.play(onProgress: { (_ : TimeInterval, _ : TimeInterval) in
 		}, onFinish: { self.wait(forInterval: 1, then: then) })
@@ -94,14 +93,12 @@ class VoiceSequence: NSObject {
 
 			let newAsset = AVURLAsset(url: code == "E" ? english : chinese)
 			if position.seconds + newAsset.duration.seconds > before.seconds {
-				NSLog("\(position.seconds + newAsset.duration.seconds) > \(before.seconds)")
 				return false
 			}
 
 			let range = CMTimeRangeMake(start: CMTime.zero, duration: newAsset.duration)
 			if let track = newAsset.tracks(withMediaType: AVMediaType.audio).first {
 				try! compositionTrack.insertTimeRange(range, of: track, at: position)
-				NSLog("\(code) at \(position)")
 			}
 			position = position + CMTime(seconds: 1, preferredTimescale: position.timescale)
 			position = position + newAsset.duration

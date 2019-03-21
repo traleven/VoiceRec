@@ -21,7 +21,6 @@ class PhraseLibraryContainerViewController : UIViewController {
 		if rootDirectory == nil {
 			rootDirectory = FileUtils.getDirectory("recordings")
 		} else {
-			NSLog("Url is: %@", rootDirectory!.path)
 			backButton.isEnabled = true
 		}
 	}
@@ -36,40 +35,24 @@ class PhraseLibraryContainerViewController : UIViewController {
 
 	@IBAction func showInputDialog() {
 
-		//Creating UIAlertController and
-		//Setting title and message for the alert dialog
 		let alertController = UIAlertController(title: "Enter phrase", message: "Enter your new phrase", preferredStyle: .alert)
 
-		//the confirm action taking the inputs
 		let confirmAction = UIAlertAction(title: "Add", style: .default) { (_) in
 
-			//getting the input values from user
 			let phrase = alertController.textFields?[0].text
 			let phraseUrl = self.rootDirectory!.appendingPathComponent(phrase!, isDirectory: true)
-
-			do {
-				try FileManager.default.createDirectory(at: phraseUrl, withIntermediateDirectories: true)
-				let metaUrl = phraseUrl.appendingPathComponent("info.meta", isDirectory: false)
-				FileManager.default.createFile(atPath: metaUrl.path, contents: nil)
-				NotificationCenter.default.post(name: .refreshPhrases, object: phraseUrl)
-			} catch let error {
-				NSLog(error.localizedDescription)
-			}
+			FileUtils.makePhraseDirectory(phraseUrl)
 		}
 
-		//the cancel action doing nothing
 		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
 
-		//adding textfields to our dialog box
 		alertController.addTextField { (textField) in
 			textField.placeholder = "Enter Phrase"
 		}
 
-		//adding the action to dialogbox
 		alertController.addAction(confirmAction)
 		alertController.addAction(cancelAction)
 
-		//finally presenting the dialog box
 		self.present(alertController, animated: true, completion: nil)
 	}
 

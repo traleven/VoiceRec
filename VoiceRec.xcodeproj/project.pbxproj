@@ -20,6 +20,7 @@
 		DB2F417722280A8A009D6EB6 /* CompilerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F417622280A8A009D6EB6 /* CompilerViewController.swift */; };
 		DB2F417A22280BFA009D6EB6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2F417922280BFA009D6EB6 /* AVKit.framework */; };
 		DB2F417C222818D6009D6EB6 /* FSTableAudioDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */; };
+		DB62011822421095008AD4ED /* InboxLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62011722421095008AD4ED /* InboxLibraryViewController.swift */; };
 		DB86F93B222C117E00C565E7 /* FSTableDirectoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F93A222C117E00C565E7 /* FSTableDirectoryDataSource.swift */; };
 		DB86F93D222C148E00C565E7 /* PhraseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F93C222C148E00C565E7 /* PhraseCell.swift */; };
 		DB86F93F222C159B00C565E7 /* PhrasesLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F93E222C159B00C565E7 /* PhrasesLibraryViewController.swift */; };
@@ -32,6 +33,7 @@
 		DBB56C8A223FD90300E63FCC /* ArrayDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB56C89223FD90300E63FCC /* ArrayDB.swift */; };
 		DBB56C8C223FDB3800E63FCC /* VoiceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */; };
 		DBC3EA2F223D161D00B46E7A /* DirectoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */; };
+		DBE9B26322434F1200FD1CBC /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9B26222434F1200FD1CBC /* InboxViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +65,7 @@
 		DB2F417622280A8A009D6EB6 /* CompilerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilerViewController.swift; sourceTree = "<group>"; };
 		DB2F417922280BFA009D6EB6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSTableAudioDataSource.swift; sourceTree = "<group>"; };
+		DB62011722421095008AD4ED /* InboxLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxLibraryViewController.swift; sourceTree = "<group>"; };
 		DB86F93A222C117E00C565E7 /* FSTableDirectoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSTableDirectoryDataSource.swift; sourceTree = "<group>"; };
 		DB86F93C222C148E00C565E7 /* PhraseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCell.swift; sourceTree = "<group>"; };
 		DB86F93E222C159B00C565E7 /* PhrasesLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesLibraryViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +78,7 @@
 		DBB56C89223FD90300E63FCC /* ArrayDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDB.swift; sourceTree = "<group>"; };
 		DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSequence.swift; sourceTree = "<group>"; };
 		DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCell.swift; sourceTree = "<group>"; };
+		DBE9B26222434F1200FD1CBC /* InboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,11 +117,13 @@
 				DB0130F6222A5099003CBFE7 /* AudioPlayer.swift */,
 				DB86F940222D2AFA00C565E7 /* AudioRecorder.swift */,
 				DB2F416622280630009D6EB6 /* AudioLibraryViewController.swift */,
+				DB62011722421095008AD4ED /* InboxLibraryViewController.swift */,
 				DB2F417622280A8A009D6EB6 /* CompilerViewController.swift */,
 				DB86F942222E968200C565E7 /* PhraseDetailsViewController.swift */,
 				DB86F93E222C159B00C565E7 /* PhrasesLibraryViewController.swift */,
 				DB2F416422280630009D6EB6 /* RecorderViewController.swift */,
 				DB86F944222F775700C565E7 /* PhraseLibraryContainerViewController.swift */,
+				DBE9B26222434F1200FD1CBC /* InboxViewController.swift */,
 				DB0130F422294E98003CBFE7 /* AudioCell.swift */,
 				DB86F93C222C148E00C565E7 /* PhraseCell.swift */,
 				DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */,
@@ -226,6 +232,7 @@
 				DB86F943222E968200C565E7 /* PhraseDetailsViewController.swift in Sources */,
 				DB2F416722280630009D6EB6 /* AudioLibraryViewController.swift in Sources */,
 				DB2F417722280A8A009D6EB6 /* CompilerViewController.swift in Sources */,
+				DBE9B26322434F1200FD1CBC /* InboxViewController.swift in Sources */,
 				DB2F416322280630009D6EB6 /* AppDelegate.swift in Sources */,
 				DB0130F7222A5099003CBFE7 /* AudioPlayer.swift in Sources */,
 				DBB56C8A223FD90300E63FCC /* ArrayDB.swift in Sources */,
@@ -233,6 +240,7 @@
 				DB86F93D222C148E00C565E7 /* PhraseCell.swift in Sources */,
 				DB0130F322290DA0003CBFE7 /* FileUtils.swift in Sources */,
 				DB0130F522294E98003CBFE7 /* AudioCell.swift in Sources */,
+				DB62011822421095008AD4ED /* InboxLibraryViewController.swift in Sources */,
 				DB86F93B222C117E00C565E7 /* FSTableDirectoryDataSource.swift in Sources */,
 				DB86F941222D2AFA00C565E7 /* AudioRecorder.swift in Sources */,
 				DB86F947222F812B00C565E7 /* NotificationUtils.swift in Sources */,

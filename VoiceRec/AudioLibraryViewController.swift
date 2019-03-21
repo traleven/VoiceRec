@@ -11,14 +11,13 @@ import UIKit
 class AudioLibraryViewController: UITableViewController {
 
 	var dataSource: FSTableAudioDataSource!
-	var rootDirectiry: URL!
+	var rootDirectory: URL!
 	@IBInspectable var cellId: String!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		// Do any additional setup after loading the view, typically from a nib.
-		rootDirectiry = FileUtils.getDirectory(cellId)
+		rootDirectory = FileUtils.getDirectory(cellId)
 		refresh_data()
 	}
 
@@ -27,7 +26,7 @@ class AudioLibraryViewController: UITableViewController {
 		super.viewWillAppear(animated)
 
 		refresh_data()
-		NotificationCenter.default.addObserver(forName: .refreshMusic, object: self, queue: OperationQueue.main) { (notification: Notification) in
+		NotificationCenter.default.addObserver(forName: .refreshMusic, object: nil, queue: OperationQueue.main) { (notification: Notification) in
 			self.refresh_data()
 		}
 	}
@@ -42,10 +41,9 @@ class AudioLibraryViewController: UITableViewController {
 
 	func refresh_data() {
 
-		dataSource = FSTableAudioDataSource(rootDirectiry, withCellId: cellId)
+		dataSource = FSTableAudioDataSource(rootDirectory, withCellId: cellId)
 		tableView.dataSource = dataSource
 		tableView.reloadData()
 	}
 
 }
-
