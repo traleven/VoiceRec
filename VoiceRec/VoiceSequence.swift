@@ -88,7 +88,7 @@ class VoiceSequence: NSObject {
 	func tryPlayInto(_ compositionTrack: AVMutableCompositionTrack, at:CMTime, before:CMTime) -> Bool {
 
 		let sequence = Array(DB.phrases.getValue(forKey: phrase))
-		var position = at + CMTime(seconds: 3, preferredTimescale: at.timescale)
+		var position = at + CMTime(seconds: DB.settings.double(forKey: "phrase.delay.outer"), preferredTimescale: at.timescale)
 		for code in sequence {
 
 			let newAsset = AVURLAsset(url: code == "E" ? english : chinese)
@@ -100,7 +100,7 @@ class VoiceSequence: NSObject {
 			if let track = newAsset.tracks(withMediaType: AVMediaType.audio).first {
 				try! compositionTrack.insertTimeRange(range, of: track, at: position)
 			}
-			position = position + CMTime(seconds: 1, preferredTimescale: position.timescale)
+			position = position + CMTime(seconds: DB.settings.double(forKey: "phrase.delay.inner"), preferredTimescale: position.timescale)
 			position = position + newAsset.duration
 
 		}

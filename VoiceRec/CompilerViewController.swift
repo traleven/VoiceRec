@@ -13,6 +13,12 @@ class CompilerViewController: UIViewController {
 
 	@IBOutlet var activityIndicator: UIActivityIndicatorView!
 
+	@IBOutlet var musicVolumeSlider: UISlider!
+	@IBOutlet var voiceVolumeSlider: UISlider!
+	@IBOutlet var phraseOuterDelaySlider: UISlider!
+	@IBOutlet var phraseInnerDelaySlider: UISlider!
+	@IBOutlet var phraseRandomSwitch: UISwitch!
+
 	var musicPlayer: AudioPlayer!
 	var phrase: VoiceSequence!
 
@@ -23,7 +29,12 @@ class CompilerViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+
+		musicVolumeSlider.value = DB.settings.float(forKey: "music.volume")
+		voiceVolumeSlider.value = DB.settings.float(forKey: "voice.volume")
+		phraseInnerDelaySlider.value = Float(DB.settings.double(forKey: "phrase.delay.inner"))
+		phraseOuterDelaySlider.value = Float(DB.settings.double(forKey: "phrase.delay.outer"))
+		phraseRandomSwitch.isOn = DB.settings.bool(forKey: "phrase.random")
 	}
 
 
@@ -44,6 +55,7 @@ class CompilerViewController: UIViewController {
 
 
 	func prepare_data() {
+
 		music = DB.music.getKeys(withValue: "y")
 		voice = DB.phrases.getKeysWithValue()
 	}
@@ -98,6 +110,7 @@ class CompilerViewController: UIViewController {
 
 		let assetExport = AVAssetExportSession(asset: composer.compose(), presetName: AVAssetExportPresetAppleM4A)!
 		assetExport.shouldOptimizeForNetworkUse = true
+		assetExport.audioMix = composer.audioMix
 		assetExport.outputFileType = AVFileType.m4a
 		assetExport.outputURL = destinationUrl
 
@@ -109,6 +122,36 @@ class CompilerViewController: UIViewController {
 			//NSLog("Supported formats: %@", assetExport.supportedFileTypes)
 		})
 	}
+
+
+	@IBAction func onMusicVolumeChanged(_ sender: UISlider) {
+
+		DB.settings.set(sender.value, forKey: "music.volume")
+	}
+
+
+	@IBAction func onVoiceVolumeChanged(_ sender: UISlider) {
+
+		DB.settings.set(sender.value, forKey: "voice.volume")
+	}
+
+
+	@IBAction func onOuterDelayChanged(_ sender: UISlider) {
+
+		DB.settings.set(Double(sender.value), forKey: "phrase.delay.outer")
+	}
+
+
+	@IBAction func onInnerDelayChanged(_ sender: UISlider) {
+
+		DB.settings.set(Double(sender.value), forKey: "phrase.delay.inner")
+	}
+
+
+	@IBAction func onPhraseRandomizationChanged(_ sender: UISwitch) {
+
+		DB.settings.set(sender.isOn, forKey: "phrase.random")
+	}
 }
 
 
@@ -116,6 +159,7 @@ class ExportComposer : NSObject {
 
 	var music: [URL]
 	var phrases: [String]
+	var audioMix: AVAudioMix?
 
 	init(withMusic:[URL], andPhrases: [String]) {
 
@@ -126,6 +170,8 @@ class ExportComposer : NSObject {
 	func compose() -> AVComposition {
 
 		let composition = AVMutableComposition()
+		let audioMix: AVMutableAudioMix = AVMutableAudioMix()
+		var audioMixParam: [AVMutableAudioMixInputParameters] = []
 
 		let musicTrack:AVMutableCompositionTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID:kCMPersistentTrackID_Invalid)!
 
@@ -145,7 +191,20 @@ class ExportComposer : NSObject {
 		repeat {
 			phrase = VoiceSequence(withPhrase: phrases.getRandom()!)
 		} while phrase.tryPlayInto(voiceTrack, at:voiceTrack.timeRange.end, before:musicTrack.timeRange.end)
+		voiceTrack.preferredVolume = DB.settings.float(forKey: "voice.volume")
 
+		let musicParam: AVMutableAudioMixInputParameters = AVMutableAudioMixInputParameters(track: musicTrack)
+		musicParam.trackID = musicTrack.trackID
+		musicParam.setVolume(DB.settings.float(forKey: "music.volume"), at: CMTime.zero)
+		let voiceParam: AVMutableAudioMixInputParameters = AVMutableAudioMixInputParameters(track: voiceTrack)
+		voiceParam.trackID = voiceTrack.trackID
+		voiceParam.setVolume(DB.settings.float(forKey: "voice.volume"), at: CMTime.zero)
+
+		audioMixParam.append(musicParam)
+		audioMixParam.append(voiceParam)
+		audioMix.inputParameters = audioMixParam
+
+		self.audioMix = audioMix
 		return composition
 	}
 }

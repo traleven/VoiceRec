@@ -10,6 +10,8 @@ import Foundation
 
 class DB: NSObject {
 
+	static var settings: UserDefaults! = UserDefaults.init(suiteName: "settings")
+
 	static var phrases: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("phrases.json", isDirectory: false))
 
 	static var music: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("music.json", isDirectory: false))

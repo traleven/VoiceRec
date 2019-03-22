@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		DB.settings.register(defaults: [
+			"music.volume":0.5,
+			"voice.volume":1.0,
+			"phrase.delay.inner":1.0,
+			"phrase.delay.outer":3.0,
+			"phrase.random":true,
+			])
 		return true
 	}
 

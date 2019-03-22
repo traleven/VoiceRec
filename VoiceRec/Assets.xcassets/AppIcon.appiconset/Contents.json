@@ -1,45 +1,51 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
       "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "iphone_notificationicon_40px.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "iphone_notificationicon_60px.png",
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "iphone_settingsicon_58px.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "iphone_settingsicon_87px.png",
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "iphone_spotlighticon_80px.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "iphone_spotlighticon_120px.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "VoiceRec_Icon_60@2.png",
+      "filename" : "iphone_appicon_120px-1.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "VoiceRec_Icon_60@3.png",
+      "filename" : "iphone_appicon_180px.png",
       "scale" : "3x"
     },
     {
@@ -48,8 +54,9 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "20x20",
+      "idiom" : "ipad",
+      "filename" : "ipadpro_notificationicon_40px.png",
       "scale" : "2x"
     },
     {
@@ -58,18 +65,21 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "29x29",
+      "idiom" : "ipad",
+      "filename" : "ipad_settingsicon_58px.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "ipad_notificationicon_40px.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "ipad_spotlighticon_80px.png",
       "scale" : "2x"
     },
     {
@@ -81,7 +91,7 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "VoiceRec_Icon_76@2.png",
+      "filename" : "ipad_appicon_152px.png",
       "scale" : "2x"
     },
     {
