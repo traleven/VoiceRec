@@ -18,7 +18,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 
 	var isPlaying: Bool!
 	var onProgress: ((TimeInterval, TimeInterval) -> Void)?
-	var onComplete: (() -> Void)?
+	var onComplete: ((Bool) -> Void)?
 
 	init(_ url: URL!) {
 		super.init()
@@ -50,7 +50,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 	}
 
 
-	func play(onProgress: @escaping (TimeInterval, TimeInterval) -> Void, onFinish: @escaping () -> Void) {
+	func play(onProgress: @escaping (TimeInterval, TimeInterval) -> Void, onFinish: @escaping (Bool) -> Void) {
 
 		self.onProgress = onProgress
 		self.onComplete = onFinish
@@ -63,7 +63,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 		} else {
 			NSLog("Audio file is missing: %@", url.path)
 			isPlaying = false
-			self.onComplete?()
+			self.onComplete?(false)
 		}
 	}
 
@@ -80,7 +80,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 
 		audioPlayer?.stop()
 		isPlaying = false
-		onComplete?()
+		onComplete?(true)
 	}
 
 
@@ -89,7 +89,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 		audioPlayer?.stop()
 		isPlaying = false
 		if (!silent) {
-			onComplete?()
+			onComplete?(true)
 		}
 	}
 
@@ -97,6 +97,6 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
 
 		isPlaying = false
-		onComplete?()
+		onComplete?(true)
 	}
 }

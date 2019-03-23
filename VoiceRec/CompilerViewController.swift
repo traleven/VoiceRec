@@ -47,6 +47,7 @@ class CompilerViewController: UIViewController {
 			sender.setTitle("Play", for: .normal)
 		} else {
 			prepare_data()
+			voiceIdx = -1
 			playMusic()
 			playVoice()
 			sender.setTitle("Stop", for: .normal)
@@ -58,6 +59,7 @@ class CompilerViewController: UIViewController {
 
 		music = DB.music.getKeys(withValue: "y")
 		voice = DB.phrases.getKeysWithValue()
+		voice.sort()
 	}
 
 
@@ -81,7 +83,7 @@ class CompilerViewController: UIViewController {
 
 		musicPlayer = AudioPlayer(buildMusicURL(music.getRandom()!))
 		musicPlayer.play(onProgress: { (_: TimeInterval, _: TimeInterval) in
-		}) {
+		}) {(_ success: Bool) in
 			self.playMusic()
 		}
 		musicPlayer.audioPlayer?.volume = Settings.music.volume
@@ -90,11 +92,26 @@ class CompilerViewController: UIViewController {
 
 	func playVoice() {
 
-		phrase = VoiceSequence(withPhrase: voice.getRandom()!)
-		phrase.playSequence() {
+		phrase = VoiceSequence(withPhrase: nextPhrase())
+		phrase.playSequence() { (_ success: Bool) in
+			if !success {
+				DB.phrases.setValue(forKey: self.phrase.phrase, value: "")
+			}
 			self.playVoice()
 		}
 		phrase.volume = Settings.voice.volume
+	}
+
+
+	var voiceIdx = -1
+	func nextPhrase() -> String {
+
+		if (Settings.phrase.random) {
+			return voice.getRandom()!
+		} else {
+			voiceIdx = (voiceIdx + 1) % voice.count
+			return voice[voiceIdx]
+		}
 	}
 
 

@@ -21,8 +21,22 @@ class ExportComposer : NSObject {
 		phrases = andPhrases
 	}
 
+
+	var phraseIdx = -1
+	func nextPhrase() -> String {
+
+		if (Settings.phrase.random) {
+			return phrases.getRandom()!
+		} else {
+			phraseIdx = (phraseIdx + 1) % phrases.count
+			return phrases[phraseIdx]
+		}
+	}
+
+
 	func compose() -> AVComposition {
 
+		phraseIdx = -1
 		let composition = AVMutableComposition()
 		let audioMix: AVMutableAudioMix = AVMutableAudioMix()
 		var audioMixParam: [AVMutableAudioMixInputParameters] = []
@@ -43,7 +57,7 @@ class ExportComposer : NSObject {
 
 		var phrase: VoiceSequence
 		repeat {
-			phrase = VoiceSequence(withPhrase: phrases.getRandom()!)
+			phrase = VoiceSequence(withPhrase: nextPhrase())
 		} while phrase.tryPlayInto(voiceTrack, at:voiceTrack.timeRange.end, before:musicTrack.timeRange.end)
 
 		let musicParam: AVMutableAudioMixInputParameters = AVMutableAudioMixInputParameters(track: musicTrack)

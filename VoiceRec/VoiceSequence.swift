@@ -34,35 +34,48 @@ class VoiceSequence: NSObject {
 	}
 
 
-	func play(language: String, then: @escaping () -> Void) {
+	func play(language: String, then: @escaping (Bool) -> Void) {
 
 		player = AudioPlayer(language == "English" ? english : chinese)
 		player?.play(onProgress: { (_ : TimeInterval, _ : TimeInterval) in
-		}, onFinish: { self.wait(forInterval: Settings.phrase.delay.inner, then: then) })
+		}, onFinish: {
+			(_ success: Bool) in
+			if success {
+				self.wait(forInterval: Settings.phrase.delay.inner, then: {then(true)})
+			} else {
+				then(false)
+			}
+		})
 		player?.audioPlayer?.volume = volume
 	}
 
 
-	func playSequence(then: @escaping () -> Void) {
+	func playSequence(then: @escaping (Bool) -> Void) {
 
+		NSLog("Play \(phrase)")
 		play(sequence: DB.phrases.getValue(forKey: phrase), then: then)
 	}
 
 
-	func play(sequence: String, then: @escaping () -> Void) {
+	func play(sequence: String, then: @escaping (Bool) -> Void) {
 
 		play(sequence: ArraySlice(Array<Character>(sequence)), then: then)
 	}
 
 
-	func play(sequence: ArraySlice<Character>, then: @escaping () -> Void) {
+	func play(sequence: ArraySlice<Character>, then: @escaping (Bool) -> Void) {
 
 		if (sequence.count > 0) {
 			self.play(language: sequence[sequence.startIndex] == "E" ? "English" : "Chinese") {
-				self.play(sequence: sequence[(sequence.startIndex+1)...], then: then)
+				(_ success: Bool) in
+				if success {
+					self.play(sequence: sequence[(sequence.startIndex+1)...], then: then)
+				} else {
+					then(false)
+				}
 			}
 		} else {
-			wait(forInterval: Settings.phrase.delay.outer, then: then)
+			wait(forInterval: Settings.phrase.delay.outer, then: { then(false) })
 		}
 	}
 

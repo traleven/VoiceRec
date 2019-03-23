@@ -35,7 +35,7 @@ class AudioCell: UITableViewCell {
 			let progress = { (_ current: TimeInterval, _ total: TimeInterval) -> Void in
 				self.progress.progress = Float(current.magnitude / total.magnitude)
 			}
-			let completion = { () -> Void in
+			let completion = { (_ success: Bool) -> Void in
 				self.progress.progress = 0
 				self.playButton.setTitle("(>)", for: .normal)
 			}

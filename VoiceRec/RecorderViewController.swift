@@ -69,7 +69,7 @@ class RecorderViewController: UIViewController, AVAudioRecorderDelegate {
 			} else {
 				player!.play(onProgress: { (_ progress: TimeInterval, _ total: TimeInterval) in
 					self.progress_ref.progress = Float(progress.magnitude / total.magnitude)
-				}, onFinish: {
+				}, onFinish: {_ in 
 					self.progress_ref.progress = 0
 					self.record_btn_ref.setTitle("Play", for: .normal)
 				})
