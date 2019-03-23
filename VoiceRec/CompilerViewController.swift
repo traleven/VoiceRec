@@ -30,11 +30,11 @@ class CompilerViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		musicVolumeSlider.value = DB.settings.float(forKey: "music.volume")
-		voiceVolumeSlider.value = DB.settings.float(forKey: "voice.volume")
-		phraseInnerDelaySlider.value = Float(DB.settings.double(forKey: "phrase.delay.inner"))
-		phraseOuterDelaySlider.value = Float(DB.settings.double(forKey: "phrase.delay.outer"))
-		phraseRandomSwitch.isOn = DB.settings.bool(forKey: "phrase.random")
+		musicVolumeSlider.value = Settings.music.volume
+		voiceVolumeSlider.value = Settings.voice.volume
+		phraseInnerDelaySlider.value = Float(Settings.phrase.delay.inner)
+		phraseOuterDelaySlider.value = Float(Settings.phrase.delay.outer)
+		phraseRandomSwitch.isOn = Settings.phrase.random
 	}
 
 
@@ -84,6 +84,7 @@ class CompilerViewController: UIViewController {
 		}) {
 			self.playMusic()
 		}
+		musicPlayer.audioPlayer?.volume = Settings.music.volume
 	}
 
 
@@ -93,6 +94,7 @@ class CompilerViewController: UIViewController {
 		phrase.playSequence() {
 			self.playVoice()
 		}
+		phrase.volume = Settings.voice.volume
 	}
 
 
@@ -119,38 +121,39 @@ class CompilerViewController: UIViewController {
 				self.activityIndicator.stopAnimating()
 				UIUtils.display_alert(at_view_controller: self, msg_title: "Mixture export: ".appending(assetExport.error?.localizedDescription ?? "OK"), msg_desc: "Export complete to: ".appending(destinationUrl.path), action_title: "OK")
 			}
-			//NSLog("Supported formats: %@", assetExport.supportedFileTypes)
 		})
 	}
 
 
 	@IBAction func onMusicVolumeChanged(_ sender: UISlider) {
 
-		DB.settings.set(sender.value, forKey: "music.volume")
+		Settings.music.volume = sender.value
+		musicPlayer.audioPlayer?.volume = sender.value
 	}
 
 
 	@IBAction func onVoiceVolumeChanged(_ sender: UISlider) {
 
-		DB.settings.set(sender.value, forKey: "voice.volume")
+		Settings.voice.volume = sender.value
+		phrase.volume = sender.value
 	}
 
 
 	@IBAction func onOuterDelayChanged(_ sender: UISlider) {
 
-		DB.settings.set(Double(sender.value), forKey: "phrase.delay.outer")
+		Settings.phrase.delay.outer = Double(sender.value)
 	}
 
 
 	@IBAction func onInnerDelayChanged(_ sender: UISlider) {
 
-		DB.settings.set(Double(sender.value), forKey: "phrase.delay.inner")
+		Settings.phrase.delay.inner = Double(sender.value)
 	}
 
 
 	@IBAction func onPhraseRandomizationChanged(_ sender: UISwitch) {
 
-		DB.settings.set(sender.isOn, forKey: "phrase.random")
+		Settings.phrase.random = sender.isOn
 	}
 }
 
@@ -191,14 +194,13 @@ class ExportComposer : NSObject {
 		repeat {
 			phrase = VoiceSequence(withPhrase: phrases.getRandom()!)
 		} while phrase.tryPlayInto(voiceTrack, at:voiceTrack.timeRange.end, before:musicTrack.timeRange.end)
-		voiceTrack.preferredVolume = DB.settings.float(forKey: "voice.volume")
 
 		let musicParam: AVMutableAudioMixInputParameters = AVMutableAudioMixInputParameters(track: musicTrack)
 		musicParam.trackID = musicTrack.trackID
-		musicParam.setVolume(DB.settings.float(forKey: "music.volume"), at: CMTime.zero)
+		musicParam.setVolume(Settings.music.volume, at: CMTime.zero)
 		let voiceParam: AVMutableAudioMixInputParameters = AVMutableAudioMixInputParameters(track: voiceTrack)
 		voiceParam.trackID = voiceTrack.trackID
-		voiceParam.setVolume(DB.settings.float(forKey: "voice.volume"), at: CMTime.zero)
+		voiceParam.setVolume(Settings.voice.volume, at: CMTime.zero)
 
 		audioMixParam.append(musicParam)
 		audioMixParam.append(voiceParam)

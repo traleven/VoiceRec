@@ -16,6 +16,7 @@ class VoiceSequence: NSObject {
 
 	var player: AudioPlayer?
 	var timer: Timer?
+	var volume: Float = 1.0
 
 	init(withPhrase: String) {
 
@@ -37,7 +38,8 @@ class VoiceSequence: NSObject {
 
 		player = AudioPlayer(language == "English" ? english : chinese)
 		player?.play(onProgress: { (_ : TimeInterval, _ : TimeInterval) in
-		}, onFinish: { self.wait(forInterval: 1, then: then) })
+		}, onFinish: { self.wait(forInterval: Settings.phrase.delay.inner, then: then) })
+		player?.audioPlayer?.volume = volume
 	}
 
 
@@ -60,7 +62,7 @@ class VoiceSequence: NSObject {
 				self.play(sequence: sequence[(sequence.startIndex+1)...], then: then)
 			}
 		} else {
-			wait(forInterval: 3, then: then)
+			wait(forInterval: Settings.phrase.delay.outer, then: then)
 		}
 	}
 
@@ -85,10 +87,17 @@ class VoiceSequence: NSObject {
 	}
 
 
+	func setVolume(_ volume: Float) {
+
+		self.volume = volume
+		player?.audioPlayer?.volume = volume
+	}
+
+
 	func tryPlayInto(_ compositionTrack: AVMutableCompositionTrack, at:CMTime, before:CMTime) -> Bool {
 
 		let sequence = Array(DB.phrases.getValue(forKey: phrase))
-		var position = at + CMTime(seconds: DB.settings.double(forKey: "phrase.delay.outer"), preferredTimescale: at.timescale)
+		var position = at + CMTime(seconds: Settings.phrase.delay.outer, preferredTimescale: at.timescale)
 		for code in sequence {
 
 			let newAsset = AVURLAsset(url: code == "E" ? english : chinese)
@@ -100,7 +109,7 @@ class VoiceSequence: NSObject {
 			if let track = newAsset.tracks(withMediaType: AVMediaType.audio).first {
 				try! compositionTrack.insertTimeRange(range, of: track, at: position)
 			}
-			position = position + CMTime(seconds: DB.settings.double(forKey: "phrase.delay.inner"), preferredTimescale: position.timescale)
+			position = position + CMTime(seconds: Settings.phrase.delay.inner, preferredTimescale: position.timescale)
 			position = position + newAsset.duration
 
 		}

@@ -32,3 +32,35 @@ class DB: NSObject {
 	func flush() {
 	}
 }
+
+
+class Settings {
+	class music {
+		static var volume: Float {
+			get { return DB.settings.float(forKey: "music.volume") }
+			set { DB.settings.set(newValue, forKey: "music.volume") }
+		}
+	}
+	class voice {
+		static var volume: Float {
+			get { return DB.settings.float(forKey: "voice.volume") }
+			set { DB.settings.set(newValue, forKey: "voice.volume") }
+		}
+	}
+	class phrase {
+		static var random: Bool {
+			get { return DB.settings.bool(forKey: "phrase.random") }
+			set { DB.settings.set(newValue, forKey: "phrase.random") }
+		}
+		class delay {
+			static var inner: Double {
+				get { return DB.settings.double(forKey: "phrase.delay.inner") }
+				set { DB.settings.set(newValue, forKey: "phrase.delay.inner") }
+			}
+			static var outer: Double {
+				get { return DB.settings.double(forKey: "phrase.delay.outer") }
+				set { DB.settings.set(newValue, forKey: "phrase.delay.outer") }
+			}
+		}
+	}
+}
