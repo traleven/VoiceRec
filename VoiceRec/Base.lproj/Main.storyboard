@@ -521,7 +521,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SxB-TC-TVg">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SxB-TC-TVg">
                                                 <rect key="frame" x="316" y="23.5" width="51" height="32.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="SxB-TC-TVg" secondAttribute="height" multiplier="47:31" id="kti-ce-oS4"/>

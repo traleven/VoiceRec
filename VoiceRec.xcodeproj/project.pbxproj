@@ -39,6 +39,8 @@
 		DBE9B27022437A7100FD1CBC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBE9B26E22437A7100FD1CBC /* MainInterface.storyboard */; };
 		DBE9B27422437A7100FD1CBC /* OneTapRecorder.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DBE9B26822437A7100FD1CBC /* OneTapRecorder.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DBE9B27822437DBF00FD1CBC /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F940222D2AFA00C565E7 /* AudioRecorder.swift */; };
+		DBE9B2912246600900FD1CBC /* ExportComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9B2902246600900FD1CBC /* ExportComposer.swift */; };
+		DBE9B2932246605300FD1CBC /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9B2922246605300FD1CBC /* DataUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		DBE9B27C2243845A00FD1CBC /* VoiceRec.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VoiceRec.entitlements; sourceTree = "<group>"; };
 		DBE9B27D2243848800FD1CBC /* OneClickRecorder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneClickRecorder.entitlements; sourceTree = "<group>"; };
 		DBE9B2832243AFE400FD1CBC /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		DBE9B2902246600900FD1CBC /* ExportComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportComposer.swift; sourceTree = "<group>"; };
+		DBE9B2922246605300FD1CBC /* DataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,7 @@
 				DB86F93C222C148E00C565E7 /* PhraseCell.swift */,
 				DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */,
 				DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */,
+				DBE9B2902246600900FD1CBC /* ExportComposer.swift */,
 				DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */,
 				DB86F93A222C117E00C565E7 /* FSTableDirectoryDataSource.swift */,
 				DB86F948222FA65400C565E7 /* DB.swift */,
@@ -170,6 +175,7 @@
 				DBB56C89223FD90300E63FCC /* ArrayDB.swift */,
 				DB0130F222290DA0003CBFE7 /* FileUtils.swift */,
 				DB0130F8222A517D003CBFE7 /* UIUtils.swift */,
+				DBE9B2922246605300FD1CBC /* DataUtils.swift */,
 				DB86F946222F812B00C565E7 /* NotificationUtils.swift */,
 				DB2F416B22280631009D6EB6 /* Assets.xcassets */,
 				DB2F416822280630009D6EB6 /* Main.storyboard */,
@@ -316,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB86F943222E968200C565E7 /* PhraseDetailsViewController.swift in Sources */,
+				DBE9B2912246600900FD1CBC /* ExportComposer.swift in Sources */,
 				DB2F416722280630009D6EB6 /* AudioLibraryViewController.swift in Sources */,
 				DB2F417722280A8A009D6EB6 /* CompilerViewController.swift in Sources */,
 				DBE9B26322434F1200FD1CBC /* InboxViewController.swift in Sources */,
@@ -336,6 +343,7 @@
 				DB2F417C222818D6009D6EB6 /* FSTableAudioDataSource.swift in Sources */,
 				DBC3EA2F223D161D00B46E7A /* DirectoryCell.swift in Sources */,
 				DBB56C88223FD8BD00E63FCC /* DictionaryDB.swift in Sources */,
+				DBE9B2932246605300FD1CBC /* DataUtils.swift in Sources */,
 				DB86F93F222C159B00C565E7 /* PhrasesLibraryViewController.swift in Sources */,
 				DB86F949222FA65400C565E7 /* DB.swift in Sources */,
 			);

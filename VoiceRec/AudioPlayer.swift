@@ -55,15 +55,12 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 		self.onProgress = onProgress
 		self.onComplete = onFinish
 
-		if FileManager.default.fileExists(atPath: url.path)
-		{
+		if FileManager.default.fileExists(atPath: url.path) {
 			prepare_play()
 			audioPlayer!.play()
 			isPlaying = true
 			meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
-		}
-		else
-		{
+		} else {
 			NSLog("Audio file is missing: %@", url.path)
 			isPlaying = false
 			self.onComplete?()
@@ -73,8 +70,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 
 	@objc func updateAudioMeter(timer: Timer) {
 
-		if audioPlayer!.isPlaying
-		{
+		if audioPlayer!.isPlaying {
 			onProgress!(audioPlayer!.currentTime, audioPlayer!.duration)
 		}
 	}
