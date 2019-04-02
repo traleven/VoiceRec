@@ -31,6 +31,7 @@ class PhraseCell: UITableViewCell {
 
 			if sender.isOn {
 				let alertController = UIAlertController(title: "Select preset", message: "Choose language sequence preset for this phrase", preferredStyle: .actionSheet)
+				alertController.popoverPresentationController?.sourceView = self.parentViewController?.view
 
 				let optionHandler = { (_ action: UIAlertAction) in
 					self.setPreset(action.title ?? "")

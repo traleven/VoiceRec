@@ -101,6 +101,7 @@ class RecorderViewController: UIViewController, AVAudioRecorderDelegate {
 
 		if (FileManager.default.fileExists(atPath: filePath.path)) {
 			let ac = UIAlertController(title: "Delete audio?", message: "Are you sure?", preferredStyle: .actionSheet)
+			ac.popoverPresentationController?.sourceView = self.view
 
 			ac.addAction(UIAlertAction(title: "Delete", style: .destructive)
 			{

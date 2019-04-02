@@ -53,6 +53,7 @@ class PhraseDetailsViewController: UIViewController {
 	@IBAction func selfDestruct(_ sender: Any) {
 
 		let ac = UIAlertController(title: "Delete phrase?", message: "Are you sure?", preferredStyle: .actionSheet)
+		ac.popoverPresentationController?.sourceView = self.view
 
 		ac.addAction(UIAlertAction(title: "Delete", style: .destructive)
 		{

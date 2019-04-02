@@ -15,6 +15,7 @@ class InboxLibraryViewController : AudioLibraryViewController {
 		let cell = tableView.cellForRow(at: indexPath) as! AudioCell
 		let data = cell.data!
 		let ac = UIAlertController(title: "Process item", message: cell.title.text, preferredStyle: .actionSheet)
+		ac.popoverPresentationController?.sourceView = tableView
 
 		ac.addAction(UIAlertAction(title: "Play/Stop", style: .default) {
 			(_) in cell.toggle_play(nil)
@@ -47,6 +48,7 @@ class InboxLibraryViewController : AudioLibraryViewController {
 	func deleteInboxItem(withData: AudioData) {
 
 		let confirm = UIAlertController(title: "Are you sure?", message: "This action will irreveribly delete the audio recording \"\(withData.filename ?? "")\"", preferredStyle: .actionSheet)
+		confirm.popoverPresentationController?.sourceView = self.view
 
 		confirm.addAction(UIAlertAction(title: "Delete", style: .destructive)
 		{
