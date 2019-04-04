@@ -31,7 +31,7 @@ class PhraseDetailsViewController: UIViewController {
 		if segue.identifier != "",
 			let vc = segue.destination as? RecorderViewController {
 
-			vc.setData(directoryUrl: root!, language: segue.identifier!, phrase: root!.lastPathComponent)
+			vc.setData(directoryUrl: root!, language: Settings.language.getLanguage(segue.identifier!), phrase: root!.lastPathComponent)
 		}
 	}
 

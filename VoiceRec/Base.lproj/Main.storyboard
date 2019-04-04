@@ -716,13 +716,13 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxH-Km-CFQ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
                                         <connections>
-                                            <segue destination="8qT-yn-fqg" kind="embed" identifier="English" id="ZgG-Fw-8dP"/>
+                                            <segue destination="8qT-yn-fqg" kind="embed" identifier="Native" id="ZgG-Fw-8dP"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Wh-Gn-iXF">
                                         <rect key="frame" x="0.0" y="249" width="375" height="241"/>
                                         <connections>
-                                            <segue destination="8qT-yn-fqg" kind="embed" identifier="Chinese" id="Ozs-1O-JH5"/>
+                                            <segue destination="8qT-yn-fqg" kind="embed" identifier="Foreign" id="Ozs-1O-JH5"/>
                                         </connections>
                                     </containerView>
                                 </subviews>

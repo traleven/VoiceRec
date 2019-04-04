@@ -75,5 +75,8 @@ class Settings {
 		class func getLanguage(_ languageCode: Character) -> String {
 			return languageCode == "E" || languageCode == "N" ? native : foreign
 		}
+		class func getLanguage(_ language: String) -> String {
+			return language == "Native" ? native : language == "Foreign" ? foreign : language
+		}
 	}
 }
