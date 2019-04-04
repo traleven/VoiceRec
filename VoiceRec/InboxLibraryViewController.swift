@@ -7,8 +7,25 @@
 //
 
 import UIKit
+import opus
 
 class InboxLibraryViewController : AudioLibraryViewController {
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		let sharedUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.diplomat.VoiceRec.inbox")!
+
+		let files = try! FileManager.default.contentsOfDirectory(at: sharedUrl, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+
+		for url in files {
+
+			if (!url.hasDirectoryPath) {
+				transcode(url.path, FileUtils.getDirectory("INBOX").appendingPathComponent(url.lastPathComponent).appendingPathExtension("wav").path)
+				try! FileManager.default.removeItem(at: url)
+			}
+		}
+	}
 
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
@@ -21,12 +38,16 @@ class InboxLibraryViewController : AudioLibraryViewController {
 			(_) in cell.toggle_play(nil)
 		})
 
+		ac.addAction(UIAlertAction(title: "OPUS -> M4A", style: .default) {
+			(_) in self.convertOpus(cell.data!)
+		})
+
 		ac.addAction(UIAlertAction(title: "Convert to phrase (English)", style: .destructive) {
-			(_) in self.addAudio(withData: data, of: "English")
+			(_) in self.addAudio(withData: data, of: Settings.language.native)
 		})
 
 		ac.addAction(UIAlertAction(title: "Convert to phrase (Chinese)", style: .destructive) {
-			(_) in self.addAudio(withData: data, of: "Chinese")
+			(_) in self.addAudio(withData: data, of: Settings.language.foreign)
 		})
 
 		ac.addAction(UIAlertAction(title: "Rename", style: .default) {
@@ -127,5 +148,45 @@ class InboxLibraryViewController : AudioLibraryViewController {
 		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
 		self.present(ac, animated: true, completion: nil)
+	}
+
+
+	let SAMPLE_RATE : opus_int32 = 48000
+	let FRAME_SIZE : opus_int32 = 5760
+	let CHANNELS : opus_int32 = 1
+
+
+	func convertOpus(_ data: AudioData) {
+
+
+		transcode(data.url!.path, data.url.appendingPathExtension(".wav").path)
+		return
+
+		let opusData = FileManager.default.contents(atPath: data.url.path)!
+
+		var opusError : opus_int32 = OPUS_OK
+		let decoder = opus_decoder_create(SAMPLE_RATE, CHANNELS, &opusError)!
+
+		var result = Data()
+		result.append(decodeOpusPacket(decoder, opusData))
+
+		try! result.write(to: data.url.appendingPathExtension(".wav"))
+	}
+
+
+	func decodeOpusPacket(_ decoder: OpaquePointer, _ data: Data) -> Data {
+
+		let result = data.withUnsafeBytes { (_ unsafeData: UnsafePointer<UInt8>) -> Data? in
+
+			var pcmData = Data(capacity: Int(FRAME_SIZE * CHANNELS * /*sizeof(opus_int16)*/2))
+			let samples = pcmData.withUnsafeMutableBytes({ (_ pcm: UnsafeMutablePointer<opus_int16>) -> opus_int32 in
+				return opus_decode(decoder, unsafeData, opus_int32(data.count), pcm, 160, 0)
+			})
+
+			pcmData.removeSubrange(pcmData.startIndex.advanced(by: Int(samples))...)
+			return pcmData
+		}
+
+		return result!
 	}
 }

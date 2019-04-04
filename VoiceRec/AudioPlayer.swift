@@ -41,6 +41,7 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 			audioPlayer!.delegate = self
 			audioPlayer!.isMeteringEnabled = false
 			audioPlayer!.prepareToPlay()
+			audioPlayer!.currentTime = 0
 
 		} catch let error {
 

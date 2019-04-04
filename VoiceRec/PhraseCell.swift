@@ -38,8 +38,10 @@ class PhraseCell: UITableViewCell {
 				}
 
 				if DB.presets.data.count == 0 {
-					DB.presets.data.append("ECECC")
-					DB.presets.data.append("EC")
+					DB.presets.data.append("NFNFF")
+					DB.presets.data.append("NF")
+					DB.presets.data.append("FNFF")
+					DB.presets.data.append("FN")
 					DB.presets.flush()
 				}
 

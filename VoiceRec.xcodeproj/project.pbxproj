@@ -20,6 +20,20 @@
 		DB2F417722280A8A009D6EB6 /* CompilerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F417622280A8A009D6EB6 /* CompilerViewController.swift */; };
 		DB2F417A22280BFA009D6EB6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2F417922280BFA009D6EB6 /* AVKit.framework */; };
 		DB2F417C222818D6009D6EB6 /* FSTableAudioDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */; };
+		DB3F0F2122535F8B003BF090 /* opus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB3F0F2022535F7F003BF090 /* opus.framework */; };
+		DB3F0F2222535F8B003BF090 /* opus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB3F0F2022535F7F003BF090 /* opus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DB3F0F2F225390BB003BF090 /* opusfile.c in Sources */ = {isa = PBXBuildFile; fileRef = DB3F0F28225390BB003BF090 /* opusfile.c */; };
+		DB3F0F30225390BB003BF090 /* info.c in Sources */ = {isa = PBXBuildFile; fileRef = DB3F0F29225390BB003BF090 /* info.c */; };
+		DB3F0F31225390BB003BF090 /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = DB3F0F2B225390BB003BF090 /* internal.c */; };
+		DB3F0F32225390BB003BF090 /* http.c in Sources */ = {isa = PBXBuildFile; fileRef = DB3F0F2C225390BB003BF090 /* http.c */; };
+		DB3F0F33225390BB003BF090 /* wincerts.c in Sources */ = {isa = PBXBuildFile; fileRef = DB3F0F2D225390BB003BF090 /* wincerts.c */; };
+		DB3F0F34225390BB003BF090 /* stream.c in Sources */ = {isa = PBXBuildFile; fileRef = DB3F0F2E225390BB003BF090 /* stream.c */; };
+		DB3F0F3F22539362003BF090 /* bitwise.c in Sources */ = {isa = PBXBuildFile; fileRef = DB3F0F3D22539362003BF090 /* bitwise.c */; };
+		DB3F0F4022539362003BF090 /* framing.c in Sources */ = {isa = PBXBuildFile; fileRef = DB3F0F3E22539362003BF090 /* framing.c */; };
+		DB3F0F49225397C1003BF090 /* OpusTranscoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3F0F48225397C1003BF090 /* OpusTranscoder.m */; };
+		DB3F0F5522539C04003BF090 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F0F5422539C04003BF090 /* ShareViewController.swift */; };
+		DB3F0F5822539C04003BF090 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB3F0F5622539C04003BF090 /* MainInterface.storyboard */; };
+		DB3F0F5C22539C05003BF090 /* Import to Spoken.ly.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DB3F0F5222539C04003BF090 /* Import to Spoken.ly.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DB62011822421095008AD4ED /* InboxLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB62011722421095008AD4ED /* InboxLibraryViewController.swift */; };
 		DB86F93B222C117E00C565E7 /* FSTableDirectoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F93A222C117E00C565E7 /* FSTableDirectoryDataSource.swift */; };
 		DB86F93D222C148E00C565E7 /* PhraseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F93C222C148E00C565E7 /* PhraseCell.swift */; };
@@ -44,6 +58,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DB3F0F5A22539C05003BF090 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB2F415722280630009D6EB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB3F0F5122539C04003BF090;
+			remoteInfo = "Import to Spoken.ly";
+		};
 		DBE9B27222437A7100FD1CBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DB2F415722280630009D6EB6 /* Project object */;
@@ -60,9 +81,21 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				DB3F0F5C22539C05003BF090 /* Import to Spoken.ly.appex in Embed App Extensions */,
 				DBE9B27422437A7100FD1CBC /* OneTapRecorder.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB3F0F1D22535F54003BF090 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DB3F0F2222535F8B003BF090 /* opus.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -83,6 +116,33 @@
 		DB2F417622280A8A009D6EB6 /* CompilerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilerViewController.swift; sourceTree = "<group>"; };
 		DB2F417922280BFA009D6EB6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSTableAudioDataSource.swift; sourceTree = "<group>"; };
+		DB3F0F2022535F7F003BF090 /* opus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opus.framework; path = "Opus-iOS/opus.framework"; sourceTree = "<group>"; };
+		DB3F0F25225390BB003BF090 /* opusfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opusfile.h; sourceTree = "<group>"; };
+		DB3F0F27225390BB003BF090 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
+		DB3F0F28225390BB003BF090 /* opusfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = opusfile.c; sourceTree = "<group>"; };
+		DB3F0F29225390BB003BF090 /* info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = info.c; sourceTree = "<group>"; };
+		DB3F0F2A225390BB003BF090 /* winerrno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winerrno.h; sourceTree = "<group>"; };
+		DB3F0F2B225390BB003BF090 /* internal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = internal.c; sourceTree = "<group>"; };
+		DB3F0F2C225390BB003BF090 /* http.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = http.c; sourceTree = "<group>"; };
+		DB3F0F2D225390BB003BF090 /* wincerts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wincerts.c; sourceTree = "<group>"; };
+		DB3F0F2E225390BB003BF090 /* stream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stream.c; sourceTree = "<group>"; };
+		DB3F0F36225390C8003BF090 /* win32utf8.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = win32utf8.h; sourceTree = "<group>"; };
+		DB3F0F37225390C8003BF090 /* seeking_example.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = seeking_example.c; sourceTree = "<group>"; };
+		DB3F0F38225390C8003BF090 /* win32utf8.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = win32utf8.c; sourceTree = "<group>"; };
+		DB3F0F39225390C8003BF090 /* opusfile_example.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = opusfile_example.c; sourceTree = "<group>"; };
+		DB3F0F3D22539362003BF090 /* bitwise.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bitwise.c; path = "libogg-1.3.3/src/bitwise.c"; sourceTree = "<group>"; };
+		DB3F0F3E22539362003BF090 /* framing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = framing.c; path = "libogg-1.3.3/src/framing.c"; sourceTree = "<group>"; };
+		DB3F0F412253936E003BF090 /* os_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = os_types.h; path = "libogg-1.3.3/include/ogg/os_types.h"; sourceTree = "<group>"; };
+		DB3F0F422253936E003BF090 /* ogg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ogg.h; path = "libogg-1.3.3/include/ogg/ogg.h"; sourceTree = "<group>"; };
+		DB3F0F45225394B9003BF090 /* OpusTranscoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpusTranscoder.h; sourceTree = "<group>"; };
+		DB3F0F48225397C1003BF090 /* OpusTranscoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpusTranscoder.m; sourceTree = "<group>"; };
+		DB3F0F4D22539952003BF090 /* VoiceRec-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VoiceRec-Bridging-Header.h"; sourceTree = "<group>"; };
+		DB3F0F5222539C04003BF090 /* Import to Spoken.ly.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Import to Spoken.ly.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB3F0F5422539C04003BF090 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		DB3F0F5722539C04003BF090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DB3F0F5922539C05003BF090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB3F0F642253B7F9003BF090 /* Spoken.ly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Spoken.ly.entitlements; sourceTree = "<group>"; };
+		DB3F0F652253B841003BF090 /* Import to Spoken.ly.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Import to Spoken.ly.entitlements"; sourceTree = "<group>"; };
 		DB62011722421095008AD4ED /* InboxLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxLibraryViewController.swift; sourceTree = "<group>"; };
 		DB86F93A222C117E00C565E7 /* FSTableDirectoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSTableDirectoryDataSource.swift; sourceTree = "<group>"; };
 		DB86F93C222C148E00C565E7 /* PhraseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCell.swift; sourceTree = "<group>"; };
@@ -115,6 +175,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2F417A22280BFA009D6EB6 /* AVKit.framework in Frameworks */,
+				DB3F0F2122535F8B003BF090 /* opus.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB3F0F4F22539C04003BF090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +200,11 @@
 		DB2F415622280630009D6EB6 = {
 			isa = PBXGroup;
 			children = (
+				DB3F0F642253B7F9003BF090 /* Spoken.ly.entitlements */,
 				DB2F416122280630009D6EB6 /* VoiceRec */,
 				DBE9B26B22437A7100FD1CBC /* OneClickRecorder */,
+				DB3F0F1F22535F74003BF090 /* Opus */,
+				DB3F0F5322539C04003BF090 /* Import to Spoken.ly */,
 				DB2F416022280630009D6EB6 /* Products */,
 				DB2F417822280BFA009D6EB6 /* Frameworks */,
 			);
@@ -144,6 +215,7 @@
 			children = (
 				DB2F415F22280630009D6EB6 /* Spoken.ly.app */,
 				DBE9B26822437A7100FD1CBC /* OneTapRecorder.appex */,
+				DB3F0F5222539C04003BF090 /* Import to Spoken.ly.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +242,9 @@
 				DBE9B2902246600900FD1CBC /* ExportComposer.swift */,
 				DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */,
 				DB86F93A222C117E00C565E7 /* FSTableDirectoryDataSource.swift */,
+				DB3F0F45225394B9003BF090 /* OpusTranscoder.h */,
+				DB3F0F48225397C1003BF090 /* OpusTranscoder.m */,
+				DB3F0F4D22539952003BF090 /* VoiceRec-Bridging-Header.h */,
 				DB86F948222FA65400C565E7 /* DB.swift */,
 				DBB56C87223FD8BD00E63FCC /* DictionaryDB.swift */,
 				DBB56C89223FD90300E63FCC /* ArrayDB.swift */,
@@ -195,6 +270,101 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DB3F0F1F22535F74003BF090 /* Opus */ = {
+			isa = PBXGroup;
+			children = (
+				DB3F0F3A22539317003BF090 /* Ogg */,
+				DB3F0F2322539092003BF090 /* OpusFile */,
+				DB3F0F2022535F7F003BF090 /* opus.framework */,
+			);
+			name = Opus;
+			sourceTree = "<group>";
+		};
+		DB3F0F2322539092003BF090 /* OpusFile */ = {
+			isa = PBXGroup;
+			children = (
+				DB3F0F35225390C8003BF090 /* examples */,
+				DB3F0F24225390BB003BF090 /* include */,
+				DB3F0F26225390BB003BF090 /* src */,
+			);
+			name = OpusFile;
+			sourceTree = "<group>";
+		};
+		DB3F0F24225390BB003BF090 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				DB3F0F25225390BB003BF090 /* opusfile.h */,
+			);
+			name = include;
+			path = "opusfile-0.11/include";
+			sourceTree = "<group>";
+		};
+		DB3F0F26225390BB003BF090 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DB3F0F27225390BB003BF090 /* internal.h */,
+				DB3F0F28225390BB003BF090 /* opusfile.c */,
+				DB3F0F29225390BB003BF090 /* info.c */,
+				DB3F0F2A225390BB003BF090 /* winerrno.h */,
+				DB3F0F2B225390BB003BF090 /* internal.c */,
+				DB3F0F2C225390BB003BF090 /* http.c */,
+				DB3F0F2D225390BB003BF090 /* wincerts.c */,
+				DB3F0F2E225390BB003BF090 /* stream.c */,
+			);
+			name = src;
+			path = "opusfile-0.11/src";
+			sourceTree = "<group>";
+		};
+		DB3F0F35225390C8003BF090 /* examples */ = {
+			isa = PBXGroup;
+			children = (
+				DB3F0F36225390C8003BF090 /* win32utf8.h */,
+				DB3F0F37225390C8003BF090 /* seeking_example.c */,
+				DB3F0F38225390C8003BF090 /* win32utf8.c */,
+				DB3F0F39225390C8003BF090 /* opusfile_example.c */,
+			);
+			name = examples;
+			path = "opusfile-0.11/examples";
+			sourceTree = "<group>";
+		};
+		DB3F0F3A22539317003BF090 /* Ogg */ = {
+			isa = PBXGroup;
+			children = (
+				DB3F0F3C2253934B003BF090 /* include */,
+				DB3F0F3B22539345003BF090 /* src */,
+			);
+			name = Ogg;
+			sourceTree = "<group>";
+		};
+		DB3F0F3B22539345003BF090 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DB3F0F3D22539362003BF090 /* bitwise.c */,
+				DB3F0F3E22539362003BF090 /* framing.c */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		DB3F0F3C2253934B003BF090 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				DB3F0F422253936E003BF090 /* ogg.h */,
+				DB3F0F412253936E003BF090 /* os_types.h */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		DB3F0F5322539C04003BF090 /* Import to Spoken.ly */ = {
+			isa = PBXGroup;
+			children = (
+				DB3F0F652253B841003BF090 /* Import to Spoken.ly.entitlements */,
+				DB3F0F5422539C04003BF090 /* ShareViewController.swift */,
+				DB3F0F5622539C04003BF090 /* MainInterface.storyboard */,
+				DB3F0F5922539C05003BF090 /* Info.plist */,
+			);
+			path = "Import to Spoken.ly";
+			sourceTree = "<group>";
+		};
 		DBE9B26B22437A7100FD1CBC /* OneClickRecorder */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,16 +387,35 @@
 				DB2F415C22280630009D6EB6 /* Frameworks */,
 				DB2F415D22280630009D6EB6 /* Resources */,
 				DB0130F122290B7F003CBFE7 /* Embed App Extensions */,
+				DB3F0F1D22535F54003BF090 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				DBE9B27322437A7100FD1CBC /* PBXTargetDependency */,
+				DB3F0F5B22539C05003BF090 /* PBXTargetDependency */,
 			);
 			name = Spoken.ly;
 			productName = VoiceRec;
 			productReference = DB2F415F22280630009D6EB6 /* Spoken.ly.app */;
 			productType = "com.apple.product-type.application";
+		};
+		DB3F0F5122539C04003BF090 /* Import to Spoken.ly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB3F0F5D22539C05003BF090 /* Build configuration list for PBXNativeTarget "Import to Spoken.ly" */;
+			buildPhases = (
+				DB3F0F4E22539C04003BF090 /* Sources */,
+				DB3F0F4F22539C04003BF090 /* Frameworks */,
+				DB3F0F5022539C04003BF090 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Import to Spoken.ly";
+			productName = "Import to Spoken.ly";
+			productReference = DB3F0F5222539C04003BF090 /* Import to Spoken.ly.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		DBE9B26722437A7100FD1CBC /* OneTapRecorder */ = {
 			isa = PBXNativeTarget;
@@ -259,10 +448,18 @@
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.BackgroundModes = {
 								enabled = 0;
+							};
+						};
+					};
+					DB3F0F5122539C04003BF090 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
 							};
 						};
 					};
@@ -291,6 +488,7 @@
 			targets = (
 				DB2F415E22280630009D6EB6 /* Spoken.ly */,
 				DBE9B26722437A7100FD1CBC /* OneTapRecorder */,
+				DB3F0F5122539C04003BF090 /* Import to Spoken.ly */,
 			);
 		};
 /* End PBXProject section */
@@ -303,6 +501,14 @@
 				DB2F416F22280631009D6EB6 /* LaunchScreen.storyboard in Resources */,
 				DB2F416C22280631009D6EB6 /* Assets.xcassets in Resources */,
 				DB2F416A22280630009D6EB6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB3F0F5022539C04003BF090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB3F0F5822539C04003BF090 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,17 +527,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB3F0F31225390BB003BF090 /* internal.c in Sources */,
 				DB86F943222E968200C565E7 /* PhraseDetailsViewController.swift in Sources */,
+				DB3F0F33225390BB003BF090 /* wincerts.c in Sources */,
 				DBE9B2912246600900FD1CBC /* ExportComposer.swift in Sources */,
 				DB2F416722280630009D6EB6 /* AudioLibraryViewController.swift in Sources */,
 				DB2F417722280A8A009D6EB6 /* CompilerViewController.swift in Sources */,
 				DBE9B26322434F1200FD1CBC /* InboxViewController.swift in Sources */,
+				DB3F0F30225390BB003BF090 /* info.c in Sources */,
 				DB2F416322280630009D6EB6 /* AppDelegate.swift in Sources */,
+				DB3F0F2F225390BB003BF090 /* opusfile.c in Sources */,
 				DB0130F7222A5099003CBFE7 /* AudioPlayer.swift in Sources */,
 				DBB56C8A223FD90300E63FCC /* ArrayDB.swift in Sources */,
 				DBB56C8C223FDB3800E63FCC /* VoiceSequence.swift in Sources */,
 				DB86F93D222C148E00C565E7 /* PhraseCell.swift in Sources */,
+				DB3F0F34225390BB003BF090 /* stream.c in Sources */,
 				DB0130F322290DA0003CBFE7 /* FileUtils.swift in Sources */,
+				DB3F0F32225390BB003BF090 /* http.c in Sources */,
+				DB3F0F3F22539362003BF090 /* bitwise.c in Sources */,
 				DB0130F522294E98003CBFE7 /* AudioCell.swift in Sources */,
 				DB62011822421095008AD4ED /* InboxLibraryViewController.swift in Sources */,
 				DB86F93B222C117E00C565E7 /* FSTableDirectoryDataSource.swift in Sources */,
@@ -343,9 +556,19 @@
 				DB2F417C222818D6009D6EB6 /* FSTableAudioDataSource.swift in Sources */,
 				DBC3EA2F223D161D00B46E7A /* DirectoryCell.swift in Sources */,
 				DBB56C88223FD8BD00E63FCC /* DictionaryDB.swift in Sources */,
+				DB3F0F49225397C1003BF090 /* OpusTranscoder.m in Sources */,
 				DBE9B2932246605300FD1CBC /* DataUtils.swift in Sources */,
 				DB86F93F222C159B00C565E7 /* PhrasesLibraryViewController.swift in Sources */,
 				DB86F949222FA65400C565E7 /* DB.swift in Sources */,
+				DB3F0F4022539362003BF090 /* framing.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB3F0F4E22539C04003BF090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB3F0F5522539C04003BF090 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +584,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DB3F0F5B22539C05003BF090 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB3F0F5122539C04003BF090 /* Import to Spoken.ly */;
+			targetProxy = DB3F0F5A22539C05003BF090 /* PBXContainerItemProxy */;
+		};
 		DBE9B27322437A7100FD1CBC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DBE9B26722437A7100FD1CBC /* OneTapRecorder */;
@@ -383,6 +611,14 @@
 				DB2F416E22280631009D6EB6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DB3F0F5622539C04003BF090 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB3F0F5722539C04003BF090 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		DBE9B26E22437A7100FD1CBC /* MainInterface.storyboard */ = {
@@ -517,9 +753,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Spoken.ly.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P49RX2B23K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Opus-iOS",
+				);
 				INFOPLIST_FILE = VoiceRec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -528,6 +769,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "VoiceRec/VoiceRec-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -538,9 +780,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Spoken.ly.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P49RX2B23K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Opus-iOS",
+				);
 				INFOPLIST_FILE = VoiceRec/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -549,6 +796,51 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "VoiceRec/VoiceRec-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DB3F0F5E22539C05003BF090 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Import to Spoken.ly/Import to Spoken.ly.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P49RX2B23K;
+				INFOPLIST_FILE = "Import to Spoken.ly/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dolgushyn.spokenly.Import-to-Spoken-ly";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB3F0F5F22539C05003BF090 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Import to Spoken.ly/Import to Spoken.ly.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P49RX2B23K;
+				INFOPLIST_FILE = "Import to Spoken.ly/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dolgushyn.spokenly.Import-to-Spoken-ly";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -619,6 +911,15 @@
 			buildConfigurations = (
 				DB2F417422280631009D6EB6 /* Debug */,
 				DB2F417522280631009D6EB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB3F0F5D22539C05003BF090 /* Build configuration list for PBXNativeTarget "Import to Spoken.ly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB3F0F5E22539C05003BF090 /* Debug */,
+				DB3F0F5F22539C05003BF090 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

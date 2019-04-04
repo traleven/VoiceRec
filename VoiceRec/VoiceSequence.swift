@@ -11,8 +11,6 @@ import MediaPlayer
 class VoiceSequence: NSObject {
 
 	var phrase: String
-	var english: URL
-	var chinese: URL
 
 	var player: AudioPlayer?
 	var timer: Timer?
@@ -21,8 +19,6 @@ class VoiceSequence: NSObject {
 	init(withPhrase: String) {
 
 		phrase = withPhrase
-		english = VoiceSequence.buildVoiceURL(withPhrase, language: "English")
-		chinese = VoiceSequence.buildVoiceURL(withPhrase, language: "Chinese")
 	}
 
 
@@ -36,7 +32,7 @@ class VoiceSequence: NSObject {
 
 	func play(language: String, then: @escaping (Bool) -> Void) {
 
-		player = AudioPlayer(language == "English" ? english : chinese)
+		player = AudioPlayer(VoiceSequence.buildVoiceURL(phrase, language: language))
 		player?.play(onProgress: { (_ : TimeInterval, _ : TimeInterval) in
 		}, onFinish: {
 			(_ success: Bool) in
@@ -66,7 +62,7 @@ class VoiceSequence: NSObject {
 	func play(sequence: ArraySlice<Character>, then: @escaping (Bool) -> Void) {
 
 		if (sequence.count > 0) {
-			self.play(language: sequence[sequence.startIndex] == "E" ? "English" : "Chinese") {
+			self.play(language: Settings.language.getLanguage(sequence[sequence.startIndex])) {
 				(_ success: Bool) in
 				if success {
 					self.play(sequence: sequence[(sequence.startIndex+1)...], then: then)
@@ -75,7 +71,7 @@ class VoiceSequence: NSObject {
 				}
 			}
 		} else {
-			wait(forInterval: Settings.phrase.delay.outer, then: { then(false) })
+			wait(forInterval: Settings.phrase.delay.outer, then: { then(true) })
 		}
 	}
 
@@ -109,11 +105,14 @@ class VoiceSequence: NSObject {
 
 	func tryPlayInto(_ compositionTrack: AVMutableCompositionTrack, at:CMTime, before:CMTime) -> Bool {
 
+		let native = VoiceSequence.buildVoiceURL(phrase, language: Settings.language.native)
+		let foreign = VoiceSequence.buildVoiceURL(phrase, language: Settings.language.foreign)
+
 		let sequence = Array(DB.phrases.getValue(forKey: phrase))
 		var position = at + CMTime(seconds: Settings.phrase.delay.outer, preferredTimescale: at.timescale)
 		for code in sequence {
 
-			let newAsset = AVURLAsset(url: code == "E" ? english : chinese)
+			let newAsset = AVURLAsset(url: code == "N" || code == "E" ? native : foreign)
 			if position.seconds + newAsset.duration.seconds > before.seconds {
 				return false
 			}
