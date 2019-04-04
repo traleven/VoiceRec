@@ -34,7 +34,10 @@ class ShareViewController: SLComposeServiceViewController {
 				attachment.loadItem(forTypeIdentifier: kUTTypeFileURL as String, options: [:]) { (_ encodedData: NSSecureCoding?, _ error: Error?) in
 					let url = encodedData as! URL
 					let fileData = FileManager.default.contents(atPath: url.path)
-					let sharedUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.diplomat.VoiceRec.inbox")!.appendingPathComponent(url.lastPathComponent)
+					var sharedUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.diplomat.VoiceRec.inbox")!.appendingPathComponent(url.lastPathComponent)
+					if FileManager.default.fileExists(atPath: sharedUrl.path) {
+						sharedUrl.appendPathExtension(Int.random(in: 0...10000).description)
+					}
 					try! fileData?.write(to: sharedUrl, options: .atomic)
 					self.progress = self.progress - 1
 					self.checkCompletion()

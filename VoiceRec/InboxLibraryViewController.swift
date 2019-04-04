@@ -38,15 +38,11 @@ class InboxLibraryViewController : AudioLibraryViewController {
 			(_) in cell.toggle_play(nil)
 		})
 
-		ac.addAction(UIAlertAction(title: "OPUS -> M4A", style: .default) {
-			(_) in self.convertOpus(cell.data!)
-		})
-
-		ac.addAction(UIAlertAction(title: "Convert to phrase (English)", style: .destructive) {
+		ac.addAction(UIAlertAction(title: "Convert to phrase (\(Settings.language.native))", style: .destructive) {
 			(_) in self.addAudio(withData: data, of: Settings.language.native)
 		})
 
-		ac.addAction(UIAlertAction(title: "Convert to phrase (Chinese)", style: .destructive) {
+		ac.addAction(UIAlertAction(title: "Convert to phrase (\(Settings.language.foreign))", style: .destructive) {
 			(_) in self.addAudio(withData: data, of: Settings.language.foreign)
 		})
 
@@ -68,7 +64,7 @@ class InboxLibraryViewController : AudioLibraryViewController {
 
 	func deleteInboxItem(withData: AudioData) {
 
-		let confirm = UIAlertController(title: "Are you sure?", message: "This action will irreveribly delete the audio recording \"\(withData.filename ?? "")\"", preferredStyle: .actionSheet)
+		let confirm = UIAlertController(title: "Are you sure?", message: "This action will irreversibly delete the audio recording \"\(withData.filename ?? "")\"", preferredStyle: .actionSheet)
 		confirm.popoverPresentationController?.sourceView = self.view
 
 		confirm.addAction(UIAlertAction(title: "Delete", style: .destructive)
