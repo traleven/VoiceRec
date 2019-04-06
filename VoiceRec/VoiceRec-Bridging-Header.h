@@ -9,6 +9,7 @@
 #ifndef VoiceRec_Bridging_Header_h
 #define VoiceRec_Bridging_Header_h
 
+#include "opus.h"
 #include "OpusTranscoder.h"
 
 #endif /* VoiceRec_Bridging_Header_h */

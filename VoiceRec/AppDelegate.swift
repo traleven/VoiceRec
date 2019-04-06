@@ -43,6 +43,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func applicationDidBecomeActive(_ application: UIApplication) {
 		// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+
+		let sharedUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.diplomat.VoiceRec.inbox")!
+
+		let files = try! FileManager.default.contentsOfDirectory(at: sharedUrl, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+
+		var didImport = false
+		for url in files {
+
+			if (!url.hasDirectoryPath) {
+				transcode(url.path, FileUtils.get(file: url.lastPathComponent, withExtension: "wav", inDirectory:"INBOX").path)
+				try! FileManager.default.removeItem(at: url)
+				didImport = true
+			}
+		}
+		if didImport {
+			NotificationCenter.default.post(name: .refreshMusic, object: self)
+		}
 	}
 
 	func applicationWillTerminate(_ application: UIApplication) {

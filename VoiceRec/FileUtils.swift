@@ -37,6 +37,12 @@ class FileUtils {
 	}
 
 
+	class func get(file: String, withExtension: String, inDirectory: String) -> URL {
+
+		return getDirectory(inDirectory).appendingPathComponent(file).appendingPathExtension(withExtension)
+	}
+
+
 	class func ensureDirectory(_ url: URL) {
 
 		if (FileManager.default.fileExists(atPath:url.path)) {
