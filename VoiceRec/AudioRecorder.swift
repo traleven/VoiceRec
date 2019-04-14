@@ -67,7 +67,7 @@ class AudioRecorder : NSObject, AVAudioRecorderDelegate {
 		onFinish = finish
 		let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
 		do {
-			try audioSession.setCategory(.playAndRecord, mode: .default, options: .duckOthers)
+			try audioSession.setCategory(.playAndRecord, mode: .default, options: [.mixWithOthers, .allowBluetooth, .allowAirPlay])
 			try audioSession.setActive(true)
 
 			let recordSettings = [AVFormatIDKey:Int(kAudioFormatMPEG4AAC),
