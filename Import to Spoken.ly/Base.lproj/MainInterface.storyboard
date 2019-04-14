@@ -1,24 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j1y-V4-xli">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j1y-V4-xli">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Share View Controller-->
         <scene sceneID="ceB-am-kn3">
             <objects>
-                <viewController id="j1y-V4-xli" customClass="ShareViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" contentMode="scaleToFill" id="wbc-yd-nQP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="1Xd-am-t49"/>
-                    </view>
+                <viewController id="j1y-V4-xli" customClass="ShareViewController" customModule="Import_to_Spoken_ly" customModuleProvider="target" sceneMemberID="viewController">
+                    <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="FB3-Zb-7Jm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RyR-JM-TYg">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <containerView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="V2I-xi-Atb">
+                                    <rect key="frame" x="40" y="281" width="334" height="334"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="V2I-xi-Atb" secondAttribute="height" multiplier="1:1" priority="750" id="RkV-a5-yWw"/>
+                                    </constraints>
+                                    <connections>
+                                        <segue destination="95i-Xv-v09" kind="embed" id="Pdu-5W-Rjv"/>
+                                    </connections>
+                                </containerView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="V2I-xi-Atb" secondAttribute="trailing" constant="40" id="7g8-Jp-JCX"/>
+                                <constraint firstItem="V2I-xi-Atb" firstAttribute="leading" secondItem="RyR-JM-TYg" secondAttribute="leading" constant="40" id="9nx-bK-lyf"/>
+                                <constraint firstItem="V2I-xi-Atb" firstAttribute="centerY" secondItem="RyR-JM-TYg" secondAttribute="centerY" priority="750" id="Woc-yg-jgq"/>
+                            </constraints>
+                        </view>
+                        <blurEffect style="light"/>
+                    </visualEffectView>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CEy-Cv-SGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="84" y="90"/>
+        </scene>
+        <!--Share View Controller-->
+        <scene sceneID="5sd-9k-piw">
+            <objects>
+                <viewController id="95i-Xv-v09" customClass="ShareViewController" customModule="Import_to_Spoken_ly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pYI-bJ-FeH">
+                        <rect key="frame" x="0.0" y="0.0" width="334" height="334"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3R-6L-S6T">
+                                <rect key="frame" x="0.0" y="-358" width="334" height="290"/>
+                                <connections>
+                                    <segue destination="CKv-I2-UVB" kind="embed" id="7UK-J1-gom"/>
+                                </connections>
+                            </containerView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3P-xf-A5j">
+                                <rect key="frame" x="0.0" y="0.0" width="334" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="QfL-Ar-eM8"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="W7X-my-gQI">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dZ0-Hd-n5V">
+                                            <connections>
+                                                <action selector="didCancel" destination="95i-Xv-v09" id="Sau-yr-Fm1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Import" style="done" id="gd1-nK-Gfe">
+                                            <connections>
+                                                <action selector="didSelectPost" destination="95i-Xv-v09" id="zf9-kd-AmU"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="g3P-xf-A5j" secondAttribute="trailing" id="7CJ-wc-s4Y"/>
+                            <constraint firstItem="g3P-xf-A5j" firstAttribute="top" secondItem="pYI-bJ-FeH" secondAttribute="top" id="BXl-fa-3qB"/>
+                            <constraint firstAttribute="bottom" secondItem="P3R-6L-S6T" secondAttribute="bottom" id="Fqu-rT-jAf"/>
+                            <constraint firstItem="P3R-6L-S6T" firstAttribute="top" secondItem="g3P-xf-A5j" secondAttribute="bottom" id="Q94-bb-WXP"/>
+                            <constraint firstAttribute="trailing" secondItem="P3R-6L-S6T" secondAttribute="trailing" id="VeV-DH-uQE"/>
+                            <constraint firstItem="g3P-xf-A5j" firstAttribute="leading" secondItem="pYI-bJ-FeH" secondAttribute="leading" id="tb5-jt-L0e"/>
+                            <constraint firstItem="P3R-6L-S6T" firstAttribute="leading" secondItem="pYI-bJ-FeH" secondAttribute="leading" id="yUB-bz-8Vz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdf-kk-mNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1022" y="90"/>
+        </scene>
+        <!--Share Table View Controller-->
+        <scene sceneID="ExJ-Ix-mao">
+            <objects>
+                <tableViewController id="CKv-I2-UVB" customClass="ShareTableViewController" customModule="Import_to_Spoken_ly" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nf9-wF-c2F">
+                        <rect key="frame" x="0.0" y="0.0" width="334" height="290"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="attachment" id="LHz-qF-xgC" customClass="ShareItemCell" customModule="Import_to_Spoken_ly" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="334" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LHz-qF-xgC" id="mxP-ge-nhq">
+                                    <rect key="frame" x="0.0" y="0.0" width="334" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKJ-Rn-qDw">
+                                            <rect key="frame" x="20" y="11" width="294" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="TKJ-Rn-qDw" firstAttribute="leading" secondItem="mxP-ge-nhq" secondAttribute="leadingMargin" id="YZ6-qZ-FOJ"/>
+                                        <constraint firstItem="TKJ-Rn-qDw" firstAttribute="bottom" secondItem="mxP-ge-nhq" secondAttribute="bottomMargin" id="emw-6g-XK0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="TKJ-Rn-qDw" secondAttribute="trailing" id="hcd-bQ-RiX"/>
+                                        <constraint firstItem="TKJ-Rn-qDw" firstAttribute="top" secondItem="mxP-ge-nhq" secondAttribute="topMargin" id="nzQ-KC-Mk3"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label" destination="TKJ-Rn-qDw" id="FS8-1J-YXu"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CKv-I2-UVB" id="piF-jt-JUp"/>
+                            <outlet property="delegate" destination="CKv-I2-UVB" id="u55-Os-rYF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C4G-9Q-Bqj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1745" y="90"/>
         </scene>
     </scenes>
 </document>

@@ -10,16 +10,39 @@ import UIKit
 import Social
 import MobileCoreServices
 
-class ShareViewController: SLComposeServiceViewController {
+class ShareViewController: UIViewController {
 
-    override func isContentValid() -> Bool {
+	override func viewDidLoad() {
+		super.viewDidLoad()
+
+		// https://stackoverflow.com/questions/17041669/creating-a-blurring-overlay-view/25706250
+
+		// only apply the blur if the user hasn't disabled transparency effects
+		/*if UIAccessibility.isReduceTransparencyEnabled == false {
+			view.backgroundColor = .clear
+
+			let blurEffect = UIBlurEffect(style: .dark)
+			let blurEffectView = UIVisualEffectView(effect: blurEffect)
+			//always fill the view
+			blurEffectView.frame = self.view.bounds
+			blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+			view.insertSubview(blurEffectView, at: 0)
+		} else {
+			view.backgroundColor = .black
+		}*/
+		// Do any additional setup after loading the view.
+	}
+
+
+	func isContentValid() -> Bool {
         // Do validation of contentText and/or NSExtensionContext attachments here
         return true
     }
 
 	var progress = 0
 	var outputItems : [Any] = []
-    override func didSelectPost() {
+    @IBAction func didSelectPost() {
         // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
 
 		outputItems = []
@@ -48,10 +71,18 @@ class ShareViewController: SLComposeServiceViewController {
 		self.checkCompletion()
     }
 
-    override func configurationItems() -> [Any]! {
+
+	@IBAction func didCancel() {
+
+		self.extensionContext!.completeRequest(returningItems: nil, completionHandler: nil)
+	}
+
+
+    func configurationItems() -> [Any]! {
         // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
         return []
     }
+
 
 	func checkCompletion() {
 

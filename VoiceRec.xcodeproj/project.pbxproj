@@ -44,6 +44,8 @@
 		DBA4A3A32258CF4300D4AEF8 /* wincerts.c in Sources */ = {isa = PBXBuildFile; fileRef = DBA49D192258CF4100D4AEF8 /* wincerts.c */; };
 		DBA4A3A42258CF4300D4AEF8 /* stream.c in Sources */ = {isa = PBXBuildFile; fileRef = DBA49D1A2258CF4100D4AEF8 /* stream.c */; };
 		DBA4A3A82258D22B00D4AEF8 /* libopus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA4A3A72258D22B00D4AEF8 /* libopus.a */; };
+		DBA4A3AA2262C8FE00D4AEF8 /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA4A3A92262C8FE00D4AEF8 /* ShareTableViewController.swift */; };
+		DBA4A3AC2262C91B00D4AEF8 /* ShareItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA4A3AB2262C91B00D4AEF8 /* ShareItemCell.swift */; };
 		DBB56C88223FD8BD00E63FCC /* DictionaryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB56C87223FD8BD00E63FCC /* DictionaryDB.swift */; };
 		DBB56C8A223FD90300E63FCC /* ArrayDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB56C89223FD90300E63FCC /* ArrayDB.swift */; };
 		DBB56C8C223FDB3800E63FCC /* VoiceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */; };
@@ -155,6 +157,8 @@
 		DBA49D192258CF4100D4AEF8 /* wincerts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wincerts.c; sourceTree = "<group>"; };
 		DBA49D1A2258CF4100D4AEF8 /* stream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stream.c; sourceTree = "<group>"; };
 		DBA4A3A72258D22B00D4AEF8 /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopus.a; path = opus/libOpus/libopus.a; sourceTree = SOURCE_ROOT; };
+		DBA4A3A92262C8FE00D4AEF8 /* ShareTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
+		DBA4A3AB2262C91B00D4AEF8 /* ShareItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareItemCell.swift; sourceTree = "<group>"; };
 		DBB56C87223FD8BD00E63FCC /* DictionaryDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryDB.swift; sourceTree = "<group>"; };
 		DBB56C89223FD90300E63FCC /* ArrayDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDB.swift; sourceTree = "<group>"; };
 		DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSequence.swift; sourceTree = "<group>"; };
@@ -279,6 +283,8 @@
 			children = (
 				DB3F0F652253B841003BF090 /* Import to Spoken.ly.entitlements */,
 				DB3F0F5422539C04003BF090 /* ShareViewController.swift */,
+				DBA4A3A92262C8FE00D4AEF8 /* ShareTableViewController.swift */,
+				DBA4A3AB2262C91B00D4AEF8 /* ShareItemCell.swift */,
 				DB3F0F5622539C04003BF090 /* MainInterface.storyboard */,
 				DB3F0F5922539C05003BF090 /* Info.plist */,
 			);
@@ -599,6 +605,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB3F0F5522539C04003BF090 /* ShareViewController.swift in Sources */,
+				DBA4A3AA2262C8FE00D4AEF8 /* ShareTableViewController.swift in Sources */,
+				DBA4A3AC2262C91B00D4AEF8 /* ShareItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
