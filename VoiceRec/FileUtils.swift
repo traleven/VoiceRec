@@ -37,6 +37,12 @@ class FileUtils {
 	}
 
 
+	class func getTempFile(withExtension: String) -> URL {
+
+		return FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString, isDirectory: false).appendingPathExtension(withExtension)
+	}
+
+
 	class func get(file: String, withExtension: String, inDirectory: String) -> URL {
 
 		return getDirectory(inDirectory).appendingPathComponent(file).appendingPathExtension(withExtension)

@@ -45,12 +45,14 @@ class CompilerViewController: UIViewController {
 			musicPlayer.stop(silent: true)
 			phrase.stop()
 			sender.setTitle("Play", for: .normal)
+			UIApplication.shared.isIdleTimerDisabled = false
 		} else {
 			prepare_data()
 			voiceIdx = -1
 			playMusic()
 			playVoice()
 			sender.setTitle("Stop", for: .normal)
+			UIApplication.shared.isIdleTimerDisabled = true
 		}
 	}
 

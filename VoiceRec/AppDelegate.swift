@@ -52,8 +52,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		for url in files {
 
 			if (!url.hasDirectoryPath) {
-				transcode(url.path, FileUtils.get(file: url.lastPathComponent, withExtension: "wav", inDirectory:"INBOX").path)
-				try! FileManager.default.removeItem(at: url)
+				OpusTranscoder.convert(opusFile: url, toM4A: FileUtils.get(file: url.lastPathComponent, withExtension: "m4a", inDirectory:"INBOX"), completionHandler: { () in
+					try! FileManager.default.removeItem(at: url)
+					NotificationCenter.default.post(name: .refreshMusic, object: self)
+				})
 				didImport = true
 			}
 		}

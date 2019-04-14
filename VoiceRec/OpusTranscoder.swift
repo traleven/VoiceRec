@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MediaPlayer
 
 class OpusTranscoder: NSObject {
 
@@ -15,37 +16,36 @@ class OpusTranscoder: NSObject {
 	static let CHANNELS : opus_int32 = 1
 
 
-	class func convertOpus(_ data: AudioData) {
+//	class func convertOpus(_ data: AudioData) {
+//
+//		transcode(data.url!.path, data.url.appendingPathExtension(".wav").path)
+//		return
+//	}
 
+	class func convert(opusFile: URL, toM4A: URL, completionHandler: @escaping () -> Void) {
 
-		transcode(data.url!.path, data.url.appendingPathExtension(".wav").path)
-		return
+		let tmp = FileUtils.getTempFile(withExtension: "wav")
+		transcode(opusFile.path, tmp.path)
 
-		let opusData = FileManager.default.contents(atPath: data.url.path)!
+		let composition = AVMutableComposition()
 
-		var opusError : opus_int32 = OPUS_OK
-		let decoder = opus_decoder_create(SAMPLE_RATE, CHANNELS, &opusError)!
+		let musicTrack:AVMutableCompositionTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID:kCMPersistentTrackID_Invalid)!
 
-		var result = Data()
-		result.append(decodeOpusPacket(decoder, opusData))
-
-		try! result.write(to: data.url.appendingPathExtension(".wav"))
-	}
-
-
-	class func decodeOpusPacket(_ decoder: OpaquePointer, _ data: Data) -> Data {
-
-		let result = data.withUnsafeBytes { (_ unsafeData: UnsafePointer<UInt8>) -> Data? in
-
-			var pcmData = Data(capacity: Int(FRAME_SIZE * CHANNELS * /*sizeof(opus_int16)*/2))
-			let samples = pcmData.withUnsafeMutableBytes({ (_ pcm: UnsafeMutablePointer<opus_int16>) -> opus_int32 in
-				return opus_decode(decoder, unsafeData, opus_int32(data.count), pcm, 160, 0)
-			})
-
-			pcmData.removeSubrange(pcmData.startIndex.advanced(by: Int(samples))...)
-			return pcmData
+		let newAsset = AVURLAsset(url: tmp)
+		let range = CMTimeRangeMake(start: CMTime.zero, duration: newAsset.duration)
+		let end = musicTrack.timeRange.end
+		if let track = newAsset.tracks(withMediaType: AVMediaType.audio).first {
+			try! musicTrack.insertTimeRange(range, of: track, at: end)
 		}
 
-		return result!
+		let assetExport = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetAppleM4A)!
+		assetExport.shouldOptimizeForNetworkUse = true
+		assetExport.outputFileType = AVFileType.m4a
+		assetExport.outputURL = toM4A
+
+		assetExport.exportAsynchronously() {
+			try? FileManager.default.removeItem(at: tmp)
+			completionHandler()
+		}
 	}
 }
