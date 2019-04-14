@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,10 +14,10 @@
         <scene sceneID="ceB-am-kn3">
             <objects>
                 <viewController id="j1y-V4-xli" customClass="ShareViewController" customModule="Import_to_Spoken_ly" customModuleProvider="target" sceneMemberID="viewController">
-                    <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="FB3-Zb-7Jm">
+                    <visualEffectView key="view" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" id="FB3-Zb-7Jm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RyR-JM-TYg">
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RyR-JM-TYg">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -36,7 +37,7 @@
                                 <constraint firstItem="V2I-xi-Atb" firstAttribute="centerY" secondItem="RyR-JM-TYg" secondAttribute="centerY" priority="750" id="Woc-yg-jgq"/>
                             </constraints>
                         </view>
-                        <blurEffect style="light"/>
+                        <blurEffect style="extraLight"/>
                     </visualEffectView>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CEy-Cv-SGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -52,7 +53,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3R-6L-S6T">
-                                <rect key="frame" x="0.0" y="-358" width="334" height="290"/>
+                                <rect key="frame" x="0.0" y="44" width="334" height="290"/>
                                 <connections>
                                     <segue destination="CKv-I2-UVB" kind="embed" id="7UK-J1-gom"/>
                                 </connections>
@@ -88,6 +89,7 @@
                             <constraint firstItem="g3P-xf-A5j" firstAttribute="leading" secondItem="pYI-bJ-FeH" secondAttribute="leading" id="tb5-jt-L0e"/>
                             <constraint firstItem="P3R-6L-S6T" firstAttribute="leading" secondItem="pYI-bJ-FeH" secondAttribute="leading" id="yUB-bz-8Vz"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Gns-No-4GB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdf-kk-mNl" userLabel="First Responder" sceneMemberID="firstResponder"/>

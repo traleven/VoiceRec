@@ -65,12 +65,16 @@ class Settings {
 	}
 	class language {
 		static var native: String {
-			get { return DB.settings.string(forKey: "language.native") ?? "English" }
-			set { DB.settings.set(newValue, forKey: "language.native") }
+			get { return DB.options.getValue(forKey: "language.native") }
+			set { DB.options.setValue(forKey: "language.native", value: newValue) }
+//			get { return DB.settings.string(forKey: "language.native") ?? "English" }
+//			set { DB.settings.set(newValue, forKey: "language.native") }
 		}
 		static var foreign: String {
-			get { return DB.settings.string(forKey: "language.foreign") ?? "Chinese" }
-			set { DB.settings.set(newValue, forKey: "language.foreign") }
+			get { return DB.options.getValue(forKey: "language.foreign") }
+			set { DB.options.setValue(forKey: "language.foreign", value: newValue) }
+//			get { return DB.settings.string(forKey: "language.foreign") ?? "Chinese" }
+//			set { DB.settings.set(newValue, forKey: "language.foreign") }
 		}
 		class func getLanguage(_ languageCode: Character) -> String {
 			return languageCode == "E" || languageCode == "N" ? native : foreign

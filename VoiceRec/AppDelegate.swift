@@ -23,6 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			"phrase.delay.outer":3.0,
 			"phrase.random":true,
 			])
+		if DB.options.getValue(forKey: "language.native") == "" {
+			DB.options.setValue(forKey: "language.native", value: "English")
+			DB.options.setValue(forKey: "language.foreign", value: "Chinese")
+			DB.options.flush()
+		}
 		return true
 	}
 
