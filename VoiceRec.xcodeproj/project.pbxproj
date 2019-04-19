@@ -230,36 +230,12 @@
 		DB2F416122280630009D6EB6 /* VoiceRec */ = {
 			isa = PBXGroup;
 			children = (
+				DBF74DB12269609700EB6F52 /* Audio */,
+				DBF74DB2226960C800EB6F52 /* Screens */,
+				DBF74DB02269605D00EB6F52 /* Utils */,
 				DBE9B27C2243845A00FD1CBC /* VoiceRec.entitlements */,
 				DB2F416222280630009D6EB6 /* AppDelegate.swift */,
-				DB0130F6222A5099003CBFE7 /* AudioPlayer.swift */,
-				DB86F940222D2AFA00C565E7 /* AudioRecorder.swift */,
-				DB2F416622280630009D6EB6 /* AudioLibraryViewController.swift */,
-				DB62011722421095008AD4ED /* InboxLibraryViewController.swift */,
-				DB2F417622280A8A009D6EB6 /* CompilerViewController.swift */,
-				DB86F942222E968200C565E7 /* PhraseDetailsViewController.swift */,
-				DB86F93E222C159B00C565E7 /* PhrasesLibraryViewController.swift */,
-				DB2F416422280630009D6EB6 /* RecorderViewController.swift */,
-				DB86F944222F775700C565E7 /* PhraseLibraryContainerViewController.swift */,
-				DBE9B26222434F1200FD1CBC /* InboxViewController.swift */,
-				DB0130F422294E98003CBFE7 /* AudioCell.swift */,
-				DB86F93C222C148E00C565E7 /* PhraseCell.swift */,
-				DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */,
-				DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */,
-				DBE9B2902246600900FD1CBC /* ExportComposer.swift */,
-				DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */,
-				DB86F93A222C117E00C565E7 /* FSTableDirectoryDataSource.swift */,
-				DB3F0F45225394B9003BF090 /* OpusTranscoder.h */,
-				DB3F0F48225397C1003BF090 /* OpusTranscoder.m */,
-				DB3F469D225788CB00FA0157 /* OpusTranscoder.swift */,
 				DB3F0F4D22539952003BF090 /* VoiceRec-Bridging-Header.h */,
-				DB86F948222FA65400C565E7 /* DB.swift */,
-				DBB56C87223FD8BD00E63FCC /* DictionaryDB.swift */,
-				DBB56C89223FD90300E63FCC /* ArrayDB.swift */,
-				DB0130F222290DA0003CBFE7 /* FileUtils.swift */,
-				DB0130F8222A517D003CBFE7 /* UIUtils.swift */,
-				DBE9B2922246605300FD1CBC /* DataUtils.swift */,
-				DB86F946222F812B00C565E7 /* NotificationUtils.swift */,
 				DB2F416B22280631009D6EB6 /* Assets.xcassets */,
 				DB2F416822280630009D6EB6 /* Main.storyboard */,
 				DB2F416D22280631009D6EB6 /* LaunchScreen.storyboard */,
@@ -407,6 +383,70 @@
 				DBE9B27122437A7100FD1CBC /* Info.plist */,
 			);
 			path = OneClickRecorder;
+			sourceTree = "<group>";
+		};
+		DBF74DB02269605D00EB6F52 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DB86F948222FA65400C565E7 /* DB.swift */,
+				DBB56C87223FD8BD00E63FCC /* DictionaryDB.swift */,
+				DBB56C89223FD90300E63FCC /* ArrayDB.swift */,
+				DB0130F222290DA0003CBFE7 /* FileUtils.swift */,
+				DB0130F8222A517D003CBFE7 /* UIUtils.swift */,
+				DBE9B2922246605300FD1CBC /* DataUtils.swift */,
+				DB86F946222F812B00C565E7 /* NotificationUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		DBF74DB12269609700EB6F52 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				DB0130F6222A5099003CBFE7 /* AudioPlayer.swift */,
+				DB86F940222D2AFA00C565E7 /* AudioRecorder.swift */,
+				DBE9B2902246600900FD1CBC /* ExportComposer.swift */,
+				DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */,
+				DB3F0F45225394B9003BF090 /* OpusTranscoder.h */,
+				DB3F0F48225397C1003BF090 /* OpusTranscoder.m */,
+				DB3F469D225788CB00FA0157 /* OpusTranscoder.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		DBF74DB2226960C800EB6F52 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				DBF74DB4226960F900EB6F52 /* CellViews */,
+				DBF74DB3226960ED00EB6F52 /* DataSources */,
+				DB2F416622280630009D6EB6 /* AudioLibraryViewController.swift */,
+				DB62011722421095008AD4ED /* InboxLibraryViewController.swift */,
+				DB2F417622280A8A009D6EB6 /* CompilerViewController.swift */,
+				DB86F942222E968200C565E7 /* PhraseDetailsViewController.swift */,
+				DB86F93E222C159B00C565E7 /* PhrasesLibraryViewController.swift */,
+				DB2F416422280630009D6EB6 /* RecorderViewController.swift */,
+				DB86F944222F775700C565E7 /* PhraseLibraryContainerViewController.swift */,
+				DBE9B26222434F1200FD1CBC /* InboxViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		DBF74DB3226960ED00EB6F52 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */,
+				DB86F93A222C117E00C565E7 /* FSTableDirectoryDataSource.swift */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		DBF74DB4226960F900EB6F52 /* CellViews */ = {
+			isa = PBXGroup;
+			children = (
+				DB0130F422294E98003CBFE7 /* AudioCell.swift */,
+				DB86F93C222C148E00C565E7 /* PhraseCell.swift */,
+				DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */,
+			);
+			path = CellViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
