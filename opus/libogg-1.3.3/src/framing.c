@@ -25,6 +25,9 @@
 #include <string.h>
 #include "ogg.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+
 /* A complete description of Ogg framing exists in docs/framing.html */
 
 int ogg_page_version(const ogg_page *og){
@@ -2138,3 +2141,5 @@ int main(void){
 }
 
 #endif
+
+#pragma clang diagnostic pop

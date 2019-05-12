@@ -20,6 +20,22 @@
 		DB2F417722280A8A009D6EB6 /* CompilerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F417622280A8A009D6EB6 /* CompilerViewController.swift */; };
 		DB2F417A22280BFA009D6EB6 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2F417922280BFA009D6EB6 /* AVKit.framework */; };
 		DB2F417C222818D6009D6EB6 /* FSTableAudioDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */; };
+		DB336DC922828F2F00DDD1AF /* Egg.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DC822828F2F00DDD1AF /* Egg.swift */; };
+		DB336DCB22828F5600DDD1AF /* Doughball.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DCA22828F5600DDD1AF /* Doughball.swift */; };
+		DB336DCD22828F6300DDD1AF /* Noodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DCC22828F6300DDD1AF /* Noodle.swift */; };
+		DB336DCF22828F8100DDD1AF /* Broth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DCE22828F8100DDD1AF /* Broth.swift */; };
+		DB336DD122828FA300DDD1AF /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DD022828FA300DDD1AF /* Recipe.swift */; };
+		DB336DD322828FB700DDD1AF /* Bowl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DD222828FB700DDD1AF /* Bowl.swift */; };
+		DB336DD522828FCC00DDD1AF /* Spices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DD422828FCC00DDD1AF /* Spices.swift */; };
+		DB336DD72282925D00DDD1AF /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DD62282925D00DDD1AF /* Shape.swift */; };
+		DB336DE12282B04200DDD1AF /* WeakLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DE02282B04200DDD1AF /* WeakLink.swift */; };
+		DB336DE32282B05700DDD1AF /* PersistentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DE22282B05700DDD1AF /* PersistentObject.swift */; };
+		DB336DE52283D67C00DDD1AF /* Noodles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB336DE42283D67C00DDD1AF /* Noodles.storyboard */; };
+		DB336DED2284373C00DDD1AF /* FridgeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DEC2284373C00DDD1AF /* FridgeDataSource.swift */; };
+		DB336DF022843EFD00DDD1AF /* EggCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DEF22843EFD00DDD1AF /* EggCell.swift */; };
+		DB336DF22284510300DDD1AF /* EggDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DF12284510300DDD1AF /* EggDelegate.swift */; };
+		DB336DF4228598C800DDD1AF /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DF3228598C800DDD1AF /* SplitViewController.swift */; };
+		DB336DF62286DD2200DDD1AF /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB336DF52286DD2200DDD1AF /* TabViewController.swift */; };
 		DB3F0F49225397C1003BF090 /* OpusTranscoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3F0F48225397C1003BF090 /* OpusTranscoder.m */; };
 		DB3F0F5522539C04003BF090 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F0F5422539C04003BF090 /* ShareViewController.swift */; };
 		DB3F0F5822539C04003BF090 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB3F0F5622539C04003BF090 /* MainInterface.storyboard */; };
@@ -118,6 +134,22 @@
 		DB2F417622280A8A009D6EB6 /* CompilerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompilerViewController.swift; sourceTree = "<group>"; };
 		DB2F417922280BFA009D6EB6 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		DB2F417B222818D6009D6EB6 /* FSTableAudioDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSTableAudioDataSource.swift; sourceTree = "<group>"; };
+		DB336DC822828F2F00DDD1AF /* Egg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Egg.swift; sourceTree = "<group>"; };
+		DB336DCA22828F5600DDD1AF /* Doughball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doughball.swift; sourceTree = "<group>"; };
+		DB336DCC22828F6300DDD1AF /* Noodle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Noodle.swift; sourceTree = "<group>"; };
+		DB336DCE22828F8100DDD1AF /* Broth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broth.swift; sourceTree = "<group>"; };
+		DB336DD022828FA300DDD1AF /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		DB336DD222828FB700DDD1AF /* Bowl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bowl.swift; sourceTree = "<group>"; };
+		DB336DD422828FCC00DDD1AF /* Spices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spices.swift; sourceTree = "<group>"; };
+		DB336DD62282925D00DDD1AF /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		DB336DE02282B04200DDD1AF /* WeakLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakLink.swift; sourceTree = "<group>"; };
+		DB336DE22282B05700DDD1AF /* PersistentObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentObject.swift; sourceTree = "<group>"; };
+		DB336DE42283D67C00DDD1AF /* Noodles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Noodles.storyboard; sourceTree = "<group>"; };
+		DB336DEC2284373C00DDD1AF /* FridgeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgeDataSource.swift; sourceTree = "<group>"; };
+		DB336DEF22843EFD00DDD1AF /* EggCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggCell.swift; sourceTree = "<group>"; };
+		DB336DF12284510300DDD1AF /* EggDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggDelegate.swift; sourceTree = "<group>"; };
+		DB336DF3228598C800DDD1AF /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		DB336DF52286DD2200DDD1AF /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		DB3F0F45225394B9003BF090 /* OpusTranscoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpusTranscoder.h; sourceTree = "<group>"; };
 		DB3F0F48225397C1003BF090 /* OpusTranscoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpusTranscoder.m; sourceTree = "<group>"; };
 		DB3F0F4D22539952003BF090 /* VoiceRec-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VoiceRec-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -230,6 +262,8 @@
 		DB2F416122280630009D6EB6 /* VoiceRec */ = {
 			isa = PBXGroup;
 			children = (
+				DB336DDF2282AFF500DDD1AF /* Persistency */,
+				DB336DC722828EE600DDD1AF /* Noodles */,
 				DBF74DB12269609700EB6F52 /* Audio */,
 				DBF74DB2226960C800EB6F52 /* Screens */,
 				DBF74DB02269605D00EB6F52 /* Utils */,
@@ -238,6 +272,7 @@
 				DB3F0F4D22539952003BF090 /* VoiceRec-Bridging-Header.h */,
 				DB2F416B22280631009D6EB6 /* Assets.xcassets */,
 				DB2F416822280630009D6EB6 /* Main.storyboard */,
+				DB336DE42283D67C00DDD1AF /* Noodles.storyboard */,
 				DB2F416D22280631009D6EB6 /* LaunchScreen.storyboard */,
 				DB2F417022280631009D6EB6 /* Info.plist */,
 			);
@@ -252,6 +287,62 @@
 				DBE9B2832243AFE400FD1CBC /* ReplayKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB336DC722828EE600DDD1AF /* Noodles */ = {
+			isa = PBXGroup;
+			children = (
+				DB336DEE228437F500DDD1AF /* DataSources */,
+				DB336DEB2284370B00DDD1AF /* Model */,
+				DB336DE62283E6B900DDD1AF /* UI */,
+			);
+			path = Noodles;
+			sourceTree = "<group>";
+		};
+		DB336DDF2282AFF500DDD1AF /* Persistency */ = {
+			isa = PBXGroup;
+			children = (
+				DBB56C87223FD8BD00E63FCC /* DictionaryDB.swift */,
+				DBB56C89223FD90300E63FCC /* ArrayDB.swift */,
+				DB86F948222FA65400C565E7 /* DB.swift */,
+				DB336DE02282B04200DDD1AF /* WeakLink.swift */,
+				DB336DE22282B05700DDD1AF /* PersistentObject.swift */,
+			);
+			path = Persistency;
+			sourceTree = "<group>";
+		};
+		DB336DE62283E6B900DDD1AF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				DB336DEF22843EFD00DDD1AF /* EggCell.swift */,
+				DB336DF12284510300DDD1AF /* EggDelegate.swift */,
+				DB336DF3228598C800DDD1AF /* SplitViewController.swift */,
+				DB336DF52286DD2200DDD1AF /* TabViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DB336DEB2284370B00DDD1AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB336DC822828F2F00DDD1AF /* Egg.swift */,
+				DB336DCA22828F5600DDD1AF /* Doughball.swift */,
+				DB336DCC22828F6300DDD1AF /* Noodle.swift */,
+				DB336DCE22828F8100DDD1AF /* Broth.swift */,
+				DB336DD022828FA300DDD1AF /* Recipe.swift */,
+				DB336DD222828FB700DDD1AF /* Bowl.swift */,
+				DB336DD422828FCC00DDD1AF /* Spices.swift */,
+				DB336DD62282925D00DDD1AF /* Shape.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB336DEE228437F500DDD1AF /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				DB336DEC2284373C00DDD1AF /* FridgeDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 		DB3F0F5322539C04003BF090 /* Import to Spoken.ly */ = {
@@ -388,9 +479,6 @@
 		DBF74DB02269605D00EB6F52 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				DB86F948222FA65400C565E7 /* DB.swift */,
-				DBB56C87223FD8BD00E63FCC /* DictionaryDB.swift */,
-				DBB56C89223FD90300E63FCC /* ArrayDB.swift */,
 				DB0130F222290DA0003CBFE7 /* FileUtils.swift */,
 				DB0130F8222A517D003CBFE7 /* UIUtils.swift */,
 				DBE9B2922246605300FD1CBC /* DataUtils.swift */,
@@ -519,6 +607,7 @@
 				TargetAttributes = {
 					DB2F415E22280630009D6EB6 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -530,6 +619,7 @@
 					};
 					DB3F0F5122539C04003BF090 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -538,6 +628,7 @@
 					};
 					DBE9B26722437A7100FD1CBC = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -553,7 +644,6 @@
 			knownRegions = (
 				en,
 				Base,
-				English,
 			);
 			mainGroup = DB2F415622280630009D6EB6;
 			productRefGroup = DB2F416022280630009D6EB6 /* Products */;
@@ -572,6 +662,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB336DE52283D67C00DDD1AF /* Noodles.storyboard in Resources */,
 				DB2F416F22280631009D6EB6 /* LaunchScreen.storyboard in Resources */,
 				DB2F416C22280631009D6EB6 /* Assets.xcassets in Resources */,
 				DBA4A1E52258CF4300D4AEF8 /* config_types.h.in in Resources */,
@@ -605,23 +696,35 @@
 				DB86F943222E968200C565E7 /* PhraseDetailsViewController.swift in Sources */,
 				DBE9B2912246600900FD1CBC /* ExportComposer.swift in Sources */,
 				DB2F416722280630009D6EB6 /* AudioLibraryViewController.swift in Sources */,
+				DB336DC922828F2F00DDD1AF /* Egg.swift in Sources */,
+				DB336DED2284373C00DDD1AF /* FridgeDataSource.swift in Sources */,
 				DB2F417722280A8A009D6EB6 /* CompilerViewController.swift in Sources */,
 				DBE9B26322434F1200FD1CBC /* InboxViewController.swift in Sources */,
 				DBA4A25B2258CF4300D4AEF8 /* bitwise.c in Sources */,
+				DB336DF62286DD2200DDD1AF /* TabViewController.swift in Sources */,
 				DB2F416322280630009D6EB6 /* AppDelegate.swift in Sources */,
 				DB0130F7222A5099003CBFE7 /* AudioPlayer.swift in Sources */,
 				DBB56C8A223FD90300E63FCC /* ArrayDB.swift in Sources */,
+				DB336DCB22828F5600DDD1AF /* Doughball.swift in Sources */,
+				DB336DE32282B05700DDD1AF /* PersistentObject.swift in Sources */,
 				DBB56C8C223FDB3800E63FCC /* VoiceSequence.swift in Sources */,
+				DB336DD322828FB700DDD1AF /* Bowl.swift in Sources */,
 				DB86F93D222C148E00C565E7 /* PhraseCell.swift in Sources */,
 				DB0130F322290DA0003CBFE7 /* FileUtils.swift in Sources */,
+				DB336DCD22828F6300DDD1AF /* Noodle.swift in Sources */,
 				DB0130F522294E98003CBFE7 /* AudioCell.swift in Sources */,
+				DB336DCF22828F8100DDD1AF /* Broth.swift in Sources */,
 				DB62011822421095008AD4ED /* InboxLibraryViewController.swift in Sources */,
+				DB336DE12282B04200DDD1AF /* WeakLink.swift in Sources */,
 				DBA4A3A32258CF4300D4AEF8 /* wincerts.c in Sources */,
 				DBA4A2582258CF4300D4AEF8 /* framing.c in Sources */,
 				DB86F93B222C117E00C565E7 /* FSTableDirectoryDataSource.swift in Sources */,
 				DB3F469E225788CB00FA0157 /* OpusTranscoder.swift in Sources */,
 				DBA4A39F2258CF4300D4AEF8 /* opusfile.c in Sources */,
+				DB336DD522828FCC00DDD1AF /* Spices.swift in Sources */,
 				DBA4A3A02258CF4300D4AEF8 /* info.c in Sources */,
+				DB336DF4228598C800DDD1AF /* SplitViewController.swift in Sources */,
+				DB336DD72282925D00DDD1AF /* Shape.swift in Sources */,
 				DB86F941222D2AFA00C565E7 /* AudioRecorder.swift in Sources */,
 				DBA4A3A42258CF4300D4AEF8 /* stream.c in Sources */,
 				DB86F947222F812B00C565E7 /* NotificationUtils.swift in Sources */,
@@ -631,12 +734,15 @@
 				DB2F416522280630009D6EB6 /* RecorderViewController.swift in Sources */,
 				DB2F417C222818D6009D6EB6 /* FSTableAudioDataSource.swift in Sources */,
 				DBC3EA2F223D161D00B46E7A /* DirectoryCell.swift in Sources */,
+				DB336DF022843EFD00DDD1AF /* EggCell.swift in Sources */,
 				DBB56C88223FD8BD00E63FCC /* DictionaryDB.swift in Sources */,
 				DB3F0F49225397C1003BF090 /* OpusTranscoder.m in Sources */,
+				DB336DF22284510300DDD1AF /* EggDelegate.swift in Sources */,
 				DBE9B2932246605300FD1CBC /* DataUtils.swift in Sources */,
 				DBA4A3A12258CF4300D4AEF8 /* internal.c in Sources */,
 				DB86F93F222C159B00C565E7 /* PhrasesLibraryViewController.swift in Sources */,
 				DB86F949222FA65400C565E7 /* DB.swift in Sources */,
+				DB336DD122828FA300DDD1AF /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,6 +947,7 @@
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = VoiceRec/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -853,7 +960,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "VoiceRec/VoiceRec-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -869,6 +976,7 @@
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = VoiceRec/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -881,7 +989,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "VoiceRec/VoiceRec-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -894,7 +1002,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = "Import to Spoken.ly/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -903,7 +1011,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dolgushyn.spokenly.Import-to-Spoken-ly";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -916,7 +1024,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = "Import to Spoken.ly/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -925,7 +1033,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.dolgushyn.spokenly.Import-to-Spoken-ly";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -951,7 +1059,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly.OneTapRecorder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -973,7 +1081,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly.OneTapRecorder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

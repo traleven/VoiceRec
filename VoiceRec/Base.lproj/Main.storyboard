@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -173,7 +173,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqs-ao-a4G">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <connections>
                                     <segue destination="VOh-Xn-Xe2" kind="embed" id="IHy-z8-A66"/>
                                 </connections>
@@ -222,7 +222,7 @@
             <objects>
                 <tableViewController id="VOh-Xn-Xe2" customClass="PhrasesLibraryViewController" customModule="Spoken_ly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="v24-TN-6c2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -687,7 +687,7 @@
             <objects>
                 <viewController id="gfe-cI-Kmj" userLabel="Phrase" customClass="PhraseDetailsViewController" customModule="Spoken_ly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dI3-Rq-I2D">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vb-BC-ize">
@@ -711,16 +711,16 @@
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JWh-F6-d7Z">
-                                <rect key="frame" x="0.0" y="64" width="375" height="490"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxH-Km-CFQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="265.5"/>
                                         <connections>
                                             <segue destination="8qT-yn-fqg" kind="embed" identifier="Native" id="ZgG-Fw-8dP"/>
                                         </connections>
                                     </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Wh-Gn-iXF">
-                                        <rect key="frame" x="0.0" y="249" width="375" height="241"/>
+                                        <rect key="frame" x="0.0" y="273.5" width="375" height="265.5"/>
                                         <connections>
                                             <segue destination="8qT-yn-fqg" kind="embed" identifier="Foreign" id="Ozs-1O-JH5"/>
                                         </connections>
@@ -764,11 +764,11 @@
             <objects>
                 <viewController id="8qT-yn-fqg" customClass="RecorderViewController" customModule="Spoken_ly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T7y-hn-qn5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="265.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22R-Hl-7uc">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="265.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgf-uf-Bmb">
                                         <rect key="frame" x="8" y="28" width="359" height="21"/>
@@ -780,14 +780,14 @@
                                         <rect key="frame" x="8" y="57" width="359" height="2"/>
                                     </progressView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elM-5q-kTk">
-                                        <rect key="frame" x="8" y="67" width="359" height="120"/>
+                                        <rect key="frame" x="8" y="67" width="359" height="144.5"/>
                                         <state key="normal" title="Record"/>
                                         <connections>
                                             <action selector="togglePlayMode:" destination="8qT-yn-fqg" eventType="primaryActionTriggered" id="r2O-xU-saL"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUO-ob-8F6">
-                                        <rect key="frame" x="277" y="195" width="90" height="38"/>
+                                        <rect key="frame" x="277" y="219.5" width="90" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="l0s-sU-0en"/>
                                             <constraint firstAttribute="width" constant="90" id="peb-GO-aC6"/>
@@ -843,6 +843,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ozs-1O-JH5"/>
-        <segue reference="lqc-Ku-eWq"/>
+        <segue reference="Mos-WW-M3x"/>
     </inferredMetricsTieBreakers>
 </document>

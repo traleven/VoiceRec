@@ -23,6 +23,9 @@
 #include <limits.h>
 #include "ogg.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+
 #define BUFFER_INCREMENT 256
 
 static const unsigned long mask[]=
@@ -1086,3 +1089,5 @@ int main(void){
 #endif  /* _V_SELFTEST */
 
 #undef BUFFER_INCREMENT
+
+#pragma clang diagnostic pop

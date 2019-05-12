@@ -44,7 +44,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>Noodles</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -55,6 +55,15 @@
 		<dict>
 			<key>Style</key>
 			<string>UIBarStyleDefault</string>
+			<key>TintColor</key>
+			<dict>
+				<key>Blue</key>
+				<integer>0</integer>
+				<key>Green</key>
+				<integer>0</integer>
+				<key>Red</key>
+				<integer>0</integer>
+			</dict>
 			<key>Translucent</key>
 			<false/>
 		</dict>

@@ -28,6 +28,9 @@
 
 #include "opusfile.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+
 /*This implementation is largely based off of libvorbisfile.
   All of the Ogg bits work roughly the same, though I have made some
    "improvements" that have not been folded back there, yet.*/
@@ -1131,7 +1134,7 @@ static int op_bisect_forward_serialno(OggOpusFile *_of,
     opus_int64  bisect;
     opus_int64  next;
     opus_int64  last;
-    ogg_int64_t end_offset;
+    ogg_int64_t end_offset = 0;
     ogg_int64_t end_gp;
     int         sri;
     serialnos=*_serialnos;
@@ -3324,3 +3327,5 @@ int op_read_float_stereo(OggOpusFile *_of,float *_pcm,int _buf_size){
 }
 
 #endif
+
+#pragma clang diagnostic pop
