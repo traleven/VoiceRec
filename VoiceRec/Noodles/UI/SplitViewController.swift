@@ -14,6 +14,7 @@ class SplitViewController: UIViewController {
 	@IBOutlet var menuConstraint : NSLayoutConstraint?
 	@IBOutlet var menuContainer : UIView?
 	@IBOutlet var viewContainer : UIView?
+	@IBOutlet var outside : UIControl?
 
 
 	override func viewDidLoad() {
@@ -41,6 +42,7 @@ class SplitViewController: UIViewController {
 
 		menuConstraint?.constant = 0
 		viewContainer?.isUserInteractionEnabled = false
+		outside?.isUserInteractionEnabled = true
 		UIView.animate(withDuration: 0.3) {
 			self.view.layoutIfNeeded()
 		}
@@ -51,6 +53,7 @@ class SplitViewController: UIViewController {
 
 		menuConstraint?.constant = -240
 		viewContainer?.isUserInteractionEnabled = true
+		outside?.isUserInteractionEnabled = false
 		UIView.animate(withDuration: 0.3) {
 			self.view.layoutIfNeeded()
 		}

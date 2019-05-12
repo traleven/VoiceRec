@@ -66,6 +66,7 @@
 		DBB56C8A223FD90300E63FCC /* ArrayDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB56C89223FD90300E63FCC /* ArrayDB.swift */; };
 		DBB56C8C223FDB3800E63FCC /* VoiceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */; };
 		DBC3EA2F223D161D00B46E7A /* DirectoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */; };
+		DBC85F632288248A00E727B2 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F622288248A00E727B2 /* SegmentedControl.swift */; };
 		DBE9B26322434F1200FD1CBC /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9B26222434F1200FD1CBC /* InboxViewController.swift */; };
 		DBE9B26A22437A7100FD1CBC /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE9B26922437A7100FD1CBC /* NotificationCenter.framework */; };
 		DBE9B26D22437A7100FD1CBC /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9B26C22437A7100FD1CBC /* TodayViewController.swift */; };
@@ -195,6 +196,7 @@
 		DBB56C89223FD90300E63FCC /* ArrayDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayDB.swift; sourceTree = "<group>"; };
 		DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSequence.swift; sourceTree = "<group>"; };
 		DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCell.swift; sourceTree = "<group>"; };
+		DBC85F622288248A00E727B2 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		DBE9B26222434F1200FD1CBC /* InboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		DBE9B26822437A7100FD1CBC /* OneTapRecorder.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneTapRecorder.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBE9B26922437A7100FD1CBC /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -318,6 +320,7 @@
 				DB336DF12284510300DDD1AF /* EggDelegate.swift */,
 				DB336DF3228598C800DDD1AF /* SplitViewController.swift */,
 				DB336DF52286DD2200DDD1AF /* TabViewController.swift */,
+				DBC85F622288248A00E727B2 /* SegmentedControl.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				DB3F0F49225397C1003BF090 /* OpusTranscoder.m in Sources */,
 				DB336DF22284510300DDD1AF /* EggDelegate.swift in Sources */,
 				DBE9B2932246605300FD1CBC /* DataUtils.swift in Sources */,
+				DBC85F632288248A00E727B2 /* SegmentedControl.swift in Sources */,
 				DBA4A3A12258CF4300D4AEF8 /* internal.c in Sources */,
 				DB86F93F222C159B00C565E7 /* PhrasesLibraryViewController.swift in Sources */,
 				DB86F949222FA65400C565E7 /* DB.swift in Sources */,
