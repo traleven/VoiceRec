@@ -67,6 +67,19 @@
 		DBB56C8C223FDB3800E63FCC /* VoiceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */; };
 		DBC3EA2F223D161D00B46E7A /* DirectoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */; };
 		DBC85F632288248A00E727B2 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F622288248A00E727B2 /* SegmentedControl.swift */; };
+		DBC85F65228855D700E727B2 /* ThemesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F64228855D700E727B2 /* ThemesDataSource.swift */; };
+		DBC85F67228855E700E727B2 /* PhrasesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F66228855E700E727B2 /* PhrasesDataSource.swift */; };
+		DBC85F692288560900E727B2 /* LessonsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F682288560900E727B2 /* LessonsDataSource.swift */; };
+		DBC85F6B2289088500E727B2 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F6A2289088500E727B2 /* Theme.swift */; };
+		DBC85F6D22890A1D00E727B2 /* DynamicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F6C22890A1D00E727B2 /* DynamicCell.swift */; };
+		DBC85F6F22890AF800E727B2 /* ThemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F6E22890AF800E727B2 /* ThemeCell.swift */; };
+		DBC85F712289127C00E727B2 /* DoughballsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F702289127C00E727B2 /* DoughballsDataSource.swift */; };
+		DBC85F732289129D00E727B2 /* DoughballCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F722289129D00E727B2 /* DoughballCell.swift */; };
+		DBC85F75228912F100E727B2 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F74228912F100E727B2 /* Language.swift */; };
+		DBC85F77228918BE00E727B2 /* PageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F76228918BE00E727B2 /* PageDataSource.swift */; };
+		DBC85F79228928DC00E727B2 /* RecipesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F78228928DC00E727B2 /* RecipesDataSource.swift */; };
+		DBC85F7B2289296E00E727B2 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F7A2289296E00E727B2 /* RecipeCell.swift */; };
+		DBC85F7D2289386C00E727B2 /* SegmentedContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC85F7C2289386C00E727B2 /* SegmentedContainerViewController.swift */; };
 		DBE9B26322434F1200FD1CBC /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9B26222434F1200FD1CBC /* InboxViewController.swift */; };
 		DBE9B26A22437A7100FD1CBC /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE9B26922437A7100FD1CBC /* NotificationCenter.framework */; };
 		DBE9B26D22437A7100FD1CBC /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9B26C22437A7100FD1CBC /* TodayViewController.swift */; };
@@ -75,6 +88,7 @@
 		DBE9B27822437DBF00FD1CBC /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB86F940222D2AFA00C565E7 /* AudioRecorder.swift */; };
 		DBE9B2912246600900FD1CBC /* ExportComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9B2902246600900FD1CBC /* ExportComposer.swift */; };
 		DBE9B2932246605300FD1CBC /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9B2922246605300FD1CBC /* DataUtils.swift */; };
+		DBEB6DD12289ACAB00BA52B2 /* AudioVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBEB6DD02289ACAB00BA52B2 /* AudioVisualizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +211,19 @@
 		DBB56C8B223FDB3800E63FCC /* VoiceSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSequence.swift; sourceTree = "<group>"; };
 		DBC3EA2E223D161D00B46E7A /* DirectoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCell.swift; sourceTree = "<group>"; };
 		DBC85F622288248A00E727B2 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		DBC85F64228855D700E727B2 /* ThemesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesDataSource.swift; sourceTree = "<group>"; };
+		DBC85F66228855E700E727B2 /* PhrasesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesDataSource.swift; sourceTree = "<group>"; };
+		DBC85F682288560900E727B2 /* LessonsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsDataSource.swift; sourceTree = "<group>"; };
+		DBC85F6A2289088500E727B2 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		DBC85F6C22890A1D00E727B2 /* DynamicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCell.swift; sourceTree = "<group>"; };
+		DBC85F6E22890AF800E727B2 /* ThemeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCell.swift; sourceTree = "<group>"; };
+		DBC85F702289127C00E727B2 /* DoughballsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughballsDataSource.swift; sourceTree = "<group>"; };
+		DBC85F722289129D00E727B2 /* DoughballCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoughballCell.swift; sourceTree = "<group>"; };
+		DBC85F74228912F100E727B2 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		DBC85F76228918BE00E727B2 /* PageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDataSource.swift; sourceTree = "<group>"; };
+		DBC85F78228928DC00E727B2 /* RecipesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesDataSource.swift; sourceTree = "<group>"; };
+		DBC85F7A2289296E00E727B2 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		DBC85F7C2289386C00E727B2 /* SegmentedContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedContainerViewController.swift; sourceTree = "<group>"; };
 		DBE9B26222434F1200FD1CBC /* InboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		DBE9B26822437A7100FD1CBC /* OneTapRecorder.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneTapRecorder.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBE9B26922437A7100FD1CBC /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -208,6 +235,7 @@
 		DBE9B2832243AFE400FD1CBC /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
 		DBE9B2902246600900FD1CBC /* ExportComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportComposer.swift; sourceTree = "<group>"; };
 		DBE9B2922246605300FD1CBC /* DataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
+		DBEB6DD02289ACAB00BA52B2 /* AudioVisualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVisualizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,11 +344,18 @@
 		DB336DE62283E6B900DDD1AF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				DBC85F6C22890A1D00E727B2 /* DynamicCell.swift */,
 				DB336DEF22843EFD00DDD1AF /* EggCell.swift */,
 				DB336DF12284510300DDD1AF /* EggDelegate.swift */,
+				DBC85F6E22890AF800E727B2 /* ThemeCell.swift */,
+				DBC85F722289129D00E727B2 /* DoughballCell.swift */,
+				DBC85F7A2289296E00E727B2 /* RecipeCell.swift */,
 				DB336DF3228598C800DDD1AF /* SplitViewController.swift */,
 				DB336DF52286DD2200DDD1AF /* TabViewController.swift */,
 				DBC85F622288248A00E727B2 /* SegmentedControl.swift */,
+				DBC85F7C2289386C00E727B2 /* SegmentedContainerViewController.swift */,
+				DBC85F76228918BE00E727B2 /* PageDataSource.swift */,
+				DBEB6DD02289ACAB00BA52B2 /* AudioVisualizer.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -336,6 +371,8 @@
 				DB336DD222828FB700DDD1AF /* Bowl.swift */,
 				DB336DD422828FCC00DDD1AF /* Spices.swift */,
 				DB336DD62282925D00DDD1AF /* Shape.swift */,
+				DBC85F6A2289088500E727B2 /* Theme.swift */,
+				DBC85F74228912F100E727B2 /* Language.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -344,6 +381,11 @@
 			isa = PBXGroup;
 			children = (
 				DB336DEC2284373C00DDD1AF /* FridgeDataSource.swift */,
+				DBC85F64228855D700E727B2 /* ThemesDataSource.swift */,
+				DBC85F66228855E700E727B2 /* PhrasesDataSource.swift */,
+				DBC85F682288560900E727B2 /* LessonsDataSource.swift */,
+				DBC85F702289127C00E727B2 /* DoughballsDataSource.swift */,
+				DBC85F78228928DC00E727B2 /* RecipesDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -699,6 +741,9 @@
 				DB86F943222E968200C565E7 /* PhraseDetailsViewController.swift in Sources */,
 				DBE9B2912246600900FD1CBC /* ExportComposer.swift in Sources */,
 				DB2F416722280630009D6EB6 /* AudioLibraryViewController.swift in Sources */,
+				DBC85F7B2289296E00E727B2 /* RecipeCell.swift in Sources */,
+				DBEB6DD12289ACAB00BA52B2 /* AudioVisualizer.swift in Sources */,
+				DBC85F77228918BE00E727B2 /* PageDataSource.swift in Sources */,
 				DB336DC922828F2F00DDD1AF /* Egg.swift in Sources */,
 				DB336DED2284373C00DDD1AF /* FridgeDataSource.swift in Sources */,
 				DB2F417722280A8A009D6EB6 /* CompilerViewController.swift in Sources */,
@@ -714,10 +759,13 @@
 				DB336DD322828FB700DDD1AF /* Bowl.swift in Sources */,
 				DB86F93D222C148E00C565E7 /* PhraseCell.swift in Sources */,
 				DB0130F322290DA0003CBFE7 /* FileUtils.swift in Sources */,
+				DBC85F65228855D700E727B2 /* ThemesDataSource.swift in Sources */,
 				DB336DCD22828F6300DDD1AF /* Noodle.swift in Sources */,
 				DB0130F522294E98003CBFE7 /* AudioCell.swift in Sources */,
+				DBC85F75228912F100E727B2 /* Language.swift in Sources */,
 				DB336DCF22828F8100DDD1AF /* Broth.swift in Sources */,
 				DB62011822421095008AD4ED /* InboxLibraryViewController.swift in Sources */,
+				DBC85F6F22890AF800E727B2 /* ThemeCell.swift in Sources */,
 				DB336DE12282B04200DDD1AF /* WeakLink.swift in Sources */,
 				DBA4A3A32258CF4300D4AEF8 /* wincerts.c in Sources */,
 				DBA4A2582258CF4300D4AEF8 /* framing.c in Sources */,
@@ -728,9 +776,13 @@
 				DBA4A3A02258CF4300D4AEF8 /* info.c in Sources */,
 				DB336DF4228598C800DDD1AF /* SplitViewController.swift in Sources */,
 				DB336DD72282925D00DDD1AF /* Shape.swift in Sources */,
+				DBC85F67228855E700E727B2 /* PhrasesDataSource.swift in Sources */,
+				DBC85F712289127C00E727B2 /* DoughballsDataSource.swift in Sources */,
 				DB86F941222D2AFA00C565E7 /* AudioRecorder.swift in Sources */,
 				DBA4A3A42258CF4300D4AEF8 /* stream.c in Sources */,
 				DB86F947222F812B00C565E7 /* NotificationUtils.swift in Sources */,
+				DBC85F6B2289088500E727B2 /* Theme.swift in Sources */,
+				DBC85F732289129D00E727B2 /* DoughballCell.swift in Sources */,
 				DB86F945222F775700C565E7 /* PhraseLibraryContainerViewController.swift in Sources */,
 				DB0130F9222A517D003CBFE7 /* UIUtils.swift in Sources */,
 				DBA4A3A22258CF4300D4AEF8 /* http.c in Sources */,
@@ -738,15 +790,19 @@
 				DB2F417C222818D6009D6EB6 /* FSTableAudioDataSource.swift in Sources */,
 				DBC3EA2F223D161D00B46E7A /* DirectoryCell.swift in Sources */,
 				DB336DF022843EFD00DDD1AF /* EggCell.swift in Sources */,
+				DBC85F692288560900E727B2 /* LessonsDataSource.swift in Sources */,
 				DBB56C88223FD8BD00E63FCC /* DictionaryDB.swift in Sources */,
+				DBC85F79228928DC00E727B2 /* RecipesDataSource.swift in Sources */,
 				DB3F0F49225397C1003BF090 /* OpusTranscoder.m in Sources */,
 				DB336DF22284510300DDD1AF /* EggDelegate.swift in Sources */,
+				DBC85F6D22890A1D00E727B2 /* DynamicCell.swift in Sources */,
 				DBE9B2932246605300FD1CBC /* DataUtils.swift in Sources */,
 				DBC85F632288248A00E727B2 /* SegmentedControl.swift in Sources */,
 				DBA4A3A12258CF4300D4AEF8 /* internal.c in Sources */,
 				DB86F93F222C159B00C565E7 /* PhrasesLibraryViewController.swift in Sources */,
 				DB86F949222FA65400C565E7 /* DB.swift in Sources */,
 				DB336DD122828FA300DDD1AF /* Recipe.swift in Sources */,
+				DBC85F7D2289386C00E727B2 /* SegmentedContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

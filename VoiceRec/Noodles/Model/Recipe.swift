@@ -14,7 +14,19 @@ import CoreData
 @objc(Recipe)
 class Recipe : PersistentObject {
 
+	var name : String!
 	var noodle : [WeakLink<Noodle>]!
 	var broth : WeakLink<Broth>!
 	var spice : WeakLink<Spices>!
+
+
+	class func fetch() -> [Recipe] {
+
+		let a = Recipe()
+		a.name = "Travel"
+		let b = Recipe()
+		b.name = "Other"
+
+		return [a, b]
+	}
 }

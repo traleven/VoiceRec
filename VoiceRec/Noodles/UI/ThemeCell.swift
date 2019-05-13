@@ -1,20 +1,19 @@
 //
-//  EggCell.swift
+//  ThemeCell.swift
 //  Spoken.ly
 //
-//  Created by Ivan Dolgushin on 09.05.19.
+//  Created by Ivan Dolgushin on 13.05.19.
 //  Copyright © 2019 traleven. All rights reserved.
 //
 
 import UIKit
 
-class EggCell: DynamicCell<Egg> {
+class ThemeCell: DynamicCell<Theme> {
 
 	@IBOutlet var caption : UILabel!
 
+	override func onNewData(_ newData: Theme?) {
 
-	override func onNewData(_ newData: Egg?) {
-		
 		caption?.text = newData?.name
 	}
 }

@@ -10,7 +10,6 @@ import UIKit
 
 class UIUtils {
 
-
 	class func display_alert(at_view_controller: UIViewController, msg_title : String , msg_desc : String ,action_title : String) {
 
 		let ac = UIAlertController(title: msg_title, message: msg_desc, preferredStyle: .alert)

@@ -10,15 +10,47 @@ import UIKit
 
 class TabViewController : UITabBarController, UITabBarControllerDelegate {
 
-	@IBOutlet var menuConstraint : NSLayoutConstraint?
-	@IBOutlet var menuContainer : UIView?
-	@IBOutlet var viewContainer : UIView?
+	var views : Dictionary<String, Int> = [:]
+	@IBInspectable var flipTransition : Bool = true
 
+	override func setValue(_ value: Any?, forUndefinedKey key: String) {
+		if (value is Int && key.starts(with: "goto_")) {
+			views[key] = (value as! Int)
+		} else {
+			super.setValue(value, forKey: key)
+		}
+	}
 
 	override func viewDidLoad() {
 
-		NotificationCenter.default.addObserver(forName: .swapRoom, object: nil, queue: OperationQueue.main) { (Notification) in
+		let notificationCenter = NotificationCenter.default
+
+		notificationCenter.addObserver(forName: .swapRoom, object: nil, queue: OperationQueue.main) { (Notification) in
 			self.swapRoom()
+		}
+
+		notificationCenter.addObserver(forName: .gotoView, object: nil, queue: OperationQueue.main) { (_ notification : Notification) in
+			guard let idx = self.views[notification.userInfo!["target"] as! String] else {
+				return
+			}
+			self.transit(to: idx)
+		}
+	}
+
+
+	func transit(to index : Int) {
+
+		guard index != self.selectedIndex else {
+			return
+		}
+
+		let fromView = self.selectedViewController!.view!;
+		let toView = self.viewControllers![index].view!;
+
+		UIView.transition(from: fromView, to: toView, duration: 0.5, options: [flipTransition ? .transitionFlipFromLeft : .transitionCurlUp]) { (_ finished : Bool) in
+			if (finished) {
+				self.selectedIndex = index
+			}
 		}
 	}
 
@@ -26,13 +58,6 @@ class TabViewController : UITabBarController, UITabBarControllerDelegate {
 	@IBAction func swapRoom() {
 
 		let controllerIndex = (selectedIndex + 1) % (self.viewControllers?.count ?? 1)
-		let fromView = self.selectedViewController!.view!;
-		let toView = self.viewControllers![controllerIndex].view!;
-
-		UIView.transition(from: fromView, to: toView, duration: 0.5, options: [.transitionFlipFromLeft]) { (_ finished : Bool) in
-			if (finished) {
-				self.selectedIndex = controllerIndex;
-			}
-		}
+		transit(to: controllerIndex)
 	}
 }

@@ -16,6 +16,9 @@ class SplitViewController: UIViewController {
 	@IBOutlet var viewContainer : UIView?
 	@IBOutlet var outside : UIControl?
 
+	@IBOutlet var quickMicView : UIView?
+	@IBOutlet var quickMicContraint : NSLayoutConstraint?
+
 
 	override func viewDidLoad() {
 
@@ -54,6 +57,22 @@ class SplitViewController: UIViewController {
 		menuConstraint?.constant = -240
 		viewContainer?.isUserInteractionEnabled = true
 		outside?.isUserInteractionEnabled = false
+		UIView.animate(withDuration: 0.3) {
+			self.view.layoutIfNeeded()
+		}
+	}
+
+
+	@IBAction func startQuickMic() {
+		quickMicContraint?.constant = 0
+		UIView.animate(withDuration: 0.3) {
+			self.view.layoutIfNeeded()
+		}
+	}
+
+
+	@IBAction func stopQuickMic() {
+		quickMicContraint?.constant = -80
 		UIView.animate(withDuration: 0.3) {
 			self.view.layoutIfNeeded()
 		}

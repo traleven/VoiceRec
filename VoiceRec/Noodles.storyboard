@@ -33,6 +33,7 @@
                                                     <state key="normal" title="Inbox"/>
                                                     <connections>
                                                         <action selector="closeMenu" destination="ekO-uV-uiz" eventType="primaryActionTriggered" id="ePP-9h-Y8f"/>
+                                                        <action selector="gotoRoom:" destination="uAr-3i-VgX" eventType="touchUpInside" id="uI6-uX-9eL"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -56,6 +57,7 @@
                                                     <state key="normal" title="Lessons"/>
                                                     <connections>
                                                         <action selector="closeMenu" destination="ekO-uV-uiz" eventType="primaryActionTriggered" id="0GV-Ls-Wbs"/>
+                                                        <action selector="gotoRoom:" destination="uCO-Ah-4Qv" eventType="touchUpInside" id="Cw7-SL-5MT"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -83,6 +85,7 @@
                                                     <state key="normal" title="Player"/>
                                                     <connections>
                                                         <action selector="closeMenu" destination="ekO-uV-uiz" eventType="primaryActionTriggered" id="Doa-ez-2s6"/>
+                                                        <action selector="gotoRoom:" destination="q2O-XG-VSo" eventType="touchUpInside" id="IZr-er-q7H"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -112,6 +115,26 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="roU-R4-NnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="aSJ-xc-yJ7" userLabel="Kitchen Reference" customClass="ScreenReference" customModule="Spoken_ly" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="uri" value="kitchen"/>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
+                <customObject id="q2O-XG-VSo" userLabel="Diningroom Reference" customClass="ScreenReference" customModule="Spoken_ly" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="uri" value="diningroom"/>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
+                <customObject id="uAr-3i-VgX" userLabel="Inbox Reference" customClass="ScreenReference" customModule="Spoken_ly" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="uri" value="inbox"/>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
+                <customObject id="uCO-Ah-4Qv" userLabel="Lessons Reference" customClass="ScreenReference" customModule="Spoken_ly" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="uri" value="lessons"/>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-1575" y="1045"/>
         </scene>
@@ -131,6 +154,7 @@
                             </containerView>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gws-LK-TCF">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <action selector="hideMenu" destination="XMb-Ng-b9Q" eventType="primaryActionTriggered" id="mBZ-ix-5bG"/>
                                 </connections>
@@ -144,6 +168,51 @@
                                     <segue destination="Mu3-nb-D7s" kind="embed" id="qGa-V1-Bf9"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4m-tA-GeG">
+                                <rect key="frame" x="-80" y="413" width="110" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QD-BV-t8h">
+                                        <rect key="frame" x="80" y="10" width="30" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="1QD-BV-t8h" secondAttribute="height" multiplier="1:2" id="ndn-V1-VGU"/>
+                                        </constraints>
+                                        <state key="normal" image="chevron_right"/>
+                                        <connections>
+                                            <action selector="startQuickMic" destination="XMb-Ng-b9Q" eventType="touchDown" id="dyk-O7-JtW"/>
+                                            <action selector="startVisualizing" destination="PGY-h0-IMG" eventType="touchDown" id="tdI-Pj-lcX"/>
+                                            <action selector="stopQuickMic" destination="XMb-Ng-b9Q" eventType="touchCancel" id="CQy-hq-Muz"/>
+                                            <action selector="stopQuickMic" destination="XMb-Ng-b9Q" eventType="touchUpOutside" id="PA2-qk-x9o"/>
+                                            <action selector="stopQuickMic" destination="XMb-Ng-b9Q" eventType="touchUpInside" id="Ztt-yu-cjn"/>
+                                            <action selector="stopVisualizing" destination="PGY-h0-IMG" eventType="touchUpOutside" id="Ihw-C9-vYd"/>
+                                            <action selector="stopVisualizing" destination="PGY-h0-IMG" eventType="touchCancel" id="Pqi-cE-AUy"/>
+                                            <action selector="stopVisualizing" destination="PGY-h0-IMG" eventType="touchUpInside" id="iMa-xR-8wR"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mic_active" translatesAutoresizingMaskIntoConstraints="NO" id="bfI-Vz-xYB">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZY-wj-W5H" customClass="AudioVisualizerView" customModule="Spoken_ly" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="0.0" width="70" height="80"/>
+                                        <color key="tintColor" name="BG Accent"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="kZY-wj-W5H" secondAttribute="bottom" id="98p-9p-7iU"/>
+                                    <constraint firstAttribute="height" constant="80" id="B0k-r4-KPl"/>
+                                    <constraint firstItem="1QD-BV-t8h" firstAttribute="top" secondItem="c4m-tA-GeG" secondAttribute="top" constant="10" id="BsQ-iD-uCC"/>
+                                    <constraint firstAttribute="width" constant="110" id="BzY-yX-IJ5"/>
+                                    <constraint firstItem="1QD-BV-t8h" firstAttribute="leading" secondItem="kZY-wj-W5H" secondAttribute="trailing" constant="5" id="Dt4-vn-6Pg"/>
+                                    <constraint firstAttribute="trailing" secondItem="1QD-BV-t8h" secondAttribute="trailing" id="Eee-7D-z0Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="bfI-Vz-xYB" secondAttribute="bottom" id="KyR-Nt-wfw"/>
+                                    <constraint firstItem="kZY-wj-W5H" firstAttribute="leading" secondItem="c4m-tA-GeG" secondAttribute="leading" constant="5" id="M1q-HP-jn5"/>
+                                    <constraint firstItem="bfI-Vz-xYB" firstAttribute="top" secondItem="c4m-tA-GeG" secondAttribute="top" id="MF5-le-u2v"/>
+                                    <constraint firstItem="1QD-BV-t8h" firstAttribute="leading" secondItem="bfI-Vz-xYB" secondAttribute="trailing" id="O9w-iA-YeM"/>
+                                    <constraint firstAttribute="bottom" secondItem="1QD-BV-t8h" secondAttribute="bottom" constant="10" id="UA5-zD-IRI"/>
+                                    <constraint firstItem="bfI-Vz-xYB" firstAttribute="leading" secondItem="c4m-tA-GeG" secondAttribute="leading" id="aQv-Tb-O78"/>
+                                    <constraint firstItem="kZY-wj-W5H" firstAttribute="top" secondItem="c4m-tA-GeG" secondAttribute="top" id="m3S-P6-FJm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="BG Accent"/>
                         <constraints>
@@ -153,6 +222,8 @@
                             <constraint firstItem="TSw-dM-FIG" firstAttribute="trailing" secondItem="Gws-LK-TCF" secondAttribute="trailing" id="Fvd-TY-KEC"/>
                             <constraint firstItem="5bp-GR-5xi" firstAttribute="bottom" secondItem="TSw-dM-FIG" secondAttribute="bottom" id="Le5-sr-RN9"/>
                             <constraint firstItem="5bp-GR-5xi" firstAttribute="leading" secondItem="TSw-dM-FIG" secondAttribute="leading" constant="-240" id="PtL-3X-lYq"/>
+                            <constraint firstItem="c4m-tA-GeG" firstAttribute="centerY" secondItem="TSw-dM-FIG" secondAttribute="centerY" id="b5a-87-ECX"/>
+                            <constraint firstItem="c4m-tA-GeG" firstAttribute="leading" secondItem="TSw-dM-FIG" secondAttribute="leading" constant="-80" id="dAW-AL-lFL"/>
                             <constraint firstItem="Pfg-QK-Puy" firstAttribute="bottom" secondItem="TSw-dM-FIG" secondAttribute="bottom" id="dxO-ws-LMv"/>
                             <constraint firstItem="TSw-dM-FIG" firstAttribute="bottom" secondItem="Gws-LK-TCF" secondAttribute="bottom" id="gDa-0L-aYS"/>
                             <constraint firstItem="Pfg-QK-Puy" firstAttribute="leading" secondItem="TSw-dM-FIG" secondAttribute="leading" id="hVn-hy-qST"/>
@@ -165,10 +236,17 @@
                         <outlet property="menuConstraint" destination="PtL-3X-lYq" id="cIa-dD-xpL"/>
                         <outlet property="menuContainer" destination="5bp-GR-5xi" id="TRr-Ng-ye2"/>
                         <outlet property="outside" destination="Gws-LK-TCF" id="nMI-gk-Ake"/>
+                        <outlet property="quickMicContraint" destination="dAW-AL-lFL" id="VCZ-dp-DWy"/>
+                        <outlet property="quickMicView" destination="c4m-tA-GeG" id="imm-fs-QUC"/>
                         <outlet property="viewContainer" destination="Pfg-QK-Puy" id="lEv-uN-KTm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ikn-Ee-rne" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="PGY-h0-IMG" customClass="AudioDataSource" customModule="Spoken_ly" customModuleProvider="target">
+                    <connections>
+                        <outlet property="visualizerView" destination="kZY-wj-W5H" id="nQ2-qb-s9V"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-562.31884057971024" y="-455.35714285714283"/>
         </scene>
@@ -181,6 +259,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="goto_kitchen">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="goto_diningroom">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="Mzy-Nj-NBE" kind="relationship" relationship="viewControllers" id="1ZE-r8-tx3"/>
                         <segue destination="sAe-gj-YUx" kind="relationship" relationship="viewControllers" id="MIs-5v-Arq"/>
@@ -193,7 +279,7 @@
         <!--MY LESSONS-->
         <scene sceneID="mSY-g2-tsK">
             <objects>
-                <viewController id="zbu-23-4Br" sceneMemberID="viewController">
+                <viewController id="zbu-23-4Br" customClass="SegmentedContainerViewController" customModule="Spoken_ly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uB6-TR-pJT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -201,7 +287,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmq-Vm-Acu">
                                 <rect key="frame" x="0.0" y="28" width="414" height="492"/>
                                 <connections>
-                                    <segue destination="Drk-Ri-rnl" kind="embed" id="hD5-bx-ON6"/>
+                                    <segue destination="wPV-56-iMz" kind="embed" id="ZI6-Ib-8oK"/>
                                 </connections>
                             </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZpT-VL-cCZ">
@@ -212,6 +298,9 @@
                                     <segment title="Phrases"/>
                                 </segments>
                                 <color key="tintColor" name="BG Accent"/>
+                                <connections>
+                                    <action selector="changePage:" destination="zbu-23-4Br" eventType="valueChanged" id="CUa-ZO-PsM"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -241,7 +330,7 @@
                                 <color key="titleColor" name="BG Primary"/>
                             </state>
                             <connections>
-                                <action selector="swapRooms" destination="zbu-23-4Br" eventType="primaryActionTriggered" id="9l5-Zd-1W3"/>
+                                <action selector="gotoRoom:" destination="Ycm-Vp-hMs" eventType="primaryActionTriggered" id="8eG-Zt-N9b"/>
                             </connections>
                         </button>
                         <rightBarButtonItems>
@@ -253,40 +342,72 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="ZpT-VL-cCZ" id="jJC-J4-aqv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W0R-kj-LJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Ycm-Vp-hMs" customClass="ScreenReference" customModule="Spoken_ly" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="uri" value="diningroom"/>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-81.159420289855078" y="3538.7276785714284"/>
         </scene>
-        <!--Lessons View Controller-->
+        <!--Themes View Controller-->
         <scene sceneID="TAP-xt-mGV">
             <objects>
-                <tableViewController id="Drk-Ri-rnl" userLabel="Lessons View Controller" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tx6-Bb-cMt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="492"/>
+                <tableViewController id="Drk-Ri-rnl" userLabel="Themes View Controller" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tx6-Bb-cMt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="738"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="BG Accent"/>
+                        <color key="separatorColor" name="BG Accent"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HCu-Er-yq1">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="theme" id="i7r-zZ-PBF" customClass="ThemeCell" customModule="Spoken_ly" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HCu-Er-yq1" id="lWd-gq-g40">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i7r-zZ-PBF" id="haJ-Vy-OFB">
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4p-1n-i4h">
+                                            <rect key="frame" x="8" y="0.0" width="360" height="43.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="r4p-1n-i4h" secondAttribute="trailing" constant="8" id="EWo-Pi-7ut"/>
+                                        <constraint firstItem="r4p-1n-i4h" firstAttribute="top" secondItem="haJ-Vy-OFB" secondAttribute="top" id="OQD-r5-VhF"/>
+                                        <constraint firstItem="r4p-1n-i4h" firstAttribute="leading" secondItem="haJ-Vy-OFB" secondAttribute="leading" constant="8" id="YGb-o4-Wjg"/>
+                                        <constraint firstAttribute="bottom" secondItem="r4p-1n-i4h" secondAttribute="bottom" id="aYB-4n-i5a"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <color key="tintColor" name="BG Accent"/>
+                                <connections>
+                                    <outlet property="caption" destination="r4p-1n-i4h" id="Vcs-nI-NbQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="Drk-Ri-rnl" id="Bme-MM-9dE"/>
-                            <outlet property="delegate" destination="Drk-Ri-rnl" id="XYS-sU-HIK"/>
+                            <outlet property="dataSource" destination="cPw-4B-Tpy" id="lBx-Ga-zcJ"/>
+                            <outlet property="delegate" destination="ZT1-Ar-g6p" id="rm0-No-fNN"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="0i1-cp-StN"/>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Rb7-Zx-P2A"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sND-a9-cFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="cPw-4B-Tpy" customClass="ThemesDataSource" customModule="Spoken_ly" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="cellId" value="theme"/>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
+                <customObject id="ZT1-Ar-g6p" customClass="EggDelegate" customModule="Spoken_ly" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="-81" y="4254"/>
+            <point key="canvasLocation" x="-742" y="5294"/>
         </scene>
         <!--Lessons Navigation Controller-->
         <scene sceneID="2KT-Gg-1cR">
@@ -330,7 +451,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssL-kf-QQZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="p7a-f1-gHc"/>
+                    <tabBarItem key="tabBarItem" title="Kitchen" id="p7a-f1-gHc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axV-6r-5Kg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -356,25 +477,39 @@
                                 <color key="titleColor" name="BG Primary"/>
                             </state>
                             <connections>
-                                <action selector="swapRooms" destination="xaQ-Pb-RNK" eventType="primaryActionTriggered" id="2VW-Vd-cnJ"/>
+                                <action selector="gotoRoom:" destination="sbY-c3-ljP" eventType="primaryActionTriggered" id="cCR-HD-qTl"/>
                             </connections>
                         </button>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PRK-o6-Trc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="sbY-c3-ljP" customClass="ScreenReference" customModule="Spoken_ly" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="uri" value="kitchen"/>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="74" y="1968"/>
         </scene>
         <!--Kitchen Selector Controller-->
         <scene sceneID="99Z-fa-1bf">
             <objects>
-                <tabBarController id="mvL-Sc-DWL" userLabel="Kitchen Selector Controller" sceneMemberID="viewController">
+                <tabBarController id="mvL-Sc-DWL" userLabel="Kitchen Selector Controller" customClass="TabViewController" customModule="Spoken_ly" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="cRW-oU-w5O"/>
                     <tabBar key="tabBar" hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UTi-gJ-7gQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="goto_inbox">
+                            <integer key="value" value="0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="goto_lessons">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="flipTransition" value="NO"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="HE1-re-CRn" kind="relationship" relationship="viewControllers" id="KGO-KQ-dkU"/>
                         <segue destination="A9M-h7-W9D" kind="relationship" relationship="viewControllers" id="di5-Kw-GPz"/>
@@ -522,7 +657,7 @@
                                 <color key="titleColor" name="BG Primary"/>
                             </state>
                             <connections>
-                                <action selector="swapRooms" destination="foT-EP-ciO" eventType="primaryActionTriggered" id="eLt-or-C5P"/>
+                                <action selector="gotoRoom:" destination="KOz-GI-D3i" eventType="primaryActionTriggered" id="H1C-tD-51Z"/>
                             </connections>
                         </button>
                         <rightBarButtonItems>
@@ -536,6 +671,11 @@
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vQT-Ge-54P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="KOz-GI-D3i" customClass="ScreenReference" customModule="Spoken_ly" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="uri" value="diningroom"/>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="-1884.057971014493" y="3538.7276785714284"/>
         </scene>
@@ -576,11 +716,11 @@
             </objects>
             <point key="canvasLocation" x="-1575.3623188405797" y="260.49107142857144"/>
         </scene>
-        <!--Item-->
+        <!--Dining room-->
         <scene sceneID="3SD-xh-SyV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sAe-gj-YUx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="dwU-Sz-ZU8"/>
+                    <tabBarItem key="tabBarItem" title="Dining room" id="dwU-Sz-ZU8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="i9P-yr-4t9">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -593,18 +733,314 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtP-qw-OuS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="uoB-K4-yt7" customClass="ScreenReference" customModule="Spoken_ly" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="uri" value="diningroom"/>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="73.913043478260875" y="1044.6428571428571"/>
+        </scene>
+        <!--Lessons View Controller-->
+        <scene sceneID="lmc-ip-A8V">
+            <objects>
+                <tableViewController id="3E6-U7-O9L" userLabel="Lessons View Controller" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="elS-dz-snw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="738"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="BG Accent"/>
+                        <color key="separatorColor" name="BG Accent"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recipe" id="xor-Ph-if4" customClass="RecipeCell" customModule="Spoken_ly" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xor-Ph-if4" id="EJL-Zc-4lp">
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iD1-76-tIH">
+                                            <rect key="frame" x="8" y="0.0" width="360" height="43.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iD1-76-tIH" firstAttribute="leading" secondItem="EJL-Zc-4lp" secondAttribute="leading" constant="8" id="T88-uq-C5C"/>
+                                        <constraint firstItem="iD1-76-tIH" firstAttribute="top" secondItem="EJL-Zc-4lp" secondAttribute="top" id="ZaM-FC-V6b"/>
+                                        <constraint firstAttribute="trailing" secondItem="iD1-76-tIH" secondAttribute="trailing" constant="8" id="ahy-Zt-LjO"/>
+                                        <constraint firstAttribute="bottom" secondItem="iD1-76-tIH" secondAttribute="bottom" id="uYY-FB-8iS"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="tintColor" name="BG Accent"/>
+                                <connections>
+                                    <outlet property="caption" destination="iD1-76-tIH" id="T7n-9Y-6cr"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bWM-RO-Mop" id="EOH-7H-bGq"/>
+                            <outlet property="delegate" destination="3E6-U7-O9L" id="hl7-Zj-C9i"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W0N-KH-uhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="bWM-RO-Mop" customClass="RecipesDataSource" customModule="Spoken_ly" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="cellId" value="recipe"/>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="-81" y="5294"/>
+        </scene>
+        <!--Page Data Source-->
+        <scene sceneID="Pvg-EY-bkY">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="none" id="wPV-56-iMz" customClass="PageDataSource" customModule="Spoken_ly" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwy-aO-W0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-78" y="4110"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="L78-cy-XnE">
+            <objects>
+                <viewController storyboardIdentifier="themes_list" id="Id1-tn-nOA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L2W-dT-sHh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eip-1f-bEd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="738"/>
+                                <connections>
+                                    <segue destination="Drk-Ri-rnl" kind="embed" id="QrA-MA-sF6"/>
+                                </connections>
+                            </containerView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByY-CX-UZ4">
+                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="NhM-j6-BfD"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" image="section_composer_unselected" id="hi1-I3-skY"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YMu-JV-oCf"/>
+                                    <barButtonItem title="Item" image="list_add" id="d4d-rn-UkD"/>
+                                </items>
+                                <color key="tintColor" name="BG Primary"/>
+                                <color key="barTintColor" name="FG Secondary"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ByY-CX-UZ4" firstAttribute="bottom" secondItem="6gb-q8-Kzi" secondAttribute="bottom" id="AF0-8i-PUq"/>
+                            <constraint firstItem="6gb-q8-Kzi" firstAttribute="trailing" secondItem="eip-1f-bEd" secondAttribute="trailing" id="M0y-Ac-gnu"/>
+                            <constraint firstItem="ByY-CX-UZ4" firstAttribute="trailing" secondItem="6gb-q8-Kzi" secondAttribute="trailing" id="N8z-ZG-yYb"/>
+                            <constraint firstItem="ByY-CX-UZ4" firstAttribute="top" secondItem="eip-1f-bEd" secondAttribute="bottom" id="V1w-dE-Vkb"/>
+                            <constraint firstItem="eip-1f-bEd" firstAttribute="leading" secondItem="6gb-q8-Kzi" secondAttribute="leading" id="hcc-hM-tvg"/>
+                            <constraint firstItem="ByY-CX-UZ4" firstAttribute="leading" secondItem="6gb-q8-Kzi" secondAttribute="leading" id="qyw-Qh-ZdP"/>
+                            <constraint firstItem="eip-1f-bEd" firstAttribute="top" secondItem="6gb-q8-Kzi" secondAttribute="top" id="z57-8M-Qj3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6gb-q8-Kzi"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ekp-P6-UwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-742" y="4646"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PII-SM-P77">
+            <objects>
+                <viewController storyboardIdentifier="lessons_list" id="mPh-Cw-Qt7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OqZ-bP-sy2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lzi-7W-Llr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="738"/>
+                                <connections>
+                                    <segue destination="3E6-U7-O9L" kind="embed" id="nnX-GX-BWS"/>
+                                </connections>
+                            </containerView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLz-q1-K6j">
+                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="hIP-R2-azu"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" image="section_composer_unselected" id="1CS-gU-DP1"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wsv-iW-mXB"/>
+                                    <barButtonItem title="Item" image="list_add" id="Oa8-r3-7eA"/>
+                                </items>
+                                <color key="tintColor" name="BG Primary"/>
+                                <color key="barTintColor" name="FG Secondary"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kLz-q1-K6j" firstAttribute="bottom" secondItem="qq6-H8-tBX" secondAttribute="bottom" id="98g-Yj-Yle"/>
+                            <constraint firstItem="kLz-q1-K6j" firstAttribute="trailing" secondItem="qq6-H8-tBX" secondAttribute="trailing" id="ANh-98-344"/>
+                            <constraint firstItem="qq6-H8-tBX" firstAttribute="trailing" secondItem="Lzi-7W-Llr" secondAttribute="trailing" id="GM4-EH-vav"/>
+                            <constraint firstItem="Lzi-7W-Llr" firstAttribute="leading" secondItem="qq6-H8-tBX" secondAttribute="leading" id="IB5-kr-sVM"/>
+                            <constraint firstItem="kLz-q1-K6j" firstAttribute="leading" secondItem="qq6-H8-tBX" secondAttribute="leading" id="Uf0-5M-KOL"/>
+                            <constraint firstItem="kLz-q1-K6j" firstAttribute="top" secondItem="Lzi-7W-Llr" secondAttribute="bottom" id="fsR-5O-Cz7"/>
+                            <constraint firstItem="Lzi-7W-Llr" firstAttribute="top" secondItem="qq6-H8-tBX" secondAttribute="top" id="xOG-RK-xdH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qq6-H8-tBX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wIr-3B-a8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-72" y="4642"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wVy-hm-AiT">
+            <objects>
+                <viewController storyboardIdentifier="phrases_list" id="7v6-xy-E79" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VD2-St-nf7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1LS-We-tHZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="738"/>
+                                <connections>
+                                    <segue destination="LdC-VY-EF0" kind="embed" id="Ulr-aK-IUf"/>
+                                </connections>
+                            </containerView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2z-PX-qfT">
+                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="kLX-5o-jYR"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" image="section_composer_unselected" id="AHW-jn-jiR"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qZ9-QK-a6T"/>
+                                    <barButtonItem title="Item" image="list_add" id="fCi-p0-GzS"/>
+                                </items>
+                                <color key="tintColor" name="BG Primary"/>
+                                <color key="barTintColor" name="FG Secondary"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1LS-We-tHZ" firstAttribute="leading" secondItem="jbx-GO-ZCa" secondAttribute="leading" id="7MC-F2-JBp"/>
+                            <constraint firstItem="w2z-PX-qfT" firstAttribute="bottom" secondItem="jbx-GO-ZCa" secondAttribute="bottom" id="Dx0-3K-IMm"/>
+                            <constraint firstItem="w2z-PX-qfT" firstAttribute="top" secondItem="1LS-We-tHZ" secondAttribute="bottom" id="LuT-QD-ccK"/>
+                            <constraint firstItem="w2z-PX-qfT" firstAttribute="leading" secondItem="jbx-GO-ZCa" secondAttribute="leading" id="Olw-Fp-2Pa"/>
+                            <constraint firstItem="1LS-We-tHZ" firstAttribute="top" secondItem="jbx-GO-ZCa" secondAttribute="top" id="SqB-xZ-hxZ"/>
+                            <constraint firstItem="w2z-PX-qfT" firstAttribute="trailing" secondItem="jbx-GO-ZCa" secondAttribute="trailing" id="tjs-Z7-hed"/>
+                            <constraint firstItem="jbx-GO-ZCa" firstAttribute="trailing" secondItem="1LS-We-tHZ" secondAttribute="trailing" id="zHy-7v-0QF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jbx-GO-ZCa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7PZ-bT-H36" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="583" y="4641"/>
+        </scene>
+        <!--Phrases View Controller-->
+        <scene sceneID="0Tn-Vg-SXL">
+            <objects>
+                <tableViewController id="LdC-VY-EF0" userLabel="Phrases View Controller" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="o1U-t7-pXr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="738"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="BG Accent"/>
+                        <color key="separatorColor" name="BG Accent"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="doughball" id="7eN-Qv-mhQ" customClass="DoughballCell" customModule="Spoken_ly" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7eN-Qv-mhQ" id="BfU-fG-7eV">
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuT-Uu-X6C">
+                                            <rect key="frame" x="8" y="0.0" width="360" height="43.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="NuT-Uu-X6C" firstAttribute="top" secondItem="BfU-fG-7eV" secondAttribute="top" id="4Bc-xE-pcu"/>
+                                        <constraint firstAttribute="trailing" secondItem="NuT-Uu-X6C" secondAttribute="trailing" constant="8" id="5xF-2u-WIG"/>
+                                        <constraint firstItem="NuT-Uu-X6C" firstAttribute="leading" secondItem="BfU-fG-7eV" secondAttribute="leading" constant="8" id="w8C-Ed-9qR"/>
+                                        <constraint firstAttribute="bottom" secondItem="NuT-Uu-X6C" secondAttribute="bottom" id="zM7-uB-mjS"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="tintColor" name="BG Accent"/>
+                                <connections>
+                                    <outlet property="caption" destination="NuT-Uu-X6C" id="35y-WO-O3G"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="41H-yz-5LO" id="r0c-Zy-3Cl"/>
+                            <outlet property="delegate" destination="LdC-VY-EF0" id="2iy-7g-M1F"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aZE-Io-PYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="41H-yz-5LO" customClass="DoughballsDataSource" customModule="Spoken_ly" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="cellId" value="doughball"/>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="580" y="5294"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="uNC-PL-l1e">
+            <objects>
+                <viewController id="CgP-ig-bbH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2J9-21-5Hw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Ey-lO-C88" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5Mf-HH-yaX">
+            <objects>
+                <viewController id="XlE-2s-Skq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fhh-aJ-QKf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ccd-wS-Nlh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jTX-xf-JOd">
+            <objects>
+                <viewController id="mch-Wy-jOS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vtE-Md-tMN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qsh-zP-ZcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
         <image name="chevron_left_small" width="25" height="25"/>
+        <image name="chevron_right" width="60.5" height="60.5"/>
         <image name="language_toggle_small" width="25" height="25"/>
         <image name="list_add" width="60.5" height="60.5"/>
         <image name="menu_small" width="25" height="25"/>
+        <image name="mic_active" width="130.5" height="130.5"/>
         <image name="mic_normal" width="130.5" height="130.5"/>
         <image name="profile_new" width="60.5" height="60.5"/>
         <image name="reorder_small" width="25" height="25"/>
+        <image name="section_composer_unselected" width="60.5" height="60.5"/>
         <namedColor name="BG Accent">
             <color red="0.96100002527236938" green="0.54500001668930054" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
