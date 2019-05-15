@@ -25,10 +25,6 @@ class TabViewController : UITabBarController, UITabBarControllerDelegate {
 
 		let notificationCenter = NotificationCenter.default
 
-		notificationCenter.addObserver(forName: .swapRoom, object: nil, queue: OperationQueue.main) { (Notification) in
-			self.swapRoom()
-		}
-
 		notificationCenter.addObserver(forName: .gotoView, object: nil, queue: OperationQueue.main) { (_ notification : Notification) in
 			guard let idx = self.views[notification.userInfo!["target"] as! String] else {
 				return
@@ -52,12 +48,5 @@ class TabViewController : UITabBarController, UITabBarControllerDelegate {
 				self.selectedIndex = index
 			}
 		}
-	}
-
-
-	@IBAction func swapRoom() {
-
-		let controllerIndex = (selectedIndex + 1) % (self.viewControllers?.count ?? 1)
-		transit(to: controllerIndex)
 	}
 }

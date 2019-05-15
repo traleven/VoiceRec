@@ -35,3 +35,21 @@ extension UIView {
 		return nil
 	}
 }
+
+extension UIViewController : UITextFieldDelegate {
+
+	public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return true
+	}
+}
+
+extension UIViewController : UITextViewDelegate {
+
+	public func textViewDidChange(_ textView: UITextView) {
+		
+		let fixedWidth = textView.frame.size.width
+		let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+		textView.frame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+	}
+}

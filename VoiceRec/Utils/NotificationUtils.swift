@@ -16,7 +16,6 @@ extension Notification.Name {
 
 	static let openMenu = Notification.Name("noodles_open_menu")
 	static let closeMenu = Notification.Name("noodles_close_menu")
-	static let swapRoom = Notification.Name("noodles_swap_room")
 
 	static let gotoView = Notification.Name("goto")
 	static let pageUpdate = Notification.Name("noodles_page_update")
@@ -35,11 +34,6 @@ extension UIViewController {
 		NotificationCenter.default.post(name: .closeMenu, object: self)
 	}
 
-	@IBAction func swapRooms() {
-
-		NotificationCenter.default.post(name: .swapRoom, object: self)
-	}
-
 	@IBAction func postValueChanged(_ sender : UISegmentedControl) {
 
 		NotificationCenter.default.post(name: .pageUpdate, object: sender)
@@ -53,6 +47,9 @@ class ScreenReference : NSObject {
 
 	@IBAction func gotoRoom(_ sender : UIControl) {
 
-		NotificationCenter.default.post(name: .gotoView, object: self, userInfo: ["target" : "goto_\(uri ?? "")"])
+		let path = uri.split(separator: "/")
+		for component in path {
+			NotificationCenter.default.post(name: .gotoView, object: self, userInfo: ["target" : "goto_\(component)"])
+		}
 	}
 }

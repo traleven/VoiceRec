@@ -26,7 +26,7 @@ class AudioVisualizerView: UIView {
 	// Color for bars
 	var color = UIColor.gray.cgColor
 	// Given waveforms
-	var waveforms: [Int] = Array(repeating: -10, count: 10)
+	var waveforms: [Int] = Array(repeating: 0, count: 20)
 
 	private var idx : Int = 0
 
@@ -47,7 +47,7 @@ class AudioVisualizerView: UIView {
 	}
 
 	func clearWaveform() {
-		waveforms = Array(repeating: -10, count: waveforms.count)
+		waveforms = Array(repeating: 0, count: waveforms.count)
 	}
 
 	// MARK: - Draw bars
@@ -118,7 +118,7 @@ class AudioDataSource: NSObject {
 	@IBAction func startVisualizing() {
 
 		self.visualizerView.clearWaveform()
-		timer = Timer(timeInterval: 0.05, repeats: true, block: { (Timer) in
+		timer = Timer(timeInterval: 0.025, repeats: true, block: { (Timer) in
 			self.visualizerView.push(value: Int.random(in: -10...10))
 			self.visualizerView.setNeedsDisplay()
 		})
