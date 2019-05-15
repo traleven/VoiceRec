@@ -51,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationDidBecomeActive(_ application: UIApplication) {
 		// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 
+		#if ENABLE_SHARE
 		let sharedUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.diplomat.VoiceRec.inbox")!
 
 		let files = try! FileManager.default.contentsOfDirectory(at: sharedUrl, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
@@ -69,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		if didImport {
 			NotificationCenter.default.post(name: .refreshMusic, object: self)
 		}
+		#endif
 	}
 
 	func applicationWillTerminate(_ application: UIApplication) {
