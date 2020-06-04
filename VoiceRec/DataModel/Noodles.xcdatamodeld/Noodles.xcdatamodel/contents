@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Broth" representedClassName="Broth" syncable="YES" codeGenerationType="category">
+        <attribute name="audioFile" optional="YES" attributeType="URI" syncable="YES"/>
+        <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Recipe" inverseName="broth" inverseEntity="Recipe" syncable="YES"/>
+    </entity>
+    <entity name="Doughball" representedClassName="Doughball" syncable="YES" codeGenerationType="category">
+        <attribute name="containerDirectory" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="foreignText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nativeText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="salt" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="noodles" inverseEntity="Recipe" syncable="YES"/>
+    </entity>
+    <entity name="Egg" representedClassName="Egg" syncable="YES" codeGenerationType="category">
+        <attribute name="audioFile" optional="YES" attributeType="URI" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="broth" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Broth" inverseName="recipes" inverseEntity="Broth" syncable="YES"/>
+        <relationship name="noodles" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Doughball" inverseName="recipes" inverseEntity="Doughball" syncable="YES"/>
+        <relationship name="spices" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Spices" inverseName="recipe" inverseEntity="Spices" syncable="YES"/>
+    </entity>
+    <entity name="Spices" representedClassName="Spices" syncable="YES" codeGenerationType="category">
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="spices" inverseEntity="Recipe" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Egg" positionX="-79.83203125" positionY="108.1171875" width="128" height="73"/>
+        <element name="Doughball" positionX="-119.00390625" positionY="-149.66015625" width="128" height="118"/>
+        <element name="Broth" positionX="259.37890625" positionY="65.1328125" width="128" height="73"/>
+        <element name="Recipe" positionX="153.1484375" positionY="-177.72265625" width="128" height="103"/>
+        <element name="Spices" positionX="62.94140625" positionY="315.078125" width="128" height="58"/>
+    </elements>
+</model>
