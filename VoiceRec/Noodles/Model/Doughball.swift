@@ -14,7 +14,7 @@ class Doughball : PersistentObject {
 
 	var audioFiles : Dictionary<String, URL> = [:]
 	var texts : Dictionary<String, String> = [:]
-	var salt : String = ""
+	//var salt : String = ""
 
 
 	class func fetch() -> [Doughball] {

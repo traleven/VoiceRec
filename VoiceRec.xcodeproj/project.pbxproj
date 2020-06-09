@@ -7,23 +7,144 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1CC802248A6B1000B6E842 /* NotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7E2248A6B0F00B6E842 /* NotificationUtils.swift */; };
+		DB1CC803248A6B1000B6E842 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7E3248A6B0F00B6E842 /* FileUtils.swift */; };
+		DB1CC804248A6B1000B6E842 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7E4248A6B0F00B6E842 /* DataUtils.swift */; };
+		DB1CC807248A6B1000B6E842 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7EA248A6B1000B6E842 /* AudioPlayer.swift */; };
+		DB1CC809248A6B1000B6E842 /* ExportComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7ED248A6B1000B6E842 /* ExportComposer.swift */; };
+		DB1CC80A248A6B1000B6E842 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7EE248A6B1000B6E842 /* AudioRecorder.swift */; };
+		DB1CC80B248A6B1000B6E842 /* VoiceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7EF248A6B1000B6E842 /* VoiceSequence.swift */; };
+		DB1CC80C248A6B1000B6E842 /* PersistentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7F1248A6B1000B6E842 /* PersistentObject.swift */; };
+		DB1CC80D248A6B1000B6E842 /* WeakLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7F2248A6B1000B6E842 /* WeakLink.swift */; };
+		DB1CC80E248A6B1000B6E842 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7F3248A6B1000B6E842 /* DB.swift */; };
+		DB1CC80F248A6B1000B6E842 /* DictionaryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7F4248A6B1000B6E842 /* DictionaryDB.swift */; };
+		DB1CC810248A6B1000B6E842 /* ArrayDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7F5248A6B1000B6E842 /* ArrayDB.swift */; };
+		DB1CC82B248A6E2F00B6E842 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7D7248A6B0F00B6E842 /* Recipe.swift */; };
+		DB1CC82C248A6E2F00B6E842 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7D8248A6B0F00B6E842 /* Language.swift */; };
+		DB1CC82D248A6E2F00B6E842 /* Egg.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7D9248A6B0F00B6E842 /* Egg.swift */; };
+		DB1CC82E248A6E2F00B6E842 /* Doughball.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DA248A6B0F00B6E842 /* Doughball.swift */; };
+		DB1CC82F248A6E2F00B6E842 /* Broth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DB248A6B0F00B6E842 /* Broth.swift */; };
+		DB1CC830248A6E2F00B6E842 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DC248A6B0F00B6E842 /* Shape.swift */; };
+		DB1CC831248A6E2F00B6E842 /* Spices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DD248A6B0F00B6E842 /* Spices.swift */; };
+		DB1CC832248A6E2F00B6E842 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DE248A6B0F00B6E842 /* Theme.swift */; };
+		DB1CC833248A6E2F00B6E842 /* Bowl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DF248A6B0F00B6E842 /* Bowl.swift */; };
+		DB1CC834248A6E2F00B6E842 /* Noodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7E0248A6B0F00B6E842 /* Noodle.swift */; };
+		DB1CC836248A71A400B6E842 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC835248A71A400B6E842 /* Environment.swift */; };
 		DB31478524891CE30093F346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31478424891CE30093F346 /* AppDelegate.swift */; };
 		DB31478724891CE30093F346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31478624891CE30093F346 /* SceneDelegate.swift */; };
-		DB31478924891CE30093F346 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31478824891CE30093F346 /* ContentView.swift */; };
+		DB31478924891CE30093F346 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31478824891CE30093F346 /* RootView.swift */; };
 		DB31478B24891CE50093F346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB31478A24891CE50093F346 /* Assets.xcassets */; };
 		DB31478E24891CE50093F346 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB31478D24891CE50093F346 /* Preview Assets.xcassets */; };
 		DB31479124891CE50093F346 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB31478F24891CE50093F346 /* LaunchScreen.storyboard */; };
+		DB43AC8F248A7A08008D3C5E /* libogg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1CC852248A744F00B6E842 /* libogg.a */; };
+		DB43AC93248A7C11008D3C5E /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43AC92248A7C11008D3C5E /* InboxView.swift */; };
+		DB43AC95248A7C1E008D3C5E /* PhraseEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43AC94248A7C1E008D3C5E /* PhraseEditView.swift */; };
+		DB43AC97248A7C3B008D3C5E /* LessonManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43AC96248A7C3B008D3C5E /* LessonManagerView.swift */; };
+		DB43AC99248A7C53008D3C5E /* LessonEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43AC98248A7C53008D3C5E /* LessonEditView.swift */; };
+		DB43AC9B248A7CBA008D3C5E /* KitchenRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43AC9A248A7CBA008D3C5E /* KitchenRootView.swift */; };
+		DB43AC9E248A7D76008D3C5E /* DiningRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43AC9D248A7D76008D3C5E /* DiningRootView.swift */; };
+		DB43ACA1248A7DD0008D3C5E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA0248A7DD0008D3C5E /* ProfileView.swift */; };
+		DB43ACA3248A8AC6008D3C5E /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA2248A8AC6008D3C5E /* PageView.swift */; };
+		DB43ACA6248A8C57008D3C5E /* KitchenPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA5248A8C57008D3C5E /* KitchenPageHeader.swift */; };
+		DB43ACA8248E6055008D3C5E /* InboxEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA7248E6055008D3C5E /* InboxEntry.swift */; };
+		DB43ACAA248E6BB4008D3C5E /* InboxRecorderPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */; };
+		DB43ACAC248E6D3F008D3C5E /* AudioRecorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DB1CC84F248A744F00B6E842 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB1CC84A248A744F00B6E842 /* Ogg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D07F2C80486CC7A007CD1D0;
+			remoteInfo = Ogg;
+		};
+		DB1CC851248A744F00B6E842 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB1CC84A248A744F00B6E842 /* Ogg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 734FB2E50B18B33E00D561D7;
+			remoteInfo = "libogg (static)";
+		};
+		DB43AC90248A7A11008D3C5E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB1CC84A248A744F00B6E842 /* Ogg.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 734FB2E40B18B33E00D561D7;
+			remoteInfo = "libogg (static)";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		DB31478124891CE30093F346 /* VoiceRec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRec.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB1CC7D7248A6B0F00B6E842 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		DB1CC7D8248A6B0F00B6E842 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		DB1CC7D9248A6B0F00B6E842 /* Egg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Egg.swift; sourceTree = "<group>"; };
+		DB1CC7DA248A6B0F00B6E842 /* Doughball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doughball.swift; sourceTree = "<group>"; };
+		DB1CC7DB248A6B0F00B6E842 /* Broth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broth.swift; sourceTree = "<group>"; };
+		DB1CC7DC248A6B0F00B6E842 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		DB1CC7DD248A6B0F00B6E842 /* Spices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spices.swift; sourceTree = "<group>"; };
+		DB1CC7DE248A6B0F00B6E842 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		DB1CC7DF248A6B0F00B6E842 /* Bowl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bowl.swift; sourceTree = "<group>"; };
+		DB1CC7E0248A6B0F00B6E842 /* Noodle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Noodle.swift; sourceTree = "<group>"; };
+		DB1CC7E2248A6B0F00B6E842 /* NotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationUtils.swift; sourceTree = "<group>"; };
+		DB1CC7E3248A6B0F00B6E842 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
+		DB1CC7E4248A6B0F00B6E842 /* DataUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
+		DB1CC7E7248A6B1000B6E842 /* Noodles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Noodles.xcdatamodel; sourceTree = "<group>"; };
+		DB1CC7E9248A6B1000B6E842 /* OpusTranscoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusTranscoder.swift; sourceTree = "<group>"; };
+		DB1CC7EA248A6B1000B6E842 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		DB1CC7EB248A6B1000B6E842 /* OpusTranscoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpusTranscoder.m; sourceTree = "<group>"; };
+		DB1CC7EC248A6B1000B6E842 /* OpusTranscoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpusTranscoder.h; sourceTree = "<group>"; };
+		DB1CC7ED248A6B1000B6E842 /* ExportComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportComposer.swift; sourceTree = "<group>"; };
+		DB1CC7EE248A6B1000B6E842 /* AudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		DB1CC7EF248A6B1000B6E842 /* VoiceSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceSequence.swift; sourceTree = "<group>"; };
+		DB1CC7F1248A6B1000B6E842 /* PersistentObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentObject.swift; sourceTree = "<group>"; };
+		DB1CC7F2248A6B1000B6E842 /* WeakLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakLink.swift; sourceTree = "<group>"; };
+		DB1CC7F3248A6B1000B6E842 /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		DB1CC7F4248A6B1000B6E842 /* DictionaryDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryDB.swift; sourceTree = "<group>"; };
+		DB1CC7F5248A6B1000B6E842 /* ArrayDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDB.swift; sourceTree = "<group>"; };
+		DB1CC7F6248A6B1000B6E842 /* VoiceRec.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = VoiceRec.entitlements; sourceTree = "<group>"; };
+		DB1CC7F7248A6B1000B6E842 /* VoiceRec-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VoiceRec-Bridging-Header.h"; sourceTree = "<group>"; };
+		DB1CC813248A6C8A00B6E842 /* Import to Spoken.ly.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Import to Spoken.ly.entitlements"; sourceTree = "<group>"; };
+		DB1CC815248A6C8A00B6E842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DB1CC816248A6C8A00B6E842 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		DB1CC817248A6C8A00B6E842 /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
+		DB1CC818248A6C8A00B6E842 /* ShareItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareItemCell.swift; sourceTree = "<group>"; };
+		DB1CC819248A6C8A00B6E842 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB1CC81B248A6C8A00B6E842 /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		DB1CC81C248A6C8A00B6E842 /* OneClickRecorder.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = OneClickRecorder.entitlements; sourceTree = "<group>"; };
+		DB1CC81E248A6C8A00B6E842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DB1CC81F248A6C8A00B6E842 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB1CC829248A6D6000B6E842 /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopus.a; path = opus/libOpus/libopus.a; sourceTree = "<group>"; };
+		DB1CC835248A71A400B6E842 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		DB1CC83A248A740400B6E842 /* winerrno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winerrno.h; path = "opus/opusfile-0.11/src/winerrno.h"; sourceTree = "<group>"; };
+		DB1CC83B248A740400B6E842 /* http.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = http.c; path = "opus/opusfile-0.11/src/http.c"; sourceTree = "<group>"; };
+		DB1CC83C248A740400B6E842 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = internal.h; path = "opus/opusfile-0.11/src/internal.h"; sourceTree = "<group>"; };
+		DB1CC83D248A740400B6E842 /* info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = info.c; path = "opus/opusfile-0.11/src/info.c"; sourceTree = "<group>"; };
+		DB1CC83E248A740400B6E842 /* stream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stream.c; path = "opus/opusfile-0.11/src/stream.c"; sourceTree = "<group>"; };
+		DB1CC83F248A740400B6E842 /* opusfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = opusfile.c; path = "opus/opusfile-0.11/src/opusfile.c"; sourceTree = "<group>"; };
+		DB1CC840248A740400B6E842 /* wincerts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = wincerts.c; path = "opus/opusfile-0.11/src/wincerts.c"; sourceTree = "<group>"; };
+		DB1CC841248A740400B6E842 /* internal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = internal.c; path = "opus/opusfile-0.11/src/internal.c"; sourceTree = "<group>"; };
+		DB1CC84A248A744F00B6E842 /* Ogg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Ogg.xcodeproj; path = "opus/libogg-1.3.3/macosx/Ogg.xcodeproj"; sourceTree = "<group>"; };
+		DB31478124891CE30093F346 /* Spoken.ly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spoken.ly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB31478424891CE30093F346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB31478624891CE30093F346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB31478824891CE30093F346 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DB31478824891CE30093F346 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		DB31478A24891CE50093F346 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB31478D24891CE50093F346 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DB31479024891CE50093F346 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB31479224891CE50093F346 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB43AC92248A7C11008D3C5E /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
+		DB43AC94248A7C1E008D3C5E /* PhraseEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEditView.swift; sourceTree = "<group>"; };
+		DB43AC96248A7C3B008D3C5E /* LessonManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonManagerView.swift; sourceTree = "<group>"; };
+		DB43AC98248A7C53008D3C5E /* LessonEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonEditView.swift; sourceTree = "<group>"; };
+		DB43AC9A248A7CBA008D3C5E /* KitchenRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenRootView.swift; sourceTree = "<group>"; };
+		DB43AC9D248A7D76008D3C5E /* DiningRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningRootView.swift; sourceTree = "<group>"; };
+		DB43ACA0248A7DD0008D3C5E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DB43ACA2248A8AC6008D3C5E /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		DB43ACA5248A8C57008D3C5E /* KitchenPageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenPageHeader.swift; sourceTree = "<group>"; };
+		DB43ACA7248E6055008D3C5E /* InboxEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxEntry.swift; sourceTree = "<group>"; };
+		DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxRecorderPanel.swift; sourceTree = "<group>"; };
+		DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,24 +152,184 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB43AC8F248A7A08008D3C5E /* libogg.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB1CC7D5248A6B0F00B6E842 /* Noodles */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC7D6248A6B0F00B6E842 /* Model */,
+			);
+			path = Noodles;
+			sourceTree = "<group>";
+		};
+		DB1CC7D6248A6B0F00B6E842 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC7D7248A6B0F00B6E842 /* Recipe.swift */,
+				DB1CC7D8248A6B0F00B6E842 /* Language.swift */,
+				DB1CC7D9248A6B0F00B6E842 /* Egg.swift */,
+				DB1CC7DA248A6B0F00B6E842 /* Doughball.swift */,
+				DB1CC7DB248A6B0F00B6E842 /* Broth.swift */,
+				DB1CC7DC248A6B0F00B6E842 /* Shape.swift */,
+				DB1CC7DD248A6B0F00B6E842 /* Spices.swift */,
+				DB1CC7DE248A6B0F00B6E842 /* Theme.swift */,
+				DB1CC7DF248A6B0F00B6E842 /* Bowl.swift */,
+				DB1CC7E0248A6B0F00B6E842 /* Noodle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB1CC7E1248A6B0F00B6E842 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC7E2248A6B0F00B6E842 /* NotificationUtils.swift */,
+				DB1CC7E3248A6B0F00B6E842 /* FileUtils.swift */,
+				DB1CC7E4248A6B0F00B6E842 /* DataUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		DB1CC7E5248A6B0F00B6E842 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC7E6248A6B0F00B6E842 /* Noodles.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		DB1CC7E8248A6B1000B6E842 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC7EA248A6B1000B6E842 /* AudioPlayer.swift */,
+				DB1CC7E9248A6B1000B6E842 /* OpusTranscoder.swift */,
+				DB1CC7EB248A6B1000B6E842 /* OpusTranscoder.m */,
+				DB1CC7EC248A6B1000B6E842 /* OpusTranscoder.h */,
+				DB1CC7ED248A6B1000B6E842 /* ExportComposer.swift */,
+				DB1CC7EE248A6B1000B6E842 /* AudioRecorder.swift */,
+				DB1CC7EF248A6B1000B6E842 /* VoiceSequence.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		DB1CC7F0248A6B1000B6E842 /* Persistency */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC7F1248A6B1000B6E842 /* PersistentObject.swift */,
+				DB1CC7F2248A6B1000B6E842 /* WeakLink.swift */,
+				DB1CC7F3248A6B1000B6E842 /* DB.swift */,
+				DB1CC7F4248A6B1000B6E842 /* DictionaryDB.swift */,
+				DB1CC7F5248A6B1000B6E842 /* ArrayDB.swift */,
+			);
+			path = Persistency;
+			sourceTree = "<group>";
+		};
+		DB1CC811248A6B5400B6E842 /* KitchenArea */ = {
+			isa = PBXGroup;
+			children = (
+				DB43ACA4248A8C29008D3C5E /* Elements */,
+				DB43AC9A248A7CBA008D3C5E /* KitchenRootView.swift */,
+				DB43AC92248A7C11008D3C5E /* InboxView.swift */,
+				DB43AC94248A7C1E008D3C5E /* PhraseEditView.swift */,
+				DB43AC96248A7C3B008D3C5E /* LessonManagerView.swift */,
+				DB43AC98248A7C53008D3C5E /* LessonEditView.swift */,
+			);
+			path = KitchenArea;
+			sourceTree = "<group>";
+		};
+		DB1CC812248A6C8A00B6E842 /* Import to Spoken.ly */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC813248A6C8A00B6E842 /* Import to Spoken.ly.entitlements */,
+				DB1CC814248A6C8A00B6E842 /* MainInterface.storyboard */,
+				DB1CC816248A6C8A00B6E842 /* ShareViewController.swift */,
+				DB1CC817248A6C8A00B6E842 /* ShareTableViewController.swift */,
+				DB1CC818248A6C8A00B6E842 /* ShareItemCell.swift */,
+				DB1CC819248A6C8A00B6E842 /* Info.plist */,
+			);
+			path = "Import to Spoken.ly";
+			sourceTree = "<group>";
+		};
+		DB1CC81A248A6C8A00B6E842 /* OneClickRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC81B248A6C8A00B6E842 /* TodayViewController.swift */,
+				DB1CC81C248A6C8A00B6E842 /* OneClickRecorder.entitlements */,
+				DB1CC81D248A6C8A00B6E842 /* MainInterface.storyboard */,
+				DB1CC81F248A6C8A00B6E842 /* Info.plist */,
+			);
+			path = OneClickRecorder;
+			sourceTree = "<group>";
+		};
+		DB1CC828248A6D4300B6E842 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC839248A73DA00B6E842 /* opus */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		DB1CC839248A73DA00B6E842 /* opus */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC84A248A744F00B6E842 /* Ogg.xcodeproj */,
+				DB1CC848248A741B00B6E842 /* opusFile */,
+				DB1CC829248A6D6000B6E842 /* libopus.a */,
+			);
+			name = opus;
+			sourceTree = "<group>";
+		};
+		DB1CC848248A741B00B6E842 /* opusFile */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC83B248A740400B6E842 /* http.c */,
+				DB1CC83D248A740400B6E842 /* info.c */,
+				DB1CC841248A740400B6E842 /* internal.c */,
+				DB1CC83C248A740400B6E842 /* internal.h */,
+				DB1CC83F248A740400B6E842 /* opusfile.c */,
+				DB1CC83E248A740400B6E842 /* stream.c */,
+				DB1CC840248A740400B6E842 /* wincerts.c */,
+				DB1CC83A248A740400B6E842 /* winerrno.h */,
+			);
+			name = opusFile;
+			sourceTree = "<group>";
+		};
+		DB1CC84B248A744F00B6E842 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC850248A744F00B6E842 /* Ogg.framework */,
+				DB1CC852248A744F00B6E842 /* libogg.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB1CC890248A758F00B6E842 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DB31477824891CE30093F346 = {
 			isa = PBXGroup;
 			children = (
+				DB1CC812248A6C8A00B6E842 /* Import to Spoken.ly */,
+				DB1CC81A248A6C8A00B6E842 /* OneClickRecorder */,
 				DB31478324891CE30093F346 /* VoiceRec */,
+				DB1CC828248A6D4300B6E842 /* Libraries */,
 				DB31478224891CE30093F346 /* Products */,
+				DB1CC890248A758F00B6E842 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		DB31478224891CE30093F346 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB31478124891CE30093F346 /* VoiceRec.app */,
+				DB31478124891CE30093F346 /* Spoken.ly.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,12 +337,18 @@
 		DB31478324891CE30093F346 /* VoiceRec */ = {
 			isa = PBXGroup;
 			children = (
+				DB1CC7E8248A6B1000B6E842 /* Audio */,
+				DB1CC7E5248A6B0F00B6E842 /* DataModel */,
+				DB1CC7D5248A6B0F00B6E842 /* Noodles */,
+				DB1CC7F0248A6B1000B6E842 /* Persistency */,
+				DB1CC7E1248A6B0F00B6E842 /* Utils */,
+				DB1CC7F7248A6B1000B6E842 /* VoiceRec-Bridging-Header.h */,
 				DB31478424891CE30093F346 /* AppDelegate.swift */,
 				DB31478624891CE30093F346 /* SceneDelegate.swift */,
 				DB31479824891DE60093F346 /* Views */,
-				DB31478824891CE30093F346 /* ContentView.swift */,
 				DB31478A24891CE50093F346 /* Assets.xcassets */,
 				DB31478F24891CE50093F346 /* LaunchScreen.storyboard */,
+				DB1CC7F6248A6B1000B6E842 /* VoiceRec.entitlements */,
 				DB31479224891CE50093F346 /* Info.plist */,
 				DB31478C24891CE50093F346 /* Preview Content */,
 			);
@@ -79,8 +366,41 @@
 		DB31479824891DE60093F346 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB1CC811248A6B5400B6E842 /* KitchenArea */,
+				DB43AC9C248A7D59008D3C5E /* DiningArea */,
+				DB43AC9F248A7DBC008D3C5E /* ServiceArea */,
+				DB31478824891CE30093F346 /* RootView.swift */,
+				DB43ACA2248A8AC6008D3C5E /* PageView.swift */,
+				DB1CC835248A71A400B6E842 /* Environment.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DB43AC9C248A7D59008D3C5E /* DiningArea */ = {
+			isa = PBXGroup;
+			children = (
+				DB43AC9D248A7D76008D3C5E /* DiningRootView.swift */,
+			);
+			path = DiningArea;
+			sourceTree = "<group>";
+		};
+		DB43AC9F248A7DBC008D3C5E /* ServiceArea */ = {
+			isa = PBXGroup;
+			children = (
+				DB43ACA0248A7DD0008D3C5E /* ProfileView.swift */,
+			);
+			path = ServiceArea;
+			sourceTree = "<group>";
+		};
+		DB43ACA4248A8C29008D3C5E /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				DB43ACA5248A8C57008D3C5E /* KitchenPageHeader.swift */,
+				DB43ACA7248E6055008D3C5E /* InboxEntry.swift */,
+				DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */,
+				DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */,
+			);
+			path = Elements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,10 +417,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				DB43AC91248A7A11008D3C5E /* PBXTargetDependency */,
 			);
 			name = VoiceRec;
 			productName = VoiceRec;
-			productReference = DB31478124891CE30093F346 /* VoiceRec.app */;
+			productReference = DB31478124891CE30093F346 /* Spoken.ly.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -128,12 +449,35 @@
 			mainGroup = DB31477824891CE30093F346;
 			productRefGroup = DB31478224891CE30093F346 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DB1CC84B248A744F00B6E842 /* Products */;
+					ProjectRef = DB1CC84A248A744F00B6E842 /* Ogg.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DB31478024891CE30093F346 /* VoiceRec */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DB1CC850248A744F00B6E842 /* Ogg.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Ogg.framework;
+			remoteRef = DB1CC84F248A744F00B6E842 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DB1CC852248A744F00B6E842 /* libogg.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libogg.a;
+			remoteRef = DB1CC851248A744F00B6E842 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DB31477F24891CE30093F346 /* Resources */ = {
@@ -153,15 +497,74 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB1CC82F248A6E2F00B6E842 /* Broth.swift in Sources */,
+				DB1CC802248A6B1000B6E842 /* NotificationUtils.swift in Sources */,
+				DB43AC9B248A7CBA008D3C5E /* KitchenRootView.swift in Sources */,
+				DB43AC99248A7C53008D3C5E /* LessonEditView.swift in Sources */,
+				DB1CC82C248A6E2F00B6E842 /* Language.swift in Sources */,
 				DB31478524891CE30093F346 /* AppDelegate.swift in Sources */,
+				DB1CC834248A6E2F00B6E842 /* Noodle.swift in Sources */,
+				DB43AC9E248A7D76008D3C5E /* DiningRootView.swift in Sources */,
+				DB1CC80F248A6B1000B6E842 /* DictionaryDB.swift in Sources */,
+				DB1CC810248A6B1000B6E842 /* ArrayDB.swift in Sources */,
+				DB1CC830248A6E2F00B6E842 /* Shape.swift in Sources */,
 				DB31478724891CE30093F346 /* SceneDelegate.swift in Sources */,
-				DB31478924891CE30093F346 /* ContentView.swift in Sources */,
+				DB1CC804248A6B1000B6E842 /* DataUtils.swift in Sources */,
+				DB1CC809248A6B1000B6E842 /* ExportComposer.swift in Sources */,
+				DB43ACAA248E6BB4008D3C5E /* InboxRecorderPanel.swift in Sources */,
+				DB1CC831248A6E2F00B6E842 /* Spices.swift in Sources */,
+				DB43ACAC248E6D3F008D3C5E /* AudioRecorderButton.swift in Sources */,
+				DB43ACA3248A8AC6008D3C5E /* PageView.swift in Sources */,
+				DB1CC803248A6B1000B6E842 /* FileUtils.swift in Sources */,
+				DB1CC80E248A6B1000B6E842 /* DB.swift in Sources */,
+				DB1CC807248A6B1000B6E842 /* AudioPlayer.swift in Sources */,
+				DB1CC80A248A6B1000B6E842 /* AudioRecorder.swift in Sources */,
+				DB43AC93248A7C11008D3C5E /* InboxView.swift in Sources */,
+				DB43AC97248A7C3B008D3C5E /* LessonManagerView.swift in Sources */,
+				DB1CC836248A71A400B6E842 /* Environment.swift in Sources */,
+				DB1CC832248A6E2F00B6E842 /* Theme.swift in Sources */,
+				DB1CC80C248A6B1000B6E842 /* PersistentObject.swift in Sources */,
+				DB43ACA8248E6055008D3C5E /* InboxEntry.swift in Sources */,
+				DB1CC82D248A6E2F00B6E842 /* Egg.swift in Sources */,
+				DB1CC80D248A6B1000B6E842 /* WeakLink.swift in Sources */,
+				DB31478924891CE30093F346 /* RootView.swift in Sources */,
+				DB43AC95248A7C1E008D3C5E /* PhraseEditView.swift in Sources */,
+				DB1CC82B248A6E2F00B6E842 /* Recipe.swift in Sources */,
+				DB43ACA6248A8C57008D3C5E /* KitchenPageHeader.swift in Sources */,
+				DB1CC833248A6E2F00B6E842 /* Bowl.swift in Sources */,
+				DB1CC80B248A6B1000B6E842 /* VoiceSequence.swift in Sources */,
+				DB43ACA1248A7DD0008D3C5E /* ProfileView.swift in Sources */,
+				DB1CC82E248A6E2F00B6E842 /* Doughball.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DB43AC91248A7A11008D3C5E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "libogg (static)";
+			targetProxy = DB43AC90248A7A11008D3C5E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		DB1CC814248A6C8A00B6E842 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB1CC815248A6C8A00B6E842 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		DB1CC81D248A6C8A00B6E842 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB1CC81E248A6C8A00B6E842 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		DB31478F24891CE50093F346 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -225,12 +628,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					opus/libOpus/include/opus,
+					"opus/opusfile-0.11/include",
+					"opus/libogg-1.3.3/include/ogg",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "VoiceRec/VoiceRec-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -281,11 +690,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					opus/libOpus/include/opus,
+					"opus/opusfile-0.11/include",
+					"opus/libogg-1.3.3/include/ogg",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "VoiceRec/VoiceRec-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -296,6 +711,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"VoiceRec/Preview Content\"";
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				ENABLE_PREVIEWS = YES;
@@ -304,8 +720,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.VoiceRec;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opus/libOpus",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
+				PRODUCT_NAME = Spoken.ly;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -316,6 +736,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_ASSET_PATHS = "\"VoiceRec/Preview Content\"";
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				ENABLE_PREVIEWS = YES;
@@ -324,8 +745,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.VoiceRec;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opus/libOpus",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
+				PRODUCT_NAME = Spoken.ly;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -353,6 +778,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DB1CC7E6248A6B0F00B6E842 /* Noodles.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DB1CC7E7248A6B1000B6E842 /* Noodles.xcdatamodel */,
+			);
+			currentVersion = DB1CC7E7248A6B1000B6E842 /* Noodles.xcdatamodel */;
+			path = Noodles.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DB31477924891CE30093F346 /* Project object */;
 }

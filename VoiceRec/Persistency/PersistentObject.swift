@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PersistentObject : NSObject {
+class PersistentObject : NSObject, Identifiable {
 
 	var id : String
 

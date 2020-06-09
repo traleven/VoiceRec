@@ -58,10 +58,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		for url in files {
 
 			if (!url.hasDirectoryPath) {
-				OpusTranscoder.convert(opusFile: url, toM4A: FileUtils.get(file: url.lastPathComponent, withExtension: "m4a", inDirectory:"INBOX"), completionHandler: { () in
-					try! FileManager.default.removeItem(at: url)
-					NotificationCenter.default.post(name: .refreshMusic, object: self)
-				})
+//				OpusTranscoder.convert(opusFile: url, toM4A: FileUtils.get(file: url.lastPathComponent, withExtension: "m4a", inDirectory:"INBOX"), completionHandler: { () in
+//					try! FileManager.default.removeItem(at: url)
+//					NotificationCenter.default.post(name: .refreshMusic, object: self)
+//				})
 				didImport = true
 			}
 		}
@@ -81,8 +81,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			let rvc = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
 			rvc.selectedIndex = 0
 			DispatchQueue.main.async {
-				let ivc = rvc.selectedViewController as! InboxViewController
-				ivc.startRecording()
+				NSLog("TODO: Start audio recording")
+				//let ivc = rvc.selectedViewController as! InboxViewController
+				//ivc.startRecording()
 			}
 			return true
 		}

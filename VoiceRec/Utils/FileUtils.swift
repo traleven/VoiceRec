@@ -43,6 +43,12 @@ class FileUtils {
 	}
 
 
+	class func getNewInboxFile(withName name: String, andExtension ext: String) -> URL {
+
+		return FileUtils.getDirectory("INBOX").appendingPathComponent(name + Date().toString(withFormat: "_yyyyMMdd_HHmmss"), isDirectory: false).appendingPathExtension(ext)
+	}
+
+
 	class func get(file: String, withExtension: String, inDirectory: String) -> URL {
 
 		return getDirectory(inDirectory).appendingPathComponent(file).appendingPathExtension(withExtension)

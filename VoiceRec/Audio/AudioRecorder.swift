@@ -9,12 +9,13 @@
 import Foundation
 import AVKit
 
-class AudioRecorder : NSObject, AVAudioRecorderDelegate {
+class AudioRecorder : NSObject, ObservableObject, AVAudioRecorderDelegate {
 
 
 	var audioRecorder: AVAudioRecorder!
 	var meterTimer: Timer!
-	var isRecording: Bool! = false
+	@Published var isRecording: Bool! = false
+	@Published var duration: TimeInterval = 0
 
 	var onProgress: ((TimeInterval) -> Void)?
 	var onFinish: ((Bool) -> Void)?
@@ -55,6 +56,7 @@ class AudioRecorder : NSObject, AVAudioRecorderDelegate {
 
 		if audioRecorder.isRecording
 		{
+			duration = audioRecorder.currentTime
 			onProgress?(audioRecorder.currentTime)
 			//audioRecorder.updateMeters()
 		}
