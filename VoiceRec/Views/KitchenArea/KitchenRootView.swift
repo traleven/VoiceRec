@@ -9,7 +9,7 @@ import SwiftUI
 
 struct KitchenRootView: View {
     var body: some View {
-        InboxView()
+		InboxView()
     }
 }
 

@@ -12,7 +12,7 @@
         <relationship name="recipes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recipe" inverseName="noodles" inverseEntity="Recipe"/>
     </entity>
     <entity name="Egg" representedClassName="Egg" syncable="YES" codeGenerationType="category">
-        <attribute name="audioFile" optional="YES" attributeType="URI"/>
+        <attribute name="file" optional="YES" attributeType="URI"/>
         <attribute name="text" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="category">
@@ -25,10 +25,10 @@
         <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="spices" inverseEntity="Recipe"/>
     </entity>
     <elements>
-        <element name="Broth" positionX="259.37890625" positionY="65.1328125" width="128" height="73"/>
-        <element name="Doughball" positionX="-119.00390625" positionY="-149.66015625" width="128" height="118"/>
-        <element name="Egg" positionX="-79.83203125" positionY="108.1171875" width="128" height="73"/>
-        <element name="Recipe" positionX="153.1484375" positionY="-177.72265625" width="128" height="103"/>
-        <element name="Spices" positionX="62.94140625" positionY="315.078125" width="128" height="58"/>
+        <element name="Broth" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Doughball" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Egg" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Recipe" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Spices" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

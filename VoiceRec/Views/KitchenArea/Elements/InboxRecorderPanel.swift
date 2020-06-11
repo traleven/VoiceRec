@@ -9,6 +9,7 @@ import SwiftUI
 
 struct InboxRecorderPanel: View {
 	@EnvironmentObject var recorder: AudioRecorder
+	var path: URL
 
 	var body: some View {
 		VStack(alignment: .center) {
@@ -26,7 +27,7 @@ struct InboxRecorderPanel: View {
 					.disabled(recorder.isRecording)
 
 				Spacer()
-				AudioRecorderButton()
+				AudioRecorderButton(path: self.path)
 				Spacer()
 
 				Button(action: {
@@ -43,9 +44,9 @@ struct InboxRecorderPanel: View {
 struct InboxRecorderPanel_Previews: PreviewProvider {
     static var previews: some View {
 		Group {
-			InboxRecorderPanel()
-				.environmentObject(AudioRecorder())
-				.previewLayout(.fixed(width: 420, height: 280))
+			InboxRecorderPanel(path: FileUtils.getDirectory("INBOX"))
 		}
+		.environmentObject(AudioRecorder())
+		.previewLayout(.fixed(width: 420, height: 280))
     }
 }

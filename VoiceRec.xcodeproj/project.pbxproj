@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1C2864248FCE6E0013EEBA /* StatefulTabView in Frameworks */ = {isa = PBXBuildFile; productRef = DB1C2863248FCE6E0013EEBA /* StatefulTabView */; };
 		DB1CC802248A6B1000B6E842 /* NotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7E2248A6B0F00B6E842 /* NotificationUtils.swift */; };
 		DB1CC803248A6B1000B6E842 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7E3248A6B0F00B6E842 /* FileUtils.swift */; };
 		DB1CC804248A6B1000B6E842 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7E4248A6B0F00B6E842 /* DataUtils.swift */; };
@@ -49,6 +50,8 @@
 		DB43ACA8248E6055008D3C5E /* InboxEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA7248E6055008D3C5E /* InboxEntry.swift */; };
 		DB43ACAA248E6BB4008D3C5E /* InboxRecorderPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */; };
 		DB43ACAC248E6D3F008D3C5E /* AudioRecorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */; };
+		DBB1D9DD24921ABB00566961 /* some air.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DBB1D9DB24921ABB00566961 /* some air.m4a */; };
+		DBE57FEE2491167F005D75FF /* InboxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE57FED2491167F005D75FF /* InboxListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,7 +128,7 @@
 		DB1CC840248A740400B6E842 /* wincerts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = wincerts.c; path = "opus/opusfile-0.11/src/wincerts.c"; sourceTree = "<group>"; };
 		DB1CC841248A740400B6E842 /* internal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = internal.c; path = "opus/opusfile-0.11/src/internal.c"; sourceTree = "<group>"; };
 		DB1CC84A248A744F00B6E842 /* Ogg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Ogg.xcodeproj; path = "opus/libogg-1.3.3/macosx/Ogg.xcodeproj"; sourceTree = "<group>"; };
-		DB31478124891CE30093F346 /* Spoken.ly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spoken.ly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB31478124891CE30093F346 /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB31478424891CE30093F346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB31478624891CE30093F346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB31478824891CE30093F346 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 		DB43ACA7248E6055008D3C5E /* InboxEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxEntry.swift; sourceTree = "<group>"; };
 		DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxRecorderPanel.swift; sourceTree = "<group>"; };
 		DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderButton.swift; sourceTree = "<group>"; };
+		DBB1D9DB24921ABB00566961 /* some air.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "some air.m4a"; sourceTree = "<group>"; };
+		DBE57FED2491167F005D75FF /* InboxListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB43AC8F248A7A08008D3C5E /* libogg.a in Frameworks */,
+				DB1C2864248FCE6E0013EEBA /* StatefulTabView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +335,7 @@
 		DB31478224891CE30093F346 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB31478124891CE30093F346 /* Spoken.ly.app */,
+				DB31478124891CE30093F346 /* Noodles.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -349,6 +355,7 @@
 				DB31478A24891CE50093F346 /* Assets.xcassets */,
 				DB31478F24891CE50093F346 /* LaunchScreen.storyboard */,
 				DB1CC7F6248A6B1000B6E842 /* VoiceRec.entitlements */,
+				DBB1D9DB24921ABB00566961 /* some air.m4a */,
 				DB31479224891CE50093F346 /* Info.plist */,
 				DB31478C24891CE50093F346 /* Preview Content */,
 			);
@@ -396,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				DB43ACA5248A8C57008D3C5E /* KitchenPageHeader.swift */,
+				DBE57FED2491167F005D75FF /* InboxListView.swift */,
 				DB43ACA7248E6055008D3C5E /* InboxEntry.swift */,
 				DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */,
 				DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */,
@@ -420,8 +428,11 @@
 				DB43AC91248A7A11008D3C5E /* PBXTargetDependency */,
 			);
 			name = VoiceRec;
+			packageProductDependencies = (
+				DB1C2863248FCE6E0013EEBA /* StatefulTabView */,
+			);
 			productName = VoiceRec;
-			productReference = DB31478124891CE30093F346 /* Spoken.ly.app */;
+			productReference = DB31478124891CE30093F346 /* Noodles.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -447,6 +458,9 @@
 				Base,
 			);
 			mainGroup = DB31477824891CE30093F346;
+			packageReferences = (
+				DB1C2862248FCE6E0013EEBA /* XCRemoteSwiftPackageReference "StatefulTabView" */,
+			);
 			productRefGroup = DB31478224891CE30093F346 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -484,6 +498,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBB1D9DD24921ABB00566961 /* some air.m4a in Resources */,
 				DB31479124891CE50093F346 /* LaunchScreen.storyboard in Resources */,
 				DB31478E24891CE50093F346 /* Preview Assets.xcassets in Resources */,
 				DB31478B24891CE50093F346 /* Assets.xcassets in Resources */,
@@ -520,6 +535,7 @@
 				DB1CC807248A6B1000B6E842 /* AudioPlayer.swift in Sources */,
 				DB1CC80A248A6B1000B6E842 /* AudioRecorder.swift in Sources */,
 				DB43AC93248A7C11008D3C5E /* InboxView.swift in Sources */,
+				DBE57FEE2491167F005D75FF /* InboxListView.swift in Sources */,
 				DB43AC97248A7C3B008D3C5E /* LessonManagerView.swift in Sources */,
 				DB1CC836248A71A400B6E842 /* Environment.swift in Sources */,
 				DB1CC832248A6E2F00B6E842 /* Theme.swift in Sources */,
@@ -633,7 +649,7 @@
 					"opus/opusfile-0.11/include",
 					"opus/libogg-1.3.3/include/ogg",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -641,6 +657,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "VoiceRec/VoiceRec-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -695,13 +712,14 @@
 					"opus/opusfile-0.11/include",
 					"opus/libogg-1.3.3/include/ogg",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "VoiceRec/VoiceRec-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -711,7 +729,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"VoiceRec/Preview Content\"";
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				ENABLE_PREVIEWS = YES;
@@ -725,9 +743,8 @@
 					"$(PROJECT_DIR)/opus/libOpus",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
-				PRODUCT_NAME = Spoken.ly;
+				PRODUCT_NAME = Noodles;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -736,7 +753,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"VoiceRec/Preview Content\"";
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				ENABLE_PREVIEWS = YES;
@@ -750,9 +767,8 @@
 					"$(PROJECT_DIR)/opus/libOpus",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
-				PRODUCT_NAME = Spoken.ly;
+				PRODUCT_NAME = Noodles;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -778,6 +794,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB1C2862248FCE6E0013EEBA /* XCRemoteSwiftPackageReference "StatefulTabView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NicholasBellucci/StatefulTabView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB1C2863248FCE6E0013EEBA /* StatefulTabView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB1C2862248FCE6E0013EEBA /* XCRemoteSwiftPackageReference "StatefulTabView" */;
+			productName = StatefulTabView;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DB1CC7E6248A6B0F00B6E842 /* Noodles.xcdatamodeld */ = {

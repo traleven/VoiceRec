@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StatefulTabView
 
 final class RootEnvironment: ObservableObject {
 	@Published var activeRoom: Room = .kitchen
@@ -25,11 +26,35 @@ struct RootView: View {
 			//Text("Current room")
 			//Divider()
 
+			/*
 			PageView([
 				AnyView(KitchenRootView()),
 				AnyView(DiningRootView()),
 				AnyView(ProfileView()),
 			])
+			*/
+			/**/
+			StatefulTabView(){[
+				Tab(title: "INBOX", image: nil) {
+					KitchenRootView()
+				},
+				Tab(title: "Phrases", image: nil) {
+					DiningRootView().transition(.slide)
+				},
+//				Tab(title: "Music", image: nil) {
+//					ProfileView()
+//				},
+//				Tab(title: "Composer", image: nil) {
+//					ProfileView()
+//				},
+				Tab(title: "Profile", image: nil) {
+					ProfileView()
+				},
+			]}
+			.barTintColor(.red)
+			.barBackgroundColor(.yellow)
+			.barAppearanceConfiguration(.opaque)
+			/**/
 		}
     }
 }

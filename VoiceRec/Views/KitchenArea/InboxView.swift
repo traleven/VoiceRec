@@ -9,33 +9,25 @@ import SwiftUI
 
 struct InboxView: View {
 	@ObservedObject var recorder: AudioRecorder = AudioRecorder()
+	@State var path: URL = FileUtils.getDirectory("INBOX")
 	
     var body: some View {
-		NavigationView() {
+		ZStack() {
 			VStack() {
-				ZStack() {
-					VStack() {
-						KitchenPageHeader(name: "INBOX")
-						Divider()
-						List(Egg.fetch(), id: \.id) {(egg) in
-							NavigationLink(destination: PhraseEditView()) {
-								InboxEntry(egg: egg)
-							}
-						}
-					}
-					if recorder.isRecording {
-						Rectangle().opacity(0.5)
-					}
+				KitchenPageHeader(name: "INBOX")
+				//Text(FileUtils.getDirectory("INBOX").path)
+				//Divider()
+				NavigationView() {
+					InboxListView()
+						.environmentObject(recorder)
+						.border(Color.gray, width: 0.5)
 				}
-
-				Divider()
-				
-				InboxRecorderPanel()
-					.environmentObject(recorder)
 			}
-			.navigationBarTitle(Text(""), displayMode: .inline)
-			.navigationBarHidden(true)
+//			if recorder.isRecording {
+//				Rectangle().opacity(0.5)
+//			}
 		}
+		//Divider()
 	}
 }
 

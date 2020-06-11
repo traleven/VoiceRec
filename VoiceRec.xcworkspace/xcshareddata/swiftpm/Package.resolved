@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "StatefulTabView",
+        "repositoryURL": "https://github.com/NicholasBellucci/StatefulTabView",
+        "state": {
+          "branch": "master",
+          "revision": "1b96742b9a8a0d89ef7e7e8401e11b14deef1f28",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -12,20 +12,57 @@ struct InboxEntry: View {
 
     var body: some View {
 		HStack() {
-			Text(egg.name)
-				.multilineTextAlignment(.leading)
-				.padding()
+			if (egg.type == "m4a") {
+
+				Image("speech")
+					.scaleEffect(0.5)
+				Text(egg.name)
+					.multilineTextAlignment(.leading)
+					.padding()
+
+			} else if (egg.type == "txt") {
+
+				Image("reorder")
+					.scaleEffect(0.5)
+				Text(egg.name)
+					.multilineTextAlignment(.leading)
+					.padding()
+
+			} else if (egg.type == "") {
+
+				Image("folder_selected")
+					.scaleEffect(0.5)
+				Text(egg.name)
+					.multilineTextAlignment(.leading)
+					.padding()
+
+			} else {
+				Text(egg.name)
+					.multilineTextAlignment(.leading)
+					.padding()
+			}
 			Spacer()
 		}
     }
 }
 
 struct InboxEntry_Previews: PreviewProvider {
-    static var previews: some View {
+	static func getEgg(name: String, file: URL?, type: String) -> Egg {
 		let egg = Egg()
-		egg.name = "Test egg"
-		egg.audioFile = Bundle.main.resourceURL
-		return InboxEntry(egg: egg)
+		egg.name = Egg.getName(for: file!, of: type)
+		egg.file = file
+		egg.type = type
+		return egg
+	}
+
+    static var previews: some View {
+		Group {
+			InboxEntry(egg: getEgg(name: "Test audio egg", file: Bundle.main.url(forResource: "some air", withExtension: "m4a"), type: "m4a"))
+
+			InboxEntry(egg: getEgg(name: "Test text egg", file: Bundle.main.resourceURL, type: "txt"))
+
+			InboxEntry(egg: getEgg(name: "Test package", file: FileUtils.getDirectory("INBOX"), type: ""))
+		}
 			.previewLayout(.fixed(width: 320, height: 70))
     }
 }

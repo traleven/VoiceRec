@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AudioRecorderButton: View {
 	@EnvironmentObject var recorder: AudioRecorder
+	var path: URL
 
 	var body: some View {
 		recorder.isRecording
@@ -19,7 +20,17 @@ struct AudioRecorderButton: View {
 				.renderingMode(.original)
 		}
 		: Button(action: {
-			self.recorder.start_recording(FileUtils.getNewInboxFile(withName: "Recording", andExtension: "m4a"), progress: nil) { (success: Bool) in
+			if !self.path.pathExtension.isEmpty && FileManager.default.fileExists(atPath: self.path.path) {
+				let dir = self.path.deletingPathExtension()
+				FileUtils.ensureDirectory(dir)
+				do {
+					try FileManager.default.moveItem(at: self.path, to: dir.appendingPathComponent(self.path.lastPathComponent))
+				} catch {
+					fatalError("Failed to convert an item into a package")
+				}
+			}
+
+			self.recorder.start_recording(FileUtils.getNewInboxFile(at:self.path.deletingPathExtension(), withName: "", andExtension: "m4a"), progress: nil) { (success: Bool) in
 			}
 		}) {
 			Image("mic_normal")
@@ -31,11 +42,13 @@ struct AudioRecorderButton: View {
 struct AudioRecorderButton_Previews: PreviewProvider {
     static var previews: some View {
 		Group {
-			AudioRecorderButton()
+			AudioRecorderButton(path:FileUtils.getDirectory("INBOX"))
 				.environmentObject(AudioRecorder())
-			AudioRecorderButton()
+
+			AudioRecorderButton(path:FileUtils.getDirectory("INBOX"))
 				.environmentObject(AudioRecorder())
 		}
+		.environmentObject(AudioRecorder())
 		.previewLayout(.fixed(width: 180, height: 180))
     }
 }
