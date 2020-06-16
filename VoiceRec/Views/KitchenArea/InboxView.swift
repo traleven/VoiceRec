@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct InboxView: View {
-	@ObservedObject var recorder: AudioRecorder = AudioRecorder()
-	@State var path: URL = FileUtils.getDirectory("INBOX")
+	var recorder: AudioRecorder = AudioRecorder()
+	@State var path: URL = FileUtils.getInboxDirectory()
 	
     var body: some View {
 		ZStack() {
 			VStack() {
 				KitchenPageHeader(name: "INBOX")
-				//Text(FileUtils.getDirectory("INBOX").path)
+				//Text(FileUtils.getInboxDirectory().path)
 				//Divider()
 				NavigationView() {
 					InboxListView()
@@ -23,9 +23,6 @@ struct InboxView: View {
 						.border(Color.gray, width: 0.5)
 				}
 			}
-//			if recorder.isRecording {
-//				Rectangle().opacity(0.5)
-//			}
 		}
 		//Divider()
 	}

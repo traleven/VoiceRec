@@ -37,6 +37,11 @@ class FileUtils {
 	}
 
 
+	class func getInboxDirectory() -> URL {
+		return getDirectory("INBOX")
+	}
+
+
 	class func getTempFile(withExtension: String) -> URL {
 
 		return FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString, isDirectory: false).appendingPathExtension(withExtension)
@@ -50,9 +55,16 @@ class FileUtils {
 	}
 
 
+	class func getNewInboxFile(at path: URL, withExtension ext: String) -> URL {
+
+		FileUtils.ensureDirectory(path)
+		return path.appendingPathComponent(Date().toString(withFormat: "yyyyMMdd-HHmmss"), isDirectory: false).appendingPathExtension(ext)
+	}
+
+
 	class func getNewInboxFile(withName name: String, andExtension ext: String) -> URL {
 
-		return getNewInboxFile(at: FileUtils.getDirectory("INBOX"), withName: name, andExtension: ext)
+		return getNewInboxFile(at: FileUtils.getInboxDirectory(), withName: name, andExtension: ext)
 	}
 
 
@@ -73,6 +85,15 @@ class FileUtils {
 		} catch let error {
 			NSLog(error.localizedDescription)
 		}
+	}
+
+
+	class func convertToDirectory(_ url: URL) -> URL {
+		if (FileManager.default.fileExists(atPath: url.path) && !url.pathExtension.isEmpty) {
+			ensureDirectory(url.deletingPathExtension())
+			try! FileManager.default.moveItem(at: url, to: url.deletingPathExtension().appendingPathComponent(url.lastPathComponent))
+		}
+		return url.deletingPathExtension()
 	}
 
 

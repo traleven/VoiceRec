@@ -19,7 +19,7 @@ class Egg : PersistentObject {
 
 	class func fetch() -> [Egg] {
 
-		let baseUrl = FileUtils.getDirectory("INBOX")
+		let baseUrl = FileUtils.getInboxDirectory()
 		return fetch(baseUrl)
 	}
 
@@ -50,14 +50,31 @@ class Egg : PersistentObject {
 	class func getName(for file: URL, of type: String) -> String {
 		switch type {
 		case "":
-			return file.lastPathComponent
+			return findNameInChildren(for: file)
 		case "m4a":
 			let attributes = try? FileManager.default.attributesOfItem(atPath: file.path)
 			return "\((attributes?[FileAttributeKey.creationDate] as? Date)?.toString(withFormat: "yyyy-MM-dd HH:mm:ss") ?? "Recording")"
-		case "txt":
-			return (try? String(contentsOf: file)) ?? file.deletingPathExtension().lastPathComponent
+		case "txt", "json":
+			let content = (try? String(contentsOf: file)) ?? file.deletingPathExtension().lastPathComponent
+			return content.count > 42 ? content.prefix(39).appending("...") : content
 		default:
 			return file.deletingPathExtension().lastPathComponent
 		}
+	}
+
+	class func findNameInChildren(for directory: URL) -> String {
+		guard FileManager.default.fileExists(atPath: directory.path) else {
+			return directory.lastPathComponent
+		}
+		guard let files = try? FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: [], options: .skipsHiddenFiles) else {
+			return directory.lastPathComponent
+		}
+		guard let textFile = (files.first { (file: URL) -> Bool in
+			file.pathExtension == "txt" || file.pathExtension == "json"
+		}) else {
+			return directory.lastPathComponent
+		}
+
+		return getName(for: textFile, of: textFile.pathExtension)
 	}
 }

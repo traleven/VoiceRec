@@ -37,7 +37,6 @@
 		DB31478B24891CE50093F346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB31478A24891CE50093F346 /* Assets.xcassets */; };
 		DB31478E24891CE50093F346 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB31478D24891CE50093F346 /* Preview Assets.xcassets */; };
 		DB31479124891CE50093F346 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB31478F24891CE50093F346 /* LaunchScreen.storyboard */; };
-		DB43AC8F248A7A08008D3C5E /* libogg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1CC852248A744F00B6E842 /* libogg.a */; };
 		DB43AC93248A7C11008D3C5E /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43AC92248A7C11008D3C5E /* InboxView.swift */; };
 		DB43AC95248A7C1E008D3C5E /* PhraseEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43AC94248A7C1E008D3C5E /* PhraseEditView.swift */; };
 		DB43AC97248A7C3B008D3C5E /* LessonManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43AC96248A7C3B008D3C5E /* LessonManagerView.swift */; };
@@ -50,6 +49,9 @@
 		DB43ACA8248E6055008D3C5E /* InboxEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA7248E6055008D3C5E /* InboxEntry.swift */; };
 		DB43ACAA248E6BB4008D3C5E /* InboxRecorderPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */; };
 		DB43ACAC248E6D3F008D3C5E /* AudioRecorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */; };
+		DB60E7D22493B40A00733D63 /* TextMemoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */; };
+		DB60E7D42493B94600733D63 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E7D32493B94600733D63 /* MultilineTextField.swift */; };
+		DB68BED424988C3300B38BF2 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68BED324988C3300B38BF2 /* MarqueeText.swift */; };
 		DBB1D9DD24921ABB00566961 /* some air.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DBB1D9DB24921ABB00566961 /* some air.m4a */; };
 		DBE57FEE2491167F005D75FF /* InboxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE57FED2491167F005D75FF /* InboxListView.swift */; };
 /* End PBXBuildFile section */
@@ -67,13 +69,6 @@
 			containerPortal = DB1CC84A248A744F00B6E842 /* Ogg.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 734FB2E50B18B33E00D561D7;
-			remoteInfo = "libogg (static)";
-		};
-		DB43AC90248A7A11008D3C5E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB1CC84A248A744F00B6E842 /* Ogg.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 734FB2E40B18B33E00D561D7;
 			remoteInfo = "libogg (static)";
 		};
 /* End PBXContainerItemProxy section */
@@ -148,6 +143,9 @@
 		DB43ACA7248E6055008D3C5E /* InboxEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxEntry.swift; sourceTree = "<group>"; };
 		DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxRecorderPanel.swift; sourceTree = "<group>"; };
 		DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderButton.swift; sourceTree = "<group>"; };
+		DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMemoEditor.swift; sourceTree = "<group>"; };
+		DB60E7D32493B94600733D63 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
+		DB68BED324988C3300B38BF2 /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
 		DBB1D9DB24921ABB00566961 /* some air.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "some air.m4a"; sourceTree = "<group>"; };
 		DBE57FED2491167F005D75FF /* InboxListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,7 +155,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB43AC8F248A7A08008D3C5E /* libogg.a in Frameworks */,
 				DB1C2864248FCE6E0013EEBA /* StatefulTabView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +370,7 @@
 		DB31479824891DE60093F346 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB60E7D52493C20000733D63 /* Universal */,
 				DB1CC811248A6B5400B6E842 /* KitchenArea */,
 				DB43AC9C248A7D59008D3C5E /* DiningArea */,
 				DB43AC9F248A7DBC008D3C5E /* ServiceArea */,
@@ -406,9 +404,19 @@
 				DBE57FED2491167F005D75FF /* InboxListView.swift */,
 				DB43ACA7248E6055008D3C5E /* InboxEntry.swift */,
 				DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */,
+				DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */,
 				DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */,
 			);
 			path = Elements;
+			sourceTree = "<group>";
+		};
+		DB60E7D52493C20000733D63 /* Universal */ = {
+			isa = PBXGroup;
+			children = (
+				DB60E7D32493B94600733D63 /* MultilineTextField.swift */,
+				DB68BED324988C3300B38BF2 /* MarqueeText.swift */,
+			);
+			path = Universal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,7 +433,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				DB43AC91248A7A11008D3C5E /* PBXTargetDependency */,
 			);
 			name = VoiceRec;
 			packageProductDependencies = (
@@ -521,14 +528,17 @@
 				DB1CC834248A6E2F00B6E842 /* Noodle.swift in Sources */,
 				DB43AC9E248A7D76008D3C5E /* DiningRootView.swift in Sources */,
 				DB1CC80F248A6B1000B6E842 /* DictionaryDB.swift in Sources */,
+				DB60E7D22493B40A00733D63 /* TextMemoEditor.swift in Sources */,
 				DB1CC810248A6B1000B6E842 /* ArrayDB.swift in Sources */,
 				DB1CC830248A6E2F00B6E842 /* Shape.swift in Sources */,
 				DB31478724891CE30093F346 /* SceneDelegate.swift in Sources */,
+				DB60E7D42493B94600733D63 /* MultilineTextField.swift in Sources */,
 				DB1CC804248A6B1000B6E842 /* DataUtils.swift in Sources */,
 				DB1CC809248A6B1000B6E842 /* ExportComposer.swift in Sources */,
 				DB43ACAA248E6BB4008D3C5E /* InboxRecorderPanel.swift in Sources */,
 				DB1CC831248A6E2F00B6E842 /* Spices.swift in Sources */,
 				DB43ACAC248E6D3F008D3C5E /* AudioRecorderButton.swift in Sources */,
+				DB68BED424988C3300B38BF2 /* MarqueeText.swift in Sources */,
 				DB43ACA3248A8AC6008D3C5E /* PageView.swift in Sources */,
 				DB1CC803248A6B1000B6E842 /* FileUtils.swift in Sources */,
 				DB1CC80E248A6B1000B6E842 /* DB.swift in Sources */,
@@ -555,14 +565,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DB43AC91248A7A11008D3C5E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "libogg (static)";
-			targetProxy = DB43AC90248A7A11008D3C5E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DB1CC814248A6C8A00B6E842 /* MainInterface.storyboard */ = {
@@ -742,6 +744,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/opus/libOpus",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
 				PRODUCT_NAME = Noodles;
 				SWIFT_VERSION = 5.0;
@@ -766,6 +769,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/opus/libOpus",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
 				PRODUCT_NAME = Noodles;
 				SWIFT_VERSION = 5.0;

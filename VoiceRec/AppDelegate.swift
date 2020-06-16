@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			"phrase.delay.outer":3.0,
 			"phrase.random":true,
 			])
-		if DB.options.getValue(forKey: "language.native") == "" {
-			DB.options.setValue(forKey: "language.native", value: "English")
-			DB.options.setValue(forKey: "language.foreign", value: "Chinese")
+		if DB.options.getValue(forKey: "language.base") == "" {
+			DB.options.setValue(forKey: "language.base", value: "English")
+			DB.options.setValue(forKey: "language.target", value: "Chinese")
 			DB.options.flush()
 		}
 
@@ -76,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
 
 		if url.scheme == "voicerec" && url.host == "onetap" {
-			let rvc = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
+			let rvc = UIApplication.shared.windows.first?.rootViewController as! UITabBarController
 			rvc.selectedIndex = 0
 			DispatchQueue.main.async {
 				NSLog("TODO: Start audio recording")

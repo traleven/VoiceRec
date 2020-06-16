@@ -105,8 +105,8 @@ class VoiceSequence: NSObject {
 
 	func tryPlayInto(_ compositionTrack: AVMutableCompositionTrack, at:CMTime, before:CMTime) -> Bool {
 
-		let native = VoiceSequence.buildVoiceURL(phrase, language: Settings.language.native)
-		let foreign = VoiceSequence.buildVoiceURL(phrase, language: Settings.language.foreign)
+		let native = VoiceSequence.buildVoiceURL(phrase, language: Settings.language.base)
+		let foreign = VoiceSequence.buildVoiceURL(phrase, language: Settings.language.target)
 
 		let sequence = Array(DB.phrases.getValue(forKey: phrase))
 		var position = at + CMTime(seconds: Settings.phrase.delay.outer, preferredTimescale: at.timescale)

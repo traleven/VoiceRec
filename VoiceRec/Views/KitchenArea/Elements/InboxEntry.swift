@@ -20,7 +20,7 @@ struct InboxEntry: View {
 					.multilineTextAlignment(.leading)
 					.padding()
 
-			} else if (egg.type == "txt") {
+			} else if (egg.type == "txt" || egg.type == "json") {
 
 				Image("reorder")
 					.scaleEffect(0.5)
@@ -61,7 +61,7 @@ struct InboxEntry_Previews: PreviewProvider {
 
 			InboxEntry(egg: getEgg(name: "Test text egg", file: Bundle.main.resourceURL, type: "txt"))
 
-			InboxEntry(egg: getEgg(name: "Test package", file: FileUtils.getDirectory("INBOX"), type: ""))
+			InboxEntry(egg: getEgg(name: "Test package", file: FileUtils.getInboxDirectory(), type: ""))
 		}
 			.previewLayout(.fixed(width: 320, height: 70))
     }
