@@ -44,6 +44,22 @@ struct InboxEntry: View {
 			Spacer()
 		}
     }
+
+	@GestureState var isLongPress = false // will be true till tap hold
+
+	var plusLongPress: some Gesture {
+		LongPressGesture(minimumDuration: 1).sequenced(before:
+			  DragGesture(minimumDistance: 0, coordinateSpace:
+			  .local)).updating($isLongPress) { value, state, transaction in
+				switch value {
+					case .second(true, nil):
+						state = true
+					   // side effect here if needed
+					default:
+						break
+				}
+			}
+	}
 }
 
 struct InboxEntry_Previews: PreviewProvider {

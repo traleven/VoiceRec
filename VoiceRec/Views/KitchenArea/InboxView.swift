@@ -22,6 +22,7 @@ struct InboxView: View {
 						.environmentObject(recorder)
 						.border(Color.gray, width: 0.5)
 				}
+				.navigationViewStyle(StackNavigationViewStyle())
 			}
 		}
 		//Divider()

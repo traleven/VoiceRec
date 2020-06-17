@@ -2,11 +2,29 @@
   "object": {
     "pins": [
       {
+        "package": "KeyboardObserving",
+        "repositoryURL": "https://github.com/nickffox/KeyboardObserving",
+        "state": {
+          "branch": "master",
+          "revision": "df105a7c43a93b06492ee5832037e20c8f472b46",
+          "version": null
+        }
+      },
+      {
         "package": "StatefulTabView",
         "repositoryURL": "https://github.com/NicholasBellucci/StatefulTabView",
         "state": {
           "branch": "master",
           "revision": "1b96742b9a8a0d89ef7e7e8401e11b14deef1f28",
+          "version": null
+        }
+      },
+      {
+        "package": "SwiftUIX",
+        "repositoryURL": "https://github.com/SwiftUIX/SwiftUIX",
+        "state": {
+          "branch": "master",
+          "revision": "bb3193a4de2d7225446b65018f42867f770fee09",
           "version": null
         }
       }

@@ -32,7 +32,7 @@ struct InboxListView: View {
 					})
 				)
 				.popover(item: self.$detailsEgg, content:
-					{_ in 
+					{_ in
 						TextPreview(isVisible: self.makeBinding(egg), egg: egg)
 					}
 				)

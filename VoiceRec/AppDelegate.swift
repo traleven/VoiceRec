@@ -26,6 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			DB.options.flush()
 		}
 
+//		let appearance = UINavigationBarAppearance()
+//		appearance.configureWithOpaqueBackground()
+//		appearance.backgroundColor = .red
+//
+//		let attrs: [NSAttributedString.Key: Any] = [
+//			.foregroundColor: UIColor.white,
+//			.font: UIFont.monospacedSystemFont(ofSize: 36, weight: .black)
+//		]
+//
+//		appearance.largeTitleTextAttributes = attrs
+//
+//		UINavigationBar.appearance().scrollEdgeAppearance = appearance
+
 		return true
 	}
 

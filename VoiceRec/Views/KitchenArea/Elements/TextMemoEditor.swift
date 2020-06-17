@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import KeyboardObserving
 
 struct TextMemoEditor: View {
 	@State var text: String = ""
@@ -28,6 +29,7 @@ struct TextMemoEditor: View {
 				}
 				Spacer(minLength: 0)
 			}
+			.keyboardObserving()
 			.navigationBarTitle(Text(title), displayMode: .inline)
 			.navigationBarItems(trailing: Button(action: {
 				self.editing = false

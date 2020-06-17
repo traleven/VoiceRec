@@ -38,6 +38,9 @@
 		DB31478B24891CE50093F346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB31478A24891CE50093F346 /* Assets.xcassets */; };
 		DB31478E24891CE50093F346 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB31478D24891CE50093F346 /* Preview Assets.xcassets */; };
 		DB31479124891CE50093F346 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB31478F24891CE50093F346 /* LaunchScreen.storyboard */; };
+		DB3C2B73249A047500C43F89 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3C2B72249A047500C43F89 /* BlurView.swift */; };
+		DB3C2B78249A075D00C43F89 /* KeyboardObserving in Frameworks */ = {isa = PBXBuildFile; productRef = DB3C2B77249A075D00C43F89 /* KeyboardObserving */; };
+		DB3C2B7B249A07F700C43F89 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = DB3C2B7A249A07F700C43F89 /* SwiftUIX */; };
 		DB43AC93248A7C11008D3C5E /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43AC92248A7C11008D3C5E /* InboxView.swift */; };
 		DB43AC95248A7C1E008D3C5E /* PhraseEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43AC94248A7C1E008D3C5E /* PhraseEditView.swift */; };
 		DB43AC97248A7C3B008D3C5E /* LessonManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43AC96248A7C3B008D3C5E /* LessonManagerView.swift */; };
@@ -133,6 +136,7 @@
 		DB31478D24891CE50093F346 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DB31479024891CE50093F346 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB31479224891CE50093F346 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB3C2B72249A047500C43F89 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		DB43AC92248A7C11008D3C5E /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
 		DB43AC94248A7C1E008D3C5E /* PhraseEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEditView.swift; sourceTree = "<group>"; };
 		DB43AC96248A7C3B008D3C5E /* LessonManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonManagerView.swift; sourceTree = "<group>"; };
@@ -157,7 +161,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB3C2B7B249A07F700C43F89 /* SwiftUIX in Frameworks */,
 				DB1C2864248FCE6E0013EEBA /* StatefulTabView in Frameworks */,
+				DB3C2B78249A075D00C43F89 /* KeyboardObserving in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +424,7 @@
 			children = (
 				DB60E7D32493B94600733D63 /* MultilineTextField.swift */,
 				DB68BED324988C3300B38BF2 /* MarqueeText.swift */,
+				DB3C2B72249A047500C43F89 /* BlurView.swift */,
 			);
 			path = Universal;
 			sourceTree = "<group>";
@@ -440,6 +447,8 @@
 			name = VoiceRec;
 			packageProductDependencies = (
 				DB1C2863248FCE6E0013EEBA /* StatefulTabView */,
+				DB3C2B77249A075D00C43F89 /* KeyboardObserving */,
+				DB3C2B7A249A07F700C43F89 /* SwiftUIX */,
 			);
 			productName = VoiceRec;
 			productReference = DB31478124891CE30093F346 /* Noodles.app */;
@@ -470,6 +479,8 @@
 			mainGroup = DB31477824891CE30093F346;
 			packageReferences = (
 				DB1C2862248FCE6E0013EEBA /* XCRemoteSwiftPackageReference "StatefulTabView" */,
+				DB3C2B76249A075D00C43F89 /* XCRemoteSwiftPackageReference "KeyboardObserving" */,
+				DB3C2B79249A07F700C43F89 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = DB31478224891CE30093F346 /* Products */;
 			projectDirPath = "";
@@ -559,6 +570,7 @@
 				DB1CC80D248A6B1000B6E842 /* WeakLink.swift in Sources */,
 				DB31478924891CE30093F346 /* RootView.swift in Sources */,
 				DB43AC95248A7C1E008D3C5E /* PhraseEditView.swift in Sources */,
+				DB3C2B73249A047500C43F89 /* BlurView.swift in Sources */,
 				DB1CC82B248A6E2F00B6E842 /* Recipe.swift in Sources */,
 				DB43ACA6248A8C57008D3C5E /* KitchenPageHeader.swift in Sources */,
 				DB1CC833248A6E2F00B6E842 /* Bowl.swift in Sources */,
@@ -812,6 +824,22 @@
 				kind = branch;
 			};
 		};
+		DB3C2B76249A075D00C43F89 /* XCRemoteSwiftPackageReference "KeyboardObserving" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nickffox/KeyboardObserving";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		DB3C2B79249A07F700C43F89 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -819,6 +847,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DB1C2862248FCE6E0013EEBA /* XCRemoteSwiftPackageReference "StatefulTabView" */;
 			productName = StatefulTabView;
+		};
+		DB3C2B77249A075D00C43F89 /* KeyboardObserving */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB3C2B76249A075D00C43F89 /* XCRemoteSwiftPackageReference "KeyboardObserving" */;
+			productName = KeyboardObserving;
+		};
+		DB3C2B7A249A07F700C43F89 /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB3C2B79249A07F700C43F89 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
 		};
 /* End XCSwiftPackageProductDependency section */
 
