@@ -47,14 +47,6 @@ struct InboxEntry: View {
 }
 
 struct InboxEntry_Previews: PreviewProvider {
-	static func getEgg(name: String, file: URL?, type: String) -> Egg {
-		let egg = Egg()
-		egg.name = Egg.getName(for: file!, of: type)
-		egg.file = file
-		egg.type = type
-		return egg
-	}
-
     static var previews: some View {
 		Group {
 			InboxEntry(egg: getEgg(name: "Test audio egg", file: Bundle.main.url(forResource: "some air", withExtension: "m4a"), type: "m4a"))
@@ -65,4 +57,14 @@ struct InboxEntry_Previews: PreviewProvider {
 		}
 			.previewLayout(.fixed(width: 320, height: 70))
     }
+}
+
+extension PreviewProvider {
+	static func getEgg(name: String, file: URL?, type: String) -> Egg {
+		let egg = Egg()
+		egg.name = Egg.getName(for: file!, of: type)
+		egg.file = file
+		egg.type = type
+		return egg
+	}
 }

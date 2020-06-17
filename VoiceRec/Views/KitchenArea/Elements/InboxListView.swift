@@ -31,7 +31,11 @@ struct InboxListView: View {
 						}
 					})
 				)
-				.popover(item: self.$detailsEgg, content: self.getTextPreview)
+				.popover(item: self.$detailsEgg, content:
+					{_ in 
+						TextPreview(isVisible: self.makeBinding(egg), egg: egg)
+					}
+				)
 			}
 			.navigationBarTitle(Text(name ?? "INBOX"), displayMode: .inline)
 			.navigationBarHidden(path == nil)
@@ -39,6 +43,17 @@ struct InboxListView: View {
 			InboxRecorderPanel(path: self.path ?? FileUtils.getInboxDirectory())
 		}
     }
+
+	func makeBinding(_ egg: Egg) -> Binding<Bool> {
+		.init(
+			get: { () -> Bool in
+				self.detailsEgg == egg
+			},
+			set: { (v: Bool) in
+				self.detailsEgg = nil
+			}
+		)
+	}
 
 	func previewItem(_ egg: Egg) {
 		switch egg.type {
@@ -54,21 +69,22 @@ struct InboxListView: View {
 			do {}
 		}
 	}
+}
 
-	func getTextPreview(for egg: Egg) -> some View {
-		NavigationView() {
-			VStack () {
-				Text((try? String(contentsOf: egg.file)) ?? "")
-				Spacer(minLength: 0)
+extension InboxListView {
+	class ViewModel: ObservableObject {
+		var id = UUID()
+		var selectionIdx: Int? = nil {
+            willSet {
+				objectWillChange.send()
 			}
-			.navigationBarTitle(Text("Text note"), displayMode: .inline)
-			.navigationBarItems(leading:
-				Button(action: {
-					self.detailsEgg = nil
-				}) {
-					Text("Back")
+        }
+		var detailsEgg: Egg? = nil {
+			willSet {
+				if newValue != detailsEgg {
+					objectWillChange.send()
 				}
-			)
+			}
 		}
 	}
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB148B952498F05C0017FC1F /* TextPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB148B942498F05C0017FC1F /* TextPreview.swift */; };
 		DB1C2864248FCE6E0013EEBA /* StatefulTabView in Frameworks */ = {isa = PBXBuildFile; productRef = DB1C2863248FCE6E0013EEBA /* StatefulTabView */; };
 		DB1CC802248A6B1000B6E842 /* NotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7E2248A6B0F00B6E842 /* NotificationUtils.swift */; };
 		DB1CC803248A6B1000B6E842 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7E3248A6B0F00B6E842 /* FileUtils.swift */; };
@@ -74,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB148B942498F05C0017FC1F /* TextPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPreview.swift; sourceTree = "<group>"; };
 		DB1CC7D7248A6B0F00B6E842 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		DB1CC7D8248A6B0F00B6E842 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		DB1CC7D9248A6B0F00B6E842 /* Egg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Egg.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */,
 				DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */,
 				DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */,
+				DB148B942498F05C0017FC1F /* TextPreview.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				DB1CC804248A6B1000B6E842 /* DataUtils.swift in Sources */,
 				DB1CC809248A6B1000B6E842 /* ExportComposer.swift in Sources */,
 				DB43ACAA248E6BB4008D3C5E /* InboxRecorderPanel.swift in Sources */,
+				DB148B952498F05C0017FC1F /* TextPreview.swift in Sources */,
 				DB1CC831248A6E2F00B6E842 /* Spices.swift in Sources */,
 				DB43ACAC248E6D3F008D3C5E /* AudioRecorderButton.swift in Sources */,
 				DB68BED424988C3300B38BF2 /* MarqueeText.swift in Sources */,
