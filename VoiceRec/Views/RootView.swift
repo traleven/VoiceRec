@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import StatefulTabView
+import SwiftUIX
 
 final class RootEnvironment: ObservableObject {
 	@Published var activeRoom: Room = .kitchen
@@ -20,41 +20,21 @@ final class RootEnvironment: ObservableObject {
 
 struct RootView: View {
 	@EnvironmentObject var environment: RootEnvironment
+	@State var currentPage: Int = 0
 
     var body: some View {
 		VStack(alignment: .center) {
 			//Text("Current room")
 			//Divider()
 
-			/*
-			PageView([
-				AnyView(KitchenRootView()),
-				AnyView(DiningRootView()),
-				AnyView(ProfileView()),
-			])
-			*/
-			/**/
-			StatefulTabView(){[
-				Tab(title: "INBOX", image: nil) {
-					KitchenRootView()
-				},
-				Tab(title: "Phrases", image: nil) {
-					DiningRootView().transition(.slide)
-				},
-//				Tab(title: "Music", image: nil) {
-//					ProfileView()
-//				},
-//				Tab(title: "Composer", image: nil) {
-//					ProfileView()
-//				},
-				Tab(title: "Profile", image: nil) {
-					ProfileView()
-				},
-			]}
-			.barTintColor(.red)
-			.barBackgroundColor(.yellow)
-			.barAppearanceConfiguration(.opaque)
-			/**/
+			PaginationView(axis: .horizontal, transitionStyle: .pageCurl, showsIndicators: false) {
+				[
+					AnyView(KitchenRootView()),
+					AnyView(DiningRootView()),
+					AnyView(ServiceRootView()),
+				]
+			}
+			.cyclesPages(true)
 		}
     }
 }

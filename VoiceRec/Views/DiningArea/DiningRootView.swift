@@ -6,10 +6,17 @@
 //
 
 import SwiftUI
+import StatefulTabView
 
 struct DiningRootView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		StatefulTabView(){[
+			Tab(title: "Player", image: nil) {
+				PlaylistView()
+			},
+		]}
+		.barTintColor(.blue)
+		.barAppearanceConfiguration(.opaque)
     }
 }
 
