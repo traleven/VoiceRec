@@ -32,6 +32,8 @@
 		DB1CC833248A6E2F00B6E842 /* Bowl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DF248A6B0F00B6E842 /* Bowl.swift */; };
 		DB1CC834248A6E2F00B6E842 /* Noodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7E0248A6B0F00B6E842 /* Noodle.swift */; };
 		DB1CC836248A71A400B6E842 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC835248A71A400B6E842 /* Environment.swift */; };
+		DB2FD480249B2F9B0023602E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = DB2FD47F249B2F9B0023602E /* SwiftUICharts */; };
+		DB2FD485249B372D0023602E /* ASCollectionView in Frameworks */ = {isa = PBXBuildFile; productRef = DB2FD484249B372D0023602E /* ASCollectionView */; };
 		DB31478524891CE30093F346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31478424891CE30093F346 /* AppDelegate.swift */; };
 		DB31478724891CE30093F346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31478624891CE30093F346 /* SceneDelegate.swift */; };
 		DB31478924891CE30093F346 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31478824891CE30093F346 /* RootView.swift */; };
@@ -161,7 +163,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB2FD485249B372D0023602E /* ASCollectionView in Frameworks */,
 				DB3C2B7B249A07F700C43F89 /* SwiftUIX in Frameworks */,
+				DB2FD480249B2F9B0023602E /* SwiftUICharts in Frameworks */,
 				DB1C2864248FCE6E0013EEBA /* StatefulTabView in Frameworks */,
 				DB3C2B78249A075D00C43F89 /* KeyboardObserving in Frameworks */,
 			);
@@ -449,6 +453,8 @@
 				DB1C2863248FCE6E0013EEBA /* StatefulTabView */,
 				DB3C2B77249A075D00C43F89 /* KeyboardObserving */,
 				DB3C2B7A249A07F700C43F89 /* SwiftUIX */,
+				DB2FD47F249B2F9B0023602E /* SwiftUICharts */,
+				DB2FD484249B372D0023602E /* ASCollectionView */,
 			);
 			productName = VoiceRec;
 			productReference = DB31478124891CE30093F346 /* Noodles.app */;
@@ -481,6 +487,8 @@
 				DB1C2862248FCE6E0013EEBA /* XCRemoteSwiftPackageReference "StatefulTabView" */,
 				DB3C2B76249A075D00C43F89 /* XCRemoteSwiftPackageReference "KeyboardObserving" */,
 				DB3C2B79249A07F700C43F89 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				DB2FD47E249B2F9B0023602E /* XCRemoteSwiftPackageReference "ChartView" */,
+				DB2FD483249B372D0023602E /* XCRemoteSwiftPackageReference "ASCollectionView" */,
 			);
 			productRefGroup = DB31478224891CE30093F346 /* Products */;
 			projectDirPath = "";
@@ -824,6 +832,22 @@
 				kind = branch;
 			};
 		};
+		DB2FD47E249B2F9B0023602E /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		DB2FD483249B372D0023602E /* XCRemoteSwiftPackageReference "ASCollectionView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apptekstudios/ASCollectionView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		DB3C2B76249A075D00C43F89 /* XCRemoteSwiftPackageReference "KeyboardObserving" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nickffox/KeyboardObserving";
@@ -847,6 +871,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DB1C2862248FCE6E0013EEBA /* XCRemoteSwiftPackageReference "StatefulTabView" */;
 			productName = StatefulTabView;
+		};
+		DB2FD47F249B2F9B0023602E /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB2FD47E249B2F9B0023602E /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+		DB2FD484249B372D0023602E /* ASCollectionView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB2FD483249B372D0023602E /* XCRemoteSwiftPackageReference "ASCollectionView" */;
+			productName = ASCollectionView;
 		};
 		DB3C2B77249A075D00C43F89 /* KeyboardObserving */ = {
 			isa = XCSwiftPackageProductDependency;

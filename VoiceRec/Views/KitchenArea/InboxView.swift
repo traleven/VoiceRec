@@ -15,17 +15,15 @@ struct InboxView: View {
 		ZStack() {
 			VStack() {
 				KitchenPageHeader(name: "INBOX")
-				//Text(FileUtils.getInboxDirectory().path)
-				//Divider()
+
 				NavigationView() {
-					InboxListView()
+					InboxListView(parentSelection: .constant(nil))
 						.environmentObject(recorder)
 						.border(Color.gray, width: 0.5)
 				}
 				.navigationViewStyle(StackNavigationViewStyle())
 			}
 		}
-		//Divider()
 	}
 }
 

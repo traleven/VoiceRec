@@ -12,11 +12,16 @@ struct InboxListView: View {
 	var path: URL?
 	@State var selectionIdx: Int?
 	@State var detailsEgg: Egg?
+	@Binding var parentSelection: Int?
 
 	var body: some View {
 		VStack() {
 			List(Egg.fetch(path), id: \.id) {(egg) in
-				NavigationLink(destination: InboxListView(name: egg.name, path: egg.file), tag: egg.idx, selection: self.$selectionIdx) {
+				ZStack() {
+					NavigationLink(destination: InboxListView(name: egg.name, path: egg.file, parentSelection: self.$selectionIdx), tag: egg.idx, selection: self.$selectionIdx) {
+						EmptyView()
+					}
+					.allowsHitTesting(false)
 					InboxEntry(egg: egg)
 				}
 				.onTapGesture {
@@ -39,6 +44,16 @@ struct InboxListView: View {
 			}
 			.navigationBarTitle(Text(name ?? "INBOX"), displayMode: .inline)
 			.navigationBarHidden(path == nil)
+			.navigationBarBackButtonHidden(true)
+			.navigationBarItems(leading:
+				Button(action: {
+					withAnimation { () -> Void in
+						self.parentSelection = nil
+					}
+				}) {
+					Text("< Back")
+				}.buttonStyle(PlainButtonStyle())
+			)
 
 			InboxRecorderPanel(path: self.path ?? FileUtils.getInboxDirectory())
 		}
@@ -91,7 +106,7 @@ extension InboxListView {
 
 struct InboxListView_Previews: PreviewProvider {
     static var previews: some View {
-		InboxListView(path:FileUtils.getInboxDirectory())
+		InboxListView(path:FileUtils.getInboxDirectory(), parentSelection: .constant(nil))
 			.environmentObject(AudioRecorder())
 			.previewLayout(.fixed(width: 480, height: 800))
     }
