@@ -47,6 +47,15 @@
         }
       },
       {
+        "package": "SwiftUIKit",
+        "repositoryURL": "https://github.com/danielsaidi/SwiftUIKit",
+        "state": {
+          "branch": "master",
+          "revision": "3228522139c39fe6162958a29837b7b889189e53",
+          "version": null
+        }
+      },
+      {
         "package": "SwiftUIX",
         "repositoryURL": "https://github.com/SwiftUIX/SwiftUIX",
         "state": {

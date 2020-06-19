@@ -24,6 +24,7 @@ struct InboxListView: View {
 					.allowsHitTesting(false)
 					InboxEntry(egg: egg)
 				}
+				.contentShape(Rectangle())
 				.onTapGesture {
 					withAnimation { () -> Void in
 						self.selectionIdx = egg.idx
@@ -52,10 +53,10 @@ struct InboxListView: View {
 					}
 				}) {
 					Text("< Back")
-				}.buttonStyle(PlainButtonStyle())
+				}
 			)
 
-			InboxRecorderPanel(path: self.path ?? FileUtils.getInboxDirectory())
+			InboxRecorderPanel(path: self.path ?? FileUtils.getDirectory(.inbox))
 		}
     }
 
@@ -106,7 +107,7 @@ extension InboxListView {
 
 struct InboxListView_Previews: PreviewProvider {
     static var previews: some View {
-		InboxListView(path:FileUtils.getInboxDirectory(), parentSelection: .constant(nil))
+		InboxListView(path:FileUtils.getDirectory(.inbox), parentSelection: .constant(nil))
 			.environmentObject(AudioRecorder())
 			.previewLayout(.fixed(width: 480, height: 800))
     }

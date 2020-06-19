@@ -19,7 +19,7 @@ class Egg : PersistentObject {
 
 	class func fetch() -> [Egg] {
 
-		let baseUrl = FileUtils.getInboxDirectory()
+		let baseUrl = FileUtils.getDirectory(.inbox)
 		return fetch(baseUrl)
 	}
 

@@ -42,6 +42,6 @@ struct TextMemoEditor: View {
 
 struct TextMemoEditor_Previews: PreviewProvider {
     static var previews: some View {
-		TextMemoEditor(editing:.constant(true), title: "Test", placeholder: "Enter you note here...", path: FileUtils.getInboxDirectory().appendingPathComponent("test.txt"))
+		TextMemoEditor(editing:.constant(true), title: "Test", placeholder: "Enter you note here...", path: FileUtils.getDirectory(.inbox).appendingPathComponent("test.txt"))
     }
 }

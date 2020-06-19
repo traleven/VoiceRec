@@ -49,7 +49,7 @@ struct InboxRecorderPanel: View {
 struct InboxRecorderPanel_Previews: PreviewProvider {
     static var previews: some View {
 		Group {
-			InboxRecorderPanel(path: FileUtils.getInboxDirectory())
+			InboxRecorderPanel(path: FileUtils.getDirectory(.inbox))
 		}
 		.environmentObject(AudioRecorder())
 		.previewLayout(.fixed(width: 420, height: 280))

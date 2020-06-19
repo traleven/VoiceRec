@@ -9,21 +9,15 @@ import SwiftUI
 
 struct InboxView: View {
 	var recorder: AudioRecorder = AudioRecorder()
-	@State var path: URL = FileUtils.getInboxDirectory()
+	@State var path: URL = FileUtils.getDirectory(.inbox)
 	
     var body: some View {
-		ZStack() {
-			VStack() {
-				KitchenPageHeader(name: "INBOX")
-
-				NavigationView() {
-					InboxListView(parentSelection: .constant(nil))
-						.environmentObject(recorder)
-						.border(Color.gray, width: 0.5)
-				}
-				.navigationViewStyle(StackNavigationViewStyle())
-			}
+		NavigationView() {
+			InboxListView(parentSelection: .constant(nil))
+				.environmentObject(recorder)
+				.border(Color.gray, width: 0.5)
 		}
+		.navigationViewStyle(StackNavigationViewStyle())
 	}
 }
 

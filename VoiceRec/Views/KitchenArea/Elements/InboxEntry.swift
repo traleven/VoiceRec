@@ -69,7 +69,7 @@ struct InboxEntry_Previews: PreviewProvider {
 
 			InboxEntry(egg: getEgg(name: "Test text egg", file: Bundle.main.resourceURL, type: "txt"))
 
-			InboxEntry(egg: getEgg(name: "Test package", file: FileUtils.getInboxDirectory(), type: ""))
+			InboxEntry(egg: getEgg(name: "Test package", file: FileUtils.getDirectory(.inbox), type: ""))
 		}
 			.previewLayout(.fixed(width: 320, height: 70))
     }

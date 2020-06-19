@@ -42,10 +42,10 @@ struct AudioRecorderButton: View {
 struct AudioRecorderButton_Previews: PreviewProvider {
     static var previews: some View {
 		Group {
-			AudioRecorderButton(path:FileUtils.getInboxDirectory())
+			AudioRecorderButton(path:FileUtils.getDirectory(.inbox))
 				.environmentObject(AudioRecorder())
 
-			AudioRecorderButton(path:FileUtils.getInboxDirectory())
+			AudioRecorderButton(path:FileUtils.getDirectory(.inbox))
 				.environmentObject(AudioRecorder())
 		}
 		.environmentObject(AudioRecorder())

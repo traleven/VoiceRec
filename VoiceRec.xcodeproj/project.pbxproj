@@ -39,6 +39,10 @@
 		DB2FD48B249B95E50023602E /* PlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FD48A249B95E50023602E /* PlaylistView.swift */; };
 		DB2FD48D249B96280023602E /* MusicBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FD48C249B96280023602E /* MusicBrowserView.swift */; };
 		DB2FD48F249B973F0023602E /* ServiceRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FD48E249B973F0023602E /* ServiceRootView.swift */; };
+		DB2FD491249BA4BE0023602E /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FD490249BA4BE0023602E /* LoadingView.swift */; };
+		DB2FD493249BB0960023602E /* PhraseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FD492249BB0960023602E /* PhraseListView.swift */; };
+		DB2FD495249BB10E0023602E /* PhraseEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FD494249BB10E0023602E /* PhraseEntry.swift */; };
+		DB2FD498249BEC420023602E /* SwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = DB2FD497249BEC420023602E /* SwiftUIKit */; };
 		DB31478524891CE30093F346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31478424891CE30093F346 /* AppDelegate.swift */; };
 		DB31478724891CE30093F346 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31478624891CE30093F346 /* SceneDelegate.swift */; };
 		DB31478924891CE30093F346 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31478824891CE30093F346 /* RootView.swift */; };
@@ -139,6 +143,9 @@
 		DB2FD48A249B95E50023602E /* PlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistView.swift; sourceTree = "<group>"; };
 		DB2FD48C249B96280023602E /* MusicBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBrowserView.swift; sourceTree = "<group>"; };
 		DB2FD48E249B973F0023602E /* ServiceRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRootView.swift; sourceTree = "<group>"; };
+		DB2FD490249BA4BE0023602E /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		DB2FD492249BB0960023602E /* PhraseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseListView.swift; sourceTree = "<group>"; };
+		DB2FD494249BB10E0023602E /* PhraseEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEntry.swift; sourceTree = "<group>"; };
 		DB31478124891CE30093F346 /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB31478424891CE30093F346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB31478624891CE30093F346 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2FD485249B372D0023602E /* ASCollectionView in Frameworks */,
+				DB2FD498249BEC420023602E /* SwiftUIKit in Frameworks */,
 				DB3C2B7B249A07F700C43F89 /* SwiftUIX in Frameworks */,
 				DB2FD480249B2F9B0023602E /* SwiftUICharts in Frameworks */,
 				DB1C2864248FCE6E0013EEBA /* StatefulTabView in Frameworks */,
@@ -416,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				DB2FD48E249B973F0023602E /* ServiceRootView.swift */,
+				DB2FD490249BA4BE0023602E /* LoadingView.swift */,
 				DB43ACA0248A7DD0008D3C5E /* ProfileView.swift */,
 			);
 			path = ServiceArea;
@@ -428,6 +437,8 @@
 				DBE57FED2491167F005D75FF /* InboxListView.swift */,
 				DB43ACA7248E6055008D3C5E /* InboxEntry.swift */,
 				DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */,
+				DB2FD492249BB0960023602E /* PhraseListView.swift */,
+				DB2FD494249BB10E0023602E /* PhraseEntry.swift */,
 				DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */,
 				DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */,
 				DB148B942498F05C0017FC1F /* TextPreview.swift */,
@@ -467,6 +478,7 @@
 				DB3C2B7A249A07F700C43F89 /* SwiftUIX */,
 				DB2FD47F249B2F9B0023602E /* SwiftUICharts */,
 				DB2FD484249B372D0023602E /* ASCollectionView */,
+				DB2FD497249BEC420023602E /* SwiftUIKit */,
 			);
 			productName = VoiceRec;
 			productReference = DB31478124891CE30093F346 /* Noodles.app */;
@@ -501,6 +513,7 @@
 				DB3C2B79249A07F700C43F89 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 				DB2FD47E249B2F9B0023602E /* XCRemoteSwiftPackageReference "ChartView" */,
 				DB2FD483249B372D0023602E /* XCRemoteSwiftPackageReference "ASCollectionView" */,
+				DB2FD496249BEC420023602E /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
 			);
 			productRefGroup = DB31478224891CE30093F346 /* Products */;
 			projectDirPath = "";
@@ -565,6 +578,7 @@
 				DB1CC80F248A6B1000B6E842 /* DictionaryDB.swift in Sources */,
 				DB2FD489249B95CB0023602E /* ComposerView.swift in Sources */,
 				DB2FD48B249B95E50023602E /* PlaylistView.swift in Sources */,
+				DB2FD491249BA4BE0023602E /* LoadingView.swift in Sources */,
 				DB60E7D22493B40A00733D63 /* TextMemoEditor.swift in Sources */,
 				DB1CC810248A6B1000B6E842 /* ArrayDB.swift in Sources */,
 				DB1CC830248A6E2F00B6E842 /* Shape.swift in Sources */,
@@ -580,6 +594,7 @@
 				DB68BED424988C3300B38BF2 /* MarqueeText.swift in Sources */,
 				DB1CC803248A6B1000B6E842 /* FileUtils.swift in Sources */,
 				DB1CC80E248A6B1000B6E842 /* DB.swift in Sources */,
+				DB2FD495249BB10E0023602E /* PhraseEntry.swift in Sources */,
 				DB1CC807248A6B1000B6E842 /* AudioPlayer.swift in Sources */,
 				DB1CC80A248A6B1000B6E842 /* AudioRecorder.swift in Sources */,
 				DB43AC93248A7C11008D3C5E /* InboxView.swift in Sources */,
@@ -601,6 +616,7 @@
 				DB1CC80B248A6B1000B6E842 /* VoiceSequence.swift in Sources */,
 				DB43ACA1248A7DD0008D3C5E /* ProfileView.swift in Sources */,
 				DB1CC82E248A6E2F00B6E842 /* Doughball.swift in Sources */,
+				DB2FD493249BB0960023602E /* PhraseListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,7 +787,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"VoiceRec/Preview Content\"";
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				ENABLE_PREVIEWS = YES;
@@ -796,7 +812,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_ASSET_PATHS = "\"VoiceRec/Preview Content\"";
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				ENABLE_PREVIEWS = YES;
@@ -864,6 +880,14 @@
 				kind = branch;
 			};
 		};
+		DB2FD496249BEC420023602E /* XCRemoteSwiftPackageReference "SwiftUIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielsaidi/SwiftUIKit";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		DB3C2B76249A075D00C43F89 /* XCRemoteSwiftPackageReference "KeyboardObserving" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nickffox/KeyboardObserving";
@@ -897,6 +921,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DB2FD483249B372D0023602E /* XCRemoteSwiftPackageReference "ASCollectionView" */;
 			productName = ASCollectionView;
+		};
+		DB2FD497249BEC420023602E /* SwiftUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB2FD496249BEC420023602E /* XCRemoteSwiftPackageReference "SwiftUIKit" */;
+			productName = SwiftUIKit;
 		};
 		DB3C2B77249A075D00C43F89 /* KeyboardObserving */ = {
 			isa = XCSwiftPackageProductDependency;

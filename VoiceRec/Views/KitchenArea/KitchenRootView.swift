@@ -10,23 +10,27 @@ import StatefulTabView
 
 struct KitchenRootView: View {
     var body: some View {
-		StatefulTabView(){[
-			Tab(title: "INBOX", image: nil) {
-				InboxView()
-			},
-			Tab(title: "Phrases", image: nil) {
-				PhraseBrowserView()
-			},
-			Tab(title: "Lessons", image: nil) {
-				LessonBrowserView()
-			},
-			Tab(title: "Composer", image: nil) {
-				ComposerView()
-			},
-		]}
-		.barTintColor(.blue)
-		.barAppearanceConfiguration(.opaque)
-    }
+		VStack() {
+			KitchenPageHeader(name: "INBOX")
+
+			StatefulTabView(){[
+				Tab(title: "INBOX", image: nil) {
+					InboxView()
+				},
+				Tab(title: "Phrases", image: nil) {
+					PhraseBrowserView()
+				},
+				Tab(title: "Lessons", image: nil) {
+					LessonBrowserView()
+				},
+				Tab(title: "Composer", image: nil) {
+					ComposerView()
+				},
+			]}
+			.barTintColor(.blue)
+			.barAppearanceConfiguration(.opaque)
+		}
+	}
 }
 
 struct KitchenNavStack_Previews: PreviewProvider {

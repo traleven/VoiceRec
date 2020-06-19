@@ -10,6 +10,11 @@ import Foundation
 
 class FileUtils {
 
+	enum Directories : String {
+		case inbox = "INBOX"
+		case phrases = "Phrases"
+	}
+
 	static var documentsDirectory: URL = getDocumentsDirectory()
 
 	class func getDocumentsDirectory() -> URL {
@@ -37,8 +42,8 @@ class FileUtils {
 	}
 
 
-	class func getInboxDirectory() -> URL {
-		return getDirectory("INBOX")
+	class func getDirectory(_ dir: Directories) -> URL {
+		return getDirectory(dir.rawValue)
 	}
 
 
@@ -64,7 +69,7 @@ class FileUtils {
 
 	class func getNewInboxFile(withName name: String, andExtension ext: String) -> URL {
 
-		return getNewInboxFile(at: FileUtils.getInboxDirectory(), withName: name, andExtension: ext)
+		return getNewInboxFile(at: FileUtils.getDirectory(.inbox), withName: name, andExtension: ext)
 	}
 
 
