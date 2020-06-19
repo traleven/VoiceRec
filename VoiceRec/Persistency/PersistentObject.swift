@@ -34,7 +34,7 @@ class PersistentObject : NSObject, Identifiable {
 		}
 	}
 
-	class func save<T: Encodable>(_ object: T, to filename: String) {
+	class func save<T: Encodable>(_ object: T, to file: URL) {
 		var data: Data
 
 		let encoder = JSONEncoder()
@@ -45,11 +45,9 @@ class PersistentObject : NSObject, Identifiable {
 		}
 
 		do {
-			let dir = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-			let file = dir.appendingPathComponent(filename)
 			try data.write(to: file, options: .atomicWrite)
 		} catch {
-			fatalError("Couldn't save \(filename) from main bundle:\n\(error)")
+			fatalError("Couldn't save \(file.path) from main bundle:\n\(error)")
 		}
 	}
 }

@@ -26,6 +26,14 @@ class Doughball : PersistentObject, Codable {
 		get { texts[Settings.language.target] }
 	}
 
+	var baseAudio : URL? {
+		get { audioFiles[Settings.language.base] }
+	}
+
+	var targetAudio : URL? {
+		get { audioFiles[Settings.language.target] }
+	}
+
 	override init() {
 		super.init()
 		self.baseUrl = FileUtils.getDirectory(.phrases).appendingPathComponent("\(self.id).dough", isDirectory: true)
@@ -42,7 +50,7 @@ class Doughball : PersistentObject, Codable {
 
 	func save() {
 		FileUtils.ensureDirectory(baseUrl)
-		PersistentObject.save(self, to: baseUrl.appendingPathComponent("meta.json", isDirectory: false).path)
+		PersistentObject.save(self, to: baseUrl.appendingPathComponent("meta.json", isDirectory: false))
 	}
 
 

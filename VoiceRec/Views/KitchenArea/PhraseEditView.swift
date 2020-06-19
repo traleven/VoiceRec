@@ -6,17 +6,26 @@
 //
 
 import SwiftUI
+import SwiftUIX
 
 struct PhraseEditView: View {
 	var phrase: Doughball
 	@Binding var parentSelection: Int?
 
     var body: some View {
-		VStack() {
-			Text(phrase.baseText ?? "")
-			Text(phrase.targetText ?? "")
+		Form() {
+			Section(header: Text("\(Settings.language.base)")) {
+				PhraseLanguagePanel(text: makeTextBinding(phrase, language: Settings.language.base), audio: .constant(phrase.baseAudio))
+			}
+			Section(header: Text("\(Settings.language.target)")) {
+				PhraseLanguagePanel(text: makeTextBinding(phrase, language: Settings.language.target), audio: .constant(phrase.targetAudio))
+			}
+			MultilineTextField("Notes", text: makeNotesBinding(phrase))
+				.inputAccessoryView(DoneInputAccessoryView())
 		}
-		.navigationBarTitle(Text(phrase.baseText ?? ""), displayMode: .inline)
+		.keyboardAvoiding()
+		.keyboardType(.default)
+		.navigationBarTitle("", displayMode: .inline)
 		.navigationBarHidden(false)
 		.navigationBarBackButtonHidden(true)
 		.navigationBarItems(leading:
@@ -26,9 +35,28 @@ struct PhraseEditView: View {
 				}
 			}) {
 				Text("< Back")
+			},
+			trailing: Button(action: {
+				self.phrase.save()
+			}) {
+				Text("Save")
 			}
 		)
     }
+
+	private func makeTextBinding(_ phrase: Doughball, language: String) -> Binding<String> {
+		return .init(
+			get: { return phrase.texts[language] ?? "" },
+			set: { phrase.texts[language] = $0 }
+		)
+	}
+
+	private func makeNotesBinding(_ phrase: Doughball) -> Binding<String> {
+		return .init(
+			get: { return phrase.comment },
+			set: { phrase.comment = $0 }
+		)
+	}
 }
 
 struct PhraseEditView_Previews: PreviewProvider {

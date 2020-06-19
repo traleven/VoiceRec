@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIX
 import UIKit
 
 fileprivate struct UITextViewWrapper: UIViewRepresentable {
@@ -13,6 +14,7 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
 
     @Binding var text: String
     @Binding var calculatedHeight: CGFloat
+	var inputAccessoryView: AnyView?
     var onDone: (() -> Void)?
 
     func makeUIView(context: UIViewRepresentableContext<UITextViewWrapper>) -> UITextView {
@@ -25,6 +27,7 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
         textField.isUserInteractionEnabled = true
         textField.isScrollEnabled = false
         textField.backgroundColor = UIColor.clear
+		textField.inputAccessoryView = nil
         if nil != onDone {
             textField.returnKeyType = .done
         }
@@ -37,6 +40,18 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
         if uiView.text != self.text {
             uiView.text = self.text
         }
+
+        if let inputAccessoryView = inputAccessoryView {
+            if let _inputAccessoryView = uiView.inputAccessoryView as? UIHostingView<AnyView> {
+                _inputAccessoryView.rootView = inputAccessoryView
+            } else {
+                uiView.inputAccessoryView = UIHostingView(rootView: inputAccessoryView)
+                uiView.inputAccessoryView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            }
+        } else {
+            uiView.inputAccessoryView = nil
+        }
+
         if uiView.window != nil, !uiView.isFirstResponder {
             uiView.becomeFirstResponder()
         }
@@ -87,6 +102,7 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
 struct MultilineTextField: View {
 
     private var placeholder: String
+	private var inputAccessoryView: AnyView?
     private var onCommit: (() -> Void)?
 
     @Binding private var text: String
@@ -100,7 +116,7 @@ struct MultilineTextField: View {
     @State private var dynamicHeight: CGFloat = 100
     @State private var showingPlaceholder = false
 
-    init (_ placeholder: String = "", text: Binding<String>, onCommit: (() -> Void)? = nil) {
+	init (_ placeholder: String = "", text: Binding<String>, onCommit: (() -> Void)? = nil) {
         self.placeholder = placeholder
         self.onCommit = onCommit
         self._text = text
@@ -108,7 +124,7 @@ struct MultilineTextField: View {
     }
 
     var body: some View {
-        UITextViewWrapper(text: self.internalText, calculatedHeight: $dynamicHeight, onDone: onCommit)
+        UITextViewWrapper(text: self.internalText, calculatedHeight: $dynamicHeight, inputAccessoryView: inputAccessoryView, onDone: onCommit)
             .frame(minHeight: dynamicHeight, maxHeight: dynamicHeight)
             .background(placeholderView, alignment: .topLeading)
     }
@@ -133,7 +149,7 @@ struct MultilineTextField_Previews: PreviewProvider {
     static var previews: some View {
         VStack(alignment: .leading) {
             Text("Description:")
-            MultilineTextField("Enter some text here", text: testBinding, onCommit: {
+			MultilineTextField("Enter some text here", text: testBinding, onCommit: {
                 print("Final text: \(test)")
             })
                 .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.black))
@@ -142,4 +158,14 @@ struct MultilineTextField_Previews: PreviewProvider {
         }
         .padding()
     }
+}
+
+extension MultilineTextField {
+	public func inputAccessoryView<InputAccessoryView: View>(_ view: InputAccessoryView) -> Self {
+		then({ $0.inputAccessoryView = .init(view) })
+	}
+
+	public func inputAccessoryView<InputAccessoryView: View>(@ViewBuilder _ view: () -> InputAccessoryView) -> Self {
+		then({ $0.inputAccessoryView = .init(view()) })
+	}
 }

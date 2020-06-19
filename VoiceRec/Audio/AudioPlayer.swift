@@ -9,14 +9,22 @@
 import Foundation
 import AVKit
 
-class AudioPlayer: NSObject, AVAudioPlayerDelegate {
+class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 
 	var url: URL!
 
 	var audioPlayer: AVAudioPlayer?
 	var meterTimer: Timer!
 
-	var isPlaying: Bool!
+	@Published var isPlaying: Bool!
+	@Published var progress: TimeInterval = 0
+	var duration: TimeInterval {
+		get { audioPlayer?.duration ?? 0 }
+	}
+	var progress01: Double {
+		get { audioPlayer != nil ? progress / audioPlayer!.duration : 0 }
+	}
+
 	var onProgress: ((TimeInterval, TimeInterval) -> Void)?
 	var onComplete: ((Bool) -> Void)?
 
@@ -56,6 +64,12 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 		self.onProgress = onProgress
 		self.onComplete = onFinish
 
+		self.play()
+	}
+
+
+	func play() {
+
 		if FileManager.default.fileExists(atPath: url.path) {
 			prepare_play()
 			audioPlayer!.play()
@@ -72,7 +86,8 @@ class AudioPlayer: NSObject, AVAudioPlayerDelegate {
 	@objc func updateAudioMeter(timer: Timer) {
 
 		if audioPlayer!.isPlaying {
-			onProgress!(audioPlayer!.currentTime, audioPlayer!.duration)
+			progress = audioPlayer!.currentTime
+			onProgress?(audioPlayer!.currentTime, audioPlayer!.duration)
 		}
 	}
 
