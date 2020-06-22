@@ -77,10 +77,10 @@ class Settings {
 //			set { DB.settings.set(newValue, forKey: "language.foreign") }
 		}
 		class func getLanguage(_ languageCode: Character) -> String {
-			return languageCode == "E" || languageCode == "N" ? base : target
+			return languageCode == "E" || languageCode == "N" || languageCode == "B" ? base : target
 		}
 		class func getLanguage(_ language: String) -> String {
-			return language == "Native" ? base : language == "Foreign" ? target : language
+			return language == "Base" ? base : language == "Target" ? target : language
 		}
 	}
 }

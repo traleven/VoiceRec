@@ -70,6 +70,10 @@
 		DB60E7D22493B40A00733D63 /* TextMemoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */; };
 		DB60E7D42493B94600733D63 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E7D32493B94600733D63 /* MultilineTextField.swift */; };
 		DB68BED424988C3300B38BF2 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68BED324988C3300B38BF2 /* MarqueeText.swift */; };
+		DB9EEA4324A0776F00C154E6 /* LessonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4224A0776F00C154E6 /* LessonListView.swift */; };
+		DB9EEA4524A0777F00C154E6 /* LessonEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4424A0777F00C154E6 /* LessonEntry.swift */; };
+		DB9EEA4824A0917D00C154E6 /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4724A0917D00C154E6 /* MusicListView.swift */; };
+		DB9EEA4A24A0918C00C154E6 /* MusicEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4924A0918C00C154E6 /* MusicEntry.swift */; };
 		DBB1D9DD24921ABB00566961 /* some air.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DBB1D9DB24921ABB00566961 /* some air.m4a */; };
 		DBE57FEE2491167F005D75FF /* InboxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE57FED2491167F005D75FF /* InboxListView.swift */; };
 /* End PBXBuildFile section */
@@ -177,6 +181,10 @@
 		DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMemoEditor.swift; sourceTree = "<group>"; };
 		DB60E7D32493B94600733D63 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		DB68BED324988C3300B38BF2 /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
+		DB9EEA4224A0776F00C154E6 /* LessonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListView.swift; sourceTree = "<group>"; };
+		DB9EEA4424A0777F00C154E6 /* LessonEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonEntry.swift; sourceTree = "<group>"; };
+		DB9EEA4724A0917D00C154E6 /* MusicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
+		DB9EEA4924A0918C00C154E6 /* MusicEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicEntry.swift; sourceTree = "<group>"; };
 		DBB1D9DB24921ABB00566961 /* some air.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "some air.m4a"; sourceTree = "<group>"; };
 		DBE57FED2491167F005D75FF /* InboxListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,6 +280,8 @@
 			children = (
 				DB2FD499249CD3800023602E /* InboxElements */,
 				DB2FD49A249CD3A10023602E /* PhraseElements */,
+				DB9EEA3F24A0774500C154E6 /* LessonElements */,
+				DB9EEA4624A0915B00C154E6 /* MusicElements */,
 				DB43ACA4248A8C29008D3C5E /* Elements */,
 				DB43AC9A248A7CBA008D3C5E /* KitchenRootView.swift */,
 				DB43AC92248A7C11008D3C5E /* InboxView.swift */,
@@ -484,6 +494,24 @@
 			path = Universal;
 			sourceTree = "<group>";
 		};
+		DB9EEA3F24A0774500C154E6 /* LessonElements */ = {
+			isa = PBXGroup;
+			children = (
+				DB9EEA4224A0776F00C154E6 /* LessonListView.swift */,
+				DB9EEA4424A0777F00C154E6 /* LessonEntry.swift */,
+			);
+			path = LessonElements;
+			sourceTree = "<group>";
+		};
+		DB9EEA4624A0915B00C154E6 /* MusicElements */ = {
+			isa = PBXGroup;
+			children = (
+				DB9EEA4724A0917D00C154E6 /* MusicListView.swift */,
+				DB9EEA4924A0918C00C154E6 /* MusicEntry.swift */,
+			);
+			path = MusicElements;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -594,6 +622,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB9EEA4524A0777F00C154E6 /* LessonEntry.swift in Sources */,
 				DB1CC82F248A6E2F00B6E842 /* Broth.swift in Sources */,
 				DB1CC802248A6B1000B6E842 /* NotificationUtils.swift in Sources */,
 				DB43AC9B248A7CBA008D3C5E /* KitchenRootView.swift in Sources */,
@@ -609,6 +638,7 @@
 				DB2FD489249B95CB0023602E /* ComposerView.swift in Sources */,
 				DB2FD48B249B95E50023602E /* PlaylistView.swift in Sources */,
 				DB2FD491249BA4BE0023602E /* LoadingView.swift in Sources */,
+				DB9EEA4824A0917D00C154E6 /* MusicListView.swift in Sources */,
 				DB60E7D22493B40A00733D63 /* TextMemoEditor.swift in Sources */,
 				DB1CC810248A6B1000B6E842 /* ArrayDB.swift in Sources */,
 				DB2FD4A0249CEE430023602E /* DoneInputAccessoryView.swift in Sources */,
@@ -620,6 +650,7 @@
 				DB1CC809248A6B1000B6E842 /* ExportComposer.swift in Sources */,
 				DB43ACAA248E6BB4008D3C5E /* InboxRecorderPanel.swift in Sources */,
 				DB148B952498F05C0017FC1F /* TextPreview.swift in Sources */,
+				DB9EEA4324A0776F00C154E6 /* LessonListView.swift in Sources */,
 				DB1CC831248A6E2F00B6E842 /* Spices.swift in Sources */,
 				DB43ACAC248E6D3F008D3C5E /* AudioRecorderButton.swift in Sources */,
 				DB68BED424988C3300B38BF2 /* MarqueeText.swift in Sources */,
@@ -644,6 +675,7 @@
 				DB1CC82B248A6E2F00B6E842 /* Recipe.swift in Sources */,
 				DB43ACA6248A8C57008D3C5E /* KitchenPageHeader.swift in Sources */,
 				DB1CC833248A6E2F00B6E842 /* Bowl.swift in Sources */,
+				DB9EEA4A24A0918C00C154E6 /* MusicEntry.swift in Sources */,
 				DB1CC80B248A6B1000B6E842 /* VoiceSequence.swift in Sources */,
 				DB2FD49C249CD4EE0023602E /* AudioPlayerPanel.swift in Sources */,
 				DB43ACA1248A7DD0008D3C5E /* ProfileView.swift in Sources */,

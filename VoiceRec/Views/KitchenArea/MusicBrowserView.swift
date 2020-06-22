@@ -9,7 +9,11 @@ import SwiftUI
 
 struct MusicBrowserView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		NavigationView() {
+			MusicListView(parentSelection: .constant(nil))
+				.border(Color.gray, width: 0.5)
+		}
+		.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

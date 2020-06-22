@@ -9,7 +9,11 @@ import SwiftUI
 
 struct LessonBrowserView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		NavigationView() {
+			LessonListView(parentSelection: .constant(nil))
+				.border(Color.gray, width: 0.5)
+		}
+		.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

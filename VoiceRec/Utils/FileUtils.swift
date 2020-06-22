@@ -13,6 +13,8 @@ class FileUtils {
 	enum Directories : String {
 		case inbox = "INBOX"
 		case phrases = "Phrases"
+		case lesons = "Lessons"
+		case music = "Music"
 	}
 
 	static var documentsDirectory: URL = getDocumentsDirectory()

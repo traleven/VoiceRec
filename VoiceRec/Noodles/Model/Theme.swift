@@ -18,6 +18,10 @@ class Theme : PersistentObject {
 		super.init()
 	}
 
+	required init(at: String) {
+		name = ""
+		super.init(at: at)
+	}
 
 	class func fetch() -> [Theme] {
 		return [Theme("Travel"), Theme("Basketball"), Theme("Food")]

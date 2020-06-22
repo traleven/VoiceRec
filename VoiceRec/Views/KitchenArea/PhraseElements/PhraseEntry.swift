@@ -31,13 +31,6 @@ struct PhraseEntry: View {
 		}
     }
 
-	func getText(_ phrase: Doughball) -> String {
-		return phrase.texts[Settings.language.base]
-			?? phrase.texts[Settings.language.target]
-			?? phrase.texts.first?.value
-			?? "..."
-	}
-
 	func getColor(_ phrase: Doughball) -> Color {
 		return phrase.texts[Settings.language.base] != nil && phrase.texts[Settings.language.target] != nil ? .green
 		: phrase.texts[Settings.language.base] == nil && phrase.texts[Settings.language.target] == nil ? .red

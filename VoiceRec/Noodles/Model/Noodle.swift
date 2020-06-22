@@ -19,5 +19,12 @@ class Noodle : PersistentObject {
 
 		self.dough = dough
 		self.shape = shaped
+		super.init()
+	}
+
+	required init(at: String) {
+		dough = Doughball()
+		shape = Shape("")
+		super.init(at: at)
 	}
 }

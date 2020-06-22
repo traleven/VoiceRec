@@ -44,6 +44,10 @@ class Doughball : PersistentObject, Codable {
 		self.baseUrl = baseUrl
 	}
 
+	required init(at: String) {
+		super.init(at: at)
+	}
+
 	class func with(contentOf file: URL) -> Doughball {
 		return load(file)
 	}
