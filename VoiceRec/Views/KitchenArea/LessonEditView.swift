@@ -57,7 +57,7 @@ struct LessonEditView: View {
 		)
 	}
 
-	private func makeNotesBinding(_ phrase: Doughball) -> Binding<String> {
+	private func makeNotesBinding(_ phrase: Phrase) -> Binding<String> {
 		return .init(
 			get: { return phrase.comment },
 			set: { phrase.comment = $0 }

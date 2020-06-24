@@ -10,6 +10,5 @@ import Foundation
 import CoreData
 
 /// Setting required to cook a `Bowl` of `Noodle`s
-@objc(Spices)
-class Spices : PersistentObject {
+class Spices : Codable {
 }

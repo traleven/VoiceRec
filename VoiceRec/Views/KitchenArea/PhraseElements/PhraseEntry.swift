@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PhraseEntry: View {
-	var phrase: Doughball
+	var phrase: Phrase
 
 	var body: some View {
 		HStack() {
@@ -31,7 +31,7 @@ struct PhraseEntry: View {
 		}
     }
 
-	func getColor(_ phrase: Doughball) -> Color {
+	func getColor(_ phrase: Phrase) -> Color {
 		return phrase.texts[Settings.language.base] != nil && phrase.texts[Settings.language.target] != nil ? .green
 		: phrase.texts[Settings.language.base] == nil && phrase.texts[Settings.language.target] == nil ? .red
 		: .yellow
@@ -41,17 +41,10 @@ struct PhraseEntry: View {
 struct PhraseEntry_Previews: PreviewProvider {
     static var previews: some View {
 		Group {
-			PhraseEntry(phrase: Doughball.make(0, [:]))
-
-			PhraseEntry(phrase: Doughball.make(1, ["English" : "Test"]))
-
-			PhraseEntry(phrase: Doughball.make(2, ["Chinese" : "Test"]))
-
-			PhraseEntry(phrase: Doughball.make(3, ["English" : "Test", "Chinese" : "Test"]))
+			ForEach(Phrase.fetch(FileUtils.getDefaultsDirectory(.phrases))) {
+				PhraseEntry(phrase: $0)
+			}
 		}
-			.previewLayout(.fixed(width: 320, height: 70))
+		.previewLayout(.fixed(width: 320, height: 70))
     }
-}
-
-extension PreviewProvider {
 }

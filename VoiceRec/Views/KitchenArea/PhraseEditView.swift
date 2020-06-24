@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftUIX
 
 struct PhraseEditView: View {
-	var phrase: Doughball
+	var phrase: Phrase
 	@Binding var parentSelection: Int?
 
     var body: some View {
@@ -44,14 +44,14 @@ struct PhraseEditView: View {
 		)
     }
 
-	private func makeTextBinding(_ phrase: Doughball, language: String) -> Binding<String> {
+	private func makeTextBinding(_ phrase: Phrase, language: String) -> Binding<String> {
 		return .init(
 			get: { return phrase.texts[language] ?? "" },
 			set: { phrase.texts[language] = $0 }
 		)
 	}
 
-	private func makeNotesBinding(_ phrase: Doughball) -> Binding<String> {
+	private func makeNotesBinding(_ phrase: Phrase) -> Binding<String> {
 		return .init(
 			get: { return phrase.comment },
 			set: { phrase.comment = $0 }
@@ -61,6 +61,6 @@ struct PhraseEditView: View {
 
 struct PhraseEditView_Previews: PreviewProvider {
     static var previews: some View {
-		PhraseEditView(phrase: Doughball.make(0, ["English" : "Test", "Chinese" : "Test"]), parentSelection: .constant(0))
+		PhraseEditView(phrase: Phrase.make(0, ["English" : "Test", "Chinese" : "Test"]), parentSelection: .constant(0))
     }
 }

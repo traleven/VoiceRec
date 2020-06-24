@@ -13,7 +13,7 @@ struct AudioPlayerPanel: View {
 	@ObservedObject var recorder : AudioRecorder
 
 	init(_ url: URL?) {
-		player = AudioPlayer(Bundle.main.url(forResource: "some air", withExtension: "m4a")!)
+		player = AudioPlayer(url)
 		recorder = AudioRecorder()
 	}
 
@@ -48,7 +48,7 @@ struct AudioPlayerPanel: View {
 struct AudioPlayerPanel_Previews: PreviewProvider {
     static var previews: some View {
 		Group {
-			AudioPlayerPanel(Bundle.main.url(forResource: "some air", withExtension: "m4a")!)
+			AudioPlayerPanel(FileUtils.getDefaultsDirectory(.music).appendingPathComponent("some air.m4a"))
 		}
 		.previewLayout(.fixed(width: 480, height: 160))
     }

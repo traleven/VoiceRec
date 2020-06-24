@@ -65,22 +65,10 @@ struct InboxEntry: View {
 struct InboxEntry_Previews: PreviewProvider {
     static var previews: some View {
 		Group {
-			InboxEntry(egg: getEgg(name: "Test audio egg", file: Bundle.main.url(forResource: "some air", withExtension: "m4a"), type: "m4a"))
-
-			InboxEntry(egg: getEgg(name: "Test text egg", file: Bundle.main.resourceURL, type: "txt"))
-
-			InboxEntry(egg: getEgg(name: "Test package", file: FileUtils.getDirectory(.inbox), type: ""))
+			ForEach(Egg.fetch(FileUtils.getDefaultsDirectory(.inbox))) {
+				InboxEntry(egg: $0)
+			}
 		}
-			.previewLayout(.fixed(width: 320, height: 70))
+		.previewLayout(.fixed(width: 480, height: 70))
     }
-}
-
-extension PreviewProvider {
-	static func getEgg(name: String, file: URL?, type: String) -> Egg {
-		let egg = Egg()
-		egg.name = Egg.getName(for: file!, of: type)
-		egg.file = file
-		egg.type = type
-		return egg
-	}
 }

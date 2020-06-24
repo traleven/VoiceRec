@@ -22,13 +22,11 @@
 		DB1CC80F248A6B1000B6E842 /* DictionaryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7F4248A6B1000B6E842 /* DictionaryDB.swift */; };
 		DB1CC810248A6B1000B6E842 /* ArrayDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7F5248A6B1000B6E842 /* ArrayDB.swift */; };
 		DB1CC82B248A6E2F00B6E842 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7D7248A6B0F00B6E842 /* Recipe.swift */; };
-		DB1CC82C248A6E2F00B6E842 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7D8248A6B0F00B6E842 /* Language.swift */; };
 		DB1CC82D248A6E2F00B6E842 /* Egg.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7D9248A6B0F00B6E842 /* Egg.swift */; };
-		DB1CC82E248A6E2F00B6E842 /* Doughball.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DA248A6B0F00B6E842 /* Doughball.swift */; };
+		DB1CC82E248A6E2F00B6E842 /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DA248A6B0F00B6E842 /* Phrase.swift */; };
 		DB1CC82F248A6E2F00B6E842 /* Broth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DB248A6B0F00B6E842 /* Broth.swift */; };
 		DB1CC830248A6E2F00B6E842 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DC248A6B0F00B6E842 /* Shape.swift */; };
 		DB1CC831248A6E2F00B6E842 /* Spices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DD248A6B0F00B6E842 /* Spices.swift */; };
-		DB1CC832248A6E2F00B6E842 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DE248A6B0F00B6E842 /* Theme.swift */; };
 		DB1CC833248A6E2F00B6E842 /* Bowl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DF248A6B0F00B6E842 /* Bowl.swift */; };
 		DB1CC834248A6E2F00B6E842 /* Noodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7E0248A6B0F00B6E842 /* Noodle.swift */; };
 		DB1CC836248A71A400B6E842 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC835248A71A400B6E842 /* Environment.swift */; };
@@ -70,11 +68,12 @@
 		DB60E7D22493B40A00733D63 /* TextMemoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */; };
 		DB60E7D42493B94600733D63 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E7D32493B94600733D63 /* MultilineTextField.swift */; };
 		DB68BED424988C3300B38BF2 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68BED324988C3300B38BF2 /* MarqueeText.swift */; };
+		DB9C630424A227E3009AD627 /* DefaultData in Resources */ = {isa = PBXBuildFile; fileRef = DB9C630324A227E3009AD627 /* DefaultData */; };
 		DB9EEA4324A0776F00C154E6 /* LessonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4224A0776F00C154E6 /* LessonListView.swift */; };
 		DB9EEA4524A0777F00C154E6 /* LessonEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4424A0777F00C154E6 /* LessonEntry.swift */; };
 		DB9EEA4824A0917D00C154E6 /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4724A0917D00C154E6 /* MusicListView.swift */; };
 		DB9EEA4A24A0918C00C154E6 /* MusicEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4924A0918C00C154E6 /* MusicEntry.swift */; };
-		DBB1D9DD24921ABB00566961 /* some air.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DBB1D9DB24921ABB00566961 /* some air.m4a */; };
+		DB9EEA4F24A1CEA800C154E6 /* SlidingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4E24A1CEA800C154E6 /* SlidingTabView.swift */; };
 		DBE57FEE2491167F005D75FF /* InboxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE57FED2491167F005D75FF /* InboxListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,19 +97,16 @@
 /* Begin PBXFileReference section */
 		DB148B942498F05C0017FC1F /* TextPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPreview.swift; sourceTree = "<group>"; };
 		DB1CC7D7248A6B0F00B6E842 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		DB1CC7D8248A6B0F00B6E842 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		DB1CC7D9248A6B0F00B6E842 /* Egg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Egg.swift; sourceTree = "<group>"; };
-		DB1CC7DA248A6B0F00B6E842 /* Doughball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doughball.swift; sourceTree = "<group>"; };
+		DB1CC7DA248A6B0F00B6E842 /* Phrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		DB1CC7DB248A6B0F00B6E842 /* Broth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broth.swift; sourceTree = "<group>"; };
 		DB1CC7DC248A6B0F00B6E842 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		DB1CC7DD248A6B0F00B6E842 /* Spices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spices.swift; sourceTree = "<group>"; };
-		DB1CC7DE248A6B0F00B6E842 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		DB1CC7DF248A6B0F00B6E842 /* Bowl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bowl.swift; sourceTree = "<group>"; };
 		DB1CC7E0248A6B0F00B6E842 /* Noodle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Noodle.swift; sourceTree = "<group>"; };
 		DB1CC7E2248A6B0F00B6E842 /* NotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationUtils.swift; sourceTree = "<group>"; };
 		DB1CC7E3248A6B0F00B6E842 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		DB1CC7E4248A6B0F00B6E842 /* DataUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
-		DB1CC7E7248A6B1000B6E842 /* Noodles.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Noodles.xcdatamodel; sourceTree = "<group>"; };
 		DB1CC7E9248A6B1000B6E842 /* OpusTranscoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusTranscoder.swift; sourceTree = "<group>"; };
 		DB1CC7EA248A6B1000B6E842 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		DB1CC7EB248A6B1000B6E842 /* OpusTranscoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpusTranscoder.m; sourceTree = "<group>"; };
@@ -181,11 +177,12 @@
 		DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMemoEditor.swift; sourceTree = "<group>"; };
 		DB60E7D32493B94600733D63 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		DB68BED324988C3300B38BF2 /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
+		DB9C630324A227E3009AD627 /* DefaultData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DefaultData; sourceTree = "<group>"; };
 		DB9EEA4224A0776F00C154E6 /* LessonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListView.swift; sourceTree = "<group>"; };
 		DB9EEA4424A0777F00C154E6 /* LessonEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonEntry.swift; sourceTree = "<group>"; };
 		DB9EEA4724A0917D00C154E6 /* MusicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
 		DB9EEA4924A0918C00C154E6 /* MusicEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicEntry.swift; sourceTree = "<group>"; };
-		DBB1D9DB24921ABB00566961 /* some air.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "some air.m4a"; sourceTree = "<group>"; };
+		DB9EEA4E24A1CEA800C154E6 /* SlidingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingTabView.swift; sourceTree = "<group>"; };
 		DBE57FED2491167F005D75FF /* InboxListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,27 +203,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DB1CC7D5248A6B0F00B6E842 /* Noodles */ = {
-			isa = PBXGroup;
-			children = (
-				DB1CC7D6248A6B0F00B6E842 /* Model */,
-			);
-			path = Noodles;
-			sourceTree = "<group>";
-		};
 		DB1CC7D6248A6B0F00B6E842 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB1CC7D7248A6B0F00B6E842 /* Recipe.swift */,
-				DB1CC7D8248A6B0F00B6E842 /* Language.swift */,
-				DB1CC7D9248A6B0F00B6E842 /* Egg.swift */,
-				DB1CC7DA248A6B0F00B6E842 /* Doughball.swift */,
-				DB1CC7DB248A6B0F00B6E842 /* Broth.swift */,
-				DB1CC7DC248A6B0F00B6E842 /* Shape.swift */,
-				DB1CC7DD248A6B0F00B6E842 /* Spices.swift */,
-				DB1CC7DE248A6B0F00B6E842 /* Theme.swift */,
-				DB1CC7DF248A6B0F00B6E842 /* Bowl.swift */,
-				DB1CC7E0248A6B0F00B6E842 /* Noodle.swift */,
+				DB9C630524A24324009AD627 /* Persistent */,
+				DB9C630624A2432E009AD627 /* Inline */,
+				DB9C630724A24339009AD627 /* Calculated */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,14 +221,6 @@
 				DB1CC7E4248A6B0F00B6E842 /* DataUtils.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		DB1CC7E5248A6B0F00B6E842 /* DataModel */ = {
-			isa = PBXGroup;
-			children = (
-				DB1CC7E6248A6B0F00B6E842 /* Noodles.xcdatamodeld */,
-			);
-			path = DataModel;
 			sourceTree = "<group>";
 		};
 		DB1CC7E8248A6B1000B6E842 /* Audio */ = {
@@ -281,7 +255,6 @@
 				DB2FD499249CD3800023602E /* InboxElements */,
 				DB2FD49A249CD3A10023602E /* PhraseElements */,
 				DB9EEA3F24A0774500C154E6 /* LessonElements */,
-				DB9EEA4624A0915B00C154E6 /* MusicElements */,
 				DB43ACA4248A8C29008D3C5E /* Elements */,
 				DB43AC9A248A7CBA008D3C5E /* KitchenRootView.swift */,
 				DB43AC92248A7C11008D3C5E /* InboxView.swift */,
@@ -289,7 +262,6 @@
 				DB43AC94248A7C1E008D3C5E /* PhraseEditView.swift */,
 				DB43AC96248A7C3B008D3C5E /* LessonBrowserView.swift */,
 				DB43AC98248A7C53008D3C5E /* LessonEditView.swift */,
-				DB2FD48C249B96280023602E /* MusicBrowserView.swift */,
 				DB2FD488249B95CB0023602E /* ComposerView.swift */,
 			);
 			path = KitchenArea;
@@ -412,9 +384,9 @@
 		DB31478324891CE30093F346 /* VoiceRec */ = {
 			isa = PBXGroup;
 			children = (
+				DB9C630324A227E3009AD627 /* DefaultData */,
 				DB1CC7E8248A6B1000B6E842 /* Audio */,
-				DB1CC7E5248A6B0F00B6E842 /* DataModel */,
-				DB1CC7D5248A6B0F00B6E842 /* Noodles */,
+				DB1CC7D6248A6B0F00B6E842 /* Model */,
 				DB1CC7F0248A6B1000B6E842 /* Persistency */,
 				DB1CC7E1248A6B0F00B6E842 /* Utils */,
 				DB1CC7F7248A6B1000B6E842 /* VoiceRec-Bridging-Header.h */,
@@ -424,7 +396,6 @@
 				DB31478A24891CE50093F346 /* Assets.xcassets */,
 				DB31478F24891CE50093F346 /* LaunchScreen.storyboard */,
 				DB1CC7F6248A6B1000B6E842 /* VoiceRec.entitlements */,
-				DBB1D9DB24921ABB00566961 /* some air.m4a */,
 				DB31479224891CE50093F346 /* Info.plist */,
 				DB31478C24891CE50093F346 /* Preview Content */,
 			);
@@ -464,9 +435,11 @@
 		DB43AC9F248A7DBC008D3C5E /* ServiceArea */ = {
 			isa = PBXGroup;
 			children = (
+				DB9EEA4624A0915B00C154E6 /* MusicElements */,
 				DB2FD48E249B973F0023602E /* ServiceRootView.swift */,
 				DB2FD490249BA4BE0023602E /* LoadingView.swift */,
 				DB43ACA0248A7DD0008D3C5E /* ProfileView.swift */,
+				DB2FD48C249B96280023602E /* MusicBrowserView.swift */,
 			);
 			path = ServiceArea;
 			sourceTree = "<group>";
@@ -490,8 +463,38 @@
 				DB68BED324988C3300B38BF2 /* MarqueeText.swift */,
 				DB3C2B72249A047500C43F89 /* BlurView.swift */,
 				DB2FD49F249CEE430023602E /* DoneInputAccessoryView.swift */,
+				DB9EEA4E24A1CEA800C154E6 /* SlidingTabView.swift */,
 			);
 			path = Universal;
+			sourceTree = "<group>";
+		};
+		DB9C630524A24324009AD627 /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC7D9248A6B0F00B6E842 /* Egg.swift */,
+				DB1CC7DB248A6B0F00B6E842 /* Broth.swift */,
+				DB1CC7DA248A6B0F00B6E842 /* Phrase.swift */,
+				DB1CC7D7248A6B0F00B6E842 /* Recipe.swift */,
+			);
+			path = Persistent;
+			sourceTree = "<group>";
+		};
+		DB9C630624A2432E009AD627 /* Inline */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC7DC248A6B0F00B6E842 /* Shape.swift */,
+				DB1CC7DD248A6B0F00B6E842 /* Spices.swift */,
+			);
+			path = Inline;
+			sourceTree = "<group>";
+		};
+		DB9C630724A24339009AD627 /* Calculated */ = {
+			isa = PBXGroup;
+			children = (
+				DB1CC7E0248A6B0F00B6E842 /* Noodle.swift */,
+				DB1CC7DF248A6B0F00B6E842 /* Bowl.swift */,
+			);
+			path = Calculated;
 			sourceTree = "<group>";
 		};
 		DB9EEA3F24A0774500C154E6 /* LessonElements */ = {
@@ -608,8 +611,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBB1D9DD24921ABB00566961 /* some air.m4a in Resources */,
 				DB31479124891CE50093F346 /* LaunchScreen.storyboard in Resources */,
+				DB9C630424A227E3009AD627 /* DefaultData in Resources */,
 				DB31478E24891CE50093F346 /* Preview Assets.xcassets in Resources */,
 				DB31478B24891CE50093F346 /* Assets.xcassets in Resources */,
 			);
@@ -628,7 +631,6 @@
 				DB43AC9B248A7CBA008D3C5E /* KitchenRootView.swift in Sources */,
 				DB2FD487249B954C0023602E /* PhraseBrowserView.swift in Sources */,
 				DB43AC99248A7C53008D3C5E /* LessonEditView.swift in Sources */,
-				DB1CC82C248A6E2F00B6E842 /* Language.swift in Sources */,
 				DB31478524891CE30093F346 /* AppDelegate.swift in Sources */,
 				DB1CC834248A6E2F00B6E842 /* Noodle.swift in Sources */,
 				DB43AC9E248A7D76008D3C5E /* DiningRootView.swift in Sources */,
@@ -657,6 +659,7 @@
 				DB1CC803248A6B1000B6E842 /* FileUtils.swift in Sources */,
 				DB1CC80E248A6B1000B6E842 /* DB.swift in Sources */,
 				DB2FD495249BB10E0023602E /* PhraseEntry.swift in Sources */,
+				DB9EEA4F24A1CEA800C154E6 /* SlidingTabView.swift in Sources */,
 				DB1CC807248A6B1000B6E842 /* AudioPlayer.swift in Sources */,
 				DB1CC80A248A6B1000B6E842 /* AudioRecorder.swift in Sources */,
 				DB43AC93248A7C11008D3C5E /* InboxView.swift in Sources */,
@@ -664,7 +667,6 @@
 				DB2FD48F249B973F0023602E /* ServiceRootView.swift in Sources */,
 				DB43AC97248A7C3B008D3C5E /* LessonBrowserView.swift in Sources */,
 				DB1CC836248A71A400B6E842 /* Environment.swift in Sources */,
-				DB1CC832248A6E2F00B6E842 /* Theme.swift in Sources */,
 				DB1CC80C248A6B1000B6E842 /* PersistentObject.swift in Sources */,
 				DB43ACA8248E6055008D3C5E /* InboxEntry.swift in Sources */,
 				DB1CC82D248A6E2F00B6E842 /* Egg.swift in Sources */,
@@ -679,7 +681,7 @@
 				DB1CC80B248A6B1000B6E842 /* VoiceSequence.swift in Sources */,
 				DB2FD49C249CD4EE0023602E /* AudioPlayerPanel.swift in Sources */,
 				DB43ACA1248A7DD0008D3C5E /* ProfileView.swift in Sources */,
-				DB1CC82E248A6E2F00B6E842 /* Doughball.swift in Sources */,
+				DB1CC82E248A6E2F00B6E842 /* Phrase.swift in Sources */,
 				DB2FD493249BB0960023602E /* PhraseListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1002,19 +1004,6 @@
 			productName = SwiftUIX;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		DB1CC7E6248A6B0F00B6E842 /* Noodles.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				DB1CC7E7248A6B1000B6E842 /* Noodles.xcdatamodel */,
-			);
-			currentVersion = DB1CC7E7248A6B1000B6E842 /* Noodles.xcdatamodel */;
-			path = Noodles.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = DB31477924891CE30093F346 /* Project object */;
 }

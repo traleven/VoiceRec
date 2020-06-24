@@ -107,9 +107,8 @@ extension InboxListView {
 
 struct InboxListView_Previews: PreviewProvider {
     static var previews: some View {
-		InboxListView(path:FileUtils.getDirectory(.inbox), parentSelection: .constant(nil))
+		InboxListView(path:FileUtils.getDefaultsDirectory(.inbox), parentSelection: .constant(nil))
 			.environmentObject(AudioRecorder())
 			.previewLayout(.fixed(width: 480, height: 800))
     }
 }
-

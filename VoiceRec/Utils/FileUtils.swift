@@ -18,6 +18,7 @@ class FileUtils {
 	}
 
 	static var documentsDirectory: URL = getDocumentsDirectory()
+	static var defaultsDirectory: URL = getDefaultsDirectory()
 
 	class func getDocumentsDirectory() -> URL {
 
@@ -27,11 +28,23 @@ class FileUtils {
 		return documentsDirectory
 	}
 
+	class func getDefaultsDirectory() -> URL {
+
+		return Bundle.main.resourceURL!.appendingPathComponent("DefaultData")
+	}
+
 
 	class func getDirectory(_ dir: String) -> URL {
 
 		let targetDirectory = documentsDirectory.appendingPathComponent(dir, isDirectory: true)
 		FileUtils.ensureDirectory(targetDirectory)
+		return targetDirectory
+	}
+
+
+	class func getDefaultsDirectory(_ dir: String) -> URL {
+
+		let targetDirectory = defaultsDirectory.appendingPathComponent(dir, isDirectory: true)
 		return targetDirectory
 	}
 
@@ -46,6 +59,11 @@ class FileUtils {
 
 	class func getDirectory(_ dir: Directories) -> URL {
 		return getDirectory(dir.rawValue)
+	}
+
+
+	class func getDefaultsDirectory(_ dir: Directories) -> URL {
+		return getDefaultsDirectory(dir.rawValue)
 	}
 
 

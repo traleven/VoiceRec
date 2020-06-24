@@ -30,7 +30,7 @@ struct LessonEntry_Previews: PreviewProvider {
 			LessonEntry(lesson: Recipe.fetch()[0])
 			LessonEntry(lesson: Recipe.fetch()[1])
 		}
-			.previewLayout(.fixed(width: 320, height: 70))
+		.previewLayout(.fixed(width: 320, height: 70))
 
     }
 }

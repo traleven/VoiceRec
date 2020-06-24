@@ -29,8 +29,8 @@ struct TextPreview: View {
 		}    }
 }
 
-struct TextPreview_Previews: PreviewProvider {
-    static var previews: some View {
-		TextPreview(isVisible:.constant(true), egg: getEgg(name: "Test", file: FileUtils.getDocumentsDirectory().appendingPathComponent("options.json", isDirectory: false), type: "txt"))
-    }
-}
+//struct TextPreview_Previews: PreviewProvider {
+//    static var previews: some View {
+//		TextPreview(isVisible:.constant(true), egg: getEgg(name: "Test", file: FileUtils.getDocumentsDirectory().appendingPathComponent("options.json", isDirectory: false), type: "txt"))
+//    }
+//}

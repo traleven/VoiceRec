@@ -8,18 +8,17 @@
 
 import Foundation
 
-class PersistentObject : NSObject, GlobalIdentifiable {
-
+class PersistentObject : GlobalIdentifiable {
+	static var index: [String : URL] = [:]
 	var id : String
 
-	override init() {
+	init() {
 
 		id = UUID().uuidString
 	}
 
-	required init(at: String) {
-
-		id = at
+	class func with(contentOf file: URL) -> Self? {
+		return nil
 	}
 
 	class func load<T: Decodable>(_ file: URL) -> T {

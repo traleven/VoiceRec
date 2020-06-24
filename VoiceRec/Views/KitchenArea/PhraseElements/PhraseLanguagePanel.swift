@@ -26,6 +26,6 @@ struct PhraseLanguagePanel: View {
 
 struct PhraseLanguagePanel_Previews: PreviewProvider {
     static var previews: some View {
-		PhraseLanguagePanel(text: .constant("Some phrase"), audio: .constant(Bundle.main.url(forResource: "some air", withExtension: "m4a")))
+		PhraseLanguagePanel(text: .constant("Some phrase"), audio: .constant(FileUtils.getDefaultsDirectory(.music).appendingPathComponent("some air.m4a")))
     }
 }

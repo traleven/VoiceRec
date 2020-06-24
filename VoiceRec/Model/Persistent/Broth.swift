@@ -11,11 +11,22 @@ import CoreData
 
 /// Background audio (music) used to add a specific "taste"
 /// to the `Noodle`s in a `Bowl`
-@objc(Broth)
-class Broth : PersistentObject {
+final class Broth : GlobalIdentifiable {
+	static var index: [String : URL] = [:]
 
+	var id: String
 	var name : String!
 	var audioFile : URL!
+
+	required init(name: String, url: URL) {
+		self.id = url.path
+		self.name = name
+		self.audioFile = url
+	}
+
+	static func with(contentOf file: URL) -> Self? {
+		return .init(name: file.deletingPathExtension().lastPathComponent, url: file)
+	}
 
 	class func fetch() -> [Broth] {
 
@@ -33,16 +44,13 @@ class Broth : PersistentObject {
 			return []
 		}
 
-		let someAir = Broth()
-		someAir.name = "some air"
-		someAir.audioFile = Bundle.main.url(forResource: "some air", withExtension: "m4a")
+		let someAir = Broth(name: "some air", url: FileUtils.getDefaultsDirectory(.music).appendingPathComponent("some air.m4a"))
 
 		var data : [Broth] = [someAir]
 		for url in files {
-			let music = Broth()
-			music.name = url.deletingPathExtension().lastPathComponent
-			music.audioFile = url
-			data.append(music)
+			if let music = Broth.with(contentOf: url) {
+				data.append(music)
+			}
 		}
 
 		return data

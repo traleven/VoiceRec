@@ -9,16 +9,32 @@
 import Foundation
 
 /// Simple audio file container that can be used to produce `Doughball`
-@objc(Egg)
-class Egg : PersistentObject {
+final class Egg : Equatable, GlobalIdentifiable {
+	static func == (lhs: Egg, rhs: Egg) -> Bool {
+		return lhs.id == rhs.id
+	}
+
+	static var index : [String : URL] = [:]
+
+	var id : String
 
 	var name : String!
 	var file : URL!
 	var type : String!
 	var idx : Int!
 
-	class func fetch() -> [Egg] {
+	required init(name: String, url: URL, ofType: String) {
+		self.id = UUID().uuidString
+		self.name = name
+		self.file = url
+		self.type = ofType
+	}
 
+	class func with(contentOf file: URL) -> Self? {
+		return .init(name: getName(for: file, of: file.pathExtension), url: file, ofType: file.pathExtension)
+	}
+
+	class func fetch() -> [Egg] {
 		let baseUrl = FileUtils.getDirectory(.inbox)
 		return fetch(baseUrl)
 	}
@@ -36,18 +52,16 @@ class Egg : PersistentObject {
 		var data : [Egg] = []
 		for url in files {
 
-			let egg = Egg()
-			egg.file = url
-			egg.name = getName(for: url, of: url.pathExtension)
-			egg.type = url.pathExtension
-			egg.idx = data.count
-			data.append(egg)
+			if let egg = Egg.with(contentOf: url) {
+				egg.idx = data.count
+				data.append(egg)
+			}
 		}
 
 		return data
 	}
 
-	class func getName(for file: URL, of type: String) -> String {
+	private class func getName(for file: URL, of type: String) -> String {
 		switch type {
 		case "":
 			return findNameInChildren(for: file)
@@ -62,7 +76,7 @@ class Egg : PersistentObject {
 		}
 	}
 
-	class func findNameInChildren(for directory: URL) -> String {
+	private class func findNameInChildren(for directory: URL) -> String {
 		guard FileManager.default.fileExists(atPath: directory.path) else {
 			return directory.lastPathComponent
 		}

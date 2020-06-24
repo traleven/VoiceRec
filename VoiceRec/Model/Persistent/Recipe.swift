@@ -7,22 +7,19 @@
 //
 
 import Foundation
-import CoreData
 
 /// A conteiner of all the required ingridients used
 /// to cook a `Bowl` of `Noodle`s
-@objc(Recipe)
 class Recipe : PersistentObject, Codable {
 
 	var name : String!
-	var noodle : [WeakLink<Noodle>]!
+	var noodle : [WeakLink<Phrase>]!
 	var broth : WeakLink<Broth>!
-	var spice : WeakLink<Spices>!
+	var spice : Spices!
 
 	var idx: Int = 0
 
-
-	class func with(contentOf file: URL) -> Recipe {
+	override class func with(contentOf file: URL) -> Self? {
 		return load(file)
 	}
 
@@ -56,16 +53,17 @@ class Recipe : PersistentObject, Codable {
 		var data : [Recipe] = []
 		for url in files.filter({ (url: URL) -> Bool in url.pathExtension == "recipe" }) {
 
-			let recipe = Recipe.with(contentOf: url)
-			recipe.idx = data.count
-			data.append(recipe)
+			if let recipe = Recipe.with(contentOf: url) {
+				recipe.idx = data.count
+				data.append(recipe)
+			}
 		}
 
 		return data
 	}
 
 
-	class func make(_ idx: Int, _ name: String, broth: Broth, spice: Spices, noodles: [Noodle]) -> Recipe {
+	class func make(_ idx: Int, _ name: String, broth: Broth, spice: Spices, noodles: [Phrase]) -> Recipe {
 		let a = Recipe()
 		a.idx = idx
 		a.name = name

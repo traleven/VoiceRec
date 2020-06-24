@@ -10,7 +10,7 @@ import Foundation
 
 /// A specific sequence of Native and Foreign audio
 /// repetiotions describing a "shape" of a `Noodle`
-class Shape : NSObject {
+class Shape : Codable {
 
 	var dna : String
 

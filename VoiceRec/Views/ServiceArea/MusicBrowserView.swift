@@ -10,8 +10,21 @@ import SwiftUI
 struct MusicBrowserView: View {
     var body: some View {
 		NavigationView() {
-			MusicListView(parentSelection: .constant(nil))
-				.border(Color.gray, width: 0.5)
+			VStack() {
+				Section() {
+					Image("profile_new")
+						.clipShape(Circle())
+						.scaledToFill()
+					Text("Ivan Dolgushin")
+						.font(.title)
+						.foregroundColor(.blue)
+					Text("idipster@gmail.com")
+						.font(.footnote)
+						.underline()
+				}
+				MusicListView(parentSelection: .constant(nil))
+					.border(Color.gray, width: 0.5)
+			}
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
     }

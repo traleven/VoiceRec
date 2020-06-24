@@ -21,7 +21,7 @@ struct ProfileView: View {
 					.font(.footnote)
 					.underline()
 			}
-			List() {
+			Form() {
 				Section(header: Text("ABOUT")) {
 					HStack() {
 						Image("filter_themes_selected")

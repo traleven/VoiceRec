@@ -10,9 +10,9 @@ import Foundation
 
 /// A mix of `Noodle`s in a specific `Broth` with a specific `Spices`
 /// that is used for the language learning session
-class Bowl : NSObject {
+class Bowl {
 
-	var noodles : [Doughball]!
+	var noodles : [Phrase]!
 	var broth : Broth!
 	var spice : Spices!
 

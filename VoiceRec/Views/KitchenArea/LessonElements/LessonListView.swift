@@ -15,7 +15,7 @@ struct LessonListView: View {
 
 	var body: some View {
 		VStack() {
-			List(Recipe.fetchDefault(), id: \.id) {(lesson) in
+			List(Recipe.fetch(path), id: \.id) {(lesson) in
 				ZStack() {
 					NavigationLink(destination: LessonEditView(lesson: lesson, parentSelection: self.$selectionIdx), tag: lesson.idx, selection: self.$selectionIdx) {
 						EmptyView()
@@ -42,6 +42,6 @@ struct LessonListView: View {
 
 struct LessonListView_Previews: PreviewProvider {
     static var previews: some View {
-		LessonListView(parentSelection: .constant(nil))
+		LessonListView(path: FileUtils.getDefaultsDirectory(.lesons), parentSelection: .constant(nil))
     }
 }

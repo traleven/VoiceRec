@@ -10,21 +10,14 @@ import Foundation
 
 /// A specific sequence of audio from `Doughball`
 /// repeated in accordance to a selected `Shape`
-class Noodle : PersistentObject {
+class Noodle {
 
-	var dough : Doughball
+	var dough : Phrase
 	var shape : Shape
 
-	init(_ dough : Doughball, shaped : Shape) {
+	init(_ dough : Phrase, shaped : Shape) {
 
 		self.dough = dough
 		self.shape = shaped
-		super.init()
-	}
-
-	required init(at: String) {
-		dough = Doughball()
-		shape = Shape("")
-		super.init(at: at)
 	}
 }

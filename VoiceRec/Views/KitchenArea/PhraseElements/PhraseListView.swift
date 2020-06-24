@@ -15,7 +15,7 @@ struct PhraseListView: View {
 
 	var body: some View {
 		VStack() {
-			List(Doughball.fetchDefault(), id: \.id) {(phrase) in
+			List(Phrase.fetch(path), id: \.id) {(phrase) in
 				ZStack() {
 					NavigationLink(destination: PhraseEditView(phrase: phrase, parentSelection: self.$selectionIdx), tag: phrase.idx, selection: self.$selectionIdx) {
 						EmptyView()
@@ -42,6 +42,6 @@ struct PhraseListView: View {
 
 struct PhraseListView_Previews: PreviewProvider {
     static var previews: some View {
-		PhraseListView(parentSelection: .constant(nil))
+		PhraseListView(path: FileUtils.getDefaultsDirectory(.phrases), parentSelection: .constant(nil))
     }
 }

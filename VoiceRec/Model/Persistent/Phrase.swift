@@ -1,5 +1,5 @@
 //
-//  Doughball.swift
+//  Phrase.swift
 //  Spoken.ly
 //
 //  Created by Ivan Dolgushin on 08.05.19.
@@ -9,8 +9,7 @@
 import Foundation
 
 /// Annotated and translated phrase that can be used to produce `Noodle`
-@objc(Doughball)
-class Doughball : PersistentObject, Codable {
+final class Phrase : PersistentObject, Codable {
 
 	var idx : Int = 0
 	var baseUrl : URL = FileUtils.getDirectory(.phrases)
@@ -44,11 +43,7 @@ class Doughball : PersistentObject, Codable {
 		self.baseUrl = baseUrl
 	}
 
-	required init(at: String) {
-		super.init(at: at)
-	}
-
-	class func with(contentOf file: URL) -> Doughball {
+	override class func with(contentOf file: URL) -> Self? {
 		return load(file)
 	}
 
@@ -58,36 +53,20 @@ class Doughball : PersistentObject, Codable {
 	}
 
 
-	class func make(_ idx: Int, _ texts: Dictionary<String, String>) -> Doughball {
-		let a = Doughball()
+	class func make(_ idx: Int, _ texts: Dictionary<String, String>) -> Phrase {
+		let a = Phrase()
 		a.idx = idx
 		a.texts = texts
 		return a
 	}
 
-
-	class func fetchDefault() -> [Doughball] {
-
-		return [
-			Doughball.make(0, ["English" : "A lot of people think I'm from the Middle East"]),
-			Doughball.make(1, ["English" : "Altruistic"]),
-			Doughball.make(2, ["English" : "At the end of the day, I just want to say that I care about you"]),
-			Doughball.make(3, ["English" : "Axis of power"]),
-			Doughball.make(4, ["English" : "Can I have a window seat?"]),
-			Doughball.make(5, ["English" : "Grasp the sparrow's tail", "Chinese" : "揽雀尾"]),
-			Doughball.make(6, ["English" : "Single whip", "Chinese" : "单鞭"]),
-			Doughball.make(7, ["English" : "Brush a knee and push", "Chinese" : "搂膝拗步"]),
-			Doughball.make(8, ["English" : "Play pipa", "Chinese" : "手挥琵琶"]),
-		]
-	}
-
-	class func fetch() -> [Doughball] {
+	class func fetch() -> [Phrase] {
 
 		let baseUrl = FileUtils.getDirectory(.phrases)
 		return fetch(baseUrl)
 	}
 
-	class func fetch(_ path: URL?) -> [Doughball] {
+	class func fetch(_ path: URL?) -> [Phrase] {
 		guard (path != nil) else {
 			return fetch()
 		}
@@ -97,13 +76,14 @@ class Doughball : PersistentObject, Codable {
 			return []
 		}
 
-		var data : [Doughball] = []
+		var data : [Phrase] = []
 		for url in files.filter({ (url: URL) -> Bool in url.pathExtension == "dough" }) {
 
-			let dough = Doughball.with(contentOf: url.appendingPathComponent("meta.json"))
-			dough.baseUrl = url
-			dough.idx = data.count
-			data.append(dough)
+			if let dough = Phrase.with(contentOf: url.appendingPathComponent("meta.json")) {
+				dough.baseUrl = url
+				dough.idx = data.count
+				data.append(dough)
+			}
 		}
 
 		return data
