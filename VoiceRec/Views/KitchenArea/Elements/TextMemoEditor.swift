@@ -19,23 +19,22 @@ struct TextMemoEditor: View {
 		NavigationView() {
 			VStack() {
 				MultilineTextField(placeholder, text: $text)
-				.onDisappear() {
-					if !self.text.isEmpty {
-						let dir = FileUtils.convertToDirectory(self.path)
-						let file = FileUtils.getNewInboxFile(at: dir, withExtension: "txt")
-						try! self.text.write(to:file, atomically: true, encoding: .utf8)
-					}
-					self.editing = false
-				}
 				Spacer(minLength: 0)
 			}
-			.keyboardAvoiding()
 			.navigationBarTitle(Text(title), displayMode: .inline)
 			.navigationBarItems(trailing: Button(action: {
 				self.editing = false
 			}) {
 				Text("Save")
 			})
+			.onDisappear() {
+				if !self.text.isEmpty {
+					let dir = FileUtils.convertToDirectory(self.path)
+					let file = FileUtils.getNewInboxFile(at: dir, withExtension: "txt")
+					try! self.text.write(to:file, atomically: true, encoding: .utf8)
+				}
+				self.editing = false
+			}
 		}
     }
 }

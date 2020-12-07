@@ -10,14 +10,14 @@ import StatefulTabView
 
 struct ServiceRootView: View {
     var body: some View {
-		StatefulTabView(){[
+		StatefulTabView(){
 			Tab(title: "Profile", image: nil) {
 				ProfileView()
-			},
+			}
 			Tab(title: "Music", image: nil) {
 				MusicBrowserView()
-			},
-		]}
+			}
+		}
 		.barTintColor(.blue)
 		.barAppearanceConfiguration(.opaque)
     }

@@ -6,12 +6,24 @@
 //
 
 import SwiftUI
+import SwiftUIX
 
 struct LoadingView: View {
+	@State var isLoaded: Bool = false
+
     var body: some View {
-        Text("Welcome\nto Noodles!")
-			.font(.largeTitle)
-			.multilineTextAlignment(.center)
+		if isLoaded {
+			return AnyView(KitchenRootView())
+		}
+
+		return AnyView(
+			EmptyView()
+			.onAppear() {
+				withAnimation() {
+					self.isLoaded = true
+				}
+			}
+		)
     }
 }
 

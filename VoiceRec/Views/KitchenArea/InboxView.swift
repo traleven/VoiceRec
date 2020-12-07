@@ -13,9 +13,17 @@ struct InboxView: View {
 	
     var body: some View {
 		NavigationView() {
-			InboxListView(parentSelection: .constant(nil))
+			InboxListView(name: "Inbox", path: FileUtils.getDirectory(.inbox), parentSelection: .constant(nil))
 				.environmentObject(recorder)
 				.border(Color.gray, width: 0.5)
+				.navigationBarItems(leading:
+					Button(action: {
+					}) {
+						Image(systemName: "line.horizontal.3")
+							.font(.title)
+					}
+					.foregroundColor(.black)
+				)
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
 	}

@@ -16,8 +16,14 @@ struct AudioRecorderButton: View {
 		? Button(action: {
 			self.recorder.finishAudioRecording()
 		}) {
-			Image("mic_active")
-				.renderingMode(.original)
+			ZStack() {
+
+				Image(systemName: "waveform")
+					.font(.system(size: 48))
+					.overlay(Circle().stroke(lineWidth: 1).scale(2.5))
+			}
+			.foregroundColor(.red)
+			.padding(.bottom)
 		}
 		: Button(action: {
 			if !self.path.pathExtension.isEmpty && FileManager.default.fileExists(atPath: self.path.path) {
@@ -33,8 +39,13 @@ struct AudioRecorderButton: View {
 			self.recorder.start_recording(FileUtils.getNewInboxFile(at:self.path.deletingPathExtension(), withName: "", andExtension: "m4a"), progress: nil) { (success: Bool) in
 			}
 		}) {
-			Image("mic_normal")
-				.renderingMode(.original)
+			ZStack() {
+				Image(systemName: "badge.plus.radiowaves.right")
+					.font(.system(size: 48))
+					.overlay(Circle().stroke(lineWidth: 1).scale(2.5))
+			}
+			.foregroundColor(.blue)
+			.padding()
 		}
     }
 }

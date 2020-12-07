@@ -14,9 +14,9 @@ final class Egg : Equatable, GlobalIdentifiable {
 		return lhs.id == rhs.id
 	}
 
-	static var index : [String : URL] = [:]
+	static var index : [URL : URL] = [:]
 
-	var id : String
+	var id : URL
 
 	var name : String!
 	var file : URL!
@@ -24,7 +24,7 @@ final class Egg : Equatable, GlobalIdentifiable {
 	var idx : Int!
 
 	required init(name: String, url: URL, ofType: String) {
-		self.id = UUID().uuidString
+		self.id = url
 		self.name = name
 		self.file = url
 		self.type = ofType

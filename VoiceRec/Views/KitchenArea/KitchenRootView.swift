@@ -9,27 +9,30 @@ import SwiftUI
 import StatefulTabView
 
 struct KitchenRootView: View {
-    var body: some View {
-		VStack() {
-			KitchenPageHeader(name: "INBOX")
+	@State var tabIndex = 0
+	@State var slidingIdx = 0
 
-			StatefulTabView(){[
-				Tab(title: "INBOX", image: nil) {
-					InboxView()
-				},
-				Tab(title: "Phrases", image: nil) {
+    var body: some View {
+		StatefulTabView(selectedIndex: $tabIndex){
+			Tab(title: "INBOX", systemImageName: "tray.and.arrow.down") {
+				InboxView()
+			}
+			Tab(title: "My Noodles", systemImageName: "folder") {
+				SlidingTabView(selection: self.$slidingIdx, tabs: ["Phrases", "Lessons"])
+				if self.slidingIdx == 0 {
 					PhraseBrowserView()
-				},
-				Tab(title: "Lessons", image: nil) {
+				} else {
 					LessonBrowserView()
-				},
-				Tab(title: "Composer", image: nil) {
-					ComposerView()
-				},
-			]}
-			.barTintColor(.blue)
-			.barAppearanceConfiguration(.opaque)
+				}
+			}
+//			Tab(title: "Composer", systemImageName: "headphones") {
+//				ComposerView()
+//			},
 		}
+		.barTintColor(.blue)
+		.barAppearanceConfiguration(.transparent)
+		.navigationBarTitle(Text(""), displayMode: .inline)
+		.navigationBarHidden(true)
 	}
 }
 

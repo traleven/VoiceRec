@@ -11,7 +11,6 @@ import Foundation
 /// Annotated and translated phrase that can be used to produce `Noodle`
 final class Phrase : PersistentObject, Codable {
 
-	var idx : Int = 0
 	var baseUrl : URL = FileUtils.getDirectory(.phrases)
 	var audioFiles : Dictionary<String, URL> = [:]
 	var texts : Dictionary<String, String> = [:]
@@ -55,7 +54,6 @@ final class Phrase : PersistentObject, Codable {
 
 	class func make(_ idx: Int, _ texts: Dictionary<String, String>) -> Phrase {
 		let a = Phrase()
-		a.idx = idx
 		a.texts = texts
 		return a
 	}
@@ -81,7 +79,6 @@ final class Phrase : PersistentObject, Codable {
 
 			if let dough = Phrase.with(contentOf: url.appendingPathComponent("meta.json")) {
 				dough.baseUrl = url
-				dough.idx = data.count
 				data.append(dough)
 			}
 		}

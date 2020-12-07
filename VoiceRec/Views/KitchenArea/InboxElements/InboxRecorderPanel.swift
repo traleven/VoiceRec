@@ -15,41 +15,45 @@ struct InboxRecorderPanel: View {
 	var body: some View {
 		VStack(alignment: .center) {
 			if recorder.isRecording {
-				Text("New egg")
-				Text(Int(recorder.duration).toTimeString())
+				Group {
+					Text("New egg")
+					Text(Int(recorder.duration).toTimeString())
+						.font(.largeTitle)
+						.fixedSize()
+						.frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+						.allowsTightening(true)
+						.minimumScaleFactor(0.7)
+						.padding(.bottom)
+				}
+				.transition(self.timerTransition)
+				.animation(.easeOut(duration: 0.3))
 			}
 
 			HStack(alignment: .bottom) {
-				Button(action: {
-					self.addText = true
-				}) {
-					Image("list_add")
-				}
-				.popover(isPresented: self.$addText) {
-					TextMemoEditor(editing: self.$addText, title: "Text note", placeholder:"Enter your note here...", path: self.path)
-				}
-					.deleteDisabled(true)
-					.disabled(recorder.isRecording)
-
 				Spacer()
 				AudioRecorderButton(path: self.path)
 				Spacer()
-
-				Button(action: {
-				}) {
-					Image("lesson_add_to")
-				}
-					.deleteDisabled(true)
-					.disabled(recorder.isRecording)
 			}
 		}.padding()
     }
+
+	var timerTransition: AnyTransition {
+		get {
+			AnyTransition.asymmetric(
+				insertion: AnyTransition.move(edge: .bottom).animation(.easeOut).combined(with: AnyTransition.opacity.animation(.easeInOut(duration:0.3))),
+				removal: AnyTransition.move(edge: .top).animation(.easeIn(duration:0.3))
+			)
+		}
+	}
 }
 
 struct InboxRecorderPanel_Previews: PreviewProvider {
     static var previews: some View {
 		Group {
-			InboxRecorderPanel(path: FileUtils.getDirectory(.inbox))
+			VStack() {
+				Spacer()
+				InboxRecorderPanel(path: FileUtils.getDirectory(.inbox))
+			}
 		}
 		.environmentObject(AudioRecorder())
 		.previewLayout(.fixed(width: 420, height: 280))

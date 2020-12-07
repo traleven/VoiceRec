@@ -10,11 +10,11 @@ import StatefulTabView
 
 struct DiningRootView: View {
     var body: some View {
-		StatefulTabView(){[
+		StatefulTabView(){
 			Tab(title: "Player", image: nil) {
 				PlaylistView()
-			},
-		]}
+			}
+		}
 		.barTintColor(.blue)
 		.barAppearanceConfiguration(.opaque)
     }

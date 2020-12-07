@@ -9,6 +9,8 @@ import SwiftUI
 
 struct InboxEntry: View {
 	var egg: Egg
+	@State var showDetails = false
+	@Binding var selection: URL?
 
     var body: some View {
 		HStack() {
@@ -43,7 +45,38 @@ struct InboxEntry: View {
 			}
 			Spacer()
 		}
+		.contentShape(Rectangle())
+		.onTapGesture {
+			withAnimation() {
+				self.selection = self.egg.id
+			}
+		}
+		.gesture(
+			LongPressGesture(minimumDuration: 0.5, maximumDistance: 3).onEnded({ (success: Bool) in
+				if success {
+					self.previewItem(self.egg)
+				}
+			})
+		)
+		.sheet(isPresented: self.$showDetails) {
+			TextPreview(isVisible: self.$showDetails, egg: self.egg)
+		}
     }
+
+	func previewItem(_ egg: Egg) {
+		switch egg.type {
+		case "m4a":
+			AudioPlayer(egg.file)
+				.play(
+					onProgress: { (_: TimeInterval, _: TimeInterval) in
+				}) { (_: Bool) in
+			}
+		case "txt", "json":
+			showDetails = true
+		default:
+			do {}
+		}
+	}
 
 	@GestureState var isLongPress = false // will be true till tap hold
 
@@ -66,7 +99,7 @@ struct InboxEntry_Previews: PreviewProvider {
     static var previews: some View {
 		Group {
 			ForEach(Egg.fetch(FileUtils.getDefaultsDirectory(.inbox))) {
-				InboxEntry(egg: $0)
+				InboxEntry(egg: $0, selection: .constant(nil))
 			}
 		}
 		.previewLayout(.fixed(width: 480, height: 70))

@@ -10,7 +10,7 @@ import SwiftUIX
 
 struct PhraseEditView: View {
 	var phrase: Phrase
-	@Binding var parentSelection: Int?
+	@Binding var parentSelection: UUID?
 
     var body: some View {
 		Form() {
@@ -23,7 +23,6 @@ struct PhraseEditView: View {
 			MultilineTextField("Notes", text: makeNotesBinding(phrase))
 				.inputAccessoryView(DoneInputAccessoryView())
 		}
-		.keyboardAvoiding()
 		.keyboardType(.default)
 		.navigationBarTitle("", displayMode: .inline)
 		.navigationBarHidden(false)
@@ -61,6 +60,6 @@ struct PhraseEditView: View {
 
 struct PhraseEditView_Previews: PreviewProvider {
     static var previews: some View {
-		PhraseEditView(phrase: Phrase.make(0, ["English" : "Test", "Chinese" : "Test"]), parentSelection: .constant(0))
+		PhraseEditView(phrase: Phrase.make(0, ["English" : "Test", "Chinese" : "Test"]), parentSelection: .constant(UUID()))
     }
 }

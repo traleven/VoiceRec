@@ -10,14 +10,14 @@ import SwiftUI
 struct PhraseListView: View {
 	var name: String?
 	var path: URL?
-	@State var selectionIdx: Int?
-	@Binding var parentSelection: Int?
+	@State var selectionIdx: UUID?
+	@Binding var parentSelection: UUID?
 
 	var body: some View {
 		VStack() {
 			List(Phrase.fetch(path), id: \.id) {(phrase) in
 				ZStack() {
-					NavigationLink(destination: PhraseEditView(phrase: phrase, parentSelection: self.$selectionIdx), tag: phrase.idx, selection: self.$selectionIdx) {
+					NavigationLink(destination: PhraseEditView(phrase: phrase, parentSelection: self.$selectionIdx), tag: phrase.id, selection: self.$selectionIdx) {
 						EmptyView()
 					}
 					PhraseEntry(phrase: phrase)

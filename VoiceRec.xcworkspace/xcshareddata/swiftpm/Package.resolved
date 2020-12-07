@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/AppPear/ChartView",
         "state": {
           "branch": "master",
-          "revision": "27e7e0dd1d58076e2d10e74995468c08ba2751a0",
+          "revision": "08f0053b164f05ccbdb7153b1b3b10b565e8f1f1",
           "version": null
         }
       },
@@ -42,7 +42,7 @@
         "repositoryURL": "https://github.com/NicholasBellucci/StatefulTabView",
         "state": {
           "branch": "master",
-          "revision": "1b96742b9a8a0d89ef7e7e8401e11b14deef1f28",
+          "revision": "81114f7b0d3f89fb62510da33e4c21e2a7a078d5",
           "version": null
         }
       },
@@ -51,7 +51,7 @@
         "repositoryURL": "https://github.com/danielsaidi/SwiftUIKit",
         "state": {
           "branch": "master",
-          "revision": "3228522139c39fe6162958a29837b7b889189e53",
+          "revision": "c9ba4613f4783a3a78122eae6daa2c9509780858",
           "version": null
         }
       },
@@ -60,7 +60,7 @@
         "repositoryURL": "https://github.com/SwiftUIX/SwiftUIX",
         "state": {
           "branch": "master",
-          "revision": "bb3193a4de2d7225446b65018f42867f770fee09",
+          "revision": "7ccd5420bad9aa4929385bf29642c3e6314f888b",
           "version": null
         }
       }

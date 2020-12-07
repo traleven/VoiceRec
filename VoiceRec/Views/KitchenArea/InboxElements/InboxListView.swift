@@ -8,43 +8,22 @@
 import SwiftUI
 
 struct InboxListView: View {
-	var name: String?
-	var path: URL?
-	@State var selectionIdx: Int?
-	@State var detailsEgg: Egg?
-	@Binding var parentSelection: Int?
+	var name: String
+	var path: URL
+	@State var selectionIdx: URL?
+	@State var addText: Bool = false
+	@Binding var parentSelection: URL?
 
 	var body: some View {
 		VStack() {
 			List(Egg.fetch(path), id: \.id) {(egg) in
-				ZStack() {
-					NavigationLink(destination: InboxListView(name: egg.name, path: egg.file, parentSelection: self.$selectionIdx), tag: egg.idx, selection: self.$selectionIdx) {
-						EmptyView()
+				InboxEntry(egg: egg, selection: self.$selectionIdx)
+					.navigate(isActive: self.makeActivationBinding(egg.id)) {
+						InboxListView(name: egg.name, path: egg.file, parentSelection: self.$selectionIdx)
 					}
-					.allowsHitTesting(false)
-					InboxEntry(egg: egg)
-				}
-				.contentShape(Rectangle())
-				.onTapGesture {
-					withAnimation { () -> Void in
-						self.selectionIdx = egg.idx
-					}
-				}
-				.gesture(
-					LongPressGesture(minimumDuration: 0.5, maximumDistance: 3).onEnded({ (success: Bool) in
-						if success {
-							self.previewItem(egg)
-						}
-					})
-				)
-				.popover(item: self.$detailsEgg, content:
-					{_ in
-						TextPreview(isVisible: self.makeBinding(egg), egg: egg)
-					}
-				)
 			}
-			.navigationBarTitle(Text(name ?? "INBOX"), displayMode: .inline)
-			.navigationBarHidden(path == nil)
+			.overlay(self.addTextButton, alignment: .bottomTrailing)
+			.navigationBarTitle(Text(name), displayMode: .inline)
 			.navigationBarBackButtonHidden(true)
 			.navigationBarItems(leading:
 				Button(action: {
@@ -56,33 +35,43 @@ struct InboxListView: View {
 				}
 			)
 
-			InboxRecorderPanel(path: self.path ?? FileUtils.getDirectory(.inbox))
+			InboxRecorderPanel(path: self.path)
 		}
     }
 
-	func makeBinding(_ egg: Egg) -> Binding<Bool> {
-		.init(
-			get: { () -> Bool in
-				self.detailsEgg == egg
+	func makeActivationBinding(_ id: URL) -> Binding<Bool> {
+		return .init(
+			get: {
+				return self.selectionIdx == id
 			},
-			set: { (v: Bool) in
-				self.detailsEgg = nil
+			set: {
+				self.selectionIdx = $0 ? id : nil
 			}
 		)
 	}
 
-	func previewItem(_ egg: Egg) {
-		switch egg.type {
-		case "m4a":
-			AudioPlayer(egg.file)
-				.play(
-					onProgress: { (_: TimeInterval, _: TimeInterval) in
-				}) { (_: Bool) in
+	var addTextButton: some View {
+		get {
+			Button(
+				action:{
+					withAnimation { () -> Void in
+						self.addText.toggle()
+					}
+				}
+			) {
+				Image(systemName: "plus.circle.fill")
+					.font(.largeTitle)
+					.padding()
 			}
-		case "txt", "json":
-			detailsEgg = egg
-		default:
-			do {}
+			.sheet(isPresented: self.$addText) {
+				TextMemoEditor(
+					editing: self.$addText,
+					title: "Text note",
+					placeholder:"Enter your note here...",
+					path: self.path
+				)
+			}
+
 		}
 	}
 }
@@ -107,7 +96,7 @@ extension InboxListView {
 
 struct InboxListView_Previews: PreviewProvider {
     static var previews: some View {
-		InboxListView(path:FileUtils.getDefaultsDirectory(.inbox), parentSelection: .constant(nil))
+		InboxListView(name: "Inbox", path:FileUtils.getDefaultsDirectory(.inbox), parentSelection: .constant(nil))
 			.environmentObject(AudioRecorder())
 			.previewLayout(.fixed(width: 480, height: 800))
     }

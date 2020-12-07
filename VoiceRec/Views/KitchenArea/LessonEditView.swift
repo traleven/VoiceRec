@@ -29,7 +29,6 @@ struct LessonEditView: View {
 //			MultilineTextField("Notes", text: makeNotesBinding(phrase))
 //				.inputAccessoryView(DoneInputAccessoryView())
 		}
-		.keyboardAvoiding()
 		.keyboardType(.default)
 		.navigationBarTitle("", displayMode: .inline)
 		.navigationBarHidden(false)

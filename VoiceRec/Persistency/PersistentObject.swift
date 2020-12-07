@@ -9,12 +9,12 @@
 import Foundation
 
 class PersistentObject : GlobalIdentifiable {
-	static var index: [String : URL] = [:]
-	var id : String
+	static var index: [UUID : URL] = [:]
+	var id : UUID
 
 	init() {
 
-		id = UUID().uuidString
+		id = UUID()
 	}
 
 	class func with(contentOf file: URL) -> Self? {

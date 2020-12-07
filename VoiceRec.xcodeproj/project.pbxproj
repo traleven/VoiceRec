@@ -29,7 +29,6 @@
 		DB1CC831248A6E2F00B6E842 /* Spices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DD248A6B0F00B6E842 /* Spices.swift */; };
 		DB1CC833248A6E2F00B6E842 /* Bowl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7DF248A6B0F00B6E842 /* Bowl.swift */; };
 		DB1CC834248A6E2F00B6E842 /* Noodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC7E0248A6B0F00B6E842 /* Noodle.swift */; };
-		DB1CC836248A71A400B6E842 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CC835248A71A400B6E842 /* Environment.swift */; };
 		DB2FD480249B2F9B0023602E /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = DB2FD47F249B2F9B0023602E /* SwiftUICharts */; };
 		DB2FD485249B372D0023602E /* ASCollectionView in Frameworks */ = {isa = PBXBuildFile; productRef = DB2FD484249B372D0023602E /* ASCollectionView */; };
 		DB2FD487249B954C0023602E /* PhraseBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2FD486249B954C0023602E /* PhraseBrowserView.swift */; };
@@ -68,6 +67,8 @@
 		DB60E7D22493B40A00733D63 /* TextMemoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */; };
 		DB60E7D42493B94600733D63 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E7D32493B94600733D63 /* MultilineTextField.swift */; };
 		DB68BED424988C3300B38BF2 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68BED324988C3300B38BF2 /* MarqueeText.swift */; };
+		DB8DB6AA24A63CBF008B6330 /* CustomPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DB6A924A63CBF008B6330 /* CustomPagination.swift */; };
+		DB8DB6AC24A64097008B6330 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DB6AB24A64097008B6330 /* CustomTabBar.swift */; };
 		DB9C630424A227E3009AD627 /* DefaultData in Resources */ = {isa = PBXBuildFile; fileRef = DB9C630324A227E3009AD627 /* DefaultData */; };
 		DB9EEA4324A0776F00C154E6 /* LessonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4224A0776F00C154E6 /* LessonListView.swift */; };
 		DB9EEA4524A0777F00C154E6 /* LessonEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4424A0777F00C154E6 /* LessonEntry.swift */; };
@@ -132,7 +133,6 @@
 		DB1CC81E248A6C8A00B6E842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		DB1CC81F248A6C8A00B6E842 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB1CC829248A6D6000B6E842 /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopus.a; path = opus/libOpus/libopus.a; sourceTree = "<group>"; };
-		DB1CC835248A71A400B6E842 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		DB1CC83A248A740400B6E842 /* winerrno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winerrno.h; path = "opus/opusfile-0.11/src/winerrno.h"; sourceTree = "<group>"; };
 		DB1CC83B248A740400B6E842 /* http.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = http.c; path = "opus/opusfile-0.11/src/http.c"; sourceTree = "<group>"; };
 		DB1CC83C248A740400B6E842 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = internal.h; path = "opus/opusfile-0.11/src/internal.h"; sourceTree = "<group>"; };
@@ -177,6 +177,8 @@
 		DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMemoEditor.swift; sourceTree = "<group>"; };
 		DB60E7D32493B94600733D63 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		DB68BED324988C3300B38BF2 /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
+		DB8DB6A924A63CBF008B6330 /* CustomPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPagination.swift; sourceTree = "<group>"; };
+		DB8DB6AB24A64097008B6330 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		DB9C630324A227E3009AD627 /* DefaultData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DefaultData; sourceTree = "<group>"; };
 		DB9EEA4224A0776F00C154E6 /* LessonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonListView.swift; sourceTree = "<group>"; };
 		DB9EEA4424A0777F00C154E6 /* LessonEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonEntry.swift; sourceTree = "<group>"; };
@@ -417,8 +419,8 @@
 				DB1CC811248A6B5400B6E842 /* KitchenArea */,
 				DB43AC9C248A7D59008D3C5E /* DiningArea */,
 				DB43AC9F248A7DBC008D3C5E /* ServiceArea */,
+				DB2FD490249BA4BE0023602E /* LoadingView.swift */,
 				DB31478824891CE30093F346 /* RootView.swift */,
-				DB1CC835248A71A400B6E842 /* Environment.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -437,7 +439,6 @@
 			children = (
 				DB9EEA4624A0915B00C154E6 /* MusicElements */,
 				DB2FD48E249B973F0023602E /* ServiceRootView.swift */,
-				DB2FD490249BA4BE0023602E /* LoadingView.swift */,
 				DB43ACA0248A7DD0008D3C5E /* ProfileView.swift */,
 				DB2FD48C249B96280023602E /* MusicBrowserView.swift */,
 			);
@@ -464,6 +465,8 @@
 				DB3C2B72249A047500C43F89 /* BlurView.swift */,
 				DB2FD49F249CEE430023602E /* DoneInputAccessoryView.swift */,
 				DB9EEA4E24A1CEA800C154E6 /* SlidingTabView.swift */,
+				DB8DB6A924A63CBF008B6330 /* CustomPagination.swift */,
+				DB8DB6AB24A64097008B6330 /* CustomTabBar.swift */,
 			);
 			path = Universal;
 			sourceTree = "<group>";
@@ -666,10 +669,11 @@
 				DBE57FEE2491167F005D75FF /* InboxListView.swift in Sources */,
 				DB2FD48F249B973F0023602E /* ServiceRootView.swift in Sources */,
 				DB43AC97248A7C3B008D3C5E /* LessonBrowserView.swift in Sources */,
-				DB1CC836248A71A400B6E842 /* Environment.swift in Sources */,
 				DB1CC80C248A6B1000B6E842 /* PersistentObject.swift in Sources */,
 				DB43ACA8248E6055008D3C5E /* InboxEntry.swift in Sources */,
 				DB1CC82D248A6E2F00B6E842 /* Egg.swift in Sources */,
+				DB8DB6AC24A64097008B6330 /* CustomTabBar.swift in Sources */,
+				DB8DB6AA24A63CBF008B6330 /* CustomPagination.swift in Sources */,
 				DB1CC80D248A6B1000B6E842 /* WeakLink.swift in Sources */,
 				DB31478924891CE30093F346 /* RootView.swift in Sources */,
 				DB43AC95248A7C1E008D3C5E /* PhraseEditView.swift in Sources */,
@@ -853,7 +857,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VoiceRec/Preview Content\"";
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				ENABLE_PREVIEWS = YES;
@@ -866,7 +870,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/opus/libOpus",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
 				PRODUCT_NAME = Noodles;
 				SWIFT_VERSION = 5.0;
@@ -878,7 +882,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VoiceRec/Preview Content\"";
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				ENABLE_PREVIEWS = YES;
@@ -891,7 +895,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/opus/libOpus",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
 				PRODUCT_NAME = Noodles;
 				SWIFT_VERSION = 5.0;
