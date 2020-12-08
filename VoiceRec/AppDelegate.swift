@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+
+		FileUtils.PrepareDefaultData()
 		DB.settings.register(defaults: [
 			"music.volume":0.5,
 			"voice.volume":1.0,
@@ -25,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			DB.options.setValue(forKey: "language.target", value: "Chinese")
 			DB.options.flush()
 		}
-
 //		let appearance = UINavigationBarAppearance()
 //		appearance.configureWithOpaqueBackground()
 //		appearance.backgroundColor = .red

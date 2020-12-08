@@ -153,4 +153,23 @@ class FileUtils {
 			}
 		}
 	}
+
+	class func PrepareDefaultData() {
+		let filemgr = FileManager.default
+		if !filemgr.fileExists(atPath: getDocumentsDirectory().appendingPathComponent(Directories.inbox.rawValue).path) {
+			let resourcePath = getDefaultsDirectory()
+			let documentsPath = getDocumentsDirectory()
+			let propertyKeys : [URLResourceKey] = [.isDirectoryKey, .isReadableKey, .nameKey, .pathKey]
+			do {
+				for item in try filemgr.contentsOfDirectory(at: resourcePath, includingPropertiesForKeys: propertyKeys) {
+					let destination = documentsPath.appendingPathComponent(item.lastPathComponent)
+					if !filemgr.fileExists(atPath: destination.path) {
+						try filemgr.copyItem(at: item, to: destination)
+					}
+				}
+			}catch{
+				print("Error for file write")
+			}
+		}
+	}
 }
