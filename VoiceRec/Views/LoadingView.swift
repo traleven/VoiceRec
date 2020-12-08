@@ -12,18 +12,21 @@ struct LoadingView: View {
 	@State var isLoaded: Bool = false
 
     var body: some View {
-		if isLoaded {
-			return AnyView(KitchenRootView())
+		ZStack {
+			if (self.isLoaded) {
+				RootView().transition(.opacity)
+			}
+			if (!self.isLoaded) {
+				Image("compose_normal").transition(.opacity)
+			}
 		}
-
-		return AnyView(
-			EmptyView()
-			.onAppear() {
-				withAnimation() {
-					self.isLoaded = true
+		.onAppear() {
+			if (!self.isLoaded) {
+				withAnimation(Animation.default.delay(1)) {
+					self.isLoaded.toggle()
 				}
 			}
-		)
+		}
     }
 }
 

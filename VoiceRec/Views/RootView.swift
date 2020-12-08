@@ -10,8 +10,7 @@ import SwiftUIX
 
 struct RootView: View {
 	@EnvironmentObject var environment: ViewModel
-	@State var currentPage: Int = 0//3
-	@State var preloaded: Bool = false
+	@State var currentPage: Int = 2//3
 
     var body: some View {
 		//VStack(alignment: .center) {
@@ -25,16 +24,7 @@ struct RootView: View {
 			.isEdgePanGestureEnabled(true)
 			.isPanGestureEnabled(true)
 			.isTapGestureEnabled(false)
-			// HACK: Loading sequence hack to fix the bug
-			// with invalid initial layout of the subview
-//			.onAppear {
-//				if !self.preloaded {
-//					self.currentPage = 0
-//					DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
-//						self.preloaded = true
-//					})
-//				}
-//			}
+			.transition(.opacity)
 		//}
     }
 }

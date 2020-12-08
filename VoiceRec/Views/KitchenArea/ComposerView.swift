@@ -40,8 +40,8 @@ struct ComposerView: View {
 			}
 			HStack() {
 				Text("Delay within sequences: ")
-				Slider(value: self.$delayBetween, in: 0...5, minimumValueLabel: Text("0"), maximumValueLabel: Text("5")) {
-					Text("\(self.delayBetween)")
+				Slider(value: self.$delayWithin, in: 0...5, minimumValueLabel: Text("0"), maximumValueLabel: Text("5")) {
+					Text("\(self.delayWithin)")
 				}
 			}
 			Toggle(isOn: self.$randomize) {

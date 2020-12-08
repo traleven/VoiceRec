@@ -67,6 +67,7 @@
 		DB60E7D22493B40A00733D63 /* TextMemoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */; };
 		DB60E7D42493B94600733D63 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E7D32493B94600733D63 /* MultilineTextField.swift */; };
 		DB68BED424988C3300B38BF2 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68BED324988C3300B38BF2 /* MarqueeText.swift */; };
+		DB83E552257F6C8100B21101 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB83E551257F6C8100B21101 /* CSS.swift */; };
 		DB8DB6AA24A63CBF008B6330 /* CustomPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DB6A924A63CBF008B6330 /* CustomPagination.swift */; };
 		DB8DB6AC24A64097008B6330 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DB6AB24A64097008B6330 /* CustomTabBar.swift */; };
 		DB9C630424A227E3009AD627 /* DefaultData in Resources */ = {isa = PBXBuildFile; fileRef = DB9C630324A227E3009AD627 /* DefaultData */; };
@@ -177,6 +178,7 @@
 		DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMemoEditor.swift; sourceTree = "<group>"; };
 		DB60E7D32493B94600733D63 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		DB68BED324988C3300B38BF2 /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
+		DB83E551257F6C8100B21101 /* CSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
 		DB8DB6A924A63CBF008B6330 /* CustomPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPagination.swift; sourceTree = "<group>"; };
 		DB8DB6AB24A64097008B6330 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		DB9C630324A227E3009AD627 /* DefaultData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DefaultData; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				DB43AC9F248A7DBC008D3C5E /* ServiceArea */,
 				DB2FD490249BA4BE0023602E /* LoadingView.swift */,
 				DB31478824891CE30093F346 /* RootView.swift */,
+				DB83E551257F6C8100B21101 /* CSS.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				DB9EEA4F24A1CEA800C154E6 /* SlidingTabView.swift in Sources */,
 				DB1CC807248A6B1000B6E842 /* AudioPlayer.swift in Sources */,
 				DB1CC80A248A6B1000B6E842 /* AudioRecorder.swift in Sources */,
+				DB83E552257F6C8100B21101 /* CSS.swift in Sources */,
 				DB43AC93248A7C11008D3C5E /* InboxView.swift in Sources */,
 				DBE57FEE2491167F005D75FF /* InboxListView.swift in Sources */,
 				DB2FD48F249B973F0023602E /* ServiceRootView.swift in Sources */,
@@ -777,7 +781,7 @@
 					"opus/opusfile-0.11/include",
 					"opus/libogg-1.3.3/include/ogg",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -840,7 +844,7 @@
 					"opus/opusfile-0.11/include",
 					"opus/libogg-1.3.3/include/ogg",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
