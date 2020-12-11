@@ -15,7 +15,7 @@ struct WeakLink<Element : GlobalIdentifiable> : Codable {
 	var item : Element? {
 		mutating get {
 			if _item == nil && id != nil {
-				_item = WeakLink<Element>.loadBy(id: id!)
+				_item = Element.getBy(id: id!)
 			}
 			return _item
 		}
@@ -40,6 +40,40 @@ struct WeakLink<Element : GlobalIdentifiable> : Codable {
 		var container = encoder.singleValueContainer()
 		try container.encode(id)
 	}
+}
+
+struct LazyLink<Element : GlobalIdentifiable & Persistent> : Codable {
+
+	var id : Element.ID?
+	private var _item : Element?
+	var item : Element? {
+		mutating get {
+			if _item == nil && id != nil {
+				_item = LazyLink<Element>.loadBy(id: id!)
+			}
+			return _item
+		}
+	}
+
+	init(_ item : Element?) {
+		self.id = item?.id
+		self._item = item
+	}
+
+	init(_ id : Element.ID) {
+		self.id = id
+	}
+
+	init(from decoder: Decoder) throws {
+		let container = try decoder.singleValueContainer()
+		id = try container.decode(Element.ID.self)
+		_item = nil
+	}
+
+	func encode(to encoder: Encoder) throws {
+		var container = encoder.singleValueContainer()
+		try container.encode(id)
+	}
 
 	static func loadBy(id: Element.ID) -> Element? {
 		guard let url = Element.index[id] else {
@@ -54,7 +88,11 @@ struct WeakLink<Element : GlobalIdentifiable> : Codable {
 
 protocol GlobalIdentifiable : Identifiable where ID : Codable {
     /// The stable identity of the entity associated with `self`.
-	static var index : [Self.ID : URL] { get }
     var id: Self.ID { get }
+	static func getBy(id: Self.ID) -> Self?
+}
+
+protocol Persistent : GlobalIdentifiable {
+	static var index : [Self.ID : URL] { get }
 	static func with(contentOf file: URL) -> Self?
 }

@@ -1,0 +1,9 @@
+{
+	"name": "New User",
+	"languages": {
+		"English": "",
+		"Chinese": ""
+	},
+	"base": "English",
+	"target": "Chinese"
+}

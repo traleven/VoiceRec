@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct InboxRecorderPanel: View {
-	@EnvironmentObject var recorder: AudioRecorder
+	@ObservedObject var viewModel : ViewModel
 	@State var addText: Bool = false
 	var path: URL
 
 	var body: some View {
 		VStack(alignment: .center) {
-			if recorder.isRecording {
+			if viewModel.recorder.isRecording {
 				Group {
 					Text("New egg")
-					Text(Int(recorder.duration).toTimeString())
+					Text(Int(viewModel.recorder.duration).toTimeString())
 						.font(.largeTitle)
 						.fixedSize()
 						.frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
@@ -44,6 +44,35 @@ struct InboxRecorderPanel: View {
 				removal: AnyTransition.move(edge: .top).animation(.easeIn(duration:0.3))
 			)
 		}
+	}
+}
+
+extension InboxRecorderPanel {
+	final class ViewModel: ObservableObject, Defaultable {
+		let recorder: AudioRecorder
+		var cancellable: Any? = nil
+
+		init() {
+			self.recorder = ViewModelRegistry.fetch()!
+			cancellable = self.republish(self.recorder)
+		}
+	}
+}
+
+extension InboxRecorderPanel {
+	init(path: URL) {
+		self.path = path
+		if let viewModel : ViewModel = ViewModelRegistry.fetch() {
+			self.viewModel = viewModel
+		} else {
+			self.viewModel = ViewModel()
+			ViewModelRegistry.register(self.viewModel)
+		}
+	}
+
+	init(_ model: ViewModel, path: URL) {
+		self.path = path
+		self.viewModel = model
 	}
 }
 

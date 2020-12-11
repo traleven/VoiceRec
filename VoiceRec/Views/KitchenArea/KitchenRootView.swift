@@ -9,17 +9,16 @@ import SwiftUI
 import StatefulTabView
 
 struct KitchenRootView: View {
-	@State var tabIndex = 0
-	@State var slidingIdx = 0
+	@ObservedObject var viewModel : ViewModel
 
     var body: some View {
-		StatefulTabView(selectedIndex: $tabIndex){
+		StatefulTabView(selectedIndex: self.$viewModel.tabIndex){
 			Tab(title: "INBOX", systemImageName: "tray.and.arrow.down") {
 				InboxView()
 			}
 			Tab(title: "My Noodles", systemImageName: "folder") {
-				SlidingTabView(selection: self.$slidingIdx, tabs: ["Phrases", "Lessons"])
-				if self.slidingIdx == 0 {
+				SlidingTabView(selection: self.$viewModel.slidingIndex, tabs: ["Phrases", "Lessons"])
+				if self.viewModel.slidingIndex == 0 {
 					PhraseBrowserView()
 				} else {
 					LessonBrowserView()
@@ -33,6 +32,35 @@ struct KitchenRootView: View {
 		.barAppearanceConfiguration(.transparent)
 		.navigationBarTitle(Text(""), displayMode: .inline)
 		.navigationBarHidden(true)
+	}
+}
+
+extension KitchenRootView {
+	final class ViewModel: ObservableObject, Defaultable {
+		@Published var tabIndex : Int = 0
+		@Published var slidingIndex : Int = 0
+
+		init() {}
+
+		init(tabIndex: Int, slidingIndex: Int) {
+			self.tabIndex = tabIndex
+			self.slidingIndex = slidingIndex
+		}
+	}
+}
+
+extension KitchenRootView {
+	init() {
+		if let viewModel : ViewModel = ViewModelRegistry.fetch() {
+			self.viewModel = viewModel
+		} else {
+			self.viewModel = ViewModel()
+			ViewModelRegistry.register(self.viewModel)
+		}
+	}
+
+	init(_ model: ViewModel) {
+		self.viewModel = model
 	}
 }
 

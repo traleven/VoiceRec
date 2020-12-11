@@ -64,10 +64,20 @@
 		DB43ACA8248E6055008D3C5E /* InboxEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA7248E6055008D3C5E /* InboxEntry.swift */; };
 		DB43ACAA248E6BB4008D3C5E /* InboxRecorderPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */; };
 		DB43ACAC248E6D3F008D3C5E /* AudioRecorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */; };
+		DB577A172581F5E80087C117 /* Model.Noodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB577A162581F5E80087C117 /* Model.Noodle.swift */; };
+		DB577A1C2581FD100087C117 /* Model.Bowl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB577A1B2581FD100087C117 /* Model.Bowl.swift */; };
+		DB577A1F258201B80087C117 /* Model.User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB577A1E258201B80087C117 /* Model.User.swift */; };
+		DB577A232582059B0087C117 /* Model.Fridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB577A222582059B0087C117 /* Model.Fridge.swift */; };
+		DB577A2625821B830087C117 /* ViewModelRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB577A2525821B830087C117 /* ViewModelRegistry.swift */; };
 		DB60E7D22493B40A00733D63 /* TextMemoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */; };
 		DB60E7D42493B94600733D63 /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60E7D32493B94600733D63 /* MultilineTextField.swift */; };
+		DB6809902581162A0068D6A7 /* Model.Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68098F2581162A0068D6A7 /* Model.Recipe.swift */; };
 		DB68BED424988C3300B38BF2 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB68BED324988C3300B38BF2 /* MarqueeText.swift */; };
 		DB83E552257F6C8100B21101 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB83E551257F6C8100B21101 /* CSS.swift */; };
+		DB83E556257FB11600B21101 /* Model.Egg.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB83E555257FB11600B21101 /* Model.Egg.swift */; };
+		DB83E55A2580128C00B21101 /* Model.Broth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB83E5592580128C00B21101 /* Model.Broth.swift */; };
+		DB83E55D2580A9C700B21101 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB83E55C2580A9C700B21101 /* Model.swift */; };
+		DB83E5602580B12700B21101 /* Model.Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB83E55F2580B12700B21101 /* Model.Phrase.swift */; };
 		DB8DB6AA24A63CBF008B6330 /* CustomPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DB6A924A63CBF008B6330 /* CustomPagination.swift */; };
 		DB8DB6AC24A64097008B6330 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8DB6AB24A64097008B6330 /* CustomTabBar.swift */; };
 		DB9C630424A227E3009AD627 /* DefaultData in Resources */ = {isa = PBXBuildFile; fileRef = DB9C630324A227E3009AD627 /* DefaultData */; };
@@ -76,6 +86,8 @@
 		DB9EEA4824A0917D00C154E6 /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4724A0917D00C154E6 /* MusicListView.swift */; };
 		DB9EEA4A24A0918C00C154E6 /* MusicEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4924A0918C00C154E6 /* MusicEntry.swift */; };
 		DB9EEA4F24A1CEA800C154E6 /* SlidingTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9EEA4E24A1CEA800C154E6 /* SlidingTabView.swift */; };
+		DBDF2BF2258368E500CA871D /* ObservableUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF2BF1258368E500CA871D /* ObservableUtils.swift */; };
+		DBDF2BF72583B71500CA871D /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF2BF62583B71500CA871D /* ViewModifiers.swift */; };
 		DBE57FEE2491167F005D75FF /* InboxListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE57FED2491167F005D75FF /* InboxListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -175,10 +187,20 @@
 		DB43ACA7248E6055008D3C5E /* InboxEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxEntry.swift; sourceTree = "<group>"; };
 		DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxRecorderPanel.swift; sourceTree = "<group>"; };
 		DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderButton.swift; sourceTree = "<group>"; };
+		DB577A162581F5E80087C117 /* Model.Noodle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.Noodle.swift; sourceTree = "<group>"; };
+		DB577A1B2581FD100087C117 /* Model.Bowl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.Bowl.swift; sourceTree = "<group>"; };
+		DB577A1E258201B80087C117 /* Model.User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.User.swift; sourceTree = "<group>"; };
+		DB577A222582059B0087C117 /* Model.Fridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.Fridge.swift; sourceTree = "<group>"; };
+		DB577A2525821B830087C117 /* ViewModelRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelRegistry.swift; sourceTree = "<group>"; };
 		DB60E7D12493B40A00733D63 /* TextMemoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMemoEditor.swift; sourceTree = "<group>"; };
 		DB60E7D32493B94600733D63 /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
+		DB68098F2581162A0068D6A7 /* Model.Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.Recipe.swift; sourceTree = "<group>"; };
 		DB68BED324988C3300B38BF2 /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
 		DB83E551257F6C8100B21101 /* CSS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
+		DB83E555257FB11600B21101 /* Model.Egg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.Egg.swift; sourceTree = "<group>"; };
+		DB83E5592580128C00B21101 /* Model.Broth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.Broth.swift; sourceTree = "<group>"; };
+		DB83E55C2580A9C700B21101 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		DB83E55F2580B12700B21101 /* Model.Phrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.Phrase.swift; sourceTree = "<group>"; };
 		DB8DB6A924A63CBF008B6330 /* CustomPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPagination.swift; sourceTree = "<group>"; };
 		DB8DB6AB24A64097008B6330 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		DB9C630324A227E3009AD627 /* DefaultData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DefaultData; sourceTree = "<group>"; };
@@ -187,6 +209,8 @@
 		DB9EEA4724A0917D00C154E6 /* MusicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
 		DB9EEA4924A0918C00C154E6 /* MusicEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicEntry.swift; sourceTree = "<group>"; };
 		DB9EEA4E24A1CEA800C154E6 /* SlidingTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidingTabView.swift; sourceTree = "<group>"; };
+		DBDF2BF1258368E500CA871D /* ObservableUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableUtils.swift; sourceTree = "<group>"; };
+		DBDF2BF62583B71500CA871D /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		DBE57FED2491167F005D75FF /* InboxListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,6 +237,15 @@
 				DB9C630524A24324009AD627 /* Persistent */,
 				DB9C630624A2432E009AD627 /* Inline */,
 				DB9C630724A24339009AD627 /* Calculated */,
+				DB577A1E258201B80087C117 /* Model.User.swift */,
+				DB577A222582059B0087C117 /* Model.Fridge.swift */,
+				DB83E555257FB11600B21101 /* Model.Egg.swift */,
+				DB83E5592580128C00B21101 /* Model.Broth.swift */,
+				DB83E55F2580B12700B21101 /* Model.Phrase.swift */,
+				DB68098F2581162A0068D6A7 /* Model.Recipe.swift */,
+				DB577A162581F5E80087C117 /* Model.Noodle.swift */,
+				DB577A1B2581FD100087C117 /* Model.Bowl.swift */,
+				DB83E55C2580A9C700B21101 /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +256,8 @@
 				DB1CC7E2248A6B0F00B6E842 /* NotificationUtils.swift */,
 				DB1CC7E3248A6B0F00B6E842 /* FileUtils.swift */,
 				DB1CC7E4248A6B0F00B6E842 /* DataUtils.swift */,
+				DBDF2BF1258368E500CA871D /* ObservableUtils.swift */,
+				DBDF2BF62583B71500CA871D /* ViewModifiers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -424,6 +459,7 @@
 				DB2FD490249BA4BE0023602E /* LoadingView.swift */,
 				DB31478824891CE30093F346 /* RootView.swift */,
 				DB83E551257F6C8100B21101 /* CSS.swift */,
+				DB577A2525821B830087C117 /* ViewModelRegistry.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -631,33 +667,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB83E55D2580A9C700B21101 /* Model.swift in Sources */,
 				DB9EEA4524A0777F00C154E6 /* LessonEntry.swift in Sources */,
 				DB1CC82F248A6E2F00B6E842 /* Broth.swift in Sources */,
+				DBDF2BF72583B71500CA871D /* ViewModifiers.swift in Sources */,
 				DB1CC802248A6B1000B6E842 /* NotificationUtils.swift in Sources */,
 				DB43AC9B248A7CBA008D3C5E /* KitchenRootView.swift in Sources */,
 				DB2FD487249B954C0023602E /* PhraseBrowserView.swift in Sources */,
 				DB43AC99248A7C53008D3C5E /* LessonEditView.swift in Sources */,
 				DB31478524891CE30093F346 /* AppDelegate.swift in Sources */,
 				DB1CC834248A6E2F00B6E842 /* Noodle.swift in Sources */,
+				DB577A232582059B0087C117 /* Model.Fridge.swift in Sources */,
 				DB43AC9E248A7D76008D3C5E /* DiningRootView.swift in Sources */,
 				DB1CC80F248A6B1000B6E842 /* DictionaryDB.swift in Sources */,
 				DB2FD49E249CDE380023602E /* PlayButton.swift in Sources */,
 				DB2FD4A2249CF8320023602E /* PhraseLanguagePanel.swift in Sources */,
 				DB2FD489249B95CB0023602E /* ComposerView.swift in Sources */,
 				DB2FD48B249B95E50023602E /* PlaylistView.swift in Sources */,
+				DB577A172581F5E80087C117 /* Model.Noodle.swift in Sources */,
 				DB2FD491249BA4BE0023602E /* LoadingView.swift in Sources */,
 				DB9EEA4824A0917D00C154E6 /* MusicListView.swift in Sources */,
 				DB60E7D22493B40A00733D63 /* TextMemoEditor.swift in Sources */,
+				DB577A2625821B830087C117 /* ViewModelRegistry.swift in Sources */,
 				DB1CC810248A6B1000B6E842 /* ArrayDB.swift in Sources */,
+				DB6809902581162A0068D6A7 /* Model.Recipe.swift in Sources */,
 				DB2FD4A0249CEE430023602E /* DoneInputAccessoryView.swift in Sources */,
 				DB1CC830248A6E2F00B6E842 /* Shape.swift in Sources */,
 				DB31478724891CE30093F346 /* SceneDelegate.swift in Sources */,
+				DB83E556257FB11600B21101 /* Model.Egg.swift in Sources */,
 				DB60E7D42493B94600733D63 /* MultilineTextField.swift in Sources */,
 				DB2FD48D249B96280023602E /* MusicBrowserView.swift in Sources */,
 				DB1CC804248A6B1000B6E842 /* DataUtils.swift in Sources */,
 				DB1CC809248A6B1000B6E842 /* ExportComposer.swift in Sources */,
 				DB43ACAA248E6BB4008D3C5E /* InboxRecorderPanel.swift in Sources */,
 				DB148B952498F05C0017FC1F /* TextPreview.swift in Sources */,
+				DBDF2BF2258368E500CA871D /* ObservableUtils.swift in Sources */,
 				DB9EEA4324A0776F00C154E6 /* LessonListView.swift in Sources */,
 				DB1CC831248A6E2F00B6E842 /* Spices.swift in Sources */,
 				DB43ACAC248E6D3F008D3C5E /* AudioRecorderButton.swift in Sources */,
@@ -675,7 +719,9 @@
 				DB43AC97248A7C3B008D3C5E /* LessonBrowserView.swift in Sources */,
 				DB1CC80C248A6B1000B6E842 /* PersistentObject.swift in Sources */,
 				DB43ACA8248E6055008D3C5E /* InboxEntry.swift in Sources */,
+				DB577A1C2581FD100087C117 /* Model.Bowl.swift in Sources */,
 				DB1CC82D248A6E2F00B6E842 /* Egg.swift in Sources */,
+				DB83E5602580B12700B21101 /* Model.Phrase.swift in Sources */,
 				DB8DB6AC24A64097008B6330 /* CustomTabBar.swift in Sources */,
 				DB8DB6AA24A63CBF008B6330 /* CustomPagination.swift in Sources */,
 				DB1CC80D248A6B1000B6E842 /* WeakLink.swift in Sources */,
@@ -684,11 +730,13 @@
 				DB3C2B73249A047500C43F89 /* BlurView.swift in Sources */,
 				DB1CC82B248A6E2F00B6E842 /* Recipe.swift in Sources */,
 				DB43ACA6248A8C57008D3C5E /* KitchenPageHeader.swift in Sources */,
+				DB83E55A2580128C00B21101 /* Model.Broth.swift in Sources */,
 				DB1CC833248A6E2F00B6E842 /* Bowl.swift in Sources */,
 				DB9EEA4A24A0918C00C154E6 /* MusicEntry.swift in Sources */,
 				DB1CC80B248A6B1000B6E842 /* VoiceSequence.swift in Sources */,
 				DB2FD49C249CD4EE0023602E /* AudioPlayerPanel.swift in Sources */,
 				DB43ACA1248A7DD0008D3C5E /* ProfileView.swift in Sources */,
+				DB577A1F258201B80087C117 /* Model.User.swift in Sources */,
 				DB1CC82E248A6E2F00B6E842 /* Phrase.swift in Sources */,
 				DB2FD493249BB0960023602E /* PhraseListView.swift in Sources */,
 			);

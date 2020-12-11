@@ -42,6 +42,6 @@ struct LessonListView: View {
 
 struct LessonListView_Previews: PreviewProvider {
     static var previews: some View {
-		LessonListView(path: FileUtils.getDefaultsDirectory(.lesons), parentSelection: .constant(nil))
+		LessonListView(path: FileUtils.getDefaultsDirectory(.lessons), parentSelection: .constant(nil))
     }
 }

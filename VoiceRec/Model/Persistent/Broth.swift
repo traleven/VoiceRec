@@ -24,6 +24,10 @@ final class Broth : GlobalIdentifiable {
 		self.audioFile = url
 	}
 
+	static func getBy(id: String) -> Self? {
+		return (index[id] != nil) ? Self.with(contentOf: index[id]!) : nil
+	}
+
 	static func with(contentOf file: URL) -> Self? {
 		return .init(name: file.deletingPathExtension().lastPathComponent, url: file)
 	}

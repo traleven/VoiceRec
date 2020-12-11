@@ -17,6 +17,10 @@ class PersistentObject : GlobalIdentifiable {
 		id = UUID()
 	}
 
+	static func getBy(id: UUID) -> Self? {
+		return (index[id] != nil) ? Self.with(contentOf: index[id]!) : nil
+	}
+
 	class func with(contentOf file: URL) -> Self? {
 		return nil
 	}

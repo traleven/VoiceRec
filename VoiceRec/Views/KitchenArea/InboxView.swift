@@ -9,11 +9,11 @@ import SwiftUI
 
 struct InboxView: View {
 	var recorder: AudioRecorder = AudioRecorder()
-	@State var path: URL = FileUtils.getDirectory(.inbox)
-	
+	@ObservedObject var viewModel : ViewModel
+
     var body: some View {
 		NavigationView() {
-			InboxListView(name: "Inbox", path: FileUtils.getDirectory(.inbox), parentSelection: .constant(nil))
+			InboxListView(self.viewModel.listViewModel)
 				.environmentObject(recorder)
 				.border(Color.gray, width: 0.5)
 				.navigationBarItems(leading:
@@ -29,8 +29,37 @@ struct InboxView: View {
 	}
 }
 
+extension InboxView {
+	final class ViewModel: ObservableObject, Defaultable {
+		@Published var path: URL = FileUtils.getDirectory(.inbox)
+		var listViewModel: InboxListView.ViewModel = InboxListView.ViewModel(path: FileUtils.getDirectory(.inbox))
+
+		init() {}
+
+		init(path: URL) {
+			self.path = path
+			self.listViewModel = InboxListView.ViewModel(path: path)
+		}
+	}
+}
+
+extension InboxView {
+	init() {
+		if let viewModel : ViewModel = ViewModelRegistry.fetch() {
+			self.viewModel = viewModel
+		} else {
+			self.viewModel = ViewModel()
+			ViewModelRegistry.register(self.viewModel)
+		}
+	}
+
+	init(_ model: ViewModel) {
+		self.viewModel = model
+	}
+}
+
 struct InboxView_Previews: PreviewProvider {
     static var previews: some View {
-        InboxView()
+		InboxView()
     }
 }

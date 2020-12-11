@@ -10,12 +10,6 @@ import Foundation
 
 /// A specific sequence of Native and Foreign audio
 /// repetiotions describing a "shape" of a `Noodle`
-class Shape : Codable {
-
+struct Shape : Codable {
 	var dna : String
-
-	init(_ dna : String) {
-
-		self.dna = dna
-	}
 }

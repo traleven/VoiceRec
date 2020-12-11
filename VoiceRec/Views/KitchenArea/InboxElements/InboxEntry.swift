@@ -8,38 +8,36 @@
 import SwiftUI
 
 struct InboxEntry: View {
-	var egg: Egg
-	@State var showDetails = false
-	@Binding var selection: URL?
+	@ObservedObject var viewModel: ViewModel
 
     var body: some View {
 		HStack() {
-			if (egg.type == "m4a") {
+			if viewModel.egg.type == .audio {
 
 				Image("speech")
 					.scaleEffect(0.5)
-				Text(egg.name)
+				Text(viewModel.egg.name)
 					.multilineTextAlignment(.leading)
 					.padding()
 
-			} else if (egg.type == "txt" || egg.type == "json") {
+			} else if viewModel.egg.type == .text || viewModel.egg.type == .json {
 
 				Image("reorder")
 					.scaleEffect(0.5)
-				Text(egg.name)
+				Text(viewModel.egg.name)
 					.multilineTextAlignment(.leading)
 					.padding()
 
-			} else if (egg.type == "") {
+			} else if viewModel.egg.type == .directory {
 
 				Image("folder_selected")
 					.scaleEffect(0.5)
-				Text(egg.name)
+				Text(viewModel.egg.name)
 					.multilineTextAlignment(.leading)
 					.padding()
 
 			} else {
-				Text(egg.name)
+				Text(viewModel.egg.name)
 					.multilineTextAlignment(.leading)
 					.padding()
 			}
@@ -48,31 +46,31 @@ struct InboxEntry: View {
 		.contentShape(Rectangle())
 		.onTapGesture {
 			withAnimation() {
-				self.selection = self.egg.id
+				self.viewModel.parent.selectionIdx = self.viewModel.egg.id
 			}
 		}
 		.gesture(
 			LongPressGesture(minimumDuration: 0.5, maximumDistance: 3).onEnded({ (success: Bool) in
 				if success {
-					self.previewItem(self.egg)
+					self.previewItem(self.viewModel.egg)
 				}
 			})
 		)
-		.sheet(isPresented: self.$showDetails) {
-			TextPreview(isVisible: self.$showDetails, egg: self.egg)
+		.sheet(isPresented: self.$viewModel.showDetails) {
+			TextPreview(viewModel: self.viewModel)
 		}
     }
 
-	func previewItem(_ egg: Egg) {
+	func previewItem(_ egg: Model.Egg) {
 		switch egg.type {
-		case "m4a":
-			AudioPlayer(egg.file)
+		case .audio:
+			AudioPlayer(egg.id)
 				.play(
 					onProgress: { (_: TimeInterval, _: TimeInterval) in
 				}) { (_: Bool) in
 			}
-		case "txt", "json":
-			showDetails = true
+		case .text, .json:
+			self.viewModel.showDetails = true
 		default:
 			do {}
 		}
@@ -95,11 +93,41 @@ struct InboxEntry: View {
 	}
 }
 
+extension InboxEntry {
+	final class ViewModel: ObservableObject {
+		var parent: InboxListView.ViewModel
+		var egg: Model.Egg
+
+		@Published var showDetails: Bool = false
+
+		init(parent: InboxListView.ViewModel, egg: Model.Egg) {
+			self.parent = parent
+			self.egg = egg
+		}
+	}
+}
+
+extension InboxEntry {
+	init(parent: InboxListView.ViewModel, egg: Model.Egg) {
+//		if let viewModel : ViewModel = ViewModelRegistry.fetch() {
+//			self.viewModel = viewModel
+//		} else {
+			self.viewModel = ViewModel(parent: parent, egg: egg)
+//			ViewModelRegistry.register(self.viewModel)
+//		}
+	}
+
+	init(_ model: ViewModel) {
+		self.viewModel = model
+	}
+}
+
 struct InboxEntry_Previews: PreviewProvider {
+	static var parent = InboxListView.ViewModel()
     static var previews: some View {
 		Group {
-			ForEach(Egg.fetch(FileUtils.getDefaultsDirectory(.inbox))) {
-				InboxEntry(egg: $0, selection: .constant(nil))
+			ForEach(parent.children, id: \.egg.id) {
+				InboxEntry(parent: parent, egg: $0.egg)
 			}
 		}
 		.previewLayout(.fixed(width: 480, height: 70))

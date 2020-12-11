@@ -8,8 +8,10 @@
 import SwiftUI
 import StatefulTabView
 
-struct DiningRootView: View {
-    var body: some View {
+struct DiningRootView: View, Identifiable {
+	let id: String = "DiningRootView"
+
+	var body: some View {
 		StatefulTabView(){
 			Tab(title: "Player", image: nil) {
 				PlaylistView()

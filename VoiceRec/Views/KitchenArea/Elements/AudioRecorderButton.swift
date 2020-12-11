@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct AudioRecorderButton: View {
-	@EnvironmentObject var recorder: AudioRecorder
+	@ObservedObject var viewModel: ViewModel
 	var path: URL
 
 	var body: some View {
-		recorder.isRecording
+		self.viewModel.recorder.isRecording
 		? Button(action: {
-			self.recorder.finishAudioRecording()
+			self.viewModel.recorder.finishAudioRecording()
 		}) {
 			ZStack() {
 
@@ -36,7 +36,7 @@ struct AudioRecorderButton: View {
 				}
 			}
 
-			self.recorder.start_recording(FileUtils.getNewInboxFile(at:self.path.deletingPathExtension(), withName: "", andExtension: "m4a"), progress: nil) { (success: Bool) in
+			self.viewModel.recorder.start_recording(FileUtils.getNewInboxFile(at:self.path.deletingPathExtension(), withName: "", andExtension: "m4a"), progress: nil) { (success: Bool) in
 			}
 		}) {
 			ZStack() {
@@ -50,16 +50,43 @@ struct AudioRecorderButton: View {
     }
 }
 
+extension AudioRecorderButton {
+	final class ViewModel: ObservableObject, Defaultable {
+		let recorder: AudioRecorder
+		var cancellable: Any? = nil
+
+		init() {
+			let recorder : AudioRecorder = ViewModelRegistry.fetch()!
+			self.recorder = recorder
+			cancellable = self.republish(recorder)
+		}
+	}
+}
+
+extension AudioRecorderButton {
+	init(path: URL) {
+		self.path = path
+		if let viewModel : ViewModel = ViewModelRegistry.fetch() {
+			self.viewModel = viewModel
+		} else {
+			self.viewModel = ViewModel()
+			ViewModelRegistry.register(self.viewModel)
+		}
+	}
+
+	init(_ model: ViewModel, path: URL) {
+		self.path = path
+		self.viewModel = model
+	}
+}
+
 struct AudioRecorderButton_Previews: PreviewProvider {
     static var previews: some View {
 		Group {
 			AudioRecorderButton(path:FileUtils.getDirectory(.inbox))
-				.environmentObject(AudioRecorder())
 
 			AudioRecorderButton(path:FileUtils.getDirectory(.inbox))
-				.environmentObject(AudioRecorder())
 		}
-		.environmentObject(AudioRecorder())
 		.previewLayout(.fixed(width: 180, height: 180))
     }
 }

@@ -12,21 +12,20 @@ class DB: NSObject {
 
 	static var settings: UserDefaults! = UserDefaults.init(suiteName: "settings")
 
-	static var phrases: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("phrases.json", isDirectory: false))
+	static var phrases: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("phrases.json", isDirectory: false), andDefaultValue: "")
 
-	static var music: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("music.json", isDirectory: false))
+	static var music: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("music.json", isDirectory: false), andDefaultValue: "")
 
-	static var options: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("options.json", isDirectory: false))
+	static var options: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("options.json", isDirectory: false), andDefaultValue: "")
 
 
 	static var presets: ArrayDB! = ArrayDB(withUrl:FileUtils.getDocumentsDirectory().appendingPathComponent("presets.json", isDirectory: false))
 
-	var url: URL!
+	let url: URL!
 
 	init(withUrl: URL!) {
-		super.init()
-
 		url = withUrl
+		super.init()
 	}
 
 	func flush() {

@@ -8,8 +8,10 @@
 import SwiftUI
 import StatefulTabView
 
-struct ServiceRootView: View {
-    var body: some View {
+struct ServiceRootView: View, Identifiable {
+	let id: String = "ServiceRootView"
+
+	var body: some View {
 		StatefulTabView(){
 			Tab(title: "Profile", image: nil) {
 				ProfileView()

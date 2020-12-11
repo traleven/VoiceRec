@@ -36,7 +36,7 @@ class Recipe : PersistentObject, Codable {
 
 	class func fetch() -> [Recipe] {
 
-		let baseUrl = FileUtils.getDirectory(.lesons)
+		let baseUrl = FileUtils.getDirectory(.lessons)
 		return fetch(baseUrl)
 	}
 

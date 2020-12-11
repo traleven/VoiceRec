@@ -8,31 +8,59 @@
 import SwiftUI
 
 struct TextPreview: View {
-	@Binding var isVisible: Bool
-	var egg: Egg
-	@State var text: String = ""
+	@ObservedObject var viewModel: ViewModel
 
     var body: some View {
 		NavigationView() {
 			VStack () {
-				MultilineTextField(text: self.$text)
+				TextEditor(text: self.$viewModel.text)
 				Spacer(minLength: 0)
 			}
-			.onAppear() {
-				self.text = (try? String(contentsOf: self.egg.file)) ?? ""
-			}
-			.navigationBarTitle(Text(egg.name), displayMode: .inline)
+			.navigationBarTitle(Text(viewModel.egg.name), displayMode: .inline)
 			.navigationBarItems(leading:
 				Button(action: {
-					self.isVisible = false
+					flush()
+					self.viewModel.showDetails = false
 				}) {
 					Text("Back")
 				}
 			)
 			.onDisappear() {
-				try! self.text.write(to:self.egg.file, atomically: true, encoding: .utf8)
+				flush()
 			}
 		}
+	}
+
+	private func flush() {
+		try! self.viewModel.text.write(to:self.viewModel.egg.id, atomically: true, encoding: .utf8)
+		self.viewModel.egg = Model.Egg(id: self.viewModel.egg.id)
+	}
+}
+
+extension TextPreview {
+	class ViewModel: ObservableObject {
+		var parent: InboxEntry.ViewModel
+		@Published var text: String
+
+		var egg: Model.Egg {
+			get { parent.egg }
+			set { parent.egg = newValue }
+		}
+		var showDetails: Bool {
+			get { parent.showDetails }
+			set { parent.showDetails = newValue }
+		}
+
+		init(parent: InboxEntry.ViewModel) {
+			self.parent = parent
+			self.text = (try? String(contentsOf: parent.egg.id)) ?? ""
+		}
+	}
+}
+
+extension TextPreview {
+	init(viewModel: InboxEntry.ViewModel) {
+		self.viewModel = ViewModel(parent: viewModel)
 	}
 }
 

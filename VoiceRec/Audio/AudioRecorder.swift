@@ -34,11 +34,13 @@ class AudioRecorder : NSObject, ObservableObject, AVAudioRecorderDelegate {
 	func finishAudioRecording() {
 
 		audioRecorder.stop()
+		let url = audioRecorder.url
 		audioRecorder = nil
 		meterTimer.invalidate()
 		print("recorded successfully.")
 
 		isRecording = false
+		NotificationCenter.default.post(name: .NoodlesFileChanged, object: url.deletingLastPathComponent())
 	}
 
 
@@ -54,7 +56,7 @@ class AudioRecorder : NSObject, ObservableObject, AVAudioRecorderDelegate {
 
 	@objc func updateAudioMeter(timer: Timer) {
 
-		if audioRecorder.isRecording
+		if audioRecorder?.isRecording ?? false
 		{
 			duration = audioRecorder.currentTime
 			onProgress?(audioRecorder.currentTime)

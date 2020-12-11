@@ -27,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			DB.options.setValue(forKey: "language.target", value: "Chinese")
 			DB.options.flush()
 		}
+
+		ViewModelRegistry.register(AudioRecorder())
+
 //		let appearance = UINavigationBarAppearance()
 //		appearance.configureWithOpaqueBackground()
 //		appearance.backgroundColor = .red

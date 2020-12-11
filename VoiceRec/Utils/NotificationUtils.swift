@@ -21,6 +21,9 @@ extension Notification.Name {
 	static let pageUpdate = Notification.Name("noodles_page_update")
 }
 
+extension Notification.Name {
+	public static let NoodlesFileChanged: Notification.Name = Notification.Name("NoodlesFileChanged")
+}
 
 extension UIViewController {
 

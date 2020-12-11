@@ -13,12 +13,13 @@ class FileUtils {
 	enum Directories : String {
 		case inbox = "INBOX"
 		case phrases = "Phrases"
-		case lesons = "Lessons"
+		case lessons = "Lessons"
 		case music = "Music"
+		case users = "Users"
 	}
 
-	static var documentsDirectory: URL = getDocumentsDirectory()
-	static var defaultsDirectory: URL = getDefaultsDirectory()
+	static let documentsDirectory: URL = getDocumentsDirectory()
+	static let defaultsDirectory: URL = getDefaultsDirectory()
 
 	class func getDocumentsDirectory() -> URL {
 
@@ -30,7 +31,9 @@ class FileUtils {
 
 	class func getDefaultsDirectory() -> URL {
 
-		return Bundle.main.resourceURL!.appendingPathComponent("DefaultData")
+		let resourcesDirectory = Bundle.main.resourceURL!
+		let defaultsDirectory = resourcesDirectory.appendingPathComponent("DefaultData")
+		return URL(fileURLWithPath: ".", relativeTo: defaultsDirectory)
 	}
 
 
@@ -96,6 +99,16 @@ class FileUtils {
 	class func get(file: String, withExtension: String, inDirectory: String) -> URL {
 
 		return getDirectory(inDirectory).appendingPathComponent(file).appendingPathExtension(withExtension)
+	}
+
+
+	class func relativeContentsOfDirectory(_ url: URL) -> [URL] {
+		let fmg = FileManager.default
+		let filenames = (try? fmg.contentsOfDirectory(atPath: url.path)) ?? []
+		let urls = filenames.map { (file: String) -> URL in
+			url.appendingPathComponent(file)
+		}
+		return urls
 	}
 
 

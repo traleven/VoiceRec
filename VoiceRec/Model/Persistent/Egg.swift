@@ -10,6 +10,10 @@ import Foundation
 
 /// Simple audio file container that can be used to produce `Doughball`
 final class Egg : Equatable, GlobalIdentifiable {
+	static func getBy(id: URL) -> Self? {
+		return nil
+	}
+
 	static func == (lhs: Egg, rhs: Egg) -> Bool {
 		return lhs.id == rhs.id
 	}
