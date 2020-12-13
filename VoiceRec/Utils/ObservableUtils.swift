@@ -16,3 +16,16 @@ extension ObservableObject where Self.ObjectWillChangePublisher == ObservableObj
 		   }
 	}
 }
+
+struct Deselector {
+	private var delegate: () -> Void
+	func deselect() {
+		delegate()
+	}
+
+	static let noop = Deselector({})
+
+	init(_ delegate: @escaping () -> Void) {
+		self.delegate = delegate
+	}
+}

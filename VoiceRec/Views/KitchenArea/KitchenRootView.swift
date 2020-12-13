@@ -18,6 +18,7 @@ struct KitchenRootView: View {
 			}
 			Tab(title: "My Noodles", systemImageName: "folder") {
 				SlidingTabView(selection: self.$viewModel.slidingIndex, tabs: ["Phrases", "Lessons"])
+					.removeIfKeyboardActive()
 				if self.viewModel.slidingIndex == 0 {
 					PhraseBrowserView()
 				} else {
@@ -30,6 +31,7 @@ struct KitchenRootView: View {
 		}
 		.barTintColor(.blue)
 		.barAppearanceConfiguration(.transparent)
+		.hideTabBarIfKeyboardActive()
 		.navigationBarTitle(Text(""), displayMode: .inline)
 		.navigationBarHidden(true)
 	}

@@ -29,13 +29,28 @@ extension Model {
 			let target = Settings.language.target
 			return meta.text[base] ?? meta.text[target] ?? ""
 		}
+		var comment : String {
+			get { meta.comment ?? "" }
+			set { meta.comment = newValue }
+		}
+		var baseAudio : URL? { audio(Settings.language.base) }
+		var targetAudio : URL? { audio(Settings.language.target) }
+		var baseText : String { text(Settings.language.base) }
+		var targetText : String { text(Settings.language.target) }
 		func audio(_ key: String) -> URL? {
 			meta.audioUrl(key, relativeTo: id)
 		}
+		func text(_ key: String) -> String {
+			meta.text[key] ?? ""
+		}
+		mutating func setText(_ text: String, for key: String) {
+			meta.text[key] = text
+		}
 
 		struct Meta : Codable {
-			private(set) var text : Dictionary<String, String> = Dictionary()
-			private(set) var audio : Dictionary<String, String> = Dictionary()
+			var text : Dictionary<String, String> = Dictionary()
+			var audio : Dictionary<String, String> = Dictionary()
+			var comment : String?
 			func audioUrl(_ key: String, relativeTo base: URL) -> URL? {
 				if let path = audio[key] {
 					return URL(fileURLWithPath: path, relativeTo: base)
@@ -53,14 +68,5 @@ extension Model {
 			FileUtils.ensureDirectory(id)
 			PersistentObject.save(meta, to: id.appendingPathComponent("meta.json"))
 		}
-	}
-}
-
-extension URL {
-	var localized : URL {
-		if self.baseURL == FileUtils.documentsDirectory {
-			return self
-		}
-		return self
 	}
 }

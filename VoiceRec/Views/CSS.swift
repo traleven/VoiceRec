@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 public class CSS {
+	static var deleteButtonName = "Delete"
 	static var accentColor : Color = Color.red
 	static var kindOfBottomPadding : Float = 5.5
 }

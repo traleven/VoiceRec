@@ -33,14 +33,7 @@ struct InboxListView: View {
 					.disabled(self.viewModel.isInbox)
 					.opacity(self.viewModel.isInbox ? 0.5 : 1)
 					.alert(isPresented: self.$viewModel.confirmDelition, content: {
-						let title = "Delete item?"
-						let message = "Are you sure you want to delete '\(self.viewModel.name)' and all its subitems?"
-						let no : Alert.Button = .cancel()
-						let yes : Alert.Button = .destructive(Text("Delete"), action: {
-							self.viewModel.deleteSelf()
-							self.presentationMode.wrappedValue.dismiss()
-						})
-						return Alert(title: Text(title), message: Text(message), primaryButton: no, secondaryButton: yes)
+						self.deleteAlert
 					}),
 				displayMode: .inline
 			)
@@ -60,6 +53,17 @@ struct InboxListView: View {
 			InboxRecorderPanel(path: self.viewModel.path)
 		}
     }
+
+	var deleteAlert: Alert {
+		let title = self.deleteAlertTitle
+		let message = "Are you sure you want to delete '\(self.viewModel.name)' and all its subitems?"
+		let no : Alert.Button = .cancel()
+		let yes : Alert.Button = .destructive(Text("Delete"), action: {
+			self.viewModel.deleteSelf()
+			self.presentationMode.wrappedValue.dismiss()
+		})
+		return Alert(title: Text(title), message: Text(message), primaryButton: no, secondaryButton: yes)
+	}
 
 	func makeActivationBinding(_ viewModel: ViewModel) -> Binding<Bool> {
 		return .init(get: { viewModel.active }, set: { viewModel.active = $0 })

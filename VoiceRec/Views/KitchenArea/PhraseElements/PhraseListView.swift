@@ -8,40 +8,91 @@
 import SwiftUI
 
 struct PhraseListView: View {
-	var name: String?
-	var path: URL?
-	@State var selectionIdx: UUID?
-	@Binding var parentSelection: UUID?
+	@ObservedObject var viewModel: ViewModel
 
 	var body: some View {
 		VStack() {
-			List(Phrase.fetch(path), id: \.id) {(phrase) in
+			List(self.viewModel.children, id: \.id) {(phrase) in
 				ZStack() {
-					NavigationLink(destination: PhraseEditView(phrase: phrase, parentSelection: self.$selectionIdx), tag: phrase.id, selection: self.$selectionIdx) {
+					NavigationLink(
+						destination: PhraseEditView(phrase, {
+							self.viewModel.selectionIdx = nil
+						}),
+						tag: phrase.id,
+						selection: self.$viewModel.selectionIdx) {
 						EmptyView()
 					}
 					PhraseEntry(phrase: phrase)
 				}
 				.contentShape(Rectangle())
 			}
-			.navigationBarTitle(Text(name ?? ""), displayMode: .inline)
-			.navigationBarHidden(path == nil)
+			.navigationBarHidden(true)
 			.navigationBarBackButtonHidden(true)
-			.navigationBarItems(leading:
-				Button(action: {
-					withAnimation { () -> Void in
-						self.parentSelection = nil
-					}
-				}) {
-					Text("< Back")
-				}
-			)
 		}
     }
 }
 
+extension PhraseListView {
+	final class ViewModel: ObservableObject, Defaultable {
+		var root: Model.Fridge<Model.Phrase>
+		@Published var selectionIdx: URL? = nil
+//		var path: URL?
+//		@State var selectionIdx: UUID?
+
+		private var _children : [Model.Phrase]?
+		var children : [Model.Phrase] {
+			if _children == nil {
+				_children = self.root.fetch()
+			}
+			return _children!
+		}
+
+		init() {
+			self.root = Model.Fridge(FileUtils.getDirectory(.phrases))
+		}
+
+		init(path: URL) {
+			self.root = Model.Fridge(path)
+		}
+
+		func refresh() {
+			self._children = nil
+			self.objectWillChange.send()
+		}
+
+		func listenUrl() -> Any? {
+			return NotificationCenter.default.publisher(for: .NoodlesFileChanged).sink { [weak self](notification) in
+				if let url = notification.object as? URL {
+					if url == self?.root.root {
+						self?.refresh()
+					}
+				}
+			}
+		}
+	}
+}
+
+extension PhraseListView {
+	init() {
+		if let viewModel : ViewModel = ViewModelRegistry.fetch() {
+			self.viewModel = viewModel
+		} else {
+			self.viewModel = ViewModel()
+			ViewModelRegistry.register(self.viewModel)
+		}
+	}
+
+	init(_ path: URL) {
+		self.viewModel = ViewModel(path: path)
+	}
+
+	init(_ model: ViewModel) {
+		self.viewModel = model
+	}
+}
+
 struct PhraseListView_Previews: PreviewProvider {
     static var previews: some View {
-		PhraseListView(path: FileUtils.getDefaultsDirectory(.phrases), parentSelection: .constant(nil))
+		PhraseListView(FileUtils.getDefaultsDirectory(.phrases))
     }
 }

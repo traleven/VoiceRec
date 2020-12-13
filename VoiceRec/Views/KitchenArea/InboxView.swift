@@ -14,7 +14,6 @@ struct InboxView: View {
     var body: some View {
 		NavigationView() {
 			InboxListView(self.viewModel.listViewModel)
-				.environmentObject(recorder)
 				.border(Color.gray, width: 0.5)
 				.navigationBarItems(leading:
 					Button(action: {

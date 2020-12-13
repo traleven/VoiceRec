@@ -16,10 +16,10 @@ struct PhraseLanguagePanel: View {
 		VStack() {
 			CocoaTextField(text: self.$text, label: { Text("") })
 				.borderStyle(.roundedRect)
-				.inputAccessoryView(DoneInputAccessoryView())
 				.multilineTextAlignment(.center)
 
 			AudioPlayerPanel(self.audio)
+				.removeIfKeyboardActive()
 		}
     }
 }

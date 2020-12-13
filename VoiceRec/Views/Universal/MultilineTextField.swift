@@ -52,9 +52,9 @@ fileprivate struct UITextViewWrapper: UIViewRepresentable {
             uiView.inputAccessoryView = nil
         }
 
-        if uiView.window != nil, !uiView.isFirstResponder {
-            uiView.becomeFirstResponder()
-        }
+//        if uiView.window != nil, !uiView.isFirstResponder {
+//            uiView.becomeFirstResponder()
+//        }
         UITextViewWrapper.recalculateHeight(view: uiView, result: $calculatedHeight)
     }
 

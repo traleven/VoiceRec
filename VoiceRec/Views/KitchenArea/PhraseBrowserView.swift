@@ -10,7 +10,7 @@ import SwiftUI
 struct PhraseBrowserView: View {
     var body: some View {
 		NavigationView() {
-			PhraseListView(parentSelection: .constant(nil))
+			PhraseListView()
 				.border(Color.gray, width: 0.5)
 		}
 		.navigationViewStyle(StackNavigationViewStyle())

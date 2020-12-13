@@ -47,6 +47,15 @@
         }
       },
       {
+        "package": "Introspect",
+        "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
+        "state": {
+          "branch": "master",
+          "revision": "36ecf80429d00a4cd1e81fbfe4655b1d99ebd651",
+          "version": null
+        }
+      },
+      {
         "package": "SwiftUIKit",
         "repositoryURL": "https://github.com/danielsaidi/SwiftUIKit",
         "state": {

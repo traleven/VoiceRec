@@ -64,6 +64,7 @@
 		DB43ACA8248E6055008D3C5E /* InboxEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA7248E6055008D3C5E /* InboxEntry.swift */; };
 		DB43ACAA248E6BB4008D3C5E /* InboxRecorderPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACA9248E6BB4008D3C5E /* InboxRecorderPanel.swift */; };
 		DB43ACAC248E6D3F008D3C5E /* AudioRecorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43ACAB248E6D3F008D3C5E /* AudioRecorderButton.swift */; };
+		DB54CC162586339C00EAED34 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = DB54CC152586339C00EAED34 /* Introspect */; };
 		DB577A172581F5E80087C117 /* Model.Noodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB577A162581F5E80087C117 /* Model.Noodle.swift */; };
 		DB577A1C2581FD100087C117 /* Model.Bowl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB577A1B2581FD100087C117 /* Model.Bowl.swift */; };
 		DB577A1F258201B80087C117 /* Model.User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB577A1E258201B80087C117 /* Model.User.swift */; };
@@ -223,6 +224,7 @@
 				DB2FD498249BEC420023602E /* SwiftUIKit in Frameworks */,
 				DB3C2B7B249A07F700C43F89 /* SwiftUIX in Frameworks */,
 				DB2FD480249B2F9B0023602E /* SwiftUICharts in Frameworks */,
+				DB54CC162586339C00EAED34 /* Introspect in Frameworks */,
 				DB1C2864248FCE6E0013EEBA /* StatefulTabView in Frameworks */,
 				DB3C2B78249A075D00C43F89 /* KeyboardObserving in Frameworks */,
 			);
@@ -580,6 +582,7 @@
 				DB2FD47F249B2F9B0023602E /* SwiftUICharts */,
 				DB2FD484249B372D0023602E /* ASCollectionView */,
 				DB2FD497249BEC420023602E /* SwiftUIKit */,
+				DB54CC152586339C00EAED34 /* Introspect */,
 			);
 			productName = VoiceRec;
 			productReference = DB31478124891CE30093F346 /* Noodles.app */;
@@ -615,6 +618,7 @@
 				DB2FD47E249B2F9B0023602E /* XCRemoteSwiftPackageReference "ChartView" */,
 				DB2FD483249B372D0023602E /* XCRemoteSwiftPackageReference "ASCollectionView" */,
 				DB2FD496249BEC420023602E /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
+				DB54CC142586339C00EAED34 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = DB31478224891CE30093F346 /* Products */;
 			projectDirPath = "";
@@ -1026,6 +1030,14 @@
 				kind = branch;
 			};
 		};
+		DB54CC142586339C00EAED34 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1058,6 +1070,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DB3C2B79249A07F700C43F89 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
 			productName = SwiftUIX;
+		};
+		DB54CC152586339C00EAED34 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB54CC142586339C00EAED34 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
