@@ -55,7 +55,7 @@ struct InboxListView: View {
     }
 
 	var deleteAlert: Alert {
-		let title = self.deleteAlertTitle
+		let title = "Delete item?"
 		let message = "Are you sure you want to delete '\(self.viewModel.name)' and all its subitems?"
 		let no : Alert.Button = .cancel()
 		let yes : Alert.Button = .destructive(Text("Delete"), action: {
