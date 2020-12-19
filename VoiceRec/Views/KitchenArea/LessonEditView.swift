@@ -9,25 +9,26 @@ import SwiftUI
 import SwiftUIX
 
 struct LessonEditView: View {
-	var lesson: Recipe
-	@Binding var parentSelection: Int?
+	@ObservedObject var viewModel: ViewModel
+	@Environment(\.presentationMode) var presentationMode
 
     var body: some View {
-		Form() {
-			CocoaTextField(text: self.makeNameBinding(self.lesson), label: {
-				Text("Lesson name")
-			})
-				.inputAccessoryView(DoneInputAccessoryView())
-				.borderStyle(.roundedRect)
+		VStack() {
+			TextField("Recipe name", text: self.$viewModel.recipe.name)
+				.textFieldStyle(RoundedBorderTextFieldStyle())
 				.multilineTextAlignment(.center)
-//			Section(header: Text("\(Settings.language.base)")) {
-//				PhraseLanguagePanel(text: makeTextBinding(lesson, language: Settings.language.base), audio: .constant(phrase.baseAudio))
-//			}
-//			Section(header: Text("\(Settings.language.target)")) {
-//				PhraseLanguagePanel(text: makeTextBinding(lesson, language: Settings.language.target), audio: .constant(phrase.targetAudio))
-//			}
-//			MultilineTextField("Notes", text: makeNotesBinding(phrase))
-//				.inputAccessoryView(DoneInputAccessoryView())
+			Divider()
+			Form {
+				ForEach(0..<self.viewModel.recipe.phraseCount) { i in
+					PhraseEntry(phrase: Model.Phrase(id: self.viewModel.recipe[i]))
+				}
+			}
+			Divider()
+			Text("All phrases")
+			Form() {
+				PhraseListView(FileUtils.getDefaultsDirectory(.phrases))
+			}
+			Spacer()
 		}
 		.keyboardType(.default)
 		.navigationBarTitle("", displayMode: .inline)
@@ -36,13 +37,14 @@ struct LessonEditView: View {
 		.navigationBarItems(leading:
 			Button(action: {
 				withAnimation { () -> Void in
-					self.parentSelection = nil
+					self.viewModel.deselect?.deselect()
+					presentationMode.wrappedValue.dismiss()
 				}
 			}) {
 				Text("< Back")
 			},
 			trailing: Button(action: {
-				//self.phrase.save()
+				self.viewModel.save()
 			}) {
 				Text("Save")
 			}
@@ -64,8 +66,41 @@ struct LessonEditView: View {
 	}
 }
 
+extension LessonEditView {
+	final class ViewModel: ObservableObject {
+		@Published var recipe: Model.Recipe
+		var deselect: Deselector?
+
+		init(_ path: URL, deselect: Deselector?) {
+			self.recipe = Model.Recipe(id: path)
+			self.deselect = deselect
+		}
+
+		func save() {
+			self.recipe.save()
+		}
+	}
+}
+
+extension LessonEditView {
+	init(_ path: URL) {
+		self.init(path, deselect: {})
+	}
+
+	init(_ path: URL, deselect: (() -> Void)?) {
+		let deselector = deselect == nil ? nil : Deselector(deselect!)
+		self.viewModel = ViewModel(path, deselect: deselector)
+	}
+
+	init(_ model: ViewModel) {
+		self.viewModel = model
+	}
+}
+
 struct LessonEditView_Previews: PreviewProvider {
     static var previews: some View {
-		LessonEditView(lesson: Recipe.fetch()[0], parentSelection: .constant(nil))
+		LessonEditView(Model.Fridge<Model.Recipe>(FileUtils.getDefaultsDirectory(.lessons)).fetch()[0].id,
+			deselect: nil
+		)
     }
 }

@@ -1,5 +1,5 @@
 {
-	"name": "Test lesson 1",
+	"name": "Test lesson 3",
 	"shape": {
 		"dna": "ABABB"
 	},
@@ -13,7 +13,6 @@
 	"broth": "Music/some air.broth",
 	"phrases": [
 		"Phrases/4E4918D7-1487-40B5-9FE1-1C42D1705C4A.dough",
-		"Phrases/42B15A56-5CD8-451C-B331-4205C911464E.dough",
 		"Phrases/6384F852-551C-4426-A467-FF49A6A57BD0.dough"
 	]
 }

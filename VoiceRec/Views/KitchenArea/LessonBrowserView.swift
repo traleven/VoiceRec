@@ -10,7 +10,7 @@ import SwiftUI
 struct LessonBrowserView: View {
     var body: some View {
 		NavigationView() {
-			LessonListView(parentSelection: .constant(nil))
+			LessonListView()
 				.border(Color.gray, width: 0.5)
 		}
 		.navigationViewStyle(StackNavigationViewStyle())

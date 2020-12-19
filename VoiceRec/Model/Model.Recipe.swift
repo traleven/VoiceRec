@@ -24,16 +24,17 @@ extension Model {
 
 		private(set) var id : URL
 		private var meta : Meta
-		var name : String { meta.name }
+		
+		var name : String { get { meta.name } set { meta.name = newValue } }
 		var phraseCount : Int { meta.count }
 		subscript(_ idx: Int) -> URL { meta[idx, at: id.baseURL] }
 
 		struct Meta : Codable {
-			private(set) var name : String
-			private(set) var shape : Shape
-			private(set) var spices : Spices
-			private(set) var broth : String
-			private(set) var phrases : [String]
+			var name : String
+			var shape : Shape
+			var spices : Spices
+			var broth : String
+			var phrases : [String]
 			
 			var count : Int { phrases.count }
 			subscript(_ idx: Int, at base: URL?) -> URL {

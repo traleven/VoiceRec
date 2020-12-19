@@ -36,8 +36,6 @@ extension PhraseListView {
 	final class ViewModel: ObservableObject, Defaultable {
 		var root: Model.Fridge<Model.Phrase>
 		@Published var selectionIdx: URL? = nil
-//		var path: URL?
-//		@State var selectionIdx: UUID?
 
 		private var _children : [Model.Phrase]?
 		var children : [Model.Phrase] {
