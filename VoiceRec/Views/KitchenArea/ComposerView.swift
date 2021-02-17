@@ -26,7 +26,7 @@ struct ComposerView: View {
 				}
 			}
 			HStack() {
-				Text("Voice volume: ")
+				Text("Phrases volume: ")
 					.frame(minWidth: 92, idealWidth: 102, maxWidth: 112)
 				Slider(value: self.$voiceVolume, in: 0...1) {
 					Text("\(self.voiceVolume)")
@@ -53,6 +53,7 @@ struct ComposerView: View {
 
 struct ComposerView_Previews: PreviewProvider {
     static var previews: some View {
-        ComposerView()
+		ComposerView()
+			.previewDevice("iPhone 12")
     }
 }
