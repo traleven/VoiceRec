@@ -1,0 +1,19 @@
+{
+	"name": "Test lesson 2",
+	"shape": {
+		"dna": "ABABB"
+	},
+	"spices": {
+		"musicVolume": 0.5,
+		"voiceVolume": 0.8,
+		"delayBetween": 3,
+		"delayWithin": 1,
+		"randomize": false
+	},
+	"broth": "Music/some air.broth",
+	"phrases": [
+		"Phrases/4E4918D7-1487-40B5-9FE1-1C42D1705C4A.dough",
+		"Phrases/42B15A56-5CD8-451C-B331-4205C911464E.dough",
+		"Phrases/6384F852-551C-4426-A467-FF49A6A57BD0.dough"
+	]
+}

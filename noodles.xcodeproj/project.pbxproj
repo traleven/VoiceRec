@@ -13,10 +13,65 @@
 		DB41333A2643D5650035D952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4133382643D5650035D952 /* Main.storyboard */; };
 		DB41333C2643D5660035D952 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB41333B2643D5660035D952 /* Assets.xcassets */; };
 		DB41333F2643D5660035D952 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB41333D2643D5660035D952 /* LaunchScreen.storyboard */; };
+		DB41334E2643D7690035D952 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB41334D2643D7690035D952 /* AudioToolbox.framework */; };
+		DB4139F92643D8360035D952 /* MarketFresh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4139F32643D8360035D952 /* MarketFresh.ttf */; };
+		DB4139FA2643D8360035D952 /* Market Fresh Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4139F42643D8360035D952 /* Market Fresh Bold Italic.ttf */; };
+		DB4139FB2643D8360035D952 /* MarketFreshBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4139F52643D8360035D952 /* MarketFreshBold.ttf */; };
+		DB4139FC2643D8360035D952 /* Market Fresh Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4139F62643D8360035D952 /* Market Fresh Italic.ttf */; };
+		DB4139FD2643D8360035D952 /* AlteHaasGroteskRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4139F72643D8360035D952 /* AlteHaasGroteskRegular.ttf */; };
+		DB4139FE2643D8360035D952 /* AlteHaasGroteskBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4139F82643D8360035D952 /* AlteHaasGroteskBold.ttf */; };
+		DB413A0C2643D8BF0035D952 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A052643D8BF0035D952 /* AudioPlayer.swift */; };
+		DB413A0E2643D8BF0035D952 /* ExportComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A082643D8BF0035D952 /* ExportComposer.swift */; };
+		DB413A0F2643D8BF0035D952 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A092643D8BF0035D952 /* AudioRecorder.swift */; };
+		DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A0A2643D8BF0035D952 /* VoiceSequence.swift */; };
+		DB413A262643D8CD0035D952 /* Model.Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A122643D8CD0035D952 /* Model.Phrase.swift */; };
+		DB413A272643D8CD0035D952 /* Model.Broth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A132643D8CD0035D952 /* Model.Broth.swift */; };
+		DB413A282643D8CD0035D952 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A142643D8CD0035D952 /* Model.swift */; };
+		DB413A292643D8CD0035D952 /* Model.Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A152643D8CD0035D952 /* Model.Recipe.swift */; };
+		DB413A2A2643D8CD0035D952 /* Model.User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A162643D8CD0035D952 /* Model.User.swift */; };
+		DB413A2B2643D8CD0035D952 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A182643D8CD0035D952 /* Recipe.swift */; };
+		DB413A2C2643D8CD0035D952 /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A192643D8CD0035D952 /* Phrase.swift */; };
+		DB413A2D2643D8CD0035D952 /* Egg.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A1A2643D8CD0035D952 /* Egg.swift */; };
+		DB413A2E2643D8CD0035D952 /* Broth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A1B2643D8CD0035D952 /* Broth.swift */; };
+		DB413A2F2643D8CD0035D952 /* Model.Bowl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A1C2643D8CD0035D952 /* Model.Bowl.swift */; };
+		DB413A302643D8CD0035D952 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A1E2643D8CD0035D952 /* Shape.swift */; };
+		DB413A312643D8CD0035D952 /* Spices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A1F2643D8CD0035D952 /* Spices.swift */; };
+		DB413A322643D8CD0035D952 /* Bowl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A212643D8CD0035D952 /* Bowl.swift */; };
+		DB413A332643D8CD0035D952 /* Noodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A222643D8CD0035D952 /* Noodle.swift */; };
+		DB413A342643D8CD0035D952 /* Model.Fridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A232643D8CD0035D952 /* Model.Fridge.swift */; };
+		DB413A352643D8CD0035D952 /* Model.Egg.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A242643D8CD0035D952 /* Model.Egg.swift */; };
+		DB413A362643D8CD0035D952 /* Model.Noodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A252643D8CD0035D952 /* Model.Noodle.swift */; };
+		DB413A452643D8DA0035D952 /* CSS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A382643D8DA0035D952 /* CSS.swift */; };
+		DB413A482643D8DA0035D952 /* NotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A3C2643D8DA0035D952 /* NotificationUtils.swift */; };
+		DB413A492643D8DA0035D952 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A3D2643D8DA0035D952 /* FileUtils.swift */; };
+		DB413A4A2643D8DA0035D952 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A3E2643D8DA0035D952 /* DataUtils.swift */; };
+		DB413A4B2643D8DA0035D952 /* PersistentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A402643D8DA0035D952 /* PersistentObject.swift */; };
+		DB413A4C2643D8DA0035D952 /* WeakLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A412643D8DA0035D952 /* WeakLink.swift */; };
+		DB413A4D2643D8DA0035D952 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A422643D8DA0035D952 /* DB.swift */; };
+		DB413A4E2643D8DA0035D952 /* DictionaryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A432643D8DA0035D952 /* DictionaryDB.swift */; };
+		DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A442643D8DA0035D952 /* ArrayDB.swift */; };
+		DB413A512643D8E40035D952 /* DefaultData in Resources */ = {isa = PBXBuildFile; fileRef = DB413A502643D8E40035D952 /* DefaultData */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DB413A5B2643DA080035D952 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB413A562643DA080035D952 /* Ogg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D07F2C80486CC7A007CD1D0;
+			remoteInfo = Ogg;
+		};
+		DB413A5D2643DA080035D952 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB413A562643DA080035D952 /* Ogg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 734FB2E50B18B33E00D561D7;
+			remoteInfo = "libogg (static)";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		DB41332F2643D5650035D952 /* noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB41332F2643D5650035D952 /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4133322643D5650035D952 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4133342643D5650035D952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB4133362643D5650035D952 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +79,59 @@
 		DB41333B2643D5660035D952 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB41333E2643D5660035D952 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB4133402643D5660035D952 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB41334B2643D7690035D952 /* Noodles.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Noodles.entitlements; sourceTree = "<group>"; };
+		DB41334D2643D7690035D952 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		DB4139F32643D8360035D952 /* MarketFresh.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarketFresh.ttf; sourceTree = "<group>"; };
+		DB4139F42643D8360035D952 /* Market Fresh Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Market Fresh Bold Italic.ttf"; sourceTree = "<group>"; };
+		DB4139F52643D8360035D952 /* MarketFreshBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarketFreshBold.ttf; sourceTree = "<group>"; };
+		DB4139F62643D8360035D952 /* Market Fresh Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Market Fresh Italic.ttf"; sourceTree = "<group>"; };
+		DB4139F72643D8360035D952 /* AlteHaasGroteskRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlteHaasGroteskRegular.ttf; sourceTree = "<group>"; };
+		DB4139F82643D8360035D952 /* AlteHaasGroteskBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlteHaasGroteskBold.ttf; sourceTree = "<group>"; };
+		DB413A022643D8460035D952 /* Noodles-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Noodles-Bridging-Header.h"; sourceTree = "<group>"; };
+		DB413A042643D8BF0035D952 /* OpusTranscoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusTranscoder.swift; sourceTree = "<group>"; };
+		DB413A052643D8BF0035D952 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		DB413A062643D8BF0035D952 /* OpusTranscoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpusTranscoder.m; sourceTree = "<group>"; };
+		DB413A072643D8BF0035D952 /* OpusTranscoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpusTranscoder.h; sourceTree = "<group>"; };
+		DB413A082643D8BF0035D952 /* ExportComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportComposer.swift; sourceTree = "<group>"; };
+		DB413A092643D8BF0035D952 /* AudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		DB413A0A2643D8BF0035D952 /* VoiceSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceSequence.swift; sourceTree = "<group>"; };
+		DB413A122643D8CD0035D952 /* Model.Phrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Phrase.swift; sourceTree = "<group>"; };
+		DB413A132643D8CD0035D952 /* Model.Broth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Broth.swift; sourceTree = "<group>"; };
+		DB413A142643D8CD0035D952 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		DB413A152643D8CD0035D952 /* Model.Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Recipe.swift; sourceTree = "<group>"; };
+		DB413A162643D8CD0035D952 /* Model.User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.User.swift; sourceTree = "<group>"; };
+		DB413A182643D8CD0035D952 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		DB413A192643D8CD0035D952 /* Phrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
+		DB413A1A2643D8CD0035D952 /* Egg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Egg.swift; sourceTree = "<group>"; };
+		DB413A1B2643D8CD0035D952 /* Broth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broth.swift; sourceTree = "<group>"; };
+		DB413A1C2643D8CD0035D952 /* Model.Bowl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Bowl.swift; sourceTree = "<group>"; };
+		DB413A1E2643D8CD0035D952 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		DB413A1F2643D8CD0035D952 /* Spices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spices.swift; sourceTree = "<group>"; };
+		DB413A212643D8CD0035D952 /* Bowl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bowl.swift; sourceTree = "<group>"; };
+		DB413A222643D8CD0035D952 /* Noodle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Noodle.swift; sourceTree = "<group>"; };
+		DB413A232643D8CD0035D952 /* Model.Fridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Fridge.swift; sourceTree = "<group>"; };
+		DB413A242643D8CD0035D952 /* Model.Egg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Egg.swift; sourceTree = "<group>"; };
+		DB413A252643D8CD0035D952 /* Model.Noodle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Noodle.swift; sourceTree = "<group>"; };
+		DB413A382643D8DA0035D952 /* CSS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSS.swift; sourceTree = "<group>"; };
+		DB413A3C2643D8DA0035D952 /* NotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationUtils.swift; sourceTree = "<group>"; };
+		DB413A3D2643D8DA0035D952 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
+		DB413A3E2643D8DA0035D952 /* DataUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
+		DB413A402643D8DA0035D952 /* PersistentObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentObject.swift; sourceTree = "<group>"; };
+		DB413A412643D8DA0035D952 /* WeakLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakLink.swift; sourceTree = "<group>"; };
+		DB413A422643D8DA0035D952 /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		DB413A432643D8DA0035D952 /* DictionaryDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryDB.swift; sourceTree = "<group>"; };
+		DB413A442643D8DA0035D952 /* ArrayDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDB.swift; sourceTree = "<group>"; };
+		DB413A502643D8E40035D952 /* DefaultData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DefaultData; sourceTree = "<group>"; };
+		DB413A562643DA080035D952 /* Ogg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Ogg.xcodeproj; path = "opus/libogg-1.3.3/macosx/Ogg.xcodeproj"; sourceTree = "<group>"; };
+		DB413A602643DA170035D952 /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopus.a; path = opus/libOpus/libopus.a; sourceTree = "<group>"; };
+		DB413A732643DACA0035D952 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = internal.h; path = "opus/opusfile-0.11/src/internal.h"; sourceTree = SOURCE_ROOT; };
+		DB413A742643DACA0035D952 /* http.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = http.c; path = "opus/opusfile-0.11/src/http.c"; sourceTree = SOURCE_ROOT; };
+		DB413A752643DACA0035D952 /* wincerts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = wincerts.c; path = "opus/opusfile-0.11/src/wincerts.c"; sourceTree = SOURCE_ROOT; };
+		DB413A762643DACA0035D952 /* internal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = internal.c; path = "opus/opusfile-0.11/src/internal.c"; sourceTree = SOURCE_ROOT; };
+		DB413A772643DACA0035D952 /* stream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stream.c; path = "opus/opusfile-0.11/src/stream.c"; sourceTree = SOURCE_ROOT; };
+		DB413A782643DACA0035D952 /* opusfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = opusfile.c; path = "opus/opusfile-0.11/src/opusfile.c"; sourceTree = SOURCE_ROOT; };
+		DB413A792643DACA0035D952 /* winerrno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winerrno.h; path = "opus/opusfile-0.11/src/winerrno.h"; sourceTree = SOURCE_ROOT; };
+		DB413A7A2643DACA0035D952 /* info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = info.c; path = "opus/opusfile-0.11/src/info.c"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB41334E2643D7690035D952 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,39 +149,197 @@
 		DB4133262643D5650035D952 = {
 			isa = PBXGroup;
 			children = (
-				DB4133312643D5650035D952 /* noodles */,
+				DB413A552643D9F10035D952 /* Opus */,
+				DB4139F22643D8360035D952 /* CustomFonts */,
+				DB4133312643D5650035D952 /* Noodles */,
 				DB4133302643D5650035D952 /* Products */,
+				DB41334C2643D7690035D952 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		DB4133302643D5650035D952 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB41332F2643D5650035D952 /* noodles.app */,
+				DB41332F2643D5650035D952 /* Noodles.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DB4133312643D5650035D952 /* noodles */ = {
+		DB4133312643D5650035D952 /* Noodles */ = {
 			isa = PBXGroup;
 			children = (
+				DB413A502643D8E40035D952 /* DefaultData */,
+				DB413A3F2643D8DA0035D952 /* Persistency */,
+				DB413A392643D8DA0035D952 /* Utils */,
+				DB413A372643D8DA0035D952 /* Views */,
+				DB413A112643D8CD0035D952 /* Model */,
+				DB413A032643D8BF0035D952 /* Audio */,
+				DB413A022643D8460035D952 /* Noodles-Bridging-Header.h */,
+				DB41334B2643D7690035D952 /* Noodles.entitlements */,
 				DB4133322643D5650035D952 /* AppDelegate.swift */,
 				DB4133342643D5650035D952 /* SceneDelegate.swift */,
-				DB4133362643D5650035D952 /* ViewController.swift */,
 				DB4133382643D5650035D952 /* Main.storyboard */,
 				DB41333B2643D5660035D952 /* Assets.xcassets */,
 				DB41333D2643D5660035D952 /* LaunchScreen.storyboard */,
 				DB4133402643D5660035D952 /* Info.plist */,
 			);
-			path = noodles;
+			path = Noodles;
+			sourceTree = "<group>";
+		};
+		DB41334C2643D7690035D952 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB41334D2643D7690035D952 /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB4139F22643D8360035D952 /* CustomFonts */ = {
+			isa = PBXGroup;
+			children = (
+				DB4139F32643D8360035D952 /* MarketFresh.ttf */,
+				DB4139F42643D8360035D952 /* Market Fresh Bold Italic.ttf */,
+				DB4139F52643D8360035D952 /* MarketFreshBold.ttf */,
+				DB4139F62643D8360035D952 /* Market Fresh Italic.ttf */,
+				DB4139F72643D8360035D952 /* AlteHaasGroteskRegular.ttf */,
+				DB4139F82643D8360035D952 /* AlteHaasGroteskBold.ttf */,
+			);
+			path = CustomFonts;
+			sourceTree = "<group>";
+		};
+		DB413A032643D8BF0035D952 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				DB413A042643D8BF0035D952 /* OpusTranscoder.swift */,
+				DB413A052643D8BF0035D952 /* AudioPlayer.swift */,
+				DB413A062643D8BF0035D952 /* OpusTranscoder.m */,
+				DB413A072643D8BF0035D952 /* OpusTranscoder.h */,
+				DB413A082643D8BF0035D952 /* ExportComposer.swift */,
+				DB413A092643D8BF0035D952 /* AudioRecorder.swift */,
+				DB413A0A2643D8BF0035D952 /* VoiceSequence.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		DB413A112643D8CD0035D952 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB413A172643D8CD0035D952 /* Persistent */,
+				DB413A1D2643D8CD0035D952 /* Inline */,
+				DB413A202643D8CD0035D952 /* Calculated */,
+				DB413A142643D8CD0035D952 /* Model.swift */,
+				DB413A122643D8CD0035D952 /* Model.Phrase.swift */,
+				DB413A132643D8CD0035D952 /* Model.Broth.swift */,
+				DB413A152643D8CD0035D952 /* Model.Recipe.swift */,
+				DB413A162643D8CD0035D952 /* Model.User.swift */,
+				DB413A1C2643D8CD0035D952 /* Model.Bowl.swift */,
+				DB413A232643D8CD0035D952 /* Model.Fridge.swift */,
+				DB413A242643D8CD0035D952 /* Model.Egg.swift */,
+				DB413A252643D8CD0035D952 /* Model.Noodle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB413A172643D8CD0035D952 /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+				DB413A182643D8CD0035D952 /* Recipe.swift */,
+				DB413A192643D8CD0035D952 /* Phrase.swift */,
+				DB413A1A2643D8CD0035D952 /* Egg.swift */,
+				DB413A1B2643D8CD0035D952 /* Broth.swift */,
+			);
+			path = Persistent;
+			sourceTree = "<group>";
+		};
+		DB413A1D2643D8CD0035D952 /* Inline */ = {
+			isa = PBXGroup;
+			children = (
+				DB413A1E2643D8CD0035D952 /* Shape.swift */,
+				DB413A1F2643D8CD0035D952 /* Spices.swift */,
+			);
+			path = Inline;
+			sourceTree = "<group>";
+		};
+		DB413A202643D8CD0035D952 /* Calculated */ = {
+			isa = PBXGroup;
+			children = (
+				DB413A212643D8CD0035D952 /* Bowl.swift */,
+				DB413A222643D8CD0035D952 /* Noodle.swift */,
+			);
+			path = Calculated;
+			sourceTree = "<group>";
+		};
+		DB413A372643D8DA0035D952 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DB413A382643D8DA0035D952 /* CSS.swift */,
+				DB4133362643D5650035D952 /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DB413A392643D8DA0035D952 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DB413A3C2643D8DA0035D952 /* NotificationUtils.swift */,
+				DB413A3D2643D8DA0035D952 /* FileUtils.swift */,
+				DB413A3E2643D8DA0035D952 /* DataUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		DB413A3F2643D8DA0035D952 /* Persistency */ = {
+			isa = PBXGroup;
+			children = (
+				DB413A402643D8DA0035D952 /* PersistentObject.swift */,
+				DB413A412643D8DA0035D952 /* WeakLink.swift */,
+				DB413A422643D8DA0035D952 /* DB.swift */,
+				DB413A432643D8DA0035D952 /* DictionaryDB.swift */,
+				DB413A442643D8DA0035D952 /* ArrayDB.swift */,
+			);
+			path = Persistency;
+			sourceTree = "<group>";
+		};
+		DB413A552643D9F10035D952 /* Opus */ = {
+			isa = PBXGroup;
+			children = (
+				DB413A712643DA570035D952 /* OpusFile */,
+				DB413A602643DA170035D952 /* libopus.a */,
+				DB413A562643DA080035D952 /* Ogg.xcodeproj */,
+			);
+			name = Opus;
+			sourceTree = "<group>";
+		};
+		DB413A572643DA080035D952 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB413A5C2643DA080035D952 /* Ogg.framework */,
+				DB413A5E2643DA080035D952 /* libogg.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB413A712643DA570035D952 /* OpusFile */ = {
+			isa = PBXGroup;
+			children = (
+				DB413A742643DACA0035D952 /* http.c */,
+				DB413A7A2643DACA0035D952 /* info.c */,
+				DB413A762643DACA0035D952 /* internal.c */,
+				DB413A732643DACA0035D952 /* internal.h */,
+				DB413A782643DACA0035D952 /* opusfile.c */,
+				DB413A772643DACA0035D952 /* stream.c */,
+				DB413A752643DACA0035D952 /* wincerts.c */,
+				DB413A792643DACA0035D952 /* winerrno.h */,
+			);
+			path = OpusFile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DB41332E2643D5650035D952 /* noodles */ = {
+		DB41332E2643D5650035D952 /* Noodles */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB4133432643D5660035D952 /* Build configuration list for PBXNativeTarget "noodles" */;
+			buildConfigurationList = DB4133432643D5660035D952 /* Build configuration list for PBXNativeTarget "Noodles" */;
 			buildPhases = (
 				DB41332B2643D5650035D952 /* Sources */,
 				DB41332C2643D5650035D952 /* Frameworks */,
@@ -82,9 +349,9 @@
 			);
 			dependencies = (
 			);
-			name = noodles;
+			name = Noodles;
 			productName = noodles;
-			productReference = DB41332F2643D5650035D952 /* noodles.app */;
+			productReference = DB41332F2643D5650035D952 /* Noodles.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +368,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DB41332A2643D5650035D952 /* Build configuration list for PBXProject "noodles" */;
+			buildConfigurationList = DB41332A2643D5650035D952 /* Build configuration list for PBXProject "Noodles" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,19 +379,49 @@
 			mainGroup = DB4133262643D5650035D952;
 			productRefGroup = DB4133302643D5650035D952 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DB413A572643DA080035D952 /* Products */;
+					ProjectRef = DB413A562643DA080035D952 /* Ogg.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				DB41332E2643D5650035D952 /* noodles */,
+				DB41332E2643D5650035D952 /* Noodles */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DB413A5C2643DA080035D952 /* Ogg.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Ogg.framework;
+			remoteRef = DB413A5B2643DA080035D952 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DB413A5E2643DA080035D952 /* libogg.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libogg.a;
+			remoteRef = DB413A5D2643DA080035D952 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DB41332D2643D5650035D952 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB4139FB2643D8360035D952 /* MarketFreshBold.ttf in Resources */,
 				DB41333F2643D5660035D952 /* LaunchScreen.storyboard in Resources */,
+				DB4139FD2643D8360035D952 /* AlteHaasGroteskRegular.ttf in Resources */,
+				DB413A512643D8E40035D952 /* DefaultData in Resources */,
+				DB4139FC2643D8360035D952 /* Market Fresh Italic.ttf in Resources */,
+				DB4139FE2643D8360035D952 /* AlteHaasGroteskBold.ttf in Resources */,
+				DB4139F92643D8360035D952 /* MarketFresh.ttf in Resources */,
+				DB4139FA2643D8360035D952 /* Market Fresh Bold Italic.ttf in Resources */,
 				DB41333C2643D5660035D952 /* Assets.xcassets in Resources */,
 				DB41333A2643D5650035D952 /* Main.storyboard in Resources */,
 			);
@@ -137,9 +434,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB413A4E2643D8DA0035D952 /* DictionaryDB.swift in Sources */,
+				DB413A4C2643D8DA0035D952 /* WeakLink.swift in Sources */,
+				DB413A352643D8CD0035D952 /* Model.Egg.swift in Sources */,
+				DB413A312643D8CD0035D952 /* Spices.swift in Sources */,
+				DB413A332643D8CD0035D952 /* Noodle.swift in Sources */,
+				DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */,
+				DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */,
+				DB413A272643D8CD0035D952 /* Model.Broth.swift in Sources */,
+				DB413A322643D8CD0035D952 /* Bowl.swift in Sources */,
+				DB413A262643D8CD0035D952 /* Model.Phrase.swift in Sources */,
+				DB413A4B2643D8DA0035D952 /* PersistentObject.swift in Sources */,
+				DB413A292643D8CD0035D952 /* Model.Recipe.swift in Sources */,
+				DB413A0E2643D8BF0035D952 /* ExportComposer.swift in Sources */,
+				DB413A482643D8DA0035D952 /* NotificationUtils.swift in Sources */,
+				DB413A362643D8CD0035D952 /* Model.Noodle.swift in Sources */,
+				DB413A2D2643D8CD0035D952 /* Egg.swift in Sources */,
+				DB413A452643D8DA0035D952 /* CSS.swift in Sources */,
+				DB413A282643D8CD0035D952 /* Model.swift in Sources */,
+				DB413A2E2643D8CD0035D952 /* Broth.swift in Sources */,
+				DB413A4D2643D8DA0035D952 /* DB.swift in Sources */,
 				DB4133372643D5650035D952 /* ViewController.swift in Sources */,
 				DB4133332643D5650035D952 /* AppDelegate.swift in Sources */,
+				DB413A342643D8CD0035D952 /* Model.Fridge.swift in Sources */,
+				DB413A2B2643D8CD0035D952 /* Recipe.swift in Sources */,
+				DB413A0C2643D8BF0035D952 /* AudioPlayer.swift in Sources */,
 				DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */,
+				DB413A2A2643D8CD0035D952 /* Model.User.swift in Sources */,
+				DB413A2C2643D8CD0035D952 /* Phrase.swift in Sources */,
+				DB413A302643D8CD0035D952 /* Shape.swift in Sources */,
+				DB413A2F2643D8CD0035D952 /* Model.Bowl.swift in Sources */,
+				DB413A492643D8DA0035D952 /* FileUtils.swift in Sources */,
+				DB413A0F2643D8BF0035D952 /* AudioRecorder.swift in Sources */,
+				DB413A4A2643D8DA0035D952 /* DataUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,12 +543,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"opus/libogg-1.3.3/include/ogg",
+					"opus/opusfile-0.11/include",
+					opus/libOpus/include/opus,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Noodles/Noodles-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -271,11 +604,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"opus/libogg-1.3.3/include/ogg",
+					"opus/opusfile-0.11/include",
+					opus/libOpus/include/opus,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "Noodles/Noodles-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -286,6 +625,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
@@ -293,10 +633,17 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.noodles;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opus/libOpus/SIM_x86/lib",
+					"$(PROJECT_DIR)/opus/libOpus",
+					"$(PROJECT_DIR)/opus/libOpus/DEVICE_ARM/lib",
+				);
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,6 +652,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
@@ -312,17 +660,24 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.noodles;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opus/libOpus/SIM_x86/lib",
+					"$(PROJECT_DIR)/opus/libOpus",
+					"$(PROJECT_DIR)/opus/libOpus/DEVICE_ARM/lib",
+				);
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DB41332A2643D5650035D952 /* Build configuration list for PBXProject "noodles" */ = {
+		DB41332A2643D5650035D952 /* Build configuration list for PBXProject "Noodles" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB4133412643D5660035D952 /* Debug */,
@@ -331,7 +686,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB4133432643D5660035D952 /* Build configuration list for PBXNativeTarget "noodles" */ = {
+		DB4133432643D5660035D952 /* Build configuration list for PBXNativeTarget "Noodles" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB4133442643D5660035D952 /* Debug */,
