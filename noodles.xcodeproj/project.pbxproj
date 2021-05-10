@@ -51,6 +51,16 @@
 		DB413A4E2643D8DA0035D952 /* DictionaryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A432643D8DA0035D952 /* DictionaryDB.swift */; };
 		DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A442643D8DA0035D952 /* ArrayDB.swift */; };
 		DB413A512643D8E40035D952 /* DefaultData in Resources */ = {isa = PBXBuildFile; fileRef = DB413A502643D8E40035D952 /* DefaultData */; };
+		DBDC67D12644067800B99539 /* Kitchen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC67D02644067800B99539 /* Kitchen.storyboard */; };
+		DBDC67D72644072C00B99539 /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67D62644072C00B99539 /* RootPageViewController.swift */; };
+		DBDC67DB26441B8000B99539 /* Service.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC67DA26441B8000B99539 /* Service.storyboard */; };
+		DBDC67DE26441B9400B99539 /* Dining.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC67DD26441B9400B99539 /* Dining.storyboard */; };
+		DBDC67E726443DCB00B99539 /* InboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67E626443DCB00B99539 /* InboxCell.swift */; };
+		DBDC67EB2646D83200B99539 /* InboxDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67EA2646D83200B99539 /* InboxDirector.swift */; };
+		DBDC67EE2646D84200B99539 /* Director.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67ED2646D84200B99539 /* Director.swift */; };
+		DBDC67F12646D84C00B99539 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67F02646D84C00B99539 /* Router.swift */; };
+		DBDC67F52646DEEF00B99539 /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */; };
+		DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67F8264942CE00B99539 /* InboxListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +142,16 @@
 		DB413A782643DACA0035D952 /* opusfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = opusfile.c; path = "opus/opusfile-0.11/src/opusfile.c"; sourceTree = SOURCE_ROOT; };
 		DB413A792643DACA0035D952 /* winerrno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winerrno.h; path = "opus/opusfile-0.11/src/winerrno.h"; sourceTree = SOURCE_ROOT; };
 		DB413A7A2643DACA0035D952 /* info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = info.c; path = "opus/opusfile-0.11/src/info.c"; sourceTree = SOURCE_ROOT; };
+		DBDC67D02644067800B99539 /* Kitchen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kitchen.storyboard; sourceTree = "<group>"; };
+		DBDC67D62644072C00B99539 /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
+		DBDC67DA26441B8000B99539 /* Service.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Service.storyboard; sourceTree = "<group>"; };
+		DBDC67DD26441B9400B99539 /* Dining.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dining.storyboard; sourceTree = "<group>"; };
+		DBDC67E626443DCB00B99539 /* InboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxCell.swift; sourceTree = "<group>"; };
+		DBDC67EA2646D83200B99539 /* InboxDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxDirector.swift; sourceTree = "<group>"; };
+		DBDC67ED2646D84200B99539 /* Director.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Director.swift; sourceTree = "<group>"; };
+		DBDC67F02646D84C00B99539 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
+		DBDC67F8264942CE00B99539 /* InboxListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,18 +189,18 @@
 			isa = PBXGroup;
 			children = (
 				DB413A502643D8E40035D952 /* DefaultData */,
-				DB413A3F2643D8DA0035D952 /* Persistency */,
-				DB413A392643D8DA0035D952 /* Utils */,
-				DB413A372643D8DA0035D952 /* Views */,
-				DB413A112643D8CD0035D952 /* Model */,
 				DB413A032643D8BF0035D952 /* Audio */,
+				DB413A3F2643D8DA0035D952 /* Persistency */,
+				DB413A112643D8CD0035D952 /* Model */,
+				DB413A392643D8DA0035D952 /* Utils */,
+				DBDC67E92646D81700B99539 /* Flow */,
+				DB413A372643D8DA0035D952 /* Views */,
+				DBDC67CF2644067800B99539 /* Storyboards */,
 				DB413A022643D8460035D952 /* Noodles-Bridging-Header.h */,
 				DB41334B2643D7690035D952 /* Noodles.entitlements */,
 				DB4133322643D5650035D952 /* AppDelegate.swift */,
 				DB4133342643D5650035D952 /* SceneDelegate.swift */,
-				DB4133382643D5650035D952 /* Main.storyboard */,
 				DB41333B2643D5660035D952 /* Assets.xcassets */,
-				DB41333D2643D5660035D952 /* LaunchScreen.storyboard */,
 				DB4133402643D5660035D952 /* Info.plist */,
 			);
 			path = Noodles;
@@ -274,6 +294,9 @@
 			children = (
 				DB413A382643D8DA0035D952 /* CSS.swift */,
 				DB4133362643D5650035D952 /* ViewController.swift */,
+				DBDC67D62644072C00B99539 /* RootPageViewController.swift */,
+				DBDC67F8264942CE00B99539 /* InboxListViewController.swift */,
+				DBDC67E626443DCB00B99539 /* InboxCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,6 +355,29 @@
 				DB413A792643DACA0035D952 /* winerrno.h */,
 			);
 			path = OpusFile;
+			sourceTree = "<group>";
+		};
+		DBDC67CF2644067800B99539 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				DB41333D2643D5660035D952 /* LaunchScreen.storyboard */,
+				DB4133382643D5650035D952 /* Main.storyboard */,
+				DBDC67D02644067800B99539 /* Kitchen.storyboard */,
+				DBDC67DD26441B9400B99539 /* Dining.storyboard */,
+				DBDC67DA26441B8000B99539 /* Service.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		DBDC67E92646D81700B99539 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				DBDC67ED2646D84200B99539 /* Director.swift */,
+				DBDC67F02646D84C00B99539 /* Router.swift */,
+				DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */,
+				DBDC67EA2646D83200B99539 /* InboxDirector.swift */,
+			);
+			path = Flow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,11 +460,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBDC67D12644067800B99539 /* Kitchen.storyboard in Resources */,
+				DBDC67DE26441B9400B99539 /* Dining.storyboard in Resources */,
 				DB4139FB2643D8360035D952 /* MarketFreshBold.ttf in Resources */,
 				DB41333F2643D5660035D952 /* LaunchScreen.storyboard in Resources */,
 				DB4139FD2643D8360035D952 /* AlteHaasGroteskRegular.ttf in Resources */,
 				DB413A512643D8E40035D952 /* DefaultData in Resources */,
 				DB4139FC2643D8360035D952 /* Market Fresh Italic.ttf in Resources */,
+				DBDC67DB26441B8000B99539 /* Service.storyboard in Resources */,
 				DB4139FE2643D8360035D952 /* AlteHaasGroteskBold.ttf in Resources */,
 				DB4139F92643D8360035D952 /* MarketFresh.ttf in Resources */,
 				DB4139FA2643D8360035D952 /* Market Fresh Bold Italic.ttf in Resources */,
@@ -438,12 +487,15 @@
 				DB413A4C2643D8DA0035D952 /* WeakLink.swift in Sources */,
 				DB413A352643D8CD0035D952 /* Model.Egg.swift in Sources */,
 				DB413A312643D8CD0035D952 /* Spices.swift in Sources */,
+				DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */,
 				DB413A332643D8CD0035D952 /* Noodle.swift in Sources */,
+				DBDC67D72644072C00B99539 /* RootPageViewController.swift in Sources */,
 				DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */,
 				DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */,
 				DB413A272643D8CD0035D952 /* Model.Broth.swift in Sources */,
 				DB413A322643D8CD0035D952 /* Bowl.swift in Sources */,
 				DB413A262643D8CD0035D952 /* Model.Phrase.swift in Sources */,
+				DBDC67EE2646D84200B99539 /* Director.swift in Sources */,
 				DB413A4B2643D8DA0035D952 /* PersistentObject.swift in Sources */,
 				DB413A292643D8CD0035D952 /* Model.Recipe.swift in Sources */,
 				DB413A0E2643D8BF0035D952 /* ExportComposer.swift in Sources */,
@@ -456,12 +508,16 @@
 				DB413A4D2643D8DA0035D952 /* DB.swift in Sources */,
 				DB4133372643D5650035D952 /* ViewController.swift in Sources */,
 				DB4133332643D5650035D952 /* AppDelegate.swift in Sources */,
+				DBDC67F12646D84C00B99539 /* Router.swift in Sources */,
+				DBDC67EB2646D83200B99539 /* InboxDirector.swift in Sources */,
 				DB413A342643D8CD0035D952 /* Model.Fridge.swift in Sources */,
 				DB413A2B2643D8CD0035D952 /* Recipe.swift in Sources */,
 				DB413A0C2643D8BF0035D952 /* AudioPlayer.swift in Sources */,
 				DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */,
 				DB413A2A2643D8CD0035D952 /* Model.User.swift in Sources */,
+				DBDC67F52646DEEF00B99539 /* NavigationControllerRouter.swift in Sources */,
 				DB413A2C2643D8CD0035D952 /* Phrase.swift in Sources */,
+				DBDC67E726443DCB00B99539 /* InboxCell.swift in Sources */,
 				DB413A302643D8CD0035D952 /* Shape.swift in Sources */,
 				DB413A2F2643D8CD0035D952 /* Model.Bowl.swift in Sources */,
 				DB413A492643D8DA0035D952 /* FileUtils.swift in Sources */,

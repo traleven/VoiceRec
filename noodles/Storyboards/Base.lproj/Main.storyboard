@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gTW-SH-k1D">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+    </dependencies>
+    <scenes>
+        <!--Room Selection-->
+        <scene sceneID="sch-KQ-Dod">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" title="Room Selection" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="gTW-SH-k1D" customClass="RootPageViewController" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="panGestureRecognizer" destination="bkI-Du-zts" id="EJe-oe-xDP"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rAj-aR-RZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="bkI-Du-zts">
+                    <rectEdge key="edges" left="YES" right="YES"/>
+                    <connections>
+                        <outlet property="delegate" destination="gTW-SH-k1D" id="dl9-OV-HTo"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-758" y="-48"/>
+        </scene>
+    </scenes>
+</document>
