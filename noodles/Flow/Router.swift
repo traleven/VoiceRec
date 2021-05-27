@@ -8,7 +8,11 @@
 import UIKit
 
 @objc protocol Router {
+	
+	@objc func present(_ viewController: UIViewController, onDismiss: (() -> Void)?)
+	@objc func dismiss(animated: Bool, completion: (() -> Void)?)
 	@objc func push(_ viewController: UIViewController, onDismiss: (() -> Void)?)
-	@objc func showModal(_ viewController: UIViewController, onDismiss: (() -> Void)?)
+	@objc func pop(animated: Bool)
+
 	@objc func willDismiss(_ viewController: UIViewController)
 }

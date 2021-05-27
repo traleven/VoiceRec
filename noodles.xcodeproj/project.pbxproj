@@ -51,6 +51,10 @@
 		DB413A4E2643D8DA0035D952 /* DictionaryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A432643D8DA0035D952 /* DictionaryDB.swift */; };
 		DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A442643D8DA0035D952 /* ArrayDB.swift */; };
 		DB413A512643D8E40035D952 /* DefaultData in Resources */ = {isa = PBXBuildFile; fileRef = DB413A502643D8E40035D952 /* DefaultData */; };
+		DBCF76A5265E612B00D80A6B /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76A4265E612B00D80A6B /* VerticalButton.swift */; };
+		DBCF76A8265E948500D80A6B /* KitchenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */; };
+		DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */; };
+		DBCF76AE265FD12E00D80A6B /* PhraseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76AD265FD12E00D80A6B /* PhraseCell.swift */; };
 		DBDC67D12644067800B99539 /* Kitchen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC67D02644067800B99539 /* Kitchen.storyboard */; };
 		DBDC67D72644072C00B99539 /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67D62644072C00B99539 /* RootPageViewController.swift */; };
 		DBDC67DB26441B8000B99539 /* Service.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC67DA26441B8000B99539 /* Service.storyboard */; };
@@ -61,6 +65,9 @@
 		DBDC67F12646D84C00B99539 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67F02646D84C00B99539 /* Router.swift */; };
 		DBDC67F52646DEEF00B99539 /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */; };
 		DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67F8264942CE00B99539 /* InboxListViewController.swift */; };
+		DBDC67FE264A8AEE00B99539 /* InboxTextEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */; };
+		DBDC68022656B3C200B99539 /* InboxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC68012656B3C200B99539 /* InboxDelegate.swift */; };
+		DBDC68052656B62000B99539 /* PrhaseEditDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC68042656B62000B99539 /* PrhaseEditDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +149,10 @@
 		DB413A782643DACA0035D952 /* opusfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = opusfile.c; path = "opus/opusfile-0.11/src/opusfile.c"; sourceTree = SOURCE_ROOT; };
 		DB413A792643DACA0035D952 /* winerrno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winerrno.h; path = "opus/opusfile-0.11/src/winerrno.h"; sourceTree = SOURCE_ROOT; };
 		DB413A7A2643DACA0035D952 /* info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = info.c; path = "opus/opusfile-0.11/src/info.c"; sourceTree = SOURCE_ROOT; };
+		DBCF76A4265E612B00D80A6B /* VerticalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
+		DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenTabViewController.swift; sourceTree = "<group>"; };
+		DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesListViewController.swift; sourceTree = "<group>"; };
+		DBCF76AD265FD12E00D80A6B /* PhraseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCell.swift; sourceTree = "<group>"; };
 		DBDC67D02644067800B99539 /* Kitchen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kitchen.storyboard; sourceTree = "<group>"; };
 		DBDC67D62644072C00B99539 /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
 		DBDC67DA26441B8000B99539 /* Service.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Service.storyboard; sourceTree = "<group>"; };
@@ -152,6 +163,9 @@
 		DBDC67F02646D84C00B99539 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
 		DBDC67F8264942CE00B99539 /* InboxListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListViewController.swift; sourceTree = "<group>"; };
+		DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTextEditViewController.swift; sourceTree = "<group>"; };
+		DBDC68012656B3C200B99539 /* InboxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxDelegate.swift; sourceTree = "<group>"; };
+		DBDC68042656B62000B99539 /* PrhaseEditDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrhaseEditDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,8 +207,10 @@
 				DB413A3F2643D8DA0035D952 /* Persistency */,
 				DB413A112643D8CD0035D952 /* Model */,
 				DB413A392643D8DA0035D952 /* Utils */,
+				DBCF76A3265E610D00D80A6B /* Views */,
+				DBDC68002656B3A900B99539 /* Delegates */,
 				DBDC67E92646D81700B99539 /* Flow */,
-				DB413A372643D8DA0035D952 /* Views */,
+				DB413A372643D8DA0035D952 /* ViewControllers */,
 				DBDC67CF2644067800B99539 /* Storyboards */,
 				DB413A022643D8460035D952 /* Noodles-Bridging-Header.h */,
 				DB41334B2643D7690035D952 /* Noodles.entitlements */,
@@ -289,16 +305,20 @@
 			path = Calculated;
 			sourceTree = "<group>";
 		};
-		DB413A372643D8DA0035D952 /* Views */ = {
+		DB413A372643D8DA0035D952 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				DB413A382643D8DA0035D952 /* CSS.swift */,
 				DB4133362643D5650035D952 /* ViewController.swift */,
 				DBDC67D62644072C00B99539 /* RootPageViewController.swift */,
 				DBDC67F8264942CE00B99539 /* InboxListViewController.swift */,
+				DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */,
+				DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */,
 				DBDC67E626443DCB00B99539 /* InboxCell.swift */,
+				DBCF76AD265FD12E00D80A6B /* PhraseCell.swift */,
+				DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */,
 			);
-			path = Views;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		DB413A392643D8DA0035D952 /* Utils */ = {
@@ -357,6 +377,14 @@
 			path = OpusFile;
 			sourceTree = "<group>";
 		};
+		DBCF76A3265E610D00D80A6B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DBCF76A4265E612B00D80A6B /* VerticalButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DBDC67CF2644067800B99539 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +406,15 @@
 				DBDC67EA2646D83200B99539 /* InboxDirector.swift */,
 			);
 			path = Flow;
+			sourceTree = "<group>";
+		};
+		DBDC68002656B3A900B99539 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				DBDC68012656B3C200B99539 /* InboxDelegate.swift */,
+				DBDC68042656B62000B99539 /* PrhaseEditDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,22 +527,28 @@
 				DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */,
 				DB413A332643D8CD0035D952 /* Noodle.swift in Sources */,
 				DBDC67D72644072C00B99539 /* RootPageViewController.swift in Sources */,
+				DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */,
 				DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */,
 				DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */,
 				DB413A272643D8CD0035D952 /* Model.Broth.swift in Sources */,
 				DB413A322643D8CD0035D952 /* Bowl.swift in Sources */,
 				DB413A262643D8CD0035D952 /* Model.Phrase.swift in Sources */,
+				DBCF76AE265FD12E00D80A6B /* PhraseCell.swift in Sources */,
 				DBDC67EE2646D84200B99539 /* Director.swift in Sources */,
+				DBDC68052656B62000B99539 /* PrhaseEditDelegate.swift in Sources */,
 				DB413A4B2643D8DA0035D952 /* PersistentObject.swift in Sources */,
 				DB413A292643D8CD0035D952 /* Model.Recipe.swift in Sources */,
 				DB413A0E2643D8BF0035D952 /* ExportComposer.swift in Sources */,
+				DBCF76A5265E612B00D80A6B /* VerticalButton.swift in Sources */,
 				DB413A482643D8DA0035D952 /* NotificationUtils.swift in Sources */,
 				DB413A362643D8CD0035D952 /* Model.Noodle.swift in Sources */,
+				DBCF76A8265E948500D80A6B /* KitchenTabViewController.swift in Sources */,
 				DB413A2D2643D8CD0035D952 /* Egg.swift in Sources */,
 				DB413A452643D8DA0035D952 /* CSS.swift in Sources */,
 				DB413A282643D8CD0035D952 /* Model.swift in Sources */,
 				DB413A2E2643D8CD0035D952 /* Broth.swift in Sources */,
 				DB413A4D2643D8DA0035D952 /* DB.swift in Sources */,
+				DBDC68022656B3C200B99539 /* InboxDelegate.swift in Sources */,
 				DB4133372643D5650035D952 /* ViewController.swift in Sources */,
 				DB4133332643D5650035D952 /* AppDelegate.swift in Sources */,
 				DBDC67F12646D84C00B99539 /* Router.swift in Sources */,
@@ -522,6 +565,7 @@
 				DB413A2F2643D8CD0035D952 /* Model.Bowl.swift in Sources */,
 				DB413A492643D8DA0035D952 /* FileUtils.swift in Sources */,
 				DB413A0F2643D8BF0035D952 /* AudioRecorder.swift in Sources */,
+				DBDC67FE264A8AEE00B99539 /* InboxTextEditViewController.swift in Sources */,
 				DB413A4A2643D8DA0035D952 /* DataUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

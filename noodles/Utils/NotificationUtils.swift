@@ -19,6 +19,8 @@ extension Notification.Name {
 
 	static let gotoView = Notification.Name("goto")
 	static let pageUpdate = Notification.Name("noodles_page_update")
+
+	static let selectTab = Notification.Name("noodles_select_tab");
 }
 
 extension Notification.Name {

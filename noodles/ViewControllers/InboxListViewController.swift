@@ -9,6 +9,8 @@ import UIKit
 
 protocol InboxListViewFlowDelegate : Director {
 	func openInboxFolder(url: URL)
+	func openTextEgg(url: URL)
+	func addTextEgg()
 }
 
 class InboxListViewController : UIViewController {
@@ -32,6 +34,7 @@ class InboxListViewController : UIViewController {
 		subitems = current!.children
 
 		tableView.reloadData()
+		self.title = current?.name
 
 		super.viewWillAppear(animated)
 	}
@@ -58,6 +61,17 @@ class InboxListViewController : UIViewController {
 		self.flowDelegate = flow
 		self.url = id
 		super.init(coder: coder)
+	}
+
+
+	@IBAction func recordNewAudio() {
+		print("recordNewAudio")
+	}
+
+
+	@IBAction func writeNewMemo() {
+		print("writeNewMemo")
+		flowDelegate.addTextEgg()
 	}
 }
 

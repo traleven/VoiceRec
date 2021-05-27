@@ -27,4 +27,20 @@ extension InboxDirector: InboxListViewFlowDelegate {
 		})
 		router.push(inboxViewController, onDismiss: nil)
 	}
+
+	func openTextEgg(url: URL) {
+		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let inboxViewController = storyboard.instantiateViewController(identifier: "inbox.textedit", creator: { (coder: NSCoder) -> UIViewController? in
+			return UIViewController(coder: coder)
+		})
+		router.present(inboxViewController, onDismiss: nil)
+	}
+
+	func addTextEgg() {
+		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let inboxViewController = storyboard.instantiateViewController(identifier: "inbox.textedit", creator: { (coder: NSCoder) -> UIViewController? in
+			return UIViewController(coder: coder)
+		})
+		router.present(inboxViewController, onDismiss: nil)
+	}
 }
