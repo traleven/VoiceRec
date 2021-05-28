@@ -2,7 +2,7 @@
   "colors" : [
     {
       "color" : {
-        "platform" : "tvos",
+        "platform" : "ios",
         "reference" : "systemIndigoColor"
       },
       "idiom" : "universal"

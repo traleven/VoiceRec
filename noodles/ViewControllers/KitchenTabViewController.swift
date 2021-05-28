@@ -18,7 +18,15 @@ class KitchenTabBarController: UITabBarController {
 		NotificationCenter.default.removeObserver(self, name: .selectTab, object: nil)
 	}
 
-	@objc private func handleTabChange(_ viewController: ViewController?) {
+	@objc private func handleTabChange(_ notification: NSNotification?) {
+		guard let notification = notification else { return }
+		guard let options = notification.userInfo else { return }
+		guard let pageOption = options["page"] else { return }
+		guard let title = pageOption as? String else { return }
+
+		let viewController = self.viewControllers?.first(where: { (vc: UIViewController) -> Bool in
+			vc.title == title
+		})
 		self.selectedViewController = viewController
 	}
 }

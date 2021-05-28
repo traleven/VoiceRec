@@ -1,5 +1,5 @@
 //
-//  PhrasesListViewController.swift
+//  LessonsListViewController.swift
 //  Noodles
 //
 //  Created by Ivan Dolgushin on 27.05.21.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol PhrasesListViewFlowDelegate : Director {
+protocol LessonsListViewFlowDelegate : Director {
 	func openInbox()
-	func openLessons()
+	func openPhrases()
 }
 
-class PhrasesListViewController : UIViewController {
+class LessonsListViewController : UIViewController {
 
-	private var flowDelegate: PhrasesListViewFlowDelegate!
+	private var flowDelegate: LessonsListViewFlowDelegate!
 	private var url: URL
 	private var items: [URL] = []
 
@@ -28,6 +28,7 @@ class PhrasesListViewController : UIViewController {
 
 
 	override func viewWillAppear(_ animated: Bool) {
+
 		tableView.reloadData()
 
 		super.viewWillAppear(animated)
@@ -46,25 +47,25 @@ class PhrasesListViewController : UIViewController {
 		super.init(coder: coder)
 
 		let router = NavigationControllerRouter(controller: self.navigationController!)
-		let director = PhrasesDirector(router: router)
+		let director = LessonsDirector(router: router)
 		self.flowDelegate = director!
 	}
 
 
-	init?(coder: NSCoder, flow: PhrasesListViewFlowDelegate, id: URL) {
+	init?(coder: NSCoder, flow: LessonsListViewFlowDelegate, id: URL) {
 		self.flowDelegate = flow
 		self.url = id
 		super.init(coder: coder)
 	}
 
 
-	@IBAction func addNewPhrase() {
-		print("addNewPhrase")
+	@IBAction func recordNewAudio() {
+		print("recordNewAudio")
 	}
 
 
-	@IBAction func toggleLanguage() {
-		print("toggleLanguage")
+	@IBAction func writeNewMemo() {
+		print("writeNewMemo")
 	}
 
 
@@ -73,13 +74,13 @@ class PhrasesListViewController : UIViewController {
 	}
 
 
-	@IBAction func goToLessons() {
-		flowDelegate.openLessons()
+	@IBAction func goToPhrases() {
+		flowDelegate.openPhrases()
 	}
 }
 
 
-extension PhrasesListViewController : UITableViewDataSource {
+extension LessonsListViewController : UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return items.count
@@ -100,7 +101,7 @@ extension PhrasesListViewController : UITableViewDataSource {
 
 
 	private func getCellIdentifier(for egg: Model.Phrase) -> String {
-		return "phrase.complete"
+		return "lesson.complete"
 	}
 
 
@@ -109,19 +110,22 @@ extension PhrasesListViewController : UITableViewDataSource {
 }
 
 
-extension PhrasesListViewController : UITableViewDelegate {
+extension LessonsListViewController : UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		//return super.tableView(tableView, leadingSwipeActionsConfigurationForRowAt: indexPath)
 		return nil
 	}
 
 
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		//return super.tableView(tableView, trailingSwipeActionsConfigurationForRowAt: indexPath)
 		return nil
 	}
 
 
 	func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+		//super.tableView(tableView, accessoryButtonTappedForRowWith: indexPath)
 	}
 
 

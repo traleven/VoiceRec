@@ -9,12 +9,12 @@
 import Foundation
 
 /// Simple audio file container that can be used to produce `Doughball`
-final class Egg : Equatable, GlobalIdentifiable {
+final class Legacy_Egg : Equatable, GlobalIdentifiable {
 	static func getBy(id: URL) -> Self? {
 		return nil
 	}
 
-	static func == (lhs: Egg, rhs: Egg) -> Bool {
+	static func == (lhs: Legacy_Egg, rhs: Legacy_Egg) -> Bool {
 		return lhs.id == rhs.id
 	}
 
@@ -38,12 +38,12 @@ final class Egg : Equatable, GlobalIdentifiable {
 		return .init(name: getName(for: file, of: file.pathExtension), url: file, ofType: file.pathExtension)
 	}
 
-	class func fetch() -> [Egg] {
+	class func fetch() -> [Legacy_Egg] {
 		let baseUrl = FileUtils.getDirectory(.inbox)
 		return fetch(baseUrl)
 	}
 
-	class func fetch(_ path: URL?) -> [Egg] {
+	class func fetch(_ path: URL?) -> [Legacy_Egg] {
 		guard (path != nil) else {
 			return fetch()
 		}
@@ -53,10 +53,10 @@ final class Egg : Equatable, GlobalIdentifiable {
 			return []
 		}
 
-		var data : [Egg] = []
+		var data : [Legacy_Egg] = []
 		for url in files {
 
-			if let egg = Egg.with(contentOf: url) {
+			if let egg = Legacy_Egg.with(contentOf: url) {
 				egg.idx = data.count
 				data.append(egg)
 			}

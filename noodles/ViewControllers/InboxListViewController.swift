@@ -8,20 +8,36 @@
 import UIKit
 
 protocol InboxListViewFlowDelegate : Director {
+	typealias RefreshHandle = (URL) -> Void
+
 	func openInboxFolder(url: URL)
 	func openTextEgg(url: URL)
-	func addTextEgg()
+	func openMyNoodles()
 }
+
+
+protocol InboxListViewControlDelegate : InboxListViewFlowDelegate {
+	func startRecording(to parent: Model.Egg?, progress: ((TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
+	func stopRecording(_ refreshHandle: RefreshHandle)
+	func playAudioEgg(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
+	func addTextEgg(to parent: Model.Egg?, _ refreshHandle: @escaping RefreshHandle)
+	func delete(_ url: URL)
+	func share(_ egg: Model.Egg)
+}
+
 
 class InboxListViewController : UIViewController {
 
-	private var flowDelegate: InboxListViewFlowDelegate!
+	private var flowDelegate: InboxListViewControlDelegate!
 	private var url: URL
-	private var current: Model.Egg?
+	private var current: Model.Egg!
 	private var subitems: [URL] = []
 
 
 	@IBOutlet var tableView: UITableView!
+	@IBOutlet var recordingFade: UIView?
+	@IBOutlet var recordingTime: UILabel?
+	@IBOutlet var menuButton: UIBarButtonItem?
 
 
 	override func viewDidLoad() {
@@ -30,11 +46,10 @@ class InboxListViewController : UIViewController {
 
 
 	override func viewWillAppear(_ animated: Bool) {
-		current = Model.Egg(id: url)
-		subitems = current!.children
-
-		tableView.reloadData()
-		self.title = current?.name
+		refresh()
+		if current.id != FileUtils.getDirectory(.inbox) {
+			navigationItem.leftBarButtonItem = nil
+		}
 
 		super.viewWillAppear(animated)
 	}
@@ -57,21 +72,63 @@ class InboxListViewController : UIViewController {
 	}
 
 
-	init?(coder: NSCoder, flow: InboxListViewFlowDelegate, id: URL) {
+	init?(coder: NSCoder, flow: InboxListViewControlDelegate, id: URL) {
 		self.flowDelegate = flow
 		self.url = id
 		super.init(coder: coder)
 	}
 
 
-	@IBAction func recordNewAudio() {
-		print("recordNewAudio")
+	private func refresh(with url: URL?) {
+		self.url = url ?? FileUtils.getDirectory(.inbox)
+		current = Model.Egg(id: self.url)
+		subitems = current!.children
+		tableView.reloadData()
+		self.title = current?.name
+	}
+
+
+	private func refresh() {
+		current = Model.Egg(id: self.url)
+		subitems = current!.children
+		tableView.reloadData()
+		self.title = current?.name
+	}
+
+
+	@IBAction func recordNewAudio(sender: UIButton?) {
+		recordingFade?.isHidden = false
+
+		sender?.isSelected = true
+		flowDelegate.startRecording(to: current, progress: { [weak self] (duration: TimeInterval) in
+			self?.recordingTime?.text = duration.toMinutesTimeString()
+		}, finish: { [weak self, weak sender] (ok: Bool) in
+			self?.recordingFade?.isHidden = true
+			sender?.isSelected = false
+		})
+	}
+
+
+	@IBAction func stopRecordingAutio() {
+
+		flowDelegate.stopRecording(refresh(with:))
 	}
 
 
 	@IBAction func writeNewMemo() {
-		print("writeNewMemo")
-		flowDelegate.addTextEgg()
+		
+		flowDelegate.addTextEgg(to: current, refresh(with:))
+	}
+
+
+	@IBAction func goToMyNoodles() {
+
+		flowDelegate.openMyNoodles()
+	}
+
+	private func audioProgress(_ progress: Double, at indexPath: IndexPath) {
+		let cell = tableView.cellForRow(at: indexPath) as? InboxAudioCell
+		cell?.progressView.progress = CGFloat(progress)
 	}
 }
 
@@ -91,7 +148,7 @@ extension InboxListViewController : UITableViewDataSource {
 		if (cell == nil) {
 			cell = InboxCell()
 		}
-		cell?.prepare(for: egg)
+		cell?.prepare(for: egg, at: indexPath)
 		return cell!
 	}
 
@@ -108,21 +165,58 @@ extension InboxListViewController : UITableViewDataSource {
 
 
 	func numberOfSections(in tableView: UITableView) -> Int { return 1 }
-	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return false }
+	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return true }
 }
 
 
 extension InboxListViewController : UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-		//return super.tableView(tableView, leadingSwipeActionsConfigurationForRowAt: indexPath)
-		return nil
+
+		let target = Model.Egg(id: self.subitems[indexPath.row])
+		if target.type != .audio {
+			return nil
+		}
+
+		let playAction = UIContextualAction(style: .normal, title: "Play", handler: { (action: UIContextualAction, view: UIView, handler: @escaping (Bool) -> Void) in
+
+			let url = self.subitems[indexPath.row]
+			self.flowDelegate.playAudioEgg(url) { (progress: TimeInterval, total: TimeInterval) in
+				self.audioProgress(progress / total, at: indexPath)
+			} finish: { (result: Bool) in
+				self.audioProgress(0, at: indexPath)
+			}
+
+			handler(true)
+		   })
+		playAction.backgroundColor = .systemGreen
+
+		let configuration = UISwipeActionsConfiguration(actions: [playAction])
+		configuration.performsFirstActionWithFullSwipe = true
+
+		return configuration
 	}
 
 
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-		//return super.tableView(tableView, trailingSwipeActionsConfigurationForRowAt: indexPath)
-		return nil
+
+		let configuration = UISwipeActionsConfiguration(actions: [
+			UIContextualAction(style: .destructive, title: "Delete", handler: { (action: UIContextualAction, view: UIView, handler: @escaping (Bool) -> Void) in
+
+				let url = self.subitems[indexPath.row]
+				self.flowDelegate.delete(url)
+				self.refresh()
+
+				handler(true)
+			})
+		])
+		configuration.performsFirstActionWithFullSwipe = false
+		return configuration
+	}
+
+
+	func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+		return true
 	}
 
 

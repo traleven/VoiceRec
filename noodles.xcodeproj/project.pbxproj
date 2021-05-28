@@ -55,6 +55,12 @@
 		DBCF76A8265E948500D80A6B /* KitchenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */; };
 		DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */; };
 		DBCF76AE265FD12E00D80A6B /* PhraseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76AD265FD12E00D80A6B /* PhraseCell.swift */; };
+		DBCF76B12660091A00D80A6B /* LessonsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76B02660091A00D80A6B /* LessonsListViewController.swift */; };
+		DBCF76B4266009B600D80A6B /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76B3266009B600D80A6B /* LessonCell.swift */; };
+		DBCF76B726602B7B00D80A6B /* GradientHorizontalProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76B626602B7B00D80A6B /* GradientHorizontalProgressBar.swift */; };
+		DBCF76BB2660418600D80A6B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76BA2660418600D80A6B /* TableViewController.swift */; };
+		DBCF76BE2661134900D80A6B /* PhrasesDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76BD2661134900D80A6B /* PhrasesDirector.swift */; };
+		DBCF76C126611BEA00D80A6B /* LessonsDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76C026611BEA00D80A6B /* LessonsDirector.swift */; };
 		DBDC67D12644067800B99539 /* Kitchen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC67D02644067800B99539 /* Kitchen.storyboard */; };
 		DBDC67D72644072C00B99539 /* RootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67D62644072C00B99539 /* RootPageViewController.swift */; };
 		DBDC67DB26441B8000B99539 /* Service.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC67DA26441B8000B99539 /* Service.storyboard */; };
@@ -153,6 +159,12 @@
 		DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenTabViewController.swift; sourceTree = "<group>"; };
 		DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesListViewController.swift; sourceTree = "<group>"; };
 		DBCF76AD265FD12E00D80A6B /* PhraseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCell.swift; sourceTree = "<group>"; };
+		DBCF76B02660091A00D80A6B /* LessonsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsListViewController.swift; sourceTree = "<group>"; };
+		DBCF76B3266009B600D80A6B /* LessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCell.swift; sourceTree = "<group>"; };
+		DBCF76B626602B7B00D80A6B /* GradientHorizontalProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientHorizontalProgressBar.swift; sourceTree = "<group>"; };
+		DBCF76BA2660418600D80A6B /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		DBCF76BD2661134900D80A6B /* PhrasesDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesDirector.swift; sourceTree = "<group>"; };
+		DBCF76C026611BEA00D80A6B /* LessonsDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsDirector.swift; sourceTree = "<group>"; };
 		DBDC67D02644067800B99539 /* Kitchen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kitchen.storyboard; sourceTree = "<group>"; };
 		DBDC67D62644072C00B99539 /* RootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPageViewController.swift; sourceTree = "<group>"; };
 		DBDC67DA26441B8000B99539 /* Service.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Service.storyboard; sourceTree = "<group>"; };
@@ -310,12 +322,15 @@
 			children = (
 				DB413A382643D8DA0035D952 /* CSS.swift */,
 				DB4133362643D5650035D952 /* ViewController.swift */,
+				DBCF76BA2660418600D80A6B /* TableViewController.swift */,
 				DBDC67D62644072C00B99539 /* RootPageViewController.swift */,
 				DBDC67F8264942CE00B99539 /* InboxListViewController.swift */,
 				DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */,
+				DBCF76B02660091A00D80A6B /* LessonsListViewController.swift */,
 				DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */,
 				DBDC67E626443DCB00B99539 /* InboxCell.swift */,
 				DBCF76AD265FD12E00D80A6B /* PhraseCell.swift */,
+				DBCF76B3266009B600D80A6B /* LessonCell.swift */,
 				DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */,
 			);
 			path = ViewControllers;
@@ -381,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				DBCF76A4265E612B00D80A6B /* VerticalButton.swift */,
+				DBCF76B626602B7B00D80A6B /* GradientHorizontalProgressBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -404,6 +420,8 @@
 				DBDC67F02646D84C00B99539 /* Router.swift */,
 				DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */,
 				DBDC67EA2646D83200B99539 /* InboxDirector.swift */,
+				DBCF76BD2661134900D80A6B /* PhrasesDirector.swift */,
+				DBCF76C026611BEA00D80A6B /* LessonsDirector.swift */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -520,7 +538,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCF76B4266009B600D80A6B /* LessonCell.swift in Sources */,
 				DB413A4E2643D8DA0035D952 /* DictionaryDB.swift in Sources */,
+				DBCF76BE2661134900D80A6B /* PhrasesDirector.swift in Sources */,
+				DBCF76B726602B7B00D80A6B /* GradientHorizontalProgressBar.swift in Sources */,
 				DB413A4C2643D8DA0035D952 /* WeakLink.swift in Sources */,
 				DB413A352643D8CD0035D952 /* Model.Egg.swift in Sources */,
 				DB413A312643D8CD0035D952 /* Spices.swift in Sources */,
@@ -532,11 +553,13 @@
 				DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */,
 				DB413A272643D8CD0035D952 /* Model.Broth.swift in Sources */,
 				DB413A322643D8CD0035D952 /* Bowl.swift in Sources */,
+				DBCF76C126611BEA00D80A6B /* LessonsDirector.swift in Sources */,
 				DB413A262643D8CD0035D952 /* Model.Phrase.swift in Sources */,
 				DBCF76AE265FD12E00D80A6B /* PhraseCell.swift in Sources */,
 				DBDC67EE2646D84200B99539 /* Director.swift in Sources */,
 				DBDC68052656B62000B99539 /* PrhaseEditDelegate.swift in Sources */,
 				DB413A4B2643D8DA0035D952 /* PersistentObject.swift in Sources */,
+				DBCF76BB2660418600D80A6B /* TableViewController.swift in Sources */,
 				DB413A292643D8CD0035D952 /* Model.Recipe.swift in Sources */,
 				DB413A0E2643D8BF0035D952 /* ExportComposer.swift in Sources */,
 				DBCF76A5265E612B00D80A6B /* VerticalButton.swift in Sources */,
@@ -548,6 +571,7 @@
 				DB413A282643D8CD0035D952 /* Model.swift in Sources */,
 				DB413A2E2643D8CD0035D952 /* Broth.swift in Sources */,
 				DB413A4D2643D8DA0035D952 /* DB.swift in Sources */,
+				DBCF76B12660091A00D80A6B /* LessonsListViewController.swift in Sources */,
 				DBDC68022656B3C200B99539 /* InboxDelegate.swift in Sources */,
 				DB4133372643D5650035D952 /* ViewController.swift in Sources */,
 				DB4133332643D5650035D952 /* AppDelegate.swift in Sources */,

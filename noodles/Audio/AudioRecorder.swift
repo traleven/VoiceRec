@@ -14,8 +14,8 @@ class AudioRecorder : NSObject, ObservableObject, AVAudioRecorderDelegate {
 
 	var audioRecorder: AVAudioRecorder!
 	var meterTimer: Timer!
-	@Published var isRecording: Bool! = false
-	@Published var duration: TimeInterval = 0
+	var isRecording: Bool! = false
+	//@Published var duration: TimeInterval = 0
 
 	var onProgress: ((TimeInterval) -> Void)?
 	var onFinish: ((Bool) -> Void)?
@@ -31,7 +31,7 @@ class AudioRecorder : NSObject, ObservableObject, AVAudioRecorderDelegate {
 	}
 
 
-	func finishAudioRecording() {
+	func finishAudioRecording() -> URL {
 
 		audioRecorder.stop()
 		let url = audioRecorder.url
@@ -41,10 +41,12 @@ class AudioRecorder : NSObject, ObservableObject, AVAudioRecorderDelegate {
 
 		isRecording = false
 		NotificationCenter.default.post(name: .NoodlesFileChanged, object: url.deletingLastPathComponent())
+
+		return url
 	}
 
 
-	func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+	internal func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
 
 		if !flag
 		{
@@ -54,18 +56,18 @@ class AudioRecorder : NSObject, ObservableObject, AVAudioRecorderDelegate {
 	}
 
 
-	@objc func updateAudioMeter(timer: Timer) {
+	@objc private func updateAudioMeter(timer: Timer) {
 
 		if audioRecorder?.isRecording ?? false
 		{
-			duration = audioRecorder.currentTime
+			//duration = audioRecorder.currentTime
 			onProgress?(audioRecorder.currentTime)
 			//audioRecorder.updateMeters()
 		}
 	}
 
 
-	func setup_recorder(_ url: URL, progress: ((TimeInterval)->Void)?, finish: ((Bool)->Void)?) {
+	private func setup_recorder(_ url: URL, progress: ((TimeInterval)->Void)?, finish: ((Bool)->Void)?) {
 
 		onProgress = progress
 		onFinish = finish

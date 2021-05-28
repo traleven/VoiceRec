@@ -39,15 +39,15 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 	}
 
 
-	func prepare_play() {
+	private func prepare_play() -> Bool {
 
 		if (audioPlayer != nil) {
 			audioPlayer!.currentTime = 0
-			return
+			return false
 		}
 
 		guard url != nil else {
-			return
+			return false
 		}
 
 		let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
@@ -64,8 +64,10 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 		} catch let error {
 
 			NSLog(error.localizedDescription)
+			return false
 
 		}
+		return true
 	}
 
 
@@ -86,7 +88,9 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 		}
 
 		if FileManager.default.fileExists(atPath: url!.path) {
-			prepare_play()
+			guard prepare_play() else {
+				return
+			}
 			audioPlayer!.play()
 			isPlaying = true
 			meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)

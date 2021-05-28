@@ -39,3 +39,9 @@ extension Date {
 		return formatter.string(from: self)
 	}
 }
+
+extension TimeInterval {
+	func toMinutesTimeString() -> String {
+		return String(format: "%02d:%02d", Int(self / 60), Int(self.remainder(dividingBy: 60)))
+	}
+}

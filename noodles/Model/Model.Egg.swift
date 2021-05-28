@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 extension Model {
 	struct Egg : Equatable, GlobalIdentifiable, IdInitializable, Traversable {
@@ -69,6 +70,16 @@ extension Model {
 			}
 
 			self.init(id: id, type: type, name: nameResolver)
+		}
+
+		func loadAsyncDuration(_ onValueLoaded: @escaping (Double) -> Void) {
+			let audioAsset = AVURLAsset.init(url: id);
+			audioAsset.loadValuesAsynchronously(forKeys: ["duration"]) {
+				let avduration = audioAsset.duration
+				DispatchQueue.main.async {
+					onValueLoaded(avduration.seconds)
+				}
+			}
 		}
 
 		fileprivate struct DefaultName : FileNameResolver {

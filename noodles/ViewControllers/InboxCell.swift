@@ -9,7 +9,10 @@ import UIKit
 
 class InboxCell : UITableViewCell {
 
+	var index: IndexPath?
+
 	@IBOutlet var label : UILabel!
+	@IBOutlet var place : UILabel!
 
 	required init?(coder: NSCoder) {
 		super.init(coder: coder)
@@ -26,24 +29,44 @@ class InboxCell : UITableViewCell {
 	}
 
 
-	func prepare(for egg: Model.Egg) {
+	func prepare(for egg: Model.Egg, at index: IndexPath) {
+		self.index = index
+		label?.text = egg.name
+		//place?.text = ""
 	}
 }
 
 class InboxAudioCell : InboxCell {
-	override func prepare(for egg: Model.Egg) {
-		label.text = egg.name
+
+	@IBOutlet var duration : UILabel!
+	@IBOutlet var progressView : GradientHorizontalProgressBar!
+
+	override func prepare(for egg: Model.Egg, at index: IndexPath) {
+		super.prepare(for: egg, at: index)
+
+		duration.text = "00:00"
+		progressView.progress = 0;
+		egg.loadAsyncDuration { [weak self] (totalSeconds: Double) in
+			let minutes = Int(totalSeconds / 60)
+			let seconds = Int(totalSeconds) - 60 * minutes
+			self?.duration?.text = String(format: "%02d:%02d", minutes, seconds)
+		}
 	}
 }
 
 class InboxTextCell: InboxCell {
-	override func prepare(for egg: Model.Egg) {
-		label.text = egg.name
+	override func prepare(for egg: Model.Egg, at index: IndexPath) {
+		super.prepare(for: egg, at: index)
 	}
 }
 
 class InboxFolderCell: InboxCell {
-	override func prepare(for egg: Model.Egg) {
-		label.text = egg.name
+
+	@IBOutlet var duration : UILabel!
+
+	override func prepare(for egg: Model.Egg, at index: IndexPath) {
+		super.prepare(for: egg, at: index)
+
+		duration.text = ""
 	}
 }

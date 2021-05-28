@@ -7,16 +7,10 @@
 
 import UIKit
 
-class InboxDirector: NSObject, Director {
-	var router: Router!
+class InboxDirector: DefaultDirector {
 
-	init?(router: Router) {
-		self.router = router
-	}
-
-	func willDismiss(_ viewController: UIViewController) {
-		router.willDismiss(viewController)
-	}
+	let recorder: AudioRecorder = AudioRecorder()
+	var players: [URL: AudioPlayer] = [:]
 }
 
 extension InboxDirector: InboxListViewFlowDelegate {
@@ -36,11 +30,11 @@ extension InboxDirector: InboxListViewFlowDelegate {
 		router.present(inboxViewController, onDismiss: nil)
 	}
 
-	func addTextEgg() {
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
-		let inboxViewController = storyboard.instantiateViewController(identifier: "inbox.textedit", creator: { (coder: NSCoder) -> UIViewController? in
-			return UIViewController(coder: coder)
-		})
-		router.present(inboxViewController, onDismiss: nil)
+	func openMyNoodles() {
+		let notification = Notification(name: .selectTab, object: nil, userInfo: ["page" : "Phrases"])
+		NotificationCenter.default.post(notification)
 	}
+}
+
+extension InboxDirector : InboxTextEditViewFlowDelegate {
 }

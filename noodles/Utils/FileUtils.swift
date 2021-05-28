@@ -185,4 +185,17 @@ class FileUtils {
 			}
 		}
 	}
+
+
+	class func delete(_ url: URL) {
+		let filemgr = FileManager.default
+		guard filemgr.isDeletableFile(atPath: url.path) else {
+			return
+		}
+		do {
+			try filemgr.removeItem(atPath: url.path)
+		} catch let error {
+			NSLog("Failed to delete file at path \(url.path): \(error.localizedDescription)")
+		}
+	}
 }
