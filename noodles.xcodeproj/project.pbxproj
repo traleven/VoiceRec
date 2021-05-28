@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DB4133332643D5650035D952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133322643D5650035D952 /* AppDelegate.swift */; };
 		DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133342643D5650035D952 /* SceneDelegate.swift */; };
-		DB4133372643D5650035D952 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133362643D5650035D952 /* ViewController.swift */; };
 		DB41333A2643D5650035D952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4133382643D5650035D952 /* Main.storyboard */; };
 		DB41333C2643D5660035D952 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB41333B2643D5660035D952 /* Assets.xcassets */; };
 		DB41333F2643D5660035D952 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB41333D2643D5660035D952 /* LaunchScreen.storyboard */; };
@@ -58,7 +57,6 @@
 		DBCF76B12660091A00D80A6B /* LessonsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76B02660091A00D80A6B /* LessonsListViewController.swift */; };
 		DBCF76B4266009B600D80A6B /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76B3266009B600D80A6B /* LessonCell.swift */; };
 		DBCF76B726602B7B00D80A6B /* GradientHorizontalProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76B626602B7B00D80A6B /* GradientHorizontalProgressBar.swift */; };
-		DBCF76BB2660418600D80A6B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76BA2660418600D80A6B /* TableViewController.swift */; };
 		DBCF76BE2661134900D80A6B /* PhrasesDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76BD2661134900D80A6B /* PhrasesDirector.swift */; };
 		DBCF76C126611BEA00D80A6B /* LessonsDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76C026611BEA00D80A6B /* LessonsDirector.swift */; };
 		DBDC67D12644067800B99539 /* Kitchen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBDC67D02644067800B99539 /* Kitchen.storyboard */; };
@@ -97,7 +95,6 @@
 		DB41332F2643D5650035D952 /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4133322643D5650035D952 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4133342643D5650035D952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB4133362643D5650035D952 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB4133392643D5650035D952 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB41333B2643D5660035D952 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB41333E2643D5660035D952 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -162,7 +159,6 @@
 		DBCF76B02660091A00D80A6B /* LessonsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsListViewController.swift; sourceTree = "<group>"; };
 		DBCF76B3266009B600D80A6B /* LessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCell.swift; sourceTree = "<group>"; };
 		DBCF76B626602B7B00D80A6B /* GradientHorizontalProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientHorizontalProgressBar.swift; sourceTree = "<group>"; };
-		DBCF76BA2660418600D80A6B /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		DBCF76BD2661134900D80A6B /* PhrasesDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesDirector.swift; sourceTree = "<group>"; };
 		DBCF76C026611BEA00D80A6B /* LessonsDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsDirector.swift; sourceTree = "<group>"; };
 		DBDC67D02644067800B99539 /* Kitchen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kitchen.storyboard; sourceTree = "<group>"; };
@@ -321,17 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				DB413A382643D8DA0035D952 /* CSS.swift */,
-				DB4133362643D5650035D952 /* ViewController.swift */,
-				DBCF76BA2660418600D80A6B /* TableViewController.swift */,
 				DBDC67D62644072C00B99539 /* RootPageViewController.swift */,
-				DBDC67F8264942CE00B99539 /* InboxListViewController.swift */,
-				DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */,
-				DBCF76B02660091A00D80A6B /* LessonsListViewController.swift */,
-				DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */,
-				DBDC67E626443DCB00B99539 /* InboxCell.swift */,
-				DBCF76AD265FD12E00D80A6B /* PhraseCell.swift */,
-				DBCF76B3266009B600D80A6B /* LessonCell.swift */,
-				DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */,
+				DBE8E06726614D6300E48470 /* Kitchen */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -433,6 +420,45 @@
 				DBDC68042656B62000B99539 /* PrhaseEditDelegate.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		DBE8E06726614D6300E48470 /* Kitchen */ = {
+			isa = PBXGroup;
+			children = (
+				DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */,
+				DBE8E06A26614D6E00E48470 /* Inbox */,
+				DBE8E06B26614D7700E48470 /* Phrase */,
+				DBE8E06C26614D8000E48470 /* Lesson */,
+			);
+			path = Kitchen;
+			sourceTree = "<group>";
+		};
+		DBE8E06A26614D6E00E48470 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				DBDC67F8264942CE00B99539 /* InboxListViewController.swift */,
+				DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */,
+				DBDC67E626443DCB00B99539 /* InboxCell.swift */,
+			);
+			path = Inbox;
+			sourceTree = "<group>";
+		};
+		DBE8E06B26614D7700E48470 /* Phrase */ = {
+			isa = PBXGroup;
+			children = (
+				DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */,
+				DBCF76AD265FD12E00D80A6B /* PhraseCell.swift */,
+			);
+			path = Phrase;
+			sourceTree = "<group>";
+		};
+		DBE8E06C26614D8000E48470 /* Lesson */ = {
+			isa = PBXGroup;
+			children = (
+				DBCF76B02660091A00D80A6B /* LessonsListViewController.swift */,
+				DBCF76B3266009B600D80A6B /* LessonCell.swift */,
+			);
+			path = Lesson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -559,7 +585,6 @@
 				DBDC67EE2646D84200B99539 /* Director.swift in Sources */,
 				DBDC68052656B62000B99539 /* PrhaseEditDelegate.swift in Sources */,
 				DB413A4B2643D8DA0035D952 /* PersistentObject.swift in Sources */,
-				DBCF76BB2660418600D80A6B /* TableViewController.swift in Sources */,
 				DB413A292643D8CD0035D952 /* Model.Recipe.swift in Sources */,
 				DB413A0E2643D8BF0035D952 /* ExportComposer.swift in Sources */,
 				DBCF76A5265E612B00D80A6B /* VerticalButton.swift in Sources */,
@@ -573,7 +598,6 @@
 				DB413A4D2643D8DA0035D952 /* DB.swift in Sources */,
 				DBCF76B12660091A00D80A6B /* LessonsListViewController.swift in Sources */,
 				DBDC68022656B3C200B99539 /* InboxDelegate.swift in Sources */,
-				DB4133372643D5650035D952 /* ViewController.swift in Sources */,
 				DB4133332643D5650035D952 /* AppDelegate.swift in Sources */,
 				DBDC67F12646D84C00B99539 /* Router.swift in Sources */,
 				DBDC67EB2646D83200B99539 /* InboxDirector.swift in Sources */,
