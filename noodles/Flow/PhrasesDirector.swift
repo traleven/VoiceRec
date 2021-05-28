@@ -22,11 +22,15 @@ extension PhrasesDirector : PhrasesListViewFlowDelegate {
 		NotificationCenter.default.post(notification)
 	}
 
-	func addNewPhrase() {
+	func addNewPhrase(_ refresh: RefreshHandle?) {
+		openPhrase(nil, refresh)
+	}
+
+	func openPhrase(_ url: URL?, _ refresh: RefreshHandle?) {
 		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
 		let inboxViewController = storyboard.instantiateViewController(identifier: "phrase.edit", creator: { (coder: NSCoder) -> UIViewController? in
 			return UIViewController(coder: coder)
 		})
-		router.push(inboxViewController, onDismiss: nil)
+		router.push(inboxViewController, onDismiss: refresh)
 	}
 }

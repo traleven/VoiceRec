@@ -8,9 +8,12 @@
 import UIKit
 
 protocol PhrasesListViewFlowDelegate : Director {
+	typealias RefreshHandle = () -> Void
+
 	func openInbox()
 	func openLessons()
-	func addNewPhrase()
+	func addNewPhrase(_ refresh: RefreshHandle?)
+	func openPhrase(_ url: URL?, _ refresh: RefreshHandle?)
 }
 
 class PhrasesListViewController : UIViewController {
@@ -64,7 +67,7 @@ class PhrasesListViewController : UIViewController {
 
 
 	@IBAction func addNewPhrase() {
-		flowDelegate.addNewPhrase()
+		flowDelegate.addNewPhrase(refresh)
 	}
 
 
@@ -135,5 +138,8 @@ extension PhrasesListViewController : UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+
+		let phrase = items[indexPath.row]
+		flowDelegate.openPhrase(phrase.id, refresh)
 	}
 }
