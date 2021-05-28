@@ -311,7 +311,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1W8-7v-idU" customClass="VerticalButton" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="69.5" y="20" width="68" height="40"/>
+                                        <rect key="frame" x="81.5" y="20" width="44" height="40"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                         </accessibility>
@@ -333,7 +333,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIC-UB-2PT" customClass="VerticalButton" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="250.5" y="20" width="120" height="40"/>
+                                        <rect key="frame" x="262.5" y="20" width="96" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Cq2-z3-oE4"/>
                                         </constraints>
@@ -529,9 +529,6 @@
                                                         </constraints>
                                                         <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="wave.3.right.circle" catalog="system"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mQ-qh-FCl" userLabel="PlayButton">
                                                         <rect key="frame" x="169" y="7" width="60" height="60"/>
@@ -541,9 +538,6 @@
                                                         </constraints>
                                                         <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="wave.3.right.circle" catalog="system"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOm-72-6Mr">
                                                         <rect key="frame" x="46" y="27" width="46" height="20.5"/>
@@ -637,9 +631,6 @@
                                                         </constraints>
                                                         <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="wave.3.right.circle" catalog="system"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAH-ZR-PrV" userLabel="PlayButton">
                                                         <rect key="frame" x="169" y="7" width="60" height="60"/>
@@ -649,9 +640,6 @@
                                                         </constraints>
                                                         <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="wave.3.right.circle" catalog="system"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wj-8T-KYG">
                                                         <rect key="frame" x="46" y="27" width="46" height="20.5"/>
@@ -758,6 +746,14 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="UAb-FW-nXd" secondAttribute="trailing" id="3HE-ij-5FZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="d4i-Um-c7c" secondAttribute="trailing" id="7KG-1U-3DZ"/>
+                                    <constraint firstItem="d4i-Um-c7c" firstAttribute="leading" secondItem="5mN-d7-DfD" secondAttribute="leading" id="AUS-Ef-j8l"/>
+                                    <constraint firstItem="BCT-kt-OlA" firstAttribute="leading" secondItem="5mN-d7-DfD" secondAttribute="leading" id="GrE-um-BKE"/>
+                                    <constraint firstAttribute="trailing" secondItem="BCT-kt-OlA" secondAttribute="trailing" id="SNi-WA-Ebr"/>
+                                    <constraint firstItem="UAb-FW-nXd" firstAttribute="leading" secondItem="5mN-d7-DfD" secondAttribute="leading" id="cIA-qR-KTf"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UE3-7H-8ov"/>
@@ -831,15 +827,15 @@
                                 <rect key="frame" x="0.0" y="128" width="414" height="605"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="phrase.incomplete" id="iPH-ok-bAc" customClass="InboxAudioCell" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="phrase.complete" id="iPH-ok-bAc" customClass="PhraseCell" customModule="Noodles" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iPH-ok-bAc" id="QFB-ks-utT">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9p-GL-iZG">
-                                                    <rect key="frame" x="4" y="11.5" width="375" height="20.5"/>
+                                                    <rect key="frame" x="4" y="11.5" width="375" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="PrimaryText"/>
                                                     <nil key="highlightedColor"/>
@@ -847,6 +843,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="U9p-GL-iZG" firstAttribute="leading" secondItem="QFB-ks-utT" secondAttribute="leading" constant="4" id="3aH-Re-Jrs"/>
+                                                <constraint firstItem="U9p-GL-iZG" firstAttribute="top" secondItem="QFB-ks-utT" secondAttribute="top" constant="11.5" id="CwD-4u-LCM"/>
+                                                <constraint firstAttribute="bottom" secondItem="U9p-GL-iZG" secondAttribute="bottom" constant="11.5" id="d75-cR-4V7"/>
                                                 <constraint firstItem="U9p-GL-iZG" firstAttribute="centerY" secondItem="QFB-ks-utT" secondAttribute="centerY" id="tAV-zZ-5NK"/>
                                                 <constraint firstAttribute="trailing" secondItem="U9p-GL-iZG" secondAttribute="trailing" constant="4" id="x4z-Qh-aXc"/>
                                             </constraints>
@@ -855,15 +853,15 @@
                                             <outlet property="label" destination="U9p-GL-iZG" id="855-C7-fdU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="phrase.complete" id="qbI-nL-1S4" customClass="InboxTextCell" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="phrase.incomplete" id="qbI-nL-1S4" customClass="PhraseCell" customModule="Noodles" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qbI-nL-1S4" id="WQd-qQ-qHR">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.triangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QA3-Lh-SJZ">
-                                                    <rect key="frame" x="4" y="12.5" width="20.5" height="18.5"/>
+                                                    <rect key="frame" x="4" y="12.5" width="21" height="19"/>
                                                     <color key="tintColor" name="AccentColor"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
@@ -873,7 +871,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jv-sA-nzu">
-                                                    <rect key="frame" x="28.5" y="11.5" width="350.5" height="20.5"/>
+                                                    <rect key="frame" x="29" y="11.5" width="350" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="PrimaryText"/>
                                                     <nil key="highlightedColor"/>
@@ -881,6 +879,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="6jv-sA-nzu" secondAttribute="trailing" constant="4" id="1f0-Wz-i8N"/>
+                                                <constraint firstAttribute="bottom" secondItem="6jv-sA-nzu" secondAttribute="bottom" constant="11.5" id="AjN-UW-Brv"/>
+                                                <constraint firstItem="6jv-sA-nzu" firstAttribute="top" secondItem="WQd-qQ-qHR" secondAttribute="top" constant="11.5" id="ayM-dL-Yzv"/>
                                                 <constraint firstItem="QA3-Lh-SJZ" firstAttribute="centerY" secondItem="WQd-qQ-qHR" secondAttribute="centerY" id="rjq-hb-YDn"/>
                                                 <constraint firstItem="6jv-sA-nzu" firstAttribute="height" secondItem="QA3-Lh-SJZ" secondAttribute="height" id="txE-MA-QfT"/>
                                                 <constraint firstItem="QA3-Lh-SJZ" firstAttribute="leading" secondItem="WQd-qQ-qHR" secondAttribute="leading" constant="4" id="wPz-JN-x38"/>
@@ -916,7 +916,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5Z-do-paA" customClass="VerticalButton" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="69.5" y="20" width="68" height="40"/>
+                                        <rect key="frame" x="81.5" y="20" width="44" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="bgI-ki-UUD"/>
                                         </constraints>
@@ -938,7 +938,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYK-D8-RSD" customClass="VerticalButton" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="250.5" y="20" width="120" height="40"/>
+                                        <rect key="frame" x="262.5" y="20" width="96" height="40"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                         </accessibility>
@@ -990,34 +990,20 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Noodles" leftItemsSupplementBackButton="YES" id="kBN-JY-vKs">
                         <barButtonItem key="leftBarButtonItem" image="menu_small" id="VIE-Rf-WuP"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="75j-As-3ZU">
-                            <view key="customView" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NoQ-Is-TwN">
-                                <rect key="frame" x="302" y="5.5" width="75" height="33"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHi-qC-Ifx">
-                                        <rect key="frame" x="50" y="4" width="25" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="lHi-qC-Ifx" secondAttribute="height" multiplier="1:1" id="xgc-pa-8so"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="flag_uk"/>
-                                        <connections>
-                                            <action selector="toggleLanguage" destination="XXs-ej-MyE" eventType="primaryActionTriggered" id="L3o-7Y-Gb3"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="lHi-qC-Ifx" secondAttribute="bottom" constant="4" id="JsS-uw-se5"/>
-                                    <constraint firstAttribute="trailing" secondItem="lHi-qC-Ifx" secondAttribute="trailing" id="j65-V9-XNp"/>
-                                    <constraint firstItem="lHi-qC-Ifx" firstAttribute="top" secondItem="NoQ-Is-TwN" secondAttribute="top" constant="4" id="olj-Ln-u23"/>
-                                </constraints>
-                            </view>
-                            <connections>
-                                <action selector="toggleLanguage" destination="XXs-ej-MyE" id="7kz-dj-qGP"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="MHe-l0-qOE">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHi-qC-Ifx">
+                                <rect key="frame" x="350" y="0.0" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="flag_uk-small"/>
+                                <state key="selected" image="flag_china-small"/>
+                                <connections>
+                                    <action selector="toggleLanguage" destination="XXs-ej-MyE" eventType="touchUpInside" id="YIc-4i-Iez"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="flagButton" destination="lHi-qC-Ifx" id="YEJ-mj-IcK"/>
                         <outlet property="tableView" destination="FWy-ts-nxC" id="Z12-1z-woM"/>
                     </connections>
                 </viewController>
@@ -1199,7 +1185,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byf-HB-4kB" customClass="VerticalButton" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="69.5" y="20" width="68" height="40"/>
+                                        <rect key="frame" x="81.5" y="20" width="44" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="x1R-Er-Pdl"/>
                                         </constraints>
@@ -1221,7 +1207,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txi-Ny-llf" customClass="VerticalButton" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="250.5" y="20" width="120" height="40"/>
+                                        <rect key="frame" x="262.5" y="20" width="96" height="40"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                         </accessibility>
@@ -1273,32 +1259,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Noodles" leftItemsSupplementBackButton="YES" id="E2j-k5-lGm">
                         <barButtonItem key="leftBarButtonItem" image="menu_small" id="RwX-pn-vYe"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="n9s-xX-5Ez">
-                            <view key="customView" opaque="NO" contentMode="scaleToFill" id="cbK-yB-zrJ">
-                                <rect key="frame" x="43" y="5.5" width="75" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mce-Ee-THs">
-                                        <rect key="frame" x="50" y="4" width="25" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Mce-Ee-THs" secondAttribute="height" multiplier="1:1" id="ESQ-I7-Ng7"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="flag_uk"/>
-                                        <connections>
-                                            <action selector="toggleLanguage" destination="XXs-ej-MyE" eventType="primaryActionTriggered" id="WEz-8z-8bc"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Mce-Ee-THs" firstAttribute="top" secondItem="cbK-yB-zrJ" secondAttribute="top" constant="4" id="I52-GT-u6O"/>
-                                    <constraint firstAttribute="bottom" secondItem="Mce-Ee-THs" secondAttribute="bottom" constant="4" id="PI9-XJ-QjH"/>
-                                    <constraint firstAttribute="trailing" secondItem="Mce-Ee-THs" secondAttribute="trailing" id="mD8-LY-7NV"/>
-                                </constraints>
-                            </view>
-                            <connections>
-                                <action selector="toggleLanguage" destination="XXs-ej-MyE" id="5Qw-e7-ys3"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="9ID-S5-Uhe">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rvw-hE-h8g">
+                                <rect key="frame" x="350" y="0.0" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="flag_uk-small"/>
+                                <state key="selected" image="flag_china-small"/>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -1313,22 +1280,22 @@
     </scenes>
     <designables>
         <designable name="1W8-7v-idU">
-            <size key="intrinsicContentSize" width="68" height="22"/>
+            <size key="intrinsicContentSize" width="44" height="42"/>
         </designable>
         <designable name="BIC-UB-2PT">
-            <size key="intrinsicContentSize" width="120" height="22"/>
+            <size key="intrinsicContentSize" width="96" height="42"/>
         </designable>
         <designable name="Byf-HB-4kB">
-            <size key="intrinsicContentSize" width="68" height="22"/>
+            <size key="intrinsicContentSize" width="44" height="42"/>
         </designable>
         <designable name="bYK-D8-RSD">
-            <size key="intrinsicContentSize" width="120" height="22"/>
+            <size key="intrinsicContentSize" width="96" height="42"/>
         </designable>
         <designable name="txi-Ny-llf">
-            <size key="intrinsicContentSize" width="120" height="22"/>
+            <size key="intrinsicContentSize" width="96" height="42"/>
         </designable>
         <designable name="y5Z-do-paA">
-            <size key="intrinsicContentSize" width="68" height="22"/>
+            <size key="intrinsicContentSize" width="44" height="42"/>
         </designable>
     </designables>
     <resources>
@@ -1336,7 +1303,9 @@
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="exclamationmark.triangle" catalog="system" width="128" height="112"/>
         <image name="flag_china" width="160" height="160"/>
+        <image name="flag_china-small" width="42" height="42"/>
         <image name="flag_uk" width="160" height="160"/>
+        <image name="flag_uk-small" width="42" height="42"/>
         <image name="folder" catalog="system" width="128" height="97"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="menu_small" width="22" height="22"/>

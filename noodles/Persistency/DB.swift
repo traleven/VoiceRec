@@ -63,6 +63,10 @@ class Settings {
 		}
 	}
 	class language {
+		static var preferBase: Bool {
+			get { return DB.options.getValue(forKey: "language.preferBase") != "NO" }
+			set { return DB.options.setValue(forKey: "language.preferBase", value: newValue ? "YES" : "NO") }
+		}
 		static var base: String {
 			get { return DB.options.getValue(forKey: "language.base") }
 			set { DB.options.setValue(forKey: "language.base", value: newValue) }

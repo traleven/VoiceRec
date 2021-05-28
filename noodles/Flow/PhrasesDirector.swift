@@ -21,4 +21,12 @@ extension PhrasesDirector : PhrasesListViewFlowDelegate {
 		let notification = Notification(name: .selectTab, object: nil, userInfo: ["page" : "Lessons"])
 		NotificationCenter.default.post(notification)
 	}
+
+	func addNewPhrase() {
+		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let inboxViewController = storyboard.instantiateViewController(identifier: "phrase.edit", creator: { (coder: NSCoder) -> UIViewController? in
+			return UIViewController(coder: coder)
+		})
+		router.push(inboxViewController, onDismiss: nil)
+	}
 }

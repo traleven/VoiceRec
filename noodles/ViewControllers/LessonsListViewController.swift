@@ -88,19 +88,19 @@ extension LessonsListViewController : UITableViewDataSource {
 
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let phrase = Model.Phrase(id: items[indexPath.row])
-		let cellId = getCellIdentifier(for: phrase)
+		//let phrase = Model.Bowl(id: items[indexPath.row])
+		let cellId = getCellIdentifier(for: nil)
 
-		var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? PhraseCell
+		var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? LessonCell
 		if (cell == nil) {
-			cell = PhraseCell()
+			cell = LessonCell()
 		}
-		cell?.prepare(for: phrase)
+		//cell?.prepare(for: phrase)
 		return cell!
 	}
 
 
-	private func getCellIdentifier(for egg: Model.Phrase) -> String {
+	private func getCellIdentifier(for lesson: Any?) -> String {
 		return "lesson.complete"
 	}
 

@@ -10,16 +10,16 @@ import UIKit
 protocol PhrasesListViewFlowDelegate : Director {
 	func openInbox()
 	func openLessons()
+	func addNewPhrase()
 }
 
 class PhrasesListViewController : UIViewController {
 
 	private var flowDelegate: PhrasesListViewFlowDelegate!
-	private var url: URL
-	private var items: [URL] = []
-
+	private var items: [Model.Phrase] = []
 
 	@IBOutlet var tableView: UITableView!
+	@IBOutlet var flagButton: UIButton!
 
 
 	override func viewDidLoad() {
@@ -28,7 +28,7 @@ class PhrasesListViewController : UIViewController {
 
 
 	override func viewWillAppear(_ animated: Bool) {
-		tableView.reloadData()
+		refresh()
 
 		super.viewWillAppear(animated)
 	}
@@ -42,7 +42,6 @@ class PhrasesListViewController : UIViewController {
 
 
 	required init?(coder: NSCoder) {
-		self.url = FileUtils.getDirectory(.inbox)
 		super.init(coder: coder)
 
 		let router = NavigationControllerRouter(controller: self.navigationController!)
@@ -53,18 +52,26 @@ class PhrasesListViewController : UIViewController {
 
 	init?(coder: NSCoder, flow: PhrasesListViewFlowDelegate, id: URL) {
 		self.flowDelegate = flow
-		self.url = id
 		super.init(coder: coder)
 	}
 
 
+	private func refresh() {
+		let fridge = Model.Fridge<Model.Phrase>(FileUtils.getDirectory(.phrases))
+		items = fridge.fetch()
+		tableView.reloadData()
+	}
+
+
 	@IBAction func addNewPhrase() {
-		print("addNewPhrase")
+		flowDelegate.addNewPhrase()
 	}
 
 
 	@IBAction func toggleLanguage() {
-		print("toggleLanguage")
+		Settings.language.preferBase.toggle()
+		flagButton.isSelected = !Settings.language.preferBase
+		refresh()
 	}
 
 
@@ -87,14 +94,15 @@ extension PhrasesListViewController : UITableViewDataSource {
 
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let phrase = Model.Phrase(id: items[indexPath.row])
+		let phrase = items[indexPath.row]
 		let cellId = getCellIdentifier(for: phrase)
 
 		var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? PhraseCell
 		if (cell == nil) {
 			cell = PhraseCell()
 		}
-		cell?.prepare(for: phrase)
+		let preferBase = Settings.language.preferBase
+		cell?.prepare(for: phrase, preferBaseLanguage: preferBase)
 		return cell!
 	}
 

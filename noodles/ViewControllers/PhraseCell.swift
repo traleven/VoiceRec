@@ -26,6 +26,11 @@ class PhraseCell : UITableViewCell {
 	}
 
 
-	func prepare(for egg: Model.Phrase) {
+	func prepare(for egg: Model.Phrase, preferBaseLanguage: Bool) {
+		if preferBaseLanguage {
+			label.text = egg.baseText.isEmpty ? egg.targetText : egg.baseText
+		} else {
+			label.text = egg.targetText.isEmpty ? egg.baseText : egg.targetText
+		}
 	}
 }
