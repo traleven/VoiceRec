@@ -96,6 +96,38 @@ class FileUtils {
 	}
 
 
+	class func getNewInboxFile(withExtension ext: String) -> URL {
+
+		return getNewInboxFile(at: FileUtils.getDirectory(.inbox), withExtension: ext)
+	}
+
+
+	class func getNewPhraseId(at path: URL, withName name: String) -> URL {
+
+		FileUtils.ensureDirectory(path)
+		return path.appendingPathComponent("\(name).dough", isDirectory: true)
+	}
+
+
+	class func getNewPhraseId(at path: URL) -> URL {
+
+		FileUtils.ensureDirectory(path)
+		return path.appendingPathComponent("\(UUID().uuidString).dough", isDirectory: true)
+	}
+
+
+	class func getNewPhraseId(withName name: String) -> URL {
+
+		return getNewPhraseId(at: FileUtils.getDirectory(.phrases), withName: name)
+	}
+
+
+	class func getNewPhraseId() -> URL {
+
+		return getNewPhraseId(at: FileUtils.getDirectory(.phrases))
+	}
+
+
 	class func get(file: String, withExtension: String, inDirectory: String) -> URL {
 
 		return getDirectory(inDirectory).appendingPathComponent(file).appendingPathExtension(withExtension)
@@ -135,15 +167,25 @@ class FileUtils {
 	}
 
 
+	class func getMetaFile(for url: URL) -> URL {
+		return url.appendingPathComponent("meta.json", isDirectory: false)
+	}
+
+
 	class func isPhraseDirectory(_ url: URL) -> Bool {
 
-		if FileManager.default.fileExists(atPath: url.appendingPathComponent("info.meta").path) {
+		let fileManager = FileManager.default
+		guard fileManager.fileExists(atPath: url.path) else { return false }
+
+		let metaFile = getMetaFile(for: url)
+		if fileManager.fileExists(atPath: metaFile.path) {
 			return true
 		}
+
 		// convertion code
-		if FileManager.default.fileExists(atPath: url.appendingPathComponent("English.m4a").path)
-			|| FileManager.default.fileExists(atPath: url.appendingPathComponent("Chinese.m4a").path) {
-			FileManager.default.createFile(atPath: url.appendingPathComponent("info.meta").path, contents: nil)
+		if fileManager.fileExists(atPath: url.appendingPathComponent("English.m4a").path)
+			|| fileManager.fileExists(atPath: url.appendingPathComponent("Chinese.m4a").path) {
+			fileManager.createFile(atPath: getMetaFile(for: url).path, contents: nil)
 			return true
 		}
 		// end of convertion code
@@ -158,7 +200,7 @@ class FileUtils {
 
 			do {
 				try FileManager.default.createDirectory(at: phraseUrl, withIntermediateDirectories: true)
-				let metaUrl = phraseUrl.appendingPathComponent("info.meta", isDirectory: false)
+				let metaUrl = getMetaFile(for: phraseUrl)
 				FileManager.default.createFile(atPath: metaUrl.path, contents: nil)
 				NotificationCenter.default.post(name: .refreshPhrases, object: phraseUrl)
 			} catch let error {

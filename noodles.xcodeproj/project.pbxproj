@@ -72,6 +72,8 @@
 		DBDC67FE264A8AEE00B99539 /* InboxTextEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */; };
 		DBDC68022656B3C200B99539 /* InboxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC68012656B3C200B99539 /* InboxDelegate.swift */; };
 		DBDC68052656B62000B99539 /* PrhaseEditDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC68042656B62000B99539 /* PrhaseEditDelegate.swift */; };
+		DBE8E07226614E2100E48470 /* PhraseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8E07126614E2100E48470 /* PhraseEditViewController.swift */; };
+		DBE8E0752662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +176,8 @@
 		DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTextEditViewController.swift; sourceTree = "<group>"; };
 		DBDC68012656B3C200B99539 /* InboxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxDelegate.swift; sourceTree = "<group>"; };
 		DBDC68042656B62000B99539 /* PrhaseEditDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrhaseEditDelegate.swift; sourceTree = "<group>"; };
+		DBE8E07126614E2100E48470 /* PhraseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEditViewController.swift; sourceTree = "<group>"; };
+		DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnKeyTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +322,7 @@
 			children = (
 				DB413A382643D8DA0035D952 /* CSS.swift */,
 				DBDC67D62644072C00B99539 /* RootPageViewController.swift */,
+				DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */,
 				DBE8E06726614D6300E48470 /* Kitchen */,
 			);
 			path = ViewControllers;
@@ -447,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */,
+				DBE8E07126614E2100E48470 /* PhraseEditViewController.swift */,
 				DBCF76AD265FD12E00D80A6B /* PhraseCell.swift */,
 			);
 			path = Phrase;
@@ -569,10 +575,12 @@
 				DBCF76BE2661134900D80A6B /* PhrasesDirector.swift in Sources */,
 				DBCF76B726602B7B00D80A6B /* GradientHorizontalProgressBar.swift in Sources */,
 				DB413A4C2643D8DA0035D952 /* WeakLink.swift in Sources */,
+				DBE8E0752662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift in Sources */,
 				DB413A352643D8CD0035D952 /* Model.Egg.swift in Sources */,
 				DB413A312643D8CD0035D952 /* Spices.swift in Sources */,
 				DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */,
 				DB413A332643D8CD0035D952 /* Noodle.swift in Sources */,
+				DBE8E07226614E2100E48470 /* PhraseEditViewController.swift in Sources */,
 				DBDC67D72644072C00B99539 /* RootPageViewController.swift in Sources */,
 				DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */,
 				DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */,
@@ -775,6 +783,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -803,6 +812,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

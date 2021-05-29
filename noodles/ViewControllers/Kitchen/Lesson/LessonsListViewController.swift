@@ -16,7 +16,7 @@ class LessonsListViewController : UIViewController {
 
 	private var flowDelegate: LessonsListViewFlowDelegate!
 	private var url: URL
-	private var items: [URL] = []
+	private var items: [Model.Recipe] = []
 
 
 	@IBOutlet var tableView: UITableView!
@@ -59,6 +59,13 @@ class LessonsListViewController : UIViewController {
 	}
 
 
+	private func refresh() {
+		let fridge = Model.Fridge<Model.Recipe>(FileUtils.getDirectory(.lessons))
+		items = fridge.fetch()
+		tableView.reloadData()
+	}
+
+
 	@IBAction func recordNewAudio() {
 		print("recordNewAudio")
 	}
@@ -88,14 +95,14 @@ extension LessonsListViewController : UITableViewDataSource {
 
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		//let phrase = Model.Bowl(id: items[indexPath.row])
+		let phrase = items[indexPath.row]
 		let cellId = getCellIdentifier(for: nil)
 
 		var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? LessonCell
 		if (cell == nil) {
 			cell = LessonCell()
 		}
-		//cell?.prepare(for: phrase)
+		cell?.prepare(for: phrase)
 		return cell!
 	}
 

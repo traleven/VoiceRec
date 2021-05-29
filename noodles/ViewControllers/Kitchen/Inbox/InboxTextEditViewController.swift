@@ -85,21 +85,3 @@ class InboxTextEditViewController: UIViewController {
 		flowDelegate.dismiss()
 	}
 }
-
-class ReturnKeyTextFieldDelegate : NSObject, UITextFieldDelegate {
-	private var handleReturnKey: (String?) -> Bool
-
-	init(_ handler: @escaping (String?) -> Bool) {
-		self.handleReturnKey = handler
-	}
-
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool
-	{
-		if handleReturnKey(textField.text) {
-			textField.resignFirstResponder()
-			return true
-		}
-		return false
-	}
-}
-

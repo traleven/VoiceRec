@@ -35,8 +35,15 @@ extension Model {
 		}
 		var baseAudio : URL? { audio(Settings.language.base) }
 		var targetAudio : URL? { audio(Settings.language.target) }
-		var baseText : String { text(Settings.language.base) }
-		var targetText : String { text(Settings.language.target) }
+		var baseText : String
+		{
+			get { text(Settings.language.base) }
+			set { setText(newValue, for: Settings.language.base) }
+		}
+		var targetText : String {
+			get { text(Settings.language.target) }
+			set { setText(newValue, for: Settings.language.target) }
+		}
 		func audio(_ key: String) -> URL? {
 			meta.audioUrl(key, relativeTo: id)
 		}
@@ -61,12 +68,14 @@ extension Model {
 
 		init(id: URL) {
 			self.id = id
-			self.meta = PersistentObject.load(id.appendingPathComponent("meta.json"))
+			self.meta = FileUtils.isPhraseDirectory(id)
+				? PersistentObject.load(FileUtils.getMetaFile(for: id))
+				: Meta()
 		}
 
 		func save() {
 			FileUtils.ensureDirectory(id)
-			PersistentObject.save(meta, to: id.appendingPathComponent("meta.json"))
+			PersistentObject.save(meta, to: FileUtils.getMetaFile(for: id))
 		}
 	}
 }

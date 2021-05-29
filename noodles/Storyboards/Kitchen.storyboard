@@ -492,10 +492,10 @@
             </objects>
             <point key="canvasLocation" x="814" y="-1175"/>
         </scene>
-        <!--View Controller-->
+        <!--Phrase Edit View Controller-->
         <scene sceneID="xRU-Zy-JmX">
             <objects>
-                <viewController storyboardIdentifier="phrase.edit" id="ySu-Cd-Om2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="phrase.edit" id="ySu-Cd-Om2" customClass="PhraseEditViewController" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GjM-MZ-N9i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -516,7 +516,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter English flour" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qJg-az-Rfu">
                                                 <rect key="frame" x="8" y="48" width="398" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="continue"/>
                                             </textField>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qE-z8-yUv">
                                                 <rect key="frame" x="8" y="90" width="398" height="74"/>
@@ -618,7 +618,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Mandarin flour" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ztg-S6-81H">
                                                 <rect key="frame" x="8" y="48" width="398" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="continue"/>
                                             </textField>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3d-QV-Dbq">
                                                 <rect key="frame" x="8" y="90" width="398" height="74"/>
@@ -745,12 +745,19 @@
                                             <constraint firstItem="OwZ-9B-Kov" firstAttribute="leading" secondItem="UAb-FW-nXd" secondAttribute="leading" constant="8" id="tkY-5f-SmZ"/>
                                         </constraints>
                                     </view>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rw-us-Pgo" userLabel="KeyboardStubView">
+                                        <rect key="frame" x="0.0" y="818" width="414" height="409"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6rw-us-Pgo" secondAttribute="trailing" id="2hq-tq-h0c"/>
                                     <constraint firstAttribute="trailing" secondItem="UAb-FW-nXd" secondAttribute="trailing" id="3HE-ij-5FZ"/>
                                     <constraint firstAttribute="trailing" secondItem="d4i-Um-c7c" secondAttribute="trailing" id="7KG-1U-3DZ"/>
                                     <constraint firstItem="d4i-Um-c7c" firstAttribute="leading" secondItem="5mN-d7-DfD" secondAttribute="leading" id="AUS-Ef-j8l"/>
                                     <constraint firstItem="BCT-kt-OlA" firstAttribute="leading" secondItem="5mN-d7-DfD" secondAttribute="leading" id="GrE-um-BKE"/>
+                                    <constraint firstItem="6rw-us-Pgo" firstAttribute="height" secondItem="5mN-d7-DfD" secondAttribute="height" multiplier="0.5" id="Hin-6i-jJf"/>
+                                    <constraint firstItem="6rw-us-Pgo" firstAttribute="leading" secondItem="5mN-d7-DfD" secondAttribute="leading" id="IOZ-N3-cow"/>
                                     <constraint firstAttribute="trailing" secondItem="BCT-kt-OlA" secondAttribute="trailing" id="SNi-WA-Ebr"/>
                                     <constraint firstItem="UAb-FW-nXd" firstAttribute="leading" secondItem="5mN-d7-DfD" secondAttribute="leading" id="cIA-qR-KTf"/>
                                 </constraints>
@@ -765,6 +772,28 @@
                             <constraint firstItem="UE3-7H-8ov" firstAttribute="bottom" secondItem="5mN-d7-DfD" secondAttribute="bottom" id="kNt-mb-jXW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="baseBlock" destination="d4i-Um-c7c" id="sz1-ib-Rmx"/>
+                        <outlet property="baseDuration" destination="BOm-72-6Mr" id="Y5P-QS-MiT"/>
+                        <outlet property="baseFlag" destination="G4I-GP-jRH" id="LmZ-36-fIX"/>
+                        <outlet property="baseMenu" destination="fHV-P5-PtT" id="zOH-uJ-EY9"/>
+                        <outlet property="basePlayButton" destination="5mQ-qh-FCl" id="OQS-Uv-8BV"/>
+                        <outlet property="baseRecordButton" destination="AXq-dv-8Kq" id="vWL-Yl-Ye7"/>
+                        <outlet property="baseSearch" destination="DYI-N5-aDX" id="I0S-1e-IFB"/>
+                        <outlet property="baseText" destination="qJg-az-Rfu" id="umP-3t-wKQ"/>
+                        <outlet property="keyboardStubBlock" destination="6rw-us-Pgo" id="f7Y-o0-Tg9"/>
+                        <outlet property="notesBlock" destination="UAb-FW-nXd" id="cTX-FO-fdB"/>
+                        <outlet property="notesPlaceholder" destination="qbZ-BH-zWT" id="rU2-I1-gRk"/>
+                        <outlet property="notesText" destination="IjV-b1-hUI" id="ytZ-90-1UF"/>
+                        <outlet property="targetBlock" destination="BCT-kt-OlA" id="JrO-rT-KF6"/>
+                        <outlet property="targetDuration" destination="0wj-8T-KYG" id="QLa-Rr-8U9"/>
+                        <outlet property="targetFlag" destination="afU-4Y-KC2" id="bc8-pV-xVH"/>
+                        <outlet property="targetMenu" destination="ATD-SD-dZY" id="a2j-9p-8r2"/>
+                        <outlet property="targetPlayButton" destination="mAH-ZR-PrV" id="X9y-Xf-uwH"/>
+                        <outlet property="targetRecordButton" destination="BXV-eh-O8f" id="qfH-Qy-Qnp"/>
+                        <outlet property="targetSearch" destination="uDB-SB-WsN" id="Sfr-MS-nmm"/>
+                        <outlet property="targetText" destination="Ztg-S6-81H" id="jiJ-lF-xJf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kUj-tJ-ZcD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -990,7 +1019,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Noodles" leftItemsSupplementBackButton="YES" id="kBN-JY-vKs">
                         <barButtonItem key="leftBarButtonItem" image="menu_small" id="VIE-Rf-WuP"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="MHe-l0-qOE">
+                        <barButtonItem key="rightBarButtonItem" id="MHe-l0-qOE">
                             <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHi-qC-Ifx">
                                 <rect key="frame" x="350" y="0.0" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -1259,7 +1288,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Noodles" leftItemsSupplementBackButton="YES" id="E2j-k5-lGm">
                         <barButtonItem key="leftBarButtonItem" image="menu_small" id="RwX-pn-vYe"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="9ID-S5-Uhe">
+                        <barButtonItem key="rightBarButtonItem" id="9ID-S5-Uhe">
                             <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rvw-hE-h8g">
                                 <rect key="frame" x="350" y="0.0" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>

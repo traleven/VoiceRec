@@ -48,7 +48,7 @@ final class Phrase : PersistentObject, Codable {
 
 	func save() {
 		FileUtils.ensureDirectory(baseUrl)
-		PersistentObject.save(self, to: baseUrl.appendingPathComponent("meta.json", isDirectory: false))
+		PersistentObject.save(self, to: FileUtils.getMetaFile(for: baseUrl))
 	}
 
 
@@ -77,7 +77,7 @@ final class Phrase : PersistentObject, Codable {
 		var data : [Phrase] = []
 		for url in files.filter({ (url: URL) -> Bool in url.pathExtension == "dough" }) {
 
-			if let dough = Phrase.with(contentOf: url.appendingPathComponent("meta.json")) {
+			if let dough = Phrase.with(contentOf: FileUtils.getMetaFile(for: url)) {
 				dough.baseUrl = url
 				data.append(dough)
 			}

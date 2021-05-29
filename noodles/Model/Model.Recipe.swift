@@ -45,12 +45,12 @@ extension Model {
 
 		init(id: URL) {
 			self.id = id
-			self.meta = PersistentObject.load(id.appendingPathComponent("meta.json"))
+			self.meta = PersistentObject.load(FileUtils.getMetaFile(for: id))
 		}
 
 		func save() {
 			FileUtils.ensureDirectory(id)
-			PersistentObject.save(meta, to: id.appendingPathComponent("meta.json"))
+			PersistentObject.save(meta, to: FileUtils.getMetaFile(for: id))
 		}
 
 		func makeIterator() -> some IteratorProtocol {

@@ -33,13 +33,13 @@ extension Model {
 		init(id: URL) {
 			self.id = id
 			self.audioFile = id.appendingPathComponent("audio.m4a")
-			let metaFile = id.appendingPathComponent("meta.json")
+			let metaFile = FileUtils.getMetaFile(for: id)
 			self.meta = PersistentObject.load(metaFile)
 		}
 
 		func save() {
 			FileUtils.ensureDirectory(id)
-			PersistentObject.save(meta, to: id.appendingPathComponent("meta.json"))
+			PersistentObject.save(meta, to: FileUtils.getMetaFile(for: id))
 		}
 	}
 }

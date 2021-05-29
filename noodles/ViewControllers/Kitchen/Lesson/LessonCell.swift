@@ -26,6 +26,6 @@ class LessonCell : UITableViewCell {
 	}
 
 
-	func prepare(for egg: Model.Bowl) {
+	func prepare(for egg: Model.Recipe) {
 	}
 }
