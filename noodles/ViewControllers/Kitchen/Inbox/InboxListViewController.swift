@@ -215,11 +215,6 @@ extension InboxListViewController : UITableViewDelegate {
 	}
 
 
-	func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-		return true
-	}
-
-
 	func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
 		//super.tableView(tableView, accessoryButtonTappedForRowWith: indexPath)
 	}

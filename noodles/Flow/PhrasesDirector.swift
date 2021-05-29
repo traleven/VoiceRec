@@ -40,5 +40,11 @@ extension PhrasesDirector : PhrasesListViewFlowDelegate {
 	}
 }
 
+extension PhrasesDirector : PhrasesListViewControlDelegate {
+	func delete(_ url: URL) {
+		FileUtils.delete(url)
+	}
+}
+
 extension PhrasesDirector : PhraseEditViewFlowDelegate {
 }

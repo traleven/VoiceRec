@@ -16,9 +16,20 @@ protocol PhrasesListViewFlowDelegate : Director {
 	func openPhrase(_ url: URL?, _ refresh: RefreshHandle?)
 }
 
+
+protocol PhrasesListViewControlDelegate : PhrasesListViewFlowDelegate {
+	//func startRecording(to parent: Model.Egg?, progress: ((TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
+	//func stopRecording(_ refreshHandle: RefreshHandle)
+	//func playAudioEgg(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
+	//func addTextEgg(to parent: Model.Egg?, _ refreshHandle: @escaping RefreshHandle)
+	func delete(_ url: URL)
+	//func share(_ egg: Model.Egg)
+}
+
+
 class PhrasesListViewController : UIViewController {
 
-	private var flowDelegate: PhrasesListViewFlowDelegate!
+	private var flowDelegate: PhrasesListViewControlDelegate!
 	private var items: [Model.Phrase] = []
 
 	@IBOutlet var tableView: UITableView!
@@ -53,7 +64,7 @@ class PhrasesListViewController : UIViewController {
 	}
 
 
-	init?(coder: NSCoder, flow: PhrasesListViewFlowDelegate, id: URL) {
+	init?(coder: NSCoder, flow: PhrasesListViewControlDelegate, id: URL) {
 		self.flowDelegate = flow
 		super.init(coder: coder)
 	}
@@ -116,7 +127,7 @@ extension PhrasesListViewController : UITableViewDataSource {
 
 
 	func numberOfSections(in tableView: UITableView) -> Int { return 1 }
-	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return false }
+	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return true }
 }
 
 
@@ -128,7 +139,19 @@ extension PhrasesListViewController : UITableViewDelegate {
 
 
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-		return nil
+
+		let configuration = UISwipeActionsConfiguration(actions: [
+			UIContextualAction(style: .destructive, title: "Delete", handler: { (action: UIContextualAction, view: UIView, handler: @escaping (Bool) -> Void) in
+
+				let phrase = self.items[indexPath.row]
+				self.flowDelegate.delete(phrase.id)
+				self.refresh()
+
+				handler(true)
+			})
+		])
+		configuration.performsFirstActionWithFullSwipe = false
+		return configuration
 	}
 
 
