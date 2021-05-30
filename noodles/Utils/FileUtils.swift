@@ -172,6 +172,13 @@ class FileUtils {
 	}
 
 
+	class func getNewPhraseFile(for url: URL, withExtension ext: String) -> URL {
+
+		makePhraseDirectory(url)
+		return url.appendingPathComponent("\(UUID().uuidString).\(ext)", isDirectory: false)
+	}
+
+
 	class func isPhraseDirectory(_ url: URL) -> Bool {
 
 		let fileManager = FileManager.default

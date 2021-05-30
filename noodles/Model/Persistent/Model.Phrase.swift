@@ -24,8 +24,7 @@ extension Model {
 
 		private(set) var id : URL
 		private var meta : Meta
-		var name : String
-		{
+		var name : String {
 			let base = Settings.language.base
 			let target = Settings.language.target
 			return meta.text[base] ?? meta.text[target] ?? ""
@@ -34,10 +33,15 @@ extension Model {
 			get { meta.comment ?? "" }
 			set { meta.comment = newValue }
 		}
-		var baseAudio : URL? { audio(Settings.language.base) }
-		var targetAudio : URL? { audio(Settings.language.target) }
-		var baseText : String
-		{
+		var baseAudio : URL? {
+			get { audio(Settings.language.base) }
+			set { setAudio(newValue, for: Settings.language.base) }
+		}
+		var targetAudio : URL? {
+			get { audio(Settings.language.target) }
+			set { setAudio(newValue, for: Settings.language.target) }
+		}
+		var baseText : String {
 			get { text(Settings.language.base) }
 			set { setText(newValue, for: Settings.language.base) }
 		}
@@ -47,6 +51,13 @@ extension Model {
 		}
 		func audio(_ key: String) -> URL? {
 			meta.audioUrl(key, relativeTo: id)
+		}
+		mutating func setAudio(_ url: URL?, for key: String) {
+			if let url = url {
+				meta.audio[key] = url.relativePath(relativeTo: self.id)
+			} else {
+				meta.audio.removeValue(forKey: key)
+			}
 		}
 		func text(_ key: String) -> String {
 			meta.text[key] ?? ""

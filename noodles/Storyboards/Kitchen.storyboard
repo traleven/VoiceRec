@@ -529,6 +529,12 @@
                                                         </constraints>
                                                         <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="wave.3.right.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="startRecording:" destination="ySu-Cd-Om2" eventType="touchDown" id="XGF-dC-iWu"/>
+                                                            <action selector="stopRecording:" destination="ySu-Cd-Om2" eventType="touchUpOutside" id="EKs-rq-n4z"/>
+                                                            <action selector="stopRecording:" destination="ySu-Cd-Om2" eventType="touchUpInside" id="gju-YC-LVj"/>
+                                                            <action selector="stopRecording:" destination="ySu-Cd-Om2" eventType="touchCancel" id="lbc-0i-Gcg"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mQ-qh-FCl" userLabel="PlayButton">
                                                         <rect key="frame" x="169" y="7" width="60" height="60"/>
@@ -537,7 +543,11 @@
                                                             <constraint firstAttribute="width" secondItem="5mQ-qh-FCl" secondAttribute="height" multiplier="1:1" id="SSf-fH-jbj"/>
                                                         </constraints>
                                                         <color key="tintColor" name="AccentColor"/>
-                                                        <state key="normal" image="wave.3.right.circle" catalog="system"/>
+                                                        <state key="normal" image="play.circle" catalog="system"/>
+                                                        <state key="selected" image="stop.circle.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="startPlaying:" destination="ySu-Cd-Om2" eventType="primaryActionTriggered" id="kqe-Ij-ffY"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOm-72-6Mr">
                                                         <rect key="frame" x="46" y="27" width="46" height="20.5"/>
@@ -566,6 +576,9 @@
                                                         <state key="normal" image="multiselect_small">
                                                             <color key="titleColor" name="AccentText"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="openOptionMenu:" destination="ySu-Cd-Om2" eventType="primaryActionTriggered" id="hCF-F5-dfQ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="SecondaryFill"/>
@@ -631,6 +644,12 @@
                                                         </constraints>
                                                         <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="wave.3.right.circle" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="startRecording:" destination="ySu-Cd-Om2" eventType="touchDown" id="Aed-GZ-rqW"/>
+                                                            <action selector="stopRecording:" destination="ySu-Cd-Om2" eventType="touchCancel" id="L9B-uY-hVc"/>
+                                                            <action selector="stopRecording:" destination="ySu-Cd-Om2" eventType="touchUpInside" id="Noe-yJ-fkh"/>
+                                                            <action selector="stopRecording:" destination="ySu-Cd-Om2" eventType="touchUpOutside" id="qLn-Yu-HlM"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mAH-ZR-PrV" userLabel="PlayButton">
                                                         <rect key="frame" x="169" y="7" width="60" height="60"/>
@@ -639,7 +658,11 @@
                                                             <constraint firstAttribute="width" constant="60" id="exR-EM-dJp"/>
                                                         </constraints>
                                                         <color key="tintColor" name="AccentColor"/>
-                                                        <state key="normal" image="wave.3.right.circle" catalog="system"/>
+                                                        <state key="normal" image="play.circle" catalog="system"/>
+                                                        <state key="selected" image="stop.circle.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="startPlaying:" destination="ySu-Cd-Om2" eventType="primaryActionTriggered" id="col-GI-sDq"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wj-8T-KYG">
                                                         <rect key="frame" x="46" y="27" width="46" height="20.5"/>
@@ -668,6 +691,9 @@
                                                         <state key="normal" image="multiselect_small">
                                                             <color key="titleColor" name="AccentText"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="openOptionMenu:" destination="ySu-Cd-Om2" eventType="primaryActionTriggered" id="Nxf-3d-bBp"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="SecondaryFill"/>
@@ -1341,6 +1367,7 @@
         <image name="multiselect_small" width="22" height="22"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="play.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="speaker.wave.2" catalog="system" width="128" height="90"/>
