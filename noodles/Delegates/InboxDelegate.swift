@@ -40,6 +40,16 @@ extension InboxDirector : InboxListViewControlDelegate {
 	}
 
 
+	func stopAllAudio() {
+		if recorder.isRecording {
+			let _ = recorder.finishAudioRecording()
+		}
+		for player in players {
+			player.value.stop()
+		}
+	}
+
+
 	func addTextEgg(to parent: Model.Egg?, _ refreshHandle: @escaping (URL) -> Void) {
 
 		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)

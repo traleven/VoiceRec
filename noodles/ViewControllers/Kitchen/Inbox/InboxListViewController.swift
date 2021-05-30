@@ -20,6 +20,7 @@ protocol InboxListViewControlDelegate : InboxListViewFlowDelegate {
 	func startRecording(to parent: Model.Egg?, progress: ((TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
 	func stopRecording(_ refreshHandle: RefreshHandle)
 	func playAudioEgg(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
+	func stopAllAudio()
 	func addTextEgg(to parent: Model.Egg?, _ refreshHandle: @escaping RefreshHandle)
 	func delete(_ url: URL)
 	func share(_ egg: Model.Egg)
@@ -50,8 +51,25 @@ class InboxListViewController : UIViewController {
 		if current.id != FileUtils.getDirectory(.inbox) {
 			navigationItem.leftBarButtonItem = nil
 		}
+		
+		let notificationCenter = NotificationCenter.default
+		notificationCenter.addObserver(self, selector: #selector(onAppMoveToBackground), name: UIApplication.willResignActiveNotification, object: nil)
 
 		super.viewWillAppear(animated)
+	}
+
+
+	@objc private func onAppMoveToBackground() {
+		flowDelegate.stopAllAudio()
+	}
+
+
+	override func viewWillDisappear(_ animated: Bool) {
+		onAppMoveToBackground()
+		let notificationCenter = NotificationCenter.default
+		notificationCenter.removeObserver(self, name: UIApplication.willResignActiveNotification, object: nil)
+
+		super.viewWillDisappear(animated)
 	}
 
 

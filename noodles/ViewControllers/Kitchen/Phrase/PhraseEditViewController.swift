@@ -19,7 +19,8 @@ protocol PhraseEditViewControlDelegate : PhraseEditViewFlowDelegate {
 	func startRecording(to parent: URL, for language: String, progress: ((TimeInterval) -> Void)?, finish: ((URL?) -> Void)?)
 	func stopRecording(_ refreshHandle: RefreshHandle?)
 	func startPlaying(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
-	func stopPlaying(_ url: URL, _ refreshHandle: RefreshHandle)
+	func stopPlaying(_ url: URL, _ refreshHandle: RefreshHandle?)
+	func stopAllAudio()
 }
 
 class PhraseEditViewController: UIViewController {
@@ -117,6 +118,7 @@ class PhraseEditViewController: UIViewController {
 		if (!content.baseText.isEmpty || !content.targetText.isEmpty) {
 			save()
 		}
+		flowDelegate.stopAllAudio()
 	}
 
 
@@ -135,6 +137,13 @@ class PhraseEditViewController: UIViewController {
 	}
 
 
+	private func refreshLabel(durationLabel label: UILabel, for url: URL?) {
+		url?.loadAsyncDuration({ [weak label] (duration: TimeInterval) in
+			label?.text = duration.toMinutesTimeString()
+		})
+	}
+
+
 	private func refresh() {
 		
 		baseText.text = content.baseText
@@ -145,9 +154,7 @@ class PhraseEditViewController: UIViewController {
 		baseMenu.isHidden = !baseSearch.isHidden
 		baseDuration.isHidden = !hasBaseAudio
 		baseDuration.text = ""
-		content.baseAudio?.loadAsyncDuration({ [weak self] (duration: TimeInterval) in
-			self?.baseDuration.text = duration.toMinutesTimeString()
-		})
+		refreshLabel(durationLabel: baseDuration, for: content.baseAudio)
 
 		targetText.text = content.targetText
 		let hasTargetAudio = content.targetAudio != nil
@@ -157,9 +164,7 @@ class PhraseEditViewController: UIViewController {
 		targetMenu.isHidden = !targetSearch.isHidden
 		targetDuration.isHidden = !hasTargetAudio
 		targetDuration.text = ""
-		content.targetAudio?.loadAsyncDuration({ [weak self] (duration: TimeInterval) in
-			self?.targetDuration.text = duration.toMinutesTimeString()
-		})
+		refreshLabel(durationLabel: targetDuration, for: content.targetAudio)
 
 		notesText.text = content.comment
 		notesPlaceholder.isHidden = !self.notesText.text.isEmpty
@@ -237,10 +242,7 @@ class PhraseEditViewController: UIViewController {
 		}
 
 		if sender != nil && sender!.isSelected {
-			flowDelegate.stopPlaying(audioUrl) {
-				sender?.isSelected = false
-				self.refresh()
-			}
+			flowDelegate.stopPlaying(audioUrl, nil)
 			return
 		}
 
@@ -249,9 +251,8 @@ class PhraseEditViewController: UIViewController {
 		flowDelegate.startPlaying(audioUrl, progress: { (progress: TimeInterval, total: TimeInterval) in
 			durationLabel.text = (total - progress).toMinutesTimeString()
 		}, finish: { (result: Bool) in
-			durationLabel.isHidden = true
 			sender?.isSelected = false
-			self.refresh()
+			self.refreshLabel(durationLabel: durationLabel, for: audioUrl)
 		})
 	}
 

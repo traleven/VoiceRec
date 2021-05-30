@@ -35,10 +35,19 @@ extension PhrasesDirector : PhraseEditViewControlDelegate {
 		players[url] = player
 	}
 
-	func stopPlaying(_ url: URL, _ refreshHandle: RefreshHandle) {
+	func stopPlaying(_ url: URL, _ refreshHandle: RefreshHandle?) {
 		if let player = players[url] {
 			player.stop()
 		}
-		refreshHandle()
+		refreshHandle?()
+	}
+
+	func stopAllAudio() {
+		if recorder.isRecording {
+			let _ = recorder.finishAudioRecording()
+		}
+		for player in players {
+			player.value.stop()
+		}
 	}
 }
