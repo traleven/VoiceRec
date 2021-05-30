@@ -9,6 +9,7 @@ import Foundation
 import AVFoundation
 
 extension Model {
+	/// Simple audio file container that can be used to produce `Doughball`
 	struct Egg : Equatable, GlobalIdentifiable, IdInitializable, Traversable {
 		static func getBy(id: URL) -> Self? {
 			return Egg(id: id)

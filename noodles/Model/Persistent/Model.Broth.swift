@@ -8,6 +8,8 @@
 import Foundation
 
 extension Model {
+	/// Background audio (music) used to add a specific "taste"
+	/// to the `Noodle`s in a `Bowl`
 	struct Broth : Equatable, GlobalIdentifiable, IdInitializable, Traversable, Savable {
 		static func getBy(id: URL) -> Self? {
 			return Self(id: id)

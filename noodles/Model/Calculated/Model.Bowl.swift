@@ -8,6 +8,8 @@
 import Foundation
 
 extension Model {
+	/// A mix of `Noodle`s in a specific `Broth` with a specific `Spices`
+	/// that is used for the language learning session
 	struct Bowl : Sequence {
 		private(set) var noodles : [Model.Noodle]
 		private(set) var broth : Model.Broth

@@ -28,15 +28,9 @@
 		DB413A282643D8CD0035D952 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A142643D8CD0035D952 /* Model.swift */; };
 		DB413A292643D8CD0035D952 /* Model.Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A152643D8CD0035D952 /* Model.Recipe.swift */; };
 		DB413A2A2643D8CD0035D952 /* Model.User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A162643D8CD0035D952 /* Model.User.swift */; };
-		DB413A2B2643D8CD0035D952 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A182643D8CD0035D952 /* Recipe.swift */; };
-		DB413A2C2643D8CD0035D952 /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A192643D8CD0035D952 /* Phrase.swift */; };
-		DB413A2D2643D8CD0035D952 /* Egg.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A1A2643D8CD0035D952 /* Egg.swift */; };
-		DB413A2E2643D8CD0035D952 /* Broth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A1B2643D8CD0035D952 /* Broth.swift */; };
 		DB413A2F2643D8CD0035D952 /* Model.Bowl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A1C2643D8CD0035D952 /* Model.Bowl.swift */; };
 		DB413A302643D8CD0035D952 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A1E2643D8CD0035D952 /* Shape.swift */; };
 		DB413A312643D8CD0035D952 /* Spices.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A1F2643D8CD0035D952 /* Spices.swift */; };
-		DB413A322643D8CD0035D952 /* Bowl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A212643D8CD0035D952 /* Bowl.swift */; };
-		DB413A332643D8CD0035D952 /* Noodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A222643D8CD0035D952 /* Noodle.swift */; };
 		DB413A342643D8CD0035D952 /* Model.Fridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A232643D8CD0035D952 /* Model.Fridge.swift */; };
 		DB413A352643D8CD0035D952 /* Model.Egg.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A242643D8CD0035D952 /* Model.Egg.swift */; };
 		DB413A362643D8CD0035D952 /* Model.Noodle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A252643D8CD0035D952 /* Model.Noodle.swift */; };
@@ -122,15 +116,9 @@
 		DB413A142643D8CD0035D952 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DB413A152643D8CD0035D952 /* Model.Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Recipe.swift; sourceTree = "<group>"; };
 		DB413A162643D8CD0035D952 /* Model.User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.User.swift; sourceTree = "<group>"; };
-		DB413A182643D8CD0035D952 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		DB413A192643D8CD0035D952 /* Phrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
-		DB413A1A2643D8CD0035D952 /* Egg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Egg.swift; sourceTree = "<group>"; };
-		DB413A1B2643D8CD0035D952 /* Broth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broth.swift; sourceTree = "<group>"; };
 		DB413A1C2643D8CD0035D952 /* Model.Bowl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Bowl.swift; sourceTree = "<group>"; };
 		DB413A1E2643D8CD0035D952 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		DB413A1F2643D8CD0035D952 /* Spices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spices.swift; sourceTree = "<group>"; };
-		DB413A212643D8CD0035D952 /* Bowl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bowl.swift; sourceTree = "<group>"; };
-		DB413A222643D8CD0035D952 /* Noodle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Noodle.swift; sourceTree = "<group>"; };
 		DB413A232643D8CD0035D952 /* Model.Fridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Fridge.swift; sourceTree = "<group>"; };
 		DB413A242643D8CD0035D952 /* Model.Egg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Egg.swift; sourceTree = "<group>"; };
 		DB413A252643D8CD0035D952 /* Model.Noodle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Noodle.swift; sourceTree = "<group>"; };
@@ -272,31 +260,12 @@
 		DB413A112643D8CD0035D952 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB413A172643D8CD0035D952 /* Persistent */,
+				DB493D152663FE2800F08BE9 /* Persistent */,
 				DB413A1D2643D8CD0035D952 /* Inline */,
 				DB413A202643D8CD0035D952 /* Calculated */,
 				DB413A142643D8CD0035D952 /* Model.swift */,
-				DB413A122643D8CD0035D952 /* Model.Phrase.swift */,
-				DB413A132643D8CD0035D952 /* Model.Broth.swift */,
-				DB413A152643D8CD0035D952 /* Model.Recipe.swift */,
-				DB413A162643D8CD0035D952 /* Model.User.swift */,
-				DB413A1C2643D8CD0035D952 /* Model.Bowl.swift */,
-				DB413A232643D8CD0035D952 /* Model.Fridge.swift */,
-				DB413A242643D8CD0035D952 /* Model.Egg.swift */,
-				DB413A252643D8CD0035D952 /* Model.Noodle.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		DB413A172643D8CD0035D952 /* Persistent */ = {
-			isa = PBXGroup;
-			children = (
-				DB413A182643D8CD0035D952 /* Recipe.swift */,
-				DB413A192643D8CD0035D952 /* Phrase.swift */,
-				DB413A1A2643D8CD0035D952 /* Egg.swift */,
-				DB413A1B2643D8CD0035D952 /* Broth.swift */,
-			);
-			path = Persistent;
 			sourceTree = "<group>";
 		};
 		DB413A1D2643D8CD0035D952 /* Inline */ = {
@@ -311,8 +280,9 @@
 		DB413A202643D8CD0035D952 /* Calculated */ = {
 			isa = PBXGroup;
 			children = (
-				DB413A212643D8CD0035D952 /* Bowl.swift */,
-				DB413A222643D8CD0035D952 /* Noodle.swift */,
+				DB413A232643D8CD0035D952 /* Model.Fridge.swift */,
+				DB413A252643D8CD0035D952 /* Model.Noodle.swift */,
+				DB413A1C2643D8CD0035D952 /* Model.Bowl.swift */,
 			);
 			path = Calculated;
 			sourceTree = "<group>";
@@ -382,6 +352,18 @@
 				DB413A792643DACA0035D952 /* winerrno.h */,
 			);
 			path = OpusFile;
+			sourceTree = "<group>";
+		};
+		DB493D152663FE2800F08BE9 /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+				DB413A242643D8CD0035D952 /* Model.Egg.swift */,
+				DB413A162643D8CD0035D952 /* Model.User.swift */,
+				DB413A152643D8CD0035D952 /* Model.Recipe.swift */,
+				DB413A132643D8CD0035D952 /* Model.Broth.swift */,
+				DB413A122643D8CD0035D952 /* Model.Phrase.swift */,
+			);
+			path = Persistent;
 			sourceTree = "<group>";
 		};
 		DBCF76A3265E610D00D80A6B /* Views */ = {
@@ -579,14 +561,12 @@
 				DB413A352643D8CD0035D952 /* Model.Egg.swift in Sources */,
 				DB413A312643D8CD0035D952 /* Spices.swift in Sources */,
 				DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */,
-				DB413A332643D8CD0035D952 /* Noodle.swift in Sources */,
 				DBE8E07226614E2100E48470 /* PhraseEditViewController.swift in Sources */,
 				DBDC67D72644072C00B99539 /* RootPageViewController.swift in Sources */,
 				DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */,
 				DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */,
 				DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */,
 				DB413A272643D8CD0035D952 /* Model.Broth.swift in Sources */,
-				DB413A322643D8CD0035D952 /* Bowl.swift in Sources */,
 				DBCF76C126611BEA00D80A6B /* LessonsDirector.swift in Sources */,
 				DB413A262643D8CD0035D952 /* Model.Phrase.swift in Sources */,
 				DBCF76AE265FD12E00D80A6B /* PhraseCell.swift in Sources */,
@@ -599,10 +579,8 @@
 				DB413A482643D8DA0035D952 /* NotificationUtils.swift in Sources */,
 				DB413A362643D8CD0035D952 /* Model.Noodle.swift in Sources */,
 				DBCF76A8265E948500D80A6B /* KitchenTabViewController.swift in Sources */,
-				DB413A2D2643D8CD0035D952 /* Egg.swift in Sources */,
 				DB413A452643D8DA0035D952 /* CSS.swift in Sources */,
 				DB413A282643D8CD0035D952 /* Model.swift in Sources */,
-				DB413A2E2643D8CD0035D952 /* Broth.swift in Sources */,
 				DB413A4D2643D8DA0035D952 /* DB.swift in Sources */,
 				DBCF76B12660091A00D80A6B /* LessonsListViewController.swift in Sources */,
 				DBDC68022656B3C200B99539 /* InboxDelegate.swift in Sources */,
@@ -610,12 +588,10 @@
 				DBDC67F12646D84C00B99539 /* Router.swift in Sources */,
 				DBDC67EB2646D83200B99539 /* InboxDirector.swift in Sources */,
 				DB413A342643D8CD0035D952 /* Model.Fridge.swift in Sources */,
-				DB413A2B2643D8CD0035D952 /* Recipe.swift in Sources */,
 				DB413A0C2643D8BF0035D952 /* AudioPlayer.swift in Sources */,
 				DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */,
 				DB413A2A2643D8CD0035D952 /* Model.User.swift in Sources */,
 				DBDC67F52646DEEF00B99539 /* NavigationControllerRouter.swift in Sources */,
-				DB413A2C2643D8CD0035D952 /* Phrase.swift in Sources */,
 				DBDC67E726443DCB00B99539 /* InboxCell.swift in Sources */,
 				DB413A302643D8CD0035D952 /* Shape.swift in Sources */,
 				DB413A2F2643D8CD0035D952 /* Model.Bowl.swift in Sources */,

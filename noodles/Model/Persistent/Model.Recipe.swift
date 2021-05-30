@@ -8,6 +8,8 @@
 import Foundation
 
 extension Model {
+	/// A conteiner of all the required ingridients used
+	/// to cook a `Bowl` of `Noodle`s
 	struct Recipe : Equatable, GlobalIdentifiable, IdInitializable, Traversable, Savable, Sequence {
 
 		static func getBy(id: URL) -> Self? {

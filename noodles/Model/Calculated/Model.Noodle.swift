@@ -8,6 +8,8 @@
 import Foundation
 
 extension Model {
+	/// A specific sequence of audio from `Doughball`
+	/// repeated in accordance to a selected `Shape`
 	struct Noodle : Sequence {
 		internal static func getChildren(_ id: URL) -> [URL] {
 			return FileUtils.relativeContentsOfDirectory(id)

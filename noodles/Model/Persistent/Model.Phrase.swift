@@ -8,6 +8,7 @@
 import Foundation
 
 extension Model {
+	/// Annotated and translated phrase that can be used to produce `Noodle`
 	struct Phrase : Equatable, GlobalIdentifiable, IdInitializable, Traversable, Savable {
 		static func getBy(id: URL) -> Self? {
 			return Self(id: id)
