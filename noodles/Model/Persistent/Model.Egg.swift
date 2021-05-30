@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import AVFoundation
 
 extension Model {
 	/// Simple audio file container that can be used to produce `Doughball`
@@ -74,13 +73,7 @@ extension Model {
 		}
 
 		func loadAsyncDuration(_ onValueLoaded: @escaping (Double) -> Void) {
-			let audioAsset = AVURLAsset.init(url: id);
-			audioAsset.loadValuesAsynchronously(forKeys: ["duration"]) {
-				let avduration = audioAsset.duration
-				DispatchQueue.main.async {
-					onValueLoaded(avduration.seconds)
-				}
-			}
+			id.loadAsyncDuration(onValueLoaded)
 		}
 
 		fileprivate struct DefaultName : FileNameResolver {

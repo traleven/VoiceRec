@@ -143,7 +143,11 @@ class PhraseEditViewController: UIViewController {
 		basePlayButton.isHidden = !baseRecordButton.isHidden
 		baseSearch.isHidden = hasBaseAudio
 		baseMenu.isHidden = !baseSearch.isHidden
-		baseDuration.isHidden = true
+		baseDuration.isHidden = !hasBaseAudio
+		baseDuration.text = ""
+		content.baseAudio?.loadAsyncDuration({ [weak self] (duration: TimeInterval) in
+			self?.baseDuration.text = duration.toMinutesTimeString()
+		})
 
 		targetText.text = content.targetText
 		let hasTargetAudio = content.targetAudio != nil
@@ -151,7 +155,11 @@ class PhraseEditViewController: UIViewController {
 		targetPlayButton.isHidden = !targetRecordButton.isHidden
 		targetSearch.isHidden = hasTargetAudio
 		targetMenu.isHidden = !targetSearch.isHidden
-		targetDuration.isHidden = true
+		targetDuration.isHidden = !hasTargetAudio
+		targetDuration.text = ""
+		content.targetAudio?.loadAsyncDuration({ [weak self] (duration: TimeInterval) in
+			self?.targetDuration.text = duration.toMinutesTimeString()
+		})
 
 		notesText.text = content.comment
 		notesPlaceholder.isHidden = !self.notesText.text.isEmpty

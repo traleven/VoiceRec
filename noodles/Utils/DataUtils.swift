@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 extension Array  {
 
@@ -68,5 +69,15 @@ extension URL {
 		var relComponents = Array(repeating: "..", count: baseComponents.count - i)
 		relComponents.append(contentsOf: destComponents[i...])
 		return relComponents.joined(separator: "/")
+	}
+
+	func loadAsyncDuration(_ onValueLoaded: @escaping (TimeInterval) -> Void) {
+		let audioAsset = AVURLAsset.init(url: self);
+		audioAsset.loadValuesAsynchronously(forKeys: ["duration"]) {
+			let avduration = audioAsset.duration
+			DispatchQueue.main.async {
+				onValueLoaded(avduration.seconds)
+			}
+		}
 	}
 }
