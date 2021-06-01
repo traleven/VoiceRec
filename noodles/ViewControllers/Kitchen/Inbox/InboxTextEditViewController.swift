@@ -10,10 +10,10 @@ import UIKit
 protocol InboxTextEditViewFlowDelegate : Director {
 }
 
-class InboxTextEditViewController: UIViewController {
+class InboxTextEditViewController: NoodlesViewController, FlowControlable {
 	typealias ApplyHandle = (String) -> Void
 
-	private var flowDelegate: InboxTextEditViewFlowDelegate!
+	internal var flowDelegate: InboxTextEditViewFlowDelegate!
 	private var content: String
 	private var onApply: ApplyHandle?
 
@@ -46,6 +46,7 @@ class InboxTextEditViewController: UIViewController {
 		if (parent == nil) {
 			flowDelegate.willDismiss(self)
 		}
+		super.willMove(toParent: parent)
 	}
 
 

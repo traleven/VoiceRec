@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhrasesDirector: DefaultDirector {
+class PhrasesDirector: DefaultDirector, AudioPlayerImplementation & AudioRecorderImplementation {
 
 	let recorder: AudioRecorder = AudioRecorder()
 	var players: [URL: AudioPlayer] = [:]
@@ -31,8 +31,8 @@ extension PhrasesDirector : PhrasesListViewFlowDelegate {
 
 	func openPhrase(_ url: URL?, _ refresh: RefreshHandle?) {
 		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let phraseId = url ?? FileUtils.getNewPhraseId()
 		let inboxViewController = storyboard.instantiateViewController(identifier: "phrase.edit", creator: { (coder: NSCoder) -> PhraseEditViewController? in
-			let phraseId = url ?? FileUtils.getNewPhraseId()
 			return PhraseEditViewController(coder: coder, flow: self, content: Model.Phrase(id: phraseId), applyHandle: { (phrase: Model.Phrase?) -> Void in
 
 				FileUtils.makePhraseDirectory(phraseId)
@@ -50,7 +50,7 @@ extension PhrasesDirector : PhrasesListViewControlDelegate {
 }
 
 extension PhrasesDirector : PhraseEditViewFlowDelegate {
-	func openOptionsMenu(_ phrase: Model.Phrase, language: String, _ refresh: @escaping (Model.Phrase) -> Void) {
+	func openOptionsMenu(_ phrase: Model.Phrase, language: Language, _ refresh: @escaping (Model.Phrase) -> Void) {
 		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 //		alert.addAction(UIAlertAction(title: "Share", style: .default, handler: { (_: UIAlertAction) in
 //			print("Audio sharing is not implemented yet")

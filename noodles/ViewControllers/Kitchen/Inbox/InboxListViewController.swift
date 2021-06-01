@@ -27,9 +27,10 @@ protocol InboxListViewControlDelegate : InboxListViewFlowDelegate {
 }
 
 
-class InboxListViewController : UIViewController {
+class InboxListViewController : NoodlesViewController, FlowControlable {
 
-	private var flowDelegate: InboxListViewControlDelegate!
+	internal var flowDelegate: InboxListViewControlDelegate!
+
 	private var url: URL
 	private var current: Model.Egg!
 	private var subitems: [URL] = []
@@ -77,6 +78,7 @@ class InboxListViewController : UIViewController {
 		if (parent == nil) {
 			flowDelegate.willDismiss(self)
 		}
+		super.willMove(toParent: parent)
 	}
 
 

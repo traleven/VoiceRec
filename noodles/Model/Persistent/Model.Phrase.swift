@@ -49,32 +49,61 @@ extension Model {
 			get { text(Settings.language.target) }
 			set { setText(newValue, for: Settings.language.target) }
 		}
-		func audio(_ key: String) -> URL? {
+		func audio(_ key: Language) -> URL? {
 			meta.audioUrl(key, relativeTo: id)
 		}
-		mutating func setAudio(_ url: URL?, for key: String) {
+		mutating func setAudio(_ url: URL?, for key: Language) {
 			if let url = url {
 				meta.audio[key] = url.relativePath(relativeTo: self.id)
 			} else {
 				meta.audio.removeValue(forKey: key)
 			}
 		}
-		func text(_ key: String) -> String {
+		func text(_ key: Language) -> String {
 			meta.text[key] ?? ""
 		}
-		mutating func setText(_ text: String, for key: String) {
+		mutating func setText(_ text: String, for key: Language) {
 			meta.text[key] = text
 		}
 
 		struct Meta : Codable {
-			var text : Dictionary<String, String> = Dictionary()
-			var audio : Dictionary<String, String> = Dictionary()
+			var text : Dictionary<Language, String> = Dictionary()
+			var audio : Dictionary<Language, String> = Dictionary()
 			var comment : String?
-			func audioUrl(_ key: String, relativeTo base: URL) -> URL? {
+			func audioUrl(_ key: Language, relativeTo base: URL) -> URL? {
 				if let path = audio[key] {
-					return URL(fileURLWithPath: path, relativeTo: base)
+					return URL(fileURLWithPath: ".", relativeTo: base).appendingPathComponent(path)
 				}
 				return nil
+			}
+
+			enum CodingKeys: String, CodingKey {
+				case text
+				case audio
+				case comment
+			}
+
+			init() {
+			}
+
+			init(from decoder: Decoder) throws {
+				let values = try decoder.container(keyedBy: CodingKeys.self)
+				text = try values.decodeIfPresent(Dictionary<String, String>.self, forKey: .text)?
+					.mapKeys(transform: { (code: String) -> Language in Language(withCode: code) })
+					?? [:]
+				audio = try values.decodeIfPresent(Dictionary<String, String>.self, forKey: .audio)?
+					.mapKeys(transform: { (code: String) -> Language in Language(withCode: code) })
+					?? [:]
+				comment = try values.decodeIfPresent(String.self, forKey: .comment)
+			}
+
+			func encode(to encoder: Encoder) throws {
+				var container = encoder.container(keyedBy: CodingKeys.self)
+				try container.encode(text.mapKeys(transform: { (language: Language) -> String in language.code }), forKey: .text)
+				try container.encode(audio.mapKeys(transform: { (language: Language) -> String in language.code }), forKey: .audio)
+				if comment != nil && !comment!.isEmpty {
+					try container.encode(comment, forKey: .comment)
+				}
 			}
 		}
 
@@ -89,5 +118,11 @@ extension Model {
 			FileUtils.ensureDirectory(id)
 			PersistentObject.save(meta, to: FileUtils.getMetaFile(for: id))
 		}
+	}
+}
+
+extension Model.Phrase {
+	var isComplete: Bool {
+		return !baseText.isEmpty && !targetText.isEmpty && baseAudio != nil && targetAudio != nil
 	}
 }

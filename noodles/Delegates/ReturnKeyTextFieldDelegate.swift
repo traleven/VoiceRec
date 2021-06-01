@@ -10,27 +10,31 @@ import UIKit
 class ReturnKeyTextFieldDelegate : NSObject, UITextFieldDelegate {
 	private var handleReturnKey: ((String?) -> Bool)? = nil
 	private var handleBeginEdit: (() -> Void)? = nil
-	private var handleEndEdit: (() -> Void)? = nil
+	private var handleEndEdit: ((String?) -> Void)? = nil
 
 	init(_ onReturnKey: @escaping (String?) -> Bool) {
 		self.handleReturnKey = onReturnKey
 	}
 
-	init(onBeginEdit: @escaping () -> Void, onEndEdit: @escaping () -> Void) {
+	init(onBeginEdit: @escaping () -> Void, onEndEdit: @escaping (String?) -> Void) {
 		handleBeginEdit = onBeginEdit
 		handleEndEdit = onEndEdit
 	}
 
-	init(onBeginEdit: @escaping () -> Void, onEndEdit: @escaping () -> Void, onReturnKey: Bool) {
+	init(onBeginEdit: @escaping () -> Void, onEndEdit: @escaping (String?) -> Void, onReturnKey: Bool) {
 		handleBeginEdit = onBeginEdit
 		handleEndEdit = onEndEdit
 		handleReturnKey = { (_: String?) -> Bool in onReturnKey }
 	}
 
-	init(onBeginEdit: @escaping () -> Void, onEndEdit: @escaping () -> Void, _ onReturnKey: @escaping (String?) -> Bool) {
+	init(onBeginEdit: @escaping () -> Void, onEndEdit: @escaping (String?) -> Void, _ onReturnKey: @escaping (String?) -> Bool) {
 		handleBeginEdit = onBeginEdit
 		handleEndEdit = onEndEdit
 		handleReturnKey = onReturnKey
+	}
+
+	func setOnEndEdit(_ handler: ((String?) -> Void)?) {
+		handleEndEdit = handler
 	}
 
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool
@@ -49,7 +53,7 @@ class ReturnKeyTextFieldDelegate : NSObject, UITextFieldDelegate {
 	}
 
 	func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-		handleEndEdit?()
+		handleEndEdit?(textField.text)
 	}
 }
 

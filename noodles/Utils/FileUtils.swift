@@ -128,6 +128,19 @@ class FileUtils {
 	}
 
 
+	class func getNewLessonId(at path: URL) -> URL {
+
+		FileUtils.ensureDirectory(path)
+		return path.appendingPathComponent("\(UUID().uuidString).recipe", isDirectory: true)
+	}
+
+
+	class func getNewLessonId() -> URL {
+
+		return getNewLessonId(at: FileUtils.getDirectory(.lessons))
+	}
+
+
 	class func get(file: String, withExtension: String, inDirectory: String) -> URL {
 
 		return getDirectory(inDirectory).appendingPathComponent(file).appendingPathExtension(withExtension)
@@ -179,6 +192,17 @@ class FileUtils {
 	}
 
 
+	class func isLessonDirectory(_ url: URL) -> Bool {
+		let fileManager = FileManager.default
+		guard fileManager.fileExists(atPath: url.path) else { return false }
+
+		let metaFile = getMetaFile(for: url)
+		if fileManager.fileExists(atPath: metaFile.path) {
+			return true
+		}
+		return false
+	}
+
 	class func isPhraseDirectory(_ url: URL) -> Bool {
 
 		let fileManager = FileManager.default
@@ -210,6 +234,22 @@ class FileUtils {
 				let metaUrl = getMetaFile(for: phraseUrl)
 				FileManager.default.createFile(atPath: metaUrl.path, contents: nil)
 				NotificationCenter.default.post(name: .refreshPhrases, object: phraseUrl)
+			} catch let error {
+				NSLog(error.localizedDescription)
+			}
+		}
+	}
+
+	class func makeLessonDirectory(_ lessonUrl: URL) {
+
+		ensureDirectory(lessonUrl)
+		if !isLessonDirectory(lessonUrl) {
+
+			do {
+				try FileManager.default.createDirectory(at: lessonUrl, withIntermediateDirectories: true)
+				let metaUrl = getMetaFile(for: lessonUrl)
+				FileManager.default.createFile(atPath: metaUrl.path, contents: nil)
+				NotificationCenter.default.post(name: .refreshLessons, object: lessonUrl)
 			} catch let error {
 				NSLog(error.localizedDescription)
 			}

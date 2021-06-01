@@ -44,6 +44,13 @@
 		DB413A4E2643D8DA0035D952 /* DictionaryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A432643D8DA0035D952 /* DictionaryDB.swift */; };
 		DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A442643D8DA0035D952 /* ArrayDB.swift */; };
 		DB413A512643D8E40035D952 /* DefaultData in Resources */ = {isa = PBXBuildFile; fileRef = DB413A502643D8E40035D952 /* DefaultData */; };
+		DB55A7F32664C93E00CD963E /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A7F22664C93E00CD963E /* Language.swift */; };
+		DB55A7F82664F89900CD963E /* LessonPhrasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A7F72664F89900CD963E /* LessonPhrasesViewController.swift */; };
+		DB55A7FB2664F8B100CD963E /* LessonMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A7FA2664F8B100CD963E /* LessonMusicViewController.swift */; };
+		DB55A7FE2664F8CE00CD963E /* LessonExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A7FD2664F8CE00CD963E /* LessonExportViewController.swift */; };
+		DB55A8012664F90400CD963E /* LessonPhraseSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A8002664F90400CD963E /* LessonPhraseSelectorViewController.swift */; };
+		DB55A8042664F9BA00CD963E /* NoodlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A8032664F9BA00CD963E /* NoodlesViewController.swift */; };
+		DB55A8072666B08200CD963E /* CommonDelegateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A8062666B08200CD963E /* CommonDelegateExtensions.swift */; };
 		DBCF76A5265E612B00D80A6B /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76A4265E612B00D80A6B /* VerticalButton.swift */; };
 		DBCF76A8265E948500D80A6B /* KitchenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */; };
 		DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */; };
@@ -142,6 +149,13 @@
 		DB413A782643DACA0035D952 /* opusfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = opusfile.c; path = "opus/opusfile-0.11/src/opusfile.c"; sourceTree = SOURCE_ROOT; };
 		DB413A792643DACA0035D952 /* winerrno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winerrno.h; path = "opus/opusfile-0.11/src/winerrno.h"; sourceTree = SOURCE_ROOT; };
 		DB413A7A2643DACA0035D952 /* info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = info.c; path = "opus/opusfile-0.11/src/info.c"; sourceTree = SOURCE_ROOT; };
+		DB55A7F22664C93E00CD963E /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		DB55A7F72664F89900CD963E /* LessonPhrasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPhrasesViewController.swift; sourceTree = "<group>"; };
+		DB55A7FA2664F8B100CD963E /* LessonMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonMusicViewController.swift; sourceTree = "<group>"; };
+		DB55A7FD2664F8CE00CD963E /* LessonExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonExportViewController.swift; sourceTree = "<group>"; };
+		DB55A8002664F90400CD963E /* LessonPhraseSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPhraseSelectorViewController.swift; sourceTree = "<group>"; };
+		DB55A8032664F9BA00CD963E /* NoodlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoodlesViewController.swift; sourceTree = "<group>"; };
+		DB55A8062666B08200CD963E /* CommonDelegateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDelegateExtensions.swift; sourceTree = "<group>"; };
 		DBCF76A4265E612B00D80A6B /* VerticalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
 		DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenTabViewController.swift; sourceTree = "<group>"; };
 		DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesListViewController.swift; sourceTree = "<group>"; };
@@ -273,6 +287,7 @@
 			children = (
 				DB413A1E2643D8CD0035D952 /* Shape.swift */,
 				DB413A1F2643D8CD0035D952 /* Spices.swift */,
+				DB55A7F22664C93E00CD963E /* Language.swift */,
 			);
 			path = Inline;
 			sourceTree = "<group>";
@@ -292,7 +307,7 @@
 			children = (
 				DB413A382643D8DA0035D952 /* CSS.swift */,
 				DBDC67D62644072C00B99539 /* RootPageViewController.swift */,
-				DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */,
+				DB55A8032664F9BA00CD963E /* NoodlesViewController.swift */,
 				DBE8E06726614D6300E48470 /* Kitchen */,
 			);
 			path = ViewControllers;
@@ -405,6 +420,8 @@
 			children = (
 				DBDC68012656B3C200B99539 /* InboxDelegate.swift */,
 				DBDC68042656B62000B99539 /* PrhaseEditDelegate.swift */,
+				DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */,
+				DB55A8062666B08200CD963E /* CommonDelegateExtensions.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -445,6 +462,10 @@
 			children = (
 				DBCF76B02660091A00D80A6B /* LessonsListViewController.swift */,
 				DBCF76B3266009B600D80A6B /* LessonCell.swift */,
+				DB55A7F72664F89900CD963E /* LessonPhrasesViewController.swift */,
+				DB55A7FA2664F8B100CD963E /* LessonMusicViewController.swift */,
+				DB55A7FD2664F8CE00CD963E /* LessonExportViewController.swift */,
+				DB55A8002664F90400CD963E /* LessonPhraseSelectorViewController.swift */,
 			);
 			path = Lesson;
 			sourceTree = "<group>";
@@ -553,6 +574,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBCF76B4266009B600D80A6B /* LessonCell.swift in Sources */,
+				DB55A8072666B08200CD963E /* CommonDelegateExtensions.swift in Sources */,
 				DB413A4E2643D8DA0035D952 /* DictionaryDB.swift in Sources */,
 				DBCF76BE2661134900D80A6B /* PhrasesDirector.swift in Sources */,
 				DBCF76B726602B7B00D80A6B /* GradientHorizontalProgressBar.swift in Sources */,
@@ -561,6 +583,7 @@
 				DB413A352643D8CD0035D952 /* Model.Egg.swift in Sources */,
 				DB413A312643D8CD0035D952 /* Spices.swift in Sources */,
 				DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */,
+				DB55A7FE2664F8CE00CD963E /* LessonExportViewController.swift in Sources */,
 				DBE8E07226614E2100E48470 /* PhraseEditViewController.swift in Sources */,
 				DBDC67D72644072C00B99539 /* RootPageViewController.swift in Sources */,
 				DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */,
@@ -573,6 +596,7 @@
 				DBDC67EE2646D84200B99539 /* Director.swift in Sources */,
 				DBDC68052656B62000B99539 /* PrhaseEditDelegate.swift in Sources */,
 				DB413A4B2643D8DA0035D952 /* PersistentObject.swift in Sources */,
+				DB55A8012664F90400CD963E /* LessonPhraseSelectorViewController.swift in Sources */,
 				DB413A292643D8CD0035D952 /* Model.Recipe.swift in Sources */,
 				DB413A0E2643D8BF0035D952 /* ExportComposer.swift in Sources */,
 				DBCF76A5265E612B00D80A6B /* VerticalButton.swift in Sources */,
@@ -582,8 +606,10 @@
 				DB413A452643D8DA0035D952 /* CSS.swift in Sources */,
 				DB413A282643D8CD0035D952 /* Model.swift in Sources */,
 				DB413A4D2643D8DA0035D952 /* DB.swift in Sources */,
+				DB55A7FB2664F8B100CD963E /* LessonMusicViewController.swift in Sources */,
 				DBCF76B12660091A00D80A6B /* LessonsListViewController.swift in Sources */,
 				DBDC68022656B3C200B99539 /* InboxDelegate.swift in Sources */,
+				DB55A7F82664F89900CD963E /* LessonPhrasesViewController.swift in Sources */,
 				DB4133332643D5650035D952 /* AppDelegate.swift in Sources */,
 				DBDC67F12646D84C00B99539 /* Router.swift in Sources */,
 				DBDC67EB2646D83200B99539 /* InboxDirector.swift in Sources */,
@@ -593,10 +619,12 @@
 				DB413A2A2643D8CD0035D952 /* Model.User.swift in Sources */,
 				DBDC67F52646DEEF00B99539 /* NavigationControllerRouter.swift in Sources */,
 				DBDC67E726443DCB00B99539 /* InboxCell.swift in Sources */,
+				DB55A8042664F9BA00CD963E /* NoodlesViewController.swift in Sources */,
 				DB413A302643D8CD0035D952 /* Shape.swift in Sources */,
 				DB413A2F2643D8CD0035D952 /* Model.Bowl.swift in Sources */,
 				DB413A492643D8DA0035D952 /* FileUtils.swift in Sources */,
 				DB413A0F2643D8BF0035D952 /* AudioRecorder.swift in Sources */,
+				DB55A7F32664C93E00CD963E /* Language.swift in Sources */,
 				DBDC67FE264A8AEE00B99539 /* InboxTextEditViewController.swift in Sources */,
 				DB413A4A2643D8DA0035D952 /* DataUtils.swift in Sources */,
 			);
@@ -759,7 +787,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -788,7 +816,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

@@ -11,38 +11,17 @@ import UIKit
 extension Notification.Name {
 	
 	static let refreshPhrases = Notification.Name("refresh_phrases")
+	static let refreshLessons = Notification.Name("refresh_lessons")
 	static let refreshMusic = Notification.Name("refresh_music")
 	static let appGoesBackground = Notification.Name("background")
 
-	static let openMenu = Notification.Name("noodles_open_menu")
-	static let closeMenu = Notification.Name("noodles_close_menu")
-
 	static let gotoView = Notification.Name("goto")
-	static let pageUpdate = Notification.Name("noodles_page_update")
 
 	static let selectTab = Notification.Name("noodles_select_tab");
 }
 
 extension Notification.Name {
 	public static let NoodlesFileChanged: Notification.Name = Notification.Name("NoodlesFileChanged")
-}
-
-extension UIViewController {
-
-	@IBAction func openMenu() {
-
-		NotificationCenter.default.post(name: .openMenu, object: self)
-	}
-
-	@IBAction func closeMenu() {
-
-		NotificationCenter.default.post(name: .closeMenu, object: self)
-	}
-
-	@IBAction func postValueChanged(_ sender : UISegmentedControl) {
-
-		NotificationCenter.default.post(name: .pageUpdate, object: sender)
-	}
 }
 
 extension UIApplication {

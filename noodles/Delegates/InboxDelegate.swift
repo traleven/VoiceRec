@@ -16,37 +16,25 @@ extension InboxDirector : InboxListViewControlDelegate {
 		}
 
 		let newId = FileUtils.getNewInboxFile(at: parentId, withExtension: "m4a")
-		recorder.start_recording(newId, progress: progress, finish: finish)
+		self.startRecording(to: newId, progress: progress, finish: { finish?($0 != nil) })
 	}
 
 
 	func stopRecording(_ refreshHandle: (URL) -> Void) {
-		let url = recorder.finishAudioRecording()
-		refreshHandle(url.deletingLastPathComponent())
+		if let url = self.stopRecording() {
+			refreshHandle(url.deletingLastPathComponent())
+		}
 	}
 
 
 	func playAudioEgg(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?) {
-		if let player = players[url] {
-			player.play()
-			return
-		}
-		let player = AudioPlayer(url)
-		player.play(onProgress: progress!) { [weak self] (result: Bool) in
-			finish?(result)
-			self?.players.removeValue(forKey: url)
-		}
-		players[url] = player
+		self.playAudio(url, progress: progress, finish: finish)
 	}
 
 
 	func stopAllAudio() {
-		if recorder.isRecording {
-			let _ = recorder.finishAudioRecording()
-		}
-		for player in players {
-			player.value.stop()
-		}
+		let _ = self.stopRecording()
+		self.stopPlayingAll()
 	}
 
 

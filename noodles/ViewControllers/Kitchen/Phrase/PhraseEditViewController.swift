@@ -10,20 +10,20 @@ import UIKit
 protocol PhraseEditViewFlowDelegate : Director {
 	typealias ModelRefreshHandle = (Model.Phrase) -> Void
 
-	func openOptionsMenu(_ phrase: Model.Phrase, language: String, _ refresh: @escaping ModelRefreshHandle)
+	func openOptionsMenu(_ phrase: Model.Phrase, language: Language, _ refresh: @escaping ModelRefreshHandle)
 }
 
 protocol PhraseEditViewControlDelegate : PhraseEditViewFlowDelegate {
 	typealias RefreshHandle = () -> Void
 
-	func startRecording(to parent: URL, for language: String, progress: ((TimeInterval) -> Void)?, finish: ((URL?) -> Void)?)
+	func startRecording(to parent: URL, for language: Language, progress: ((TimeInterval) -> Void)?, finish: ((URL?) -> Void)?)
 	func stopRecording(_ refreshHandle: RefreshHandle?)
 	func startPlaying(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
 	func stopPlaying(_ url: URL, _ refreshHandle: RefreshHandle?)
 	func stopAllAudio()
 }
 
-class PhraseEditViewController: UIViewController {
+class PhraseEditViewController: NoodlesViewController {
 	typealias ApplyHandle = (Model.Phrase?) -> Void
 
 	private var flowDelegate: PhraseEditViewControlDelegate
@@ -65,7 +65,7 @@ class PhraseEditViewController: UIViewController {
 			self.targetBlock.isHidden = true
 			self.notesBlock.isHidden = true
 			self.keyboardStubBlock.isHidden = false
-		}, onEndEdit: {
+		}, onEndEdit: { _ in
 			self.targetBlock.isHidden = false
 			self.notesBlock.isHidden = false
 			self.keyboardStubBlock.isHidden = true
@@ -75,7 +75,7 @@ class PhraseEditViewController: UIViewController {
 			self.baseBlock.isHidden = true
 			self.notesBlock.isHidden = true
 			self.keyboardStubBlock.isHidden = false
-		}, onEndEdit: {
+		}, onEndEdit: { _ in
 			self.baseBlock.isHidden = false
 			self.notesBlock.isHidden = false
 			self.keyboardStubBlock.isHidden = true
@@ -104,8 +104,6 @@ class PhraseEditViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		refresh()
 
-		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
-
 		let notificationCenter = NotificationCenter.default
 		notificationCenter.addObserver(self, selector: #selector(onAppMoveToBackground), name: UIApplication.willResignActiveNotification, object: nil)
 
@@ -115,9 +113,7 @@ class PhraseEditViewController: UIViewController {
 
 	@objc private func onAppMoveToBackground() {
 		updateContent()
-		if (!content.baseText.isEmpty || !content.targetText.isEmpty) {
-			save()
-		}
+		save()
 		flowDelegate.stopAllAudio()
 	}
 
@@ -128,6 +124,14 @@ class PhraseEditViewController: UIViewController {
 		notificationCenter.removeObserver(self, name: UIApplication.willResignActiveNotification, object: nil)
 
 		super.viewWillDisappear(animated)
+	}
+
+
+	override func willMove(toParent parent: UIViewController?) {
+		if (parent == nil) {
+			flowDelegate.willDismiss(self)
+		}
+		super.willMove(toParent: parent)
 	}
 
 
@@ -173,13 +177,6 @@ class PhraseEditViewController: UIViewController {
 	}
 
 
-	override func willMove(toParent parent: UIViewController?) {
-		if (parent == nil) {
-			flowDelegate.willDismiss(self)
-		}
-	}
-
-
 	required init?(coder: NSCoder) {
 		fatalError()
 	}
@@ -200,7 +197,7 @@ class PhraseEditViewController: UIViewController {
 	}
 
 
-	@IBAction @objc func save() {
+	@IBAction func save() {
 
 		updateContent()
 		notesText.resignFirstResponder()

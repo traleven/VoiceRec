@@ -11,7 +11,6 @@ import AVKit
 
 class AudioRecorder : NSObject, ObservableObject, AVAudioRecorderDelegate {
 
-
 	var audioRecorder: AVAudioRecorder!
 	var meterTimer: Timer!
 	var isRecording: Bool! = false

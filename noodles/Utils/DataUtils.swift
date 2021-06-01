@@ -81,3 +81,14 @@ extension URL {
 		}
 	}
 }
+
+extension Dictionary {
+	func mapKeys<T: Hashable>(transform: (Key) -> T) -> Dictionary<T, Value> {
+		var result = Dictionary<T, Value>()
+		for kvp in self {
+			let key = transform(kvp.key)
+			result[key] = kvp.value
+		}
+		return result
+	}
+}

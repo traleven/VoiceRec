@@ -10,6 +10,7 @@ import UIKit
 class LessonCell : UITableViewCell {
 
 	@IBOutlet var label : UILabel!
+	@IBOutlet var phraseCount : UILabel?
 
 	required init?(coder: NSCoder) {
 		super.init(coder: coder)
@@ -26,6 +27,9 @@ class LessonCell : UITableViewCell {
 	}
 
 
-	func prepare(for egg: Model.Recipe) {
+	func prepare(for lesson: Model.Recipe) {
+
+		label.text = lesson.name
+		phraseCount?.text = "\(lesson.phraseCount) phrases"
 	}
 }

@@ -51,6 +51,10 @@ class Settings {
 			get { return DB.settings.bool(forKey: "phrase.random") }
 			set { DB.settings.set(newValue, forKey: "phrase.random") }
 		}
+		static var defaultShape: Shape {
+			get { return Shape(dna: DB.options.getValue(forKey: "lesson.defaultShape")) }
+			set { DB.options.setValue(forKey: "lesson.defaultShape", value: newValue.dna) }
+		}
 		class delay {
 			static var inner: Double {
 				get { return DB.settings.double(forKey: "phrase.delay.inner") }
@@ -65,25 +69,25 @@ class Settings {
 	class language {
 		static var preferBase: Bool {
 			get { return DB.options.getValue(forKey: "language.preferBase") != "NO" }
-			set { return DB.options.setValue(forKey: "language.preferBase", value: newValue ? "YES" : "NO") }
+			set { DB.options.setValue(forKey: "language.preferBase", value: newValue ? "YES" : "NO") }
 		}
-		static var base: String {
-			get { return DB.options.getValue(forKey: "language.base") }
-			set { DB.options.setValue(forKey: "language.base", value: newValue) }
+		static var base: Language {
+			get { return Language(withCode: DB.options.getValue(forKey: "language.base")) }
+			set { DB.options.setValue(forKey: "language.base", value: newValue.code) }
 //			get { return DB.settings.string(forKey: "language.native") ?? "English" }
 //			set { DB.settings.set(newValue, forKey: "language.native") }
 		}
-		static var target: String {
-			get { return DB.options.getValue(forKey: "language.target") }
-			set { DB.options.setValue(forKey: "language.target", value: newValue) }
+		static var target: Language {
+			get { return Language(withCode: DB.options.getValue(forKey: "language.target")) }
+			set { DB.options.setValue(forKey: "language.target", value: newValue.code) }
 //			get { return DB.settings.string(forKey: "language.foreign") ?? "Chinese" }
 //			set { DB.settings.set(newValue, forKey: "language.foreign") }
 		}
-		class func getLanguage(_ languageCode: Character) -> String {
+		class func getLanguage(_ languageCode: Character) -> Language {
 			return languageCode == "E" || languageCode == "N" || languageCode == "B" ? base : target
 		}
-		class func getLanguage(_ language: String) -> String {
-			return language == "Base" ? base : language == "Target" ? target : language
+		class func getLanguage(_ language: String) -> Language {
+			return language == "Base" ? base : language == "Target" ? target : Language(withCode: language)
 		}
 	}
 }

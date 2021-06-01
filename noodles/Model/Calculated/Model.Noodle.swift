@@ -11,10 +11,6 @@ extension Model {
 	/// A specific sequence of audio from `Doughball`
 	/// repeated in accordance to a selected `Shape`
 	struct Noodle : Sequence {
-		internal static func getChildren(_ id: URL) -> [URL] {
-			return FileUtils.relativeContentsOfDirectory(id)
-		}
-
 		private(set) var phrase : Model.Phrase
 		private(set) var shape : Shape
 
@@ -27,7 +23,7 @@ extension Model {
 			}
 		}
 
-		func makeIterator() -> some IteratorProtocol {
+		func makeIterator() -> DNAIterator {
 			return DNAIterator(noodle: self)
 		}
 

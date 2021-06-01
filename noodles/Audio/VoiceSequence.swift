@@ -22,15 +22,15 @@ class VoiceSequence: NSObject {
 	}
 
 
-	class func buildVoiceURL(_ forKey: String, language: String) -> URL {
+	class func buildVoiceURL(_ forKey: String, language: Language) -> URL {
 
 		return FileUtils.getDirectory("recordings")
 			.appendingPathComponent(forKey)
-			.appendingPathComponent(language.appending(".m4a"))
+			.appendingPathComponent(language.code.appending(".m4a"))
 	}
 
 
-	func play(language: String, then: @escaping (Bool) -> Void) {
+	func play(language: Language, then: @escaping (Bool) -> Void) {
 
 		player = AudioPlayer(VoiceSequence.buildVoiceURL(phrase, language: language))
 		player?.play(onProgress: { (_ : TimeInterval, _ : TimeInterval) in

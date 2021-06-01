@@ -10,6 +10,7 @@ import UIKit
 class PhraseCell : UITableViewCell {
 
 	@IBOutlet var label : UILabel!
+	@IBOutlet var indexLabel : UILabel?
 
 	required init?(coder: NSCoder) {
 		super.init(coder: coder)
@@ -26,11 +27,12 @@ class PhraseCell : UITableViewCell {
 	}
 
 
-	func prepare(for egg: Model.Phrase, preferBaseLanguage: Bool) {
+	func prepare(for egg: Model.Phrase, at index: Int, preferBaseLanguage: Bool) {
 		if preferBaseLanguage {
 			label.text = egg.baseText.isEmpty ? egg.targetText : egg.baseText
 		} else {
 			label.text = egg.targetText.isEmpty ? egg.baseText : egg.targetText
 		}
+		indexLabel?.text = "\(index)"
 	}
 }

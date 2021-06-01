@@ -10,44 +10,27 @@ import UIKit
 extension PhrasesDirector : PhraseEditViewControlDelegate {
 	typealias RefreshHandle = () -> Void
 
-	func startRecording(to phrase: URL, for language: String, progress: ((TimeInterval) -> Void)?, finish: ((URL?) -> Void)?) {
+	func startRecording(to phrase: URL, for language: Language, progress: ((TimeInterval) -> Void)?, finish: ((URL?) -> Void)?) {
 		let audioFile = FileUtils.getNewPhraseFile(for: phrase, withExtension: "\(language).m4a")
-		recorder.start_recording(audioFile, progress: progress, finish: { (result: Bool) -> Void in
-			finish?(result ? audioFile : nil)
-		})
+		self.startRecording(to: audioFile, progress: progress, finish: finish)
 	}
 
 	func stopRecording(_ refreshHandle: RefreshHandle?) {
-		let _ = recorder.finishAudioRecording()
+		let _ = self.stopRecording()
 		refreshHandle?()
 	}
 
 	func startPlaying(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?) {
-		if let player = players[url] {
-			player.play()
-			return
-		}
-		let player = AudioPlayer(url)
-		player.play(onProgress: progress!) { [weak self] (result: Bool) in
-			finish?(result)
-			self?.players.removeValue(forKey: url)
-		}
-		players[url] = player
+		self.playAudio(url, progress: progress, finish: finish)
 	}
 
 	func stopPlaying(_ url: URL, _ refreshHandle: RefreshHandle?) {
-		if let player = players[url] {
-			player.stop()
-		}
+		let _ = self.stopPlaying(url)
 		refreshHandle?()
 	}
 
 	func stopAllAudio() {
-		if recorder.isRecording {
-			let _ = recorder.finishAudioRecording()
-		}
-		for player in players {
-			player.value.stop()
-		}
+		let _ = self.stopRecording()
+		self.stopPlayingAll()
 	}
 }

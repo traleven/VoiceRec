@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InboxDirector: DefaultDirector {
+class InboxDirector: DefaultDirector, AudioPlayerImplementation & AudioRecorderImplementation {
 
 	let recorder: AudioRecorder = AudioRecorder()
 	var players: [URL: AudioPlayer] = [:]

@@ -30,24 +30,63 @@ extension Model {
 		var name : String { get { meta.name } set { meta.name = newValue } }
 		var phraseCount : Int { meta.count }
 		subscript(_ idx: Int) -> URL { meta[idx, at: id.baseURL] }
+		var music : URL? {
+			get { meta.broth.isEmpty ? nil : URL(fileURLWithPath: ".", relativeTo: id.baseURL).appendingPathComponent(meta.broth) }
+			set {
+				if let base = id.baseURL, let newValue = newValue, let relativePath = newValue.relativePath(relativeTo: base) {
+					meta.broth = relativePath
+				} else {
+					meta.broth = ""
+				}
+			}
+		}
 
 		struct Meta : Codable {
-			var name : String
+			var name : String = ""
 			var shape : Shape
 			var spices : Spices
-			var broth : String
-			var phrases : [String]
+			var broth : String = ""
+			var phrases : [String] = []
 			
 			var count : Int { phrases.count }
 			subscript(_ idx: Int, at base: URL?) -> URL {
 				let path = phrases[idx]
-				return URL(fileURLWithPath: path, relativeTo: base)
+				return URL(fileURLWithPath: ".", relativeTo: base).appendingPathComponent(path)
+			}
+
+			init() {
+				self.shape = Settings.phrase.defaultShape
+				self.spices = .init(
+					musicVolume: Settings.music.volume,
+					voiceVolume: Settings.voice.volume,
+					delayBetween: Settings.phrase.delay.inner,
+					delayWithin: Settings.phrase.delay.outer,
+					randomize: Settings.phrase.random
+				)
 			}
 		}
 
 		init(id: URL) {
 			self.id = id
-			self.meta = PersistentObject.load(FileUtils.getMetaFile(for: id))
+			self.meta = FileUtils.isLessonDirectory(id)
+				? PersistentObject.load(FileUtils.getMetaFile(for: id))
+				: Meta()
+		}
+
+		mutating func addPhrase(id: URL) {
+			if let base = self.id.baseURL {
+				if let relativePath = id.relativePath(relativeTo: base) {
+					meta.phrases.append(relativePath)
+				}
+			} else {
+				NSLog("Serializing absolute path: \(id) for \(self.id)")
+				meta.phrases.append(id.relativePath)
+			}
+		}
+
+		mutating func removePhrase(id: URL) {
+			let path = id.path
+			meta.phrases.removeAll(where: { path.hasSuffix($0) })
 		}
 
 		func save() {
@@ -55,8 +94,12 @@ extension Model {
 			PersistentObject.save(meta, to: FileUtils.getMetaFile(for: id))
 		}
 
-		func makeIterator() -> some IteratorProtocol {
+		__consuming func makeIterator() -> RelativePathIterator {
 			return RelativePathIterator(paths: meta.phrases, baseUrl: id.baseURL)
+		}
+
+		func contains(_ phrase: URL) -> Bool {
+			return self.contains(where: { phrase == $0 })
 		}
 
 		struct RelativePathIterator : IteratorProtocol {
@@ -69,7 +112,7 @@ extension Model {
 				guard idx < paths.count else {
 					return nil
 				}
-				let result = URL(fileURLWithPath: paths[idx], relativeTo: baseUrl)
+				let result = URL(fileURLWithPath: ".", relativeTo: baseUrl).appendingPathComponent(paths[idx])
 				idx += 1
 				return result
 			}

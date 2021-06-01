@@ -10,9 +10,10 @@ import UIKit
 protocol LessonsListViewFlowDelegate : Director {
 	func openInbox()
 	func openPhrases()
+	func openLesson(_ lesson: Model.Recipe?)
 }
 
-class LessonsListViewController : UIViewController {
+class LessonsListViewController : NoodlesViewController {
 
 	private var flowDelegate: LessonsListViewFlowDelegate!
 	private var url: URL
@@ -20,6 +21,7 @@ class LessonsListViewController : UIViewController {
 
 
 	@IBOutlet var tableView: UITableView!
+	@IBOutlet var languageButton: UIButton?
 
 
 	override func viewDidLoad() {
@@ -28,8 +30,7 @@ class LessonsListViewController : UIViewController {
 
 
 	override func viewWillAppear(_ animated: Bool) {
-
-		tableView.reloadData()
+		refresh()
 
 		super.viewWillAppear(animated)
 	}
@@ -39,11 +40,12 @@ class LessonsListViewController : UIViewController {
 		if (parent == nil) {
 			flowDelegate.willDismiss(self)
 		}
+		super.willMove(toParent: parent)
 	}
 
 
 	required init?(coder: NSCoder) {
-		self.url = FileUtils.getDirectory(.inbox)
+		self.url = FileUtils.getDirectory(.lessons)
 		super.init(coder: coder)
 
 		let router = NavigationControllerRouter(controller: self.navigationController!)
@@ -60,19 +62,16 @@ class LessonsListViewController : UIViewController {
 
 
 	private func refresh() {
+		languageButton?.isSelected = !Settings.language.preferBase
 		let fridge = Model.Fridge<Model.Recipe>(FileUtils.getDirectory(.lessons))
 		items = fridge.fetch()
 		tableView.reloadData()
 	}
 
 
-	@IBAction func recordNewAudio() {
-		print("recordNewAudio")
-	}
-
-
-	@IBAction func writeNewMemo() {
-		print("writeNewMemo")
+	@IBAction func toggleLanguage(_ sender: UIControl) {
+		Settings.language.preferBase.toggle()
+		refresh()
 	}
 
 
@@ -83,6 +82,10 @@ class LessonsListViewController : UIViewController {
 
 	@IBAction func goToPhrases() {
 		flowDelegate.openPhrases()
+	}
+
+	@IBAction func addNewLesson() {
+		flowDelegate.openLesson(nil)
 	}
 }
 
@@ -138,5 +141,7 @@ extension LessonsListViewController : UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+		let lesson = items[indexPath.row]
+		flowDelegate.openLesson(lesson)
 	}
 }

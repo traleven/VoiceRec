@@ -18,27 +18,18 @@ protocol PhrasesListViewFlowDelegate : Director {
 
 
 protocol PhrasesListViewControlDelegate : PhrasesListViewFlowDelegate {
-	//func startRecording(to parent: Model.Egg?, progress: ((TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
-	//func stopRecording(_ refreshHandle: RefreshHandle)
-	//func playAudioEgg(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
-	//func addTextEgg(to parent: Model.Egg?, _ refreshHandle: @escaping RefreshHandle)
+
 	func delete(_ url: URL)
-	//func share(_ egg: Model.Egg)
 }
 
 
-class PhrasesListViewController : UIViewController {
+class PhrasesListViewController : NoodlesViewController {
 
 	private var flowDelegate: PhrasesListViewControlDelegate!
 	private var items: [Model.Phrase] = []
 
 	@IBOutlet var tableView: UITableView!
 	@IBOutlet var flagButton: UIButton!
-
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
 
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +43,7 @@ class PhrasesListViewController : UIViewController {
 		if (parent == nil) {
 			flowDelegate.willDismiss(self)
 		}
+		super.willMove(toParent: parent)
 	}
 
 
@@ -71,6 +63,7 @@ class PhrasesListViewController : UIViewController {
 
 
 	private func refresh() {
+		flagButton.isSelected = !Settings.language.preferBase
 		let fridge = Model.Fridge<Model.Phrase>(FileUtils.getDirectory(.phrases))
 		items = fridge.fetch()
 		tableView.reloadData()
@@ -84,7 +77,6 @@ class PhrasesListViewController : UIViewController {
 
 	@IBAction func toggleLanguage() {
 		Settings.language.preferBase.toggle()
-		flagButton.isSelected = !Settings.language.preferBase
 		refresh()
 	}
 
@@ -116,13 +108,14 @@ extension PhrasesListViewController : UITableViewDataSource {
 			cell = PhraseCell()
 		}
 		let preferBase = Settings.language.preferBase
-		cell?.prepare(for: phrase, preferBaseLanguage: preferBase)
+		cell?.prepare(for: phrase, at: indexPath.row + 1, preferBaseLanguage: preferBase)
 		return cell!
 	}
 
 
-	private func getCellIdentifier(for egg: Model.Phrase) -> String {
-		return "phrase.complete"
+	private func getCellIdentifier(for phrase: Model.Phrase) -> String {
+
+		return phrase.isComplete ? "phrase.complete" : "phrase.incomplete"
 	}
 
 
