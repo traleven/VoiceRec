@@ -98,6 +98,7 @@ class LessonPhrasesViewController: NoodlesViewController {
 		nameField.text = lesson.name
 		phraseCount?.text = "\(lesson.phraseCount)"
 		languageButton?.isSelected = !Settings.language.preferBase
+		activateCorrectWarning()
 		tableView.reloadData()
 	}
 
@@ -105,6 +106,23 @@ class LessonPhrasesViewController: NoodlesViewController {
 	private func refresh(_ lesson: Model.Recipe) {
 		self.lesson = lesson
 		refresh()
+	}
+
+
+	private func activateCorrectWarning() {
+		if lesson.music == nil {
+			noMusicWarning?.isHidden = false
+			unusablePhrasesWarning?.isHidden = true
+			livePreviewGroup?.isHidden = true
+		} else if lesson.contains(where: { !Model.Phrase(id: $0).isComplete }) {
+			noMusicWarning?.isHidden = true
+			unusablePhrasesWarning?.isHidden = false
+			livePreviewGroup?.isHidden = true
+		} else {
+			noMusicWarning?.isHidden = true
+			unusablePhrasesWarning?.isHidden = true
+			livePreviewGroup?.isHidden = false
+		}
 	}
 
 
