@@ -51,10 +51,26 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 		}
 
 		let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
-		do {
-			try audioSession.setCategory(.playAndRecord, mode: .default, policy: .default, options: [.mixWithOthers, .allowBluetooth, .allowAirPlay, .defaultToSpeaker])
-			try audioSession.setActive(true)
+		if audioSession.category != .playAndRecord
+			|| audioSession.mode != .default
+			|| audioSession.routeSharingPolicy != .default
+			|| !audioSession.categoryOptions.isSuperset(of: [.mixWithOthers, .allowBluetooth, .allowAirPlay, .defaultToSpeaker]) {
 
+			do {
+				try audioSession.setCategory(
+					.playAndRecord,
+					mode: .default,
+					policy: .default,
+					options: [.mixWithOthers, .allowBluetooth, .allowAirPlay, .defaultToSpeaker]
+				)
+				try audioSession.setActive(true)
+			} catch let error {
+				NSLog("Failed to activate audio session: \(error.localizedDescription)")
+				return false
+			}
+		}
+
+		do {
 			audioPlayer = try AVAudioPlayer(contentsOf: url!)
 			audioPlayer!.delegate = self
 			audioPlayer!.isMeteringEnabled = false
@@ -63,7 +79,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 
 		} catch let error {
 
-			NSLog(error.localizedDescription)
+			NSLog("Failed to play audio file \(url?.relativePath ?? url?.debugDescription ?? "'nil'"): \(error.localizedDescription)")
 			return false
 
 		}

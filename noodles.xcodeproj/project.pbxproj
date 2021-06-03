@@ -51,6 +51,12 @@
 		DB55A8012664F90400CD963E /* LessonPhraseSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A8002664F90400CD963E /* LessonPhraseSelectorViewController.swift */; };
 		DB55A8042664F9BA00CD963E /* NoodlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A8032664F9BA00CD963E /* NoodlesViewController.swift */; };
 		DB55A8072666B08200CD963E /* CommonDelegateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A8062666B08200CD963E /* CommonDelegateExtensions.swift */; };
+		DB79CAA8266788E600CDB01F /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAA7266788E600CDB01F /* MusicCell.swift */; };
+		DB79CAAB2667E82400CDB01F /* DispatchQueueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAAA2667E82400CDB01F /* DispatchQueueUtils.swift */; };
+		DB79CAAE2668D22B00CDB01F /* LessonMusicDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAAD2668D22B00CDB01F /* LessonMusicDirector.swift */; };
+		DB79CAB12669146800CDB01F /* LessonPhraseSelectorDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAB02669146800CDB01F /* LessonPhraseSelectorDirector.swift */; };
+		DB79CAB42669156A00CDB01F /* LessonPhrasesDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAB32669156A00CDB01F /* LessonPhrasesDirector.swift */; };
+		DB79CAB726691BB900CDB01F /* PhraseEditDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAB626691BB900CDB01F /* PhraseEditDirector.swift */; };
 		DBCF76A5265E612B00D80A6B /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76A4265E612B00D80A6B /* VerticalButton.swift */; };
 		DBCF76A8265E948500D80A6B /* KitchenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */; };
 		DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */; };
@@ -72,7 +78,6 @@
 		DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67F8264942CE00B99539 /* InboxListViewController.swift */; };
 		DBDC67FE264A8AEE00B99539 /* InboxTextEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */; };
 		DBDC68022656B3C200B99539 /* InboxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC68012656B3C200B99539 /* InboxDelegate.swift */; };
-		DBDC68052656B62000B99539 /* PrhaseEditDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC68042656B62000B99539 /* PrhaseEditDelegate.swift */; };
 		DBE8E07226614E2100E48470 /* PhraseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8E07126614E2100E48470 /* PhraseEditViewController.swift */; };
 		DBE8E0752662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -156,6 +161,12 @@
 		DB55A8002664F90400CD963E /* LessonPhraseSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPhraseSelectorViewController.swift; sourceTree = "<group>"; };
 		DB55A8032664F9BA00CD963E /* NoodlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoodlesViewController.swift; sourceTree = "<group>"; };
 		DB55A8062666B08200CD963E /* CommonDelegateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDelegateExtensions.swift; sourceTree = "<group>"; };
+		DB79CAA7266788E600CDB01F /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
+		DB79CAAA2667E82400CDB01F /* DispatchQueueUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueUtils.swift; sourceTree = "<group>"; };
+		DB79CAAD2668D22B00CDB01F /* LessonMusicDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonMusicDirector.swift; sourceTree = "<group>"; };
+		DB79CAB02669146800CDB01F /* LessonPhraseSelectorDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPhraseSelectorDirector.swift; sourceTree = "<group>"; };
+		DB79CAB32669156A00CDB01F /* LessonPhrasesDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPhrasesDirector.swift; sourceTree = "<group>"; };
+		DB79CAB626691BB900CDB01F /* PhraseEditDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEditDirector.swift; sourceTree = "<group>"; };
 		DBCF76A4265E612B00D80A6B /* VerticalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
 		DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenTabViewController.swift; sourceTree = "<group>"; };
 		DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesListViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +188,6 @@
 		DBDC67F8264942CE00B99539 /* InboxListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListViewController.swift; sourceTree = "<group>"; };
 		DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTextEditViewController.swift; sourceTree = "<group>"; };
 		DBDC68012656B3C200B99539 /* InboxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxDelegate.swift; sourceTree = "<group>"; };
-		DBDC68042656B62000B99539 /* PrhaseEditDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrhaseEditDelegate.swift; sourceTree = "<group>"; };
 		DBE8E07126614E2100E48470 /* PhraseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEditViewController.swift; sourceTree = "<group>"; };
 		DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnKeyTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -319,6 +329,7 @@
 				DB413A3C2643D8DA0035D952 /* NotificationUtils.swift */,
 				DB413A3D2643D8DA0035D952 /* FileUtils.swift */,
 				DB413A3E2643D8DA0035D952 /* DataUtils.swift */,
+				DB79CAAA2667E82400CDB01F /* DispatchQueueUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -386,6 +397,10 @@
 			children = (
 				DBCF76A4265E612B00D80A6B /* VerticalButton.swift */,
 				DBCF76B626602B7B00D80A6B /* GradientHorizontalProgressBar.swift */,
+				DBDC67E626443DCB00B99539 /* InboxCell.swift */,
+				DBCF76AD265FD12E00D80A6B /* PhraseCell.swift */,
+				DBCF76B3266009B600D80A6B /* LessonCell.swift */,
+				DB79CAA7266788E600CDB01F /* MusicCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -410,7 +425,11 @@
 				DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */,
 				DBDC67EA2646D83200B99539 /* InboxDirector.swift */,
 				DBCF76BD2661134900D80A6B /* PhrasesDirector.swift */,
+				DB79CAB626691BB900CDB01F /* PhraseEditDirector.swift */,
 				DBCF76C026611BEA00D80A6B /* LessonsDirector.swift */,
+				DB79CAB32669156A00CDB01F /* LessonPhrasesDirector.swift */,
+				DB79CAB02669146800CDB01F /* LessonPhraseSelectorDirector.swift */,
+				DB79CAAD2668D22B00CDB01F /* LessonMusicDirector.swift */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -419,7 +438,6 @@
 			isa = PBXGroup;
 			children = (
 				DBDC68012656B3C200B99539 /* InboxDelegate.swift */,
-				DBDC68042656B62000B99539 /* PrhaseEditDelegate.swift */,
 				DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */,
 				DB55A8062666B08200CD963E /* CommonDelegateExtensions.swift */,
 			);
@@ -442,7 +460,6 @@
 			children = (
 				DBDC67F8264942CE00B99539 /* InboxListViewController.swift */,
 				DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */,
-				DBDC67E626443DCB00B99539 /* InboxCell.swift */,
 			);
 			path = Inbox;
 			sourceTree = "<group>";
@@ -452,7 +469,6 @@
 			children = (
 				DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */,
 				DBE8E07126614E2100E48470 /* PhraseEditViewController.swift */,
-				DBCF76AD265FD12E00D80A6B /* PhraseCell.swift */,
 			);
 			path = Phrase;
 			sourceTree = "<group>";
@@ -461,7 +477,6 @@
 			isa = PBXGroup;
 			children = (
 				DBCF76B02660091A00D80A6B /* LessonsListViewController.swift */,
-				DBCF76B3266009B600D80A6B /* LessonCell.swift */,
 				DB55A7F72664F89900CD963E /* LessonPhrasesViewController.swift */,
 				DB55A7FA2664F8B100CD963E /* LessonMusicViewController.swift */,
 				DB55A7FD2664F8CE00CD963E /* LessonExportViewController.swift */,
@@ -582,6 +597,7 @@
 				DBE8E0752662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift in Sources */,
 				DB413A352643D8CD0035D952 /* Model.Egg.swift in Sources */,
 				DB413A312643D8CD0035D952 /* Spices.swift in Sources */,
+				DB79CAAB2667E82400CDB01F /* DispatchQueueUtils.swift in Sources */,
 				DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */,
 				DB55A7FE2664F8CE00CD963E /* LessonExportViewController.swift in Sources */,
 				DBE8E07226614E2100E48470 /* PhraseEditViewController.swift in Sources */,
@@ -594,9 +610,9 @@
 				DB413A262643D8CD0035D952 /* Model.Phrase.swift in Sources */,
 				DBCF76AE265FD12E00D80A6B /* PhraseCell.swift in Sources */,
 				DBDC67EE2646D84200B99539 /* Director.swift in Sources */,
-				DBDC68052656B62000B99539 /* PrhaseEditDelegate.swift in Sources */,
 				DB413A4B2643D8DA0035D952 /* PersistentObject.swift in Sources */,
 				DB55A8012664F90400CD963E /* LessonPhraseSelectorViewController.swift in Sources */,
+				DB79CAB42669156A00CDB01F /* LessonPhrasesDirector.swift in Sources */,
 				DB413A292643D8CD0035D952 /* Model.Recipe.swift in Sources */,
 				DB413A0E2643D8BF0035D952 /* ExportComposer.swift in Sources */,
 				DBCF76A5265E612B00D80A6B /* VerticalButton.swift in Sources */,
@@ -604,8 +620,10 @@
 				DB413A362643D8CD0035D952 /* Model.Noodle.swift in Sources */,
 				DBCF76A8265E948500D80A6B /* KitchenTabViewController.swift in Sources */,
 				DB413A452643D8DA0035D952 /* CSS.swift in Sources */,
+				DB79CAAE2668D22B00CDB01F /* LessonMusicDirector.swift in Sources */,
 				DB413A282643D8CD0035D952 /* Model.swift in Sources */,
 				DB413A4D2643D8DA0035D952 /* DB.swift in Sources */,
+				DB79CAB726691BB900CDB01F /* PhraseEditDirector.swift in Sources */,
 				DB55A7FB2664F8B100CD963E /* LessonMusicViewController.swift in Sources */,
 				DBCF76B12660091A00D80A6B /* LessonsListViewController.swift in Sources */,
 				DBDC68022656B3C200B99539 /* InboxDelegate.swift in Sources */,
@@ -613,6 +631,8 @@
 				DB4133332643D5650035D952 /* AppDelegate.swift in Sources */,
 				DBDC67F12646D84C00B99539 /* Router.swift in Sources */,
 				DBDC67EB2646D83200B99539 /* InboxDirector.swift in Sources */,
+				DB79CAA8266788E600CDB01F /* MusicCell.swift in Sources */,
+				DB79CAB12669146800CDB01F /* LessonPhraseSelectorDirector.swift in Sources */,
 				DB413A342643D8CD0035D952 /* Model.Fridge.swift in Sources */,
 				DB413A0C2643D8BF0035D952 /* AudioPlayer.swift in Sources */,
 				DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */,

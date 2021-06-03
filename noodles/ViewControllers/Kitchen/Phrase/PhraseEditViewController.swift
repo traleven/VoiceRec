@@ -104,26 +104,16 @@ class PhraseEditViewController: NoodlesViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		refresh()
 
-		let notificationCenter = NotificationCenter.default
-		notificationCenter.addObserver(self, selector: #selector(onAppMoveToBackground), name: UIApplication.willResignActiveNotification, object: nil)
-
 		super.viewWillAppear(animated)
 	}
 
 
-	@objc private func onAppMoveToBackground() {
+	override func viewWillDisappearOrMinimize() {
 		updateContent()
 		save()
 		flowDelegate.stopAllAudio()
-	}
-
-
-	override func viewWillDisappear(_ animated: Bool) {
-		onAppMoveToBackground()
-		let notificationCenter = NotificationCenter.default
-		notificationCenter.removeObserver(self, name: UIApplication.willResignActiveNotification, object: nil)
-
-		super.viewWillDisappear(animated)
+		
+		super.viewWillDisappearOrMinimize()
 	}
 
 

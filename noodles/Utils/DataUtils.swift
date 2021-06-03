@@ -43,7 +43,7 @@ extension Date {
 
 extension TimeInterval {
 	func toMinutesTimeString() -> String {
-		return String(format: "%02d:%02d", Int(self / 60), Int(self.remainder(dividingBy: 60)))
+		return String(format: "%02d:%02d", Int(self / 60), Int(self.truncatingRemainder(dividingBy: 60)))
 	}
 }
 
@@ -71,12 +71,21 @@ extension URL {
 		return relComponents.joined(separator: "/")
 	}
 
+	var lastPathComponentWithoutExtension: String {
+		self.deletingPathExtension().lastPathComponent
+	}
+
 	func loadAsyncDuration(_ onValueLoaded: @escaping (TimeInterval) -> Void) {
 		let audioAsset = AVURLAsset.init(url: self);
 		audioAsset.loadValuesAsynchronously(forKeys: ["duration"]) {
-			let avduration = audioAsset.duration
-			DispatchQueue.main.async {
-				onValueLoaded(avduration.seconds)
+			switch audioAsset.statusOfValue(forKey: "duration", error: nil) {
+			case .loaded:
+				let avduration = audioAsset.duration
+				DispatchQueue.runOnMain {
+					onValueLoaded(avduration.seconds)
+				}
+			default:
+				return
 			}
 		}
 	}

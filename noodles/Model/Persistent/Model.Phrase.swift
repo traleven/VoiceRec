@@ -25,9 +25,12 @@ extension Model {
 		private(set) var id : URL
 		private var meta : Meta
 		var name : String {
+			let preferBase = Settings.language.preferBase
 			let base = Settings.language.base
 			let target = Settings.language.target
-			return meta.text[base] ?? meta.text[target] ?? ""
+			let first = preferBase ? base : target
+			let second = preferBase ? target : base
+			return meta.text[first] ?? meta.text[second] ?? ""
 		}
 		var comment : String {
 			get { meta.comment ?? "" }

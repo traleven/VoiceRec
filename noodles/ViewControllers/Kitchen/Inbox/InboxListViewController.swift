@@ -88,7 +88,7 @@ class InboxListViewController : NoodlesViewController, FlowControlable {
 
 		let router = NavigationControllerRouter(controller: self.navigationController!)
 		let director = InboxDirector(router: router)
-		self.flowDelegate = director!
+		self.flowDelegate = director
 	}
 
 

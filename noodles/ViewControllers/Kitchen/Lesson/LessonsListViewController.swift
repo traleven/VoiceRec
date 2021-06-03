@@ -50,7 +50,7 @@ class LessonsListViewController : NoodlesViewController {
 
 		let router = NavigationControllerRouter(controller: self.navigationController!)
 		let director = LessonsDirector(router: router)
-		self.flowDelegate = director!
+		self.flowDelegate = director
 	}
 
 

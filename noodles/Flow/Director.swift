@@ -16,7 +16,7 @@ class DefaultDirector: NSObject, Director {
 
 	var router: Router
 
-	init?(router: Router) {
+	init(router: Router) {
 		self.router = router
 	}
 

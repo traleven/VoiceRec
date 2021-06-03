@@ -12,7 +12,7 @@ protocol LessonPhraseSelectorViewFlowDelegate: Director {
 
 }
 
-protocol LessonPhraseSelectorViewControlDelegate: LessonPhrasesViewFlowDelegate {
+protocol LessonPhraseSelectorViewControlDelegate: LessonPhraseSelectorViewFlowDelegate {
 	typealias ModelRefreshHandle = (Model.Recipe) -> Void
 
 	func confirm(_ lesson: Model.Recipe, _ confirm: (Model.Recipe) -> Void)

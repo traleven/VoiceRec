@@ -10,8 +10,8 @@ import UIKit
 protocol LessonPhrasesViewFlowDelegate: Director {
 	typealias ModelRefreshHandle = (Model.Recipe) -> Void
 
-	func openMusicPage()
-	func openExportPage()
+	func openMusicPage(_ lesson: Model.Recipe, _ refresh: @escaping ModelRefreshHandle)
+	func openExportPage(_ lesson: Model.Recipe, _ refresh: @escaping ModelRefreshHandle)
 }
 
 protocol LessonPhrasesViewControlDelegate: LessonPhrasesViewFlowDelegate {
@@ -69,6 +69,7 @@ class LessonPhrasesViewController: NoodlesViewController {
 
 
 	override func willMove(toParent parent: UIViewController?) {
+		
 		if (parent == nil) {
 			flowDelegate.willDismiss(self)
 		}
@@ -76,7 +77,14 @@ class LessonPhrasesViewController: NoodlesViewController {
 	}
 
 
+	override func viewWillDisappearOrMinimize() {
+
+		flowDelegate.stopLivePreview(lesson)
+		super.viewWillDisappearOrMinimize()
+	}
+
 	override func viewWillDisappear(_ animated: Bool) {
+
 		flowDelegate.save(lesson)
 		super.viewWillDisappear(animated)
 	}
@@ -88,6 +96,7 @@ class LessonPhrasesViewController: NoodlesViewController {
 
 
 	init?(coder: NSCoder, flow: LessonPhrasesViewControlDelegate, lesson: Model.Recipe) {
+
 		self.flowDelegate = flow
 		self.lesson = lesson
 		super.init(coder: coder)
@@ -95,6 +104,7 @@ class LessonPhrasesViewController: NoodlesViewController {
 
 
 	private func refresh() {
+
 		nameField.text = lesson.name
 		phraseCount?.text = "\(lesson.phraseCount)"
 		languageButton?.isSelected = !Settings.language.preferBase
@@ -104,12 +114,14 @@ class LessonPhrasesViewController: NoodlesViewController {
 
 
 	private func refresh(_ lesson: Model.Recipe) {
+
 		self.lesson = lesson
 		refresh()
 	}
 
 
 	private func activateCorrectWarning() {
+
 		if lesson.music == nil {
 			noMusicWarning?.isHidden = false
 			unusablePhrasesWarning?.isHidden = true
@@ -152,6 +164,7 @@ class LessonPhrasesViewController: NoodlesViewController {
 
 
 	@IBAction func toggleLanguage(_ sender: UIControl) {
+
 		Settings.language.preferBase.toggle()
 		refresh()
 	}
@@ -159,13 +172,13 @@ class LessonPhrasesViewController: NoodlesViewController {
 
 	@IBAction func goToMusicPage() {
 
-		flowDelegate.openMusicPage()
+		flowDelegate.openMusicPage(lesson, refresh(_:))
 	}
 
 
 	@IBAction func goToExportPage() {
 
-		flowDelegate.openExportPage()
+		flowDelegate.openExportPage(lesson, refresh(_:))
 	}
 }
 
@@ -177,6 +190,7 @@ extension LessonPhrasesViewController : UITableViewDataSource {
 
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
 		let phrase = Model.Phrase(id: lesson[indexPath.row])
 		let cellId = getCellIdentifier(for: phrase)
 

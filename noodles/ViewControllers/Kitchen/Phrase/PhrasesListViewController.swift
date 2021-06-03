@@ -52,7 +52,7 @@ class PhrasesListViewController : NoodlesViewController {
 
 		let router = NavigationControllerRouter(controller: self.navigationController!)
 		let director = PhrasesDirector(router: router)
-		self.flowDelegate = director!
+		self.flowDelegate = director
 	}
 
 

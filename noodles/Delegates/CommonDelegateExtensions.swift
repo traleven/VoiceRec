@@ -27,8 +27,26 @@ extension AudioPlayerImplementation {
 		players[url] = player
 	}
 
+	func playAudio(_ url: URL, at alias: URL, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) {
+
+		if let player = players[alias] {
+			player.stop()
+		}
+		let player = AudioPlayer(url)
+		player.play(onProgress: { progress?($0, $1) }) { [weak self] (result: Bool) in
+			finish?(result)
+			self?.players.removeValue(forKey: alias)
+		}
+		players[alias] = player
+
+	}
+
 	func playAudio(_ noodle: Model.Noodle, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) {
 		playAudio(noodle.makeIterator(), progress: progress, finish: finish)
+	}
+
+	func playAudio(_ noodle: Model.Noodle, at alias: URL, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) {
+		playAudio(noodle.makeIterator(), at: alias, progress: progress, finish: finish)
 	}
 
 	fileprivate func playAudio<Iterator: IteratorProtocol>(_ iterator: Iterator, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) where Iterator.Element == URL {
@@ -37,6 +55,19 @@ extension AudioPlayerImplementation {
 			playAudio(url, progress: progress, finish: { (result: Bool) -> Void in
 				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Settings.phrase.delay.inner) {
 					self.playAudio(iterator, progress: progress, finish: finish)
+				}
+			})
+		} else {
+			finish?(true)
+		}
+	}
+
+	fileprivate func playAudio<Iterator: IteratorProtocol>(_ iterator: Iterator, at alias: URL, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) where Iterator.Element == URL {
+		var iterator = iterator
+		if let url = iterator.next() {
+			playAudio(url, at: alias, progress: progress, finish: { (result: Bool) -> Void in
+				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Settings.phrase.delay.inner) {
+					self.playAudio(iterator, at: alias, progress: progress, finish: finish)
 				}
 			})
 		} else {

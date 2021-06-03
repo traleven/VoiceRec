@@ -10,7 +10,11 @@ import Foundation
 extension Model {
 	/// A conteiner of all the required ingridients used
 	/// to cook a `Bowl` of `Noodle`s
-	struct Recipe : Equatable, GlobalIdentifiable, IdInitializable, Traversable, Savable, Sequence {
+	struct Recipe : Equatable, GlobalIdentifiable, IdInitializable, Traversable, Savable, Sequence, Collection {
+		var startIndex: Int { 0 }
+		var endIndex: Int { self.phraseCount - 1 }
+		func index(after i: Int) -> Int { (i + 1) % phraseCount }
+		func index(before i: Int) -> Int { (i + phraseCount - 1) % phraseCount }
 
 		static func getBy(id: URL) -> Self? {
 			return Self(id: id)
