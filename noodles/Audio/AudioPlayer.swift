@@ -9,6 +9,8 @@
 import Foundation
 import AVKit
 
+typealias PlayerProgressCallback = (TimeInterval, TimeInterval) -> Void
+
 class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 
 	var url: URL?
@@ -28,7 +30,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 		url != nil
 	}
 
-	var onProgress: ((TimeInterval, TimeInterval) -> Void)?
+	var onProgress: PlayerProgressCallback?
 	var onComplete: ((Bool) -> Void)?
 
 	init(_ url: URL?) {
@@ -87,7 +89,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 	}
 
 
-	func play(onProgress: @escaping (TimeInterval, TimeInterval) -> Void, onFinish: @escaping (Bool) -> Void) {
+	func play(onProgress: @escaping PlayerProgressCallback, onFinish: @escaping (Bool) -> Void) {
 
 		self.onProgress = onProgress
 		self.onComplete = onFinish

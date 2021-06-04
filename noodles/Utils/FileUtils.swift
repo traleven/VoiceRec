@@ -258,7 +258,7 @@ class FileUtils {
 
 	class func PrepareDefaultData() {
 		let filemgr = FileManager.default
-		if !filemgr.fileExists(atPath: getDocumentsDirectory().appendingPathComponent(Directories.inbox.rawValue).path) {
+		if !filemgr.fileExists(atPath: getDirectory(.inbox).path) {
 			let resourcePath = getDefaultsDirectory()
 			let documentsPath = getDocumentsDirectory()
 			let propertyKeys : [URLResourceKey] = [.isDirectoryKey, .isReadableKey, .nameKey, .pathKey]

@@ -8,18 +8,19 @@
 import UIKit
 
 protocol LessonMusicViewFlowDelegate: Director {
+	typealias ModelRefreshHandle = (Model.Recipe) -> Void
 
 	func openPhrases(_ lesson: Model.Recipe)
-	func openExport(_ lesson: Model.Recipe)
+	func openExport(_ lesson: Model.Recipe, _ refresh: ModelRefreshHandle?)
 }
 
 protocol LessonMusicViewControlDelegate: LessonMusicViewFlowDelegate {
 	typealias ModelRefreshHandle = (Model.Recipe) -> Void
 
 	func selectMusic(_ url: URL, for lesson: Model.Recipe, _ refresh: ModelRefreshHandle)
-	func playMusic(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
+	func playMusic(_ url: URL, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?)
 	func stopMusic()
-	func play(_ phrase: Model.Phrase, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
+	func play(_ phrase: Model.Phrase, of shape: Shape, with spices: Spices, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?)
 	func stop(_ phrase: Model.Phrase)
 	func stopAllAudio()
 
@@ -116,7 +117,7 @@ class LessonMusicViewController: NoodlesViewController {
 	}
 
 
-	private func refresh(_ lesson: Model.Recipe) {
+	func refresh(_ lesson: Model.Recipe) {
 
 		self.lesson = lesson
 		refresh()
@@ -153,7 +154,7 @@ class LessonMusicViewController: NoodlesViewController {
 	@IBAction func previewPhrase() {
 
 		if let phrase = phrase {
-			flowDelegate.play(phrase, progress: nil, finish: nil)
+			flowDelegate.play(phrase, of: lesson.shape, with: lesson.spices, progress: nil, finish: nil)
 		}
 	}
 
@@ -202,7 +203,7 @@ class LessonMusicViewController: NoodlesViewController {
 
 	@IBAction func goToExport() {
 
-		flowDelegate.openExport(lesson)
+		flowDelegate.openExport(lesson, refresh(_:))
 	}
 }
 

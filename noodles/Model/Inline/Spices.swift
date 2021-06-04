@@ -12,7 +12,7 @@ import Foundation
 struct Spices : Codable {
 	var musicVolume: Float = 0.5
 	var voiceVolume: Float = 0.8
-	var delayBetween: Double = 3
-	var delayWithin: Double = 1
+	var delayBetween: Float = 3
+	var delayWithin: Float = 1
 	var randomize: Bool = true
 }

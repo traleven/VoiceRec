@@ -10,14 +10,9 @@ import Foundation
 
 class DB: NSObject {
 
-	static var settings: UserDefaults! = UserDefaults.init(suiteName: "settings")
-
-	static var phrases: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("phrases.json", isDirectory: false), andDefaultValue: "")
-
-	static var music: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("music.json", isDirectory: false), andDefaultValue: "")
-
 	static var options: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("options.json", isDirectory: false), andDefaultValue: "")
 
+	static var numerics: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("numerics.json", isDirectory: false), andDefaultValue: Float(0.5))
 
 	static var presets: ArrayDB! = ArrayDB(withUrl:FileUtils.getDocumentsDirectory().appendingPathComponent("presets.json", isDirectory: false))
 
@@ -28,41 +23,47 @@ class DB: NSObject {
 		super.init()
 	}
 
-	func flush() {
+	open func flush() {
 	}
 }
 
 
 class Settings {
+	class func saveAll() {
+		DB.options.flush()
+		DB.numerics.flush()
+		DB.presets.flush()
+	}
+
 	class music {
 		static var volume: Float {
-			get { return DB.settings.float(forKey: "music.volume") }
-			set { DB.settings.set(newValue, forKey: "music.volume") }
+			get { return DB.numerics.getValue(forKey: "music.volume") }
+			set { DB.numerics.setValue(newValue, forKey: "music.volume") }
 		}
 	}
 	class voice {
 		static var volume: Float {
-			get { return DB.settings.float(forKey: "voice.volume") }
-			set { DB.settings.set(newValue, forKey: "voice.volume") }
+			get { return DB.numerics.getValue(forKey: "voice.volume") }
+			set { DB.numerics.setValue(newValue, forKey: "voice.volume") }
 		}
 	}
 	class phrase {
 		static var random: Bool {
-			get { return DB.settings.bool(forKey: "phrase.random") }
-			set { DB.settings.set(newValue, forKey: "phrase.random") }
+			get { return DB.options.getValue(forKey: "phrase.random") != "NO" }
+			set { DB.options.setValue(newValue ? "YES" : "NO", forKey: "phrase.random") }
 		}
 		static var defaultShape: Shape {
 			get { return Shape(dna: DB.options.getValue(forKey: "lesson.defaultShape")) }
 			set { DB.options.setValue(forKey: "lesson.defaultShape", value: newValue.dna) }
 		}
 		class delay {
-			static var inner: Double {
-				get { return DB.settings.double(forKey: "phrase.delay.inner") }
-				set { DB.settings.set(newValue, forKey: "phrase.delay.inner") }
+			static var inner: Float {
+				get { return DB.numerics.getValue(forKey: "phrase.delay.inner") }
+				set { DB.numerics.setValue(newValue, forKey: "phrase.delay.inner") }
 			}
-			static var outer: Double {
-				get { return DB.settings.double(forKey: "phrase.delay.outer") }
-				set { DB.settings.set(newValue, forKey: "phrase.delay.outer") }
+			static var outer: Float {
+				get { return DB.numerics.getValue(forKey: "phrase.delay.outer") }
+				set { DB.numerics.setValue(newValue, forKey: "phrase.delay.outer") }
 			}
 		}
 	}
@@ -74,17 +75,13 @@ class Settings {
 		static var base: Language {
 			get { return Language(withCode: DB.options.getValue(forKey: "language.base")) }
 			set { DB.options.setValue(forKey: "language.base", value: newValue.code) }
-//			get { return DB.settings.string(forKey: "language.native") ?? "English" }
-//			set { DB.settings.set(newValue, forKey: "language.native") }
 		}
 		static var target: Language {
 			get { return Language(withCode: DB.options.getValue(forKey: "language.target")) }
 			set { DB.options.setValue(forKey: "language.target", value: newValue.code) }
-//			get { return DB.settings.string(forKey: "language.foreign") ?? "Chinese" }
-//			set { DB.settings.set(newValue, forKey: "language.foreign") }
 		}
 		class func getLanguage(_ languageCode: Character) -> Language {
-			return languageCode == "E" || languageCode == "N" || languageCode == "B" ? base : target
+			return languageCode == "E" || languageCode == "N" || languageCode == "A" ? base : target
 		}
 		class func getLanguage(_ language: String) -> Language {
 			return language == "Base" ? base : language == "Target" ? target : Language(withCode: language)

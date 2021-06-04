@@ -23,6 +23,9 @@ class ArrayDB : DB {
 		}
 	}
 
+	subscript(_ idx: Int) -> String {
+		data[idx]
+	}
 
 	override func flush() {
 
@@ -35,4 +38,11 @@ class ArrayDB : DB {
 			NSLog(error.localizedDescription)
 		}
 	}
+}
+
+extension ArrayDB: Collection {
+	var startIndex: Int { data.startIndex }
+	var endIndex: Int { data.endIndex }
+
+	func index(after i: Int) -> Int { i + 1 }
 }

@@ -19,7 +19,7 @@ protocol LessonPhrasesViewControlDelegate: LessonPhrasesViewFlowDelegate {
 
 	func selectPhrases(for lesson: Model.Recipe, _ refresh: @escaping ModelRefreshHandle)
 	func createPhrase(for lesson: Model.Recipe, _ refresh: @escaping ModelRefreshHandle)
-	func play(phrase: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, result: ((Bool) -> Void)?)
+	func play(phrase: URL, of shape: Shape, with spices: Spices, progress: ((TimeInterval, TimeInterval) -> Void)?, result: ((Bool) -> Void)?)
 	func startLivePreview(_ lesson: Model.Recipe, _ onFinish: @escaping () -> Void)
 	func stopLivePreview(_ lesson: Model.Recipe)
 	func remove(phrase: URL, from lesson: Model.Recipe, _ refresh: ModelRefreshHandle)
@@ -226,7 +226,7 @@ extension LessonPhrasesViewController : UITableViewDelegate {
 		let phrase = self.lesson[indexPath.row]
 		let playAction = UIContextualAction(style: .normal, title: "Play", handler: { [self] (action: UIContextualAction, view: UIView, handler: @escaping (Bool) -> Void) in
 
-				self.flowDelegate.play(phrase: phrase, progress: nil, result: nil)
+				self.flowDelegate.play(phrase: phrase, of: lesson.shape, with: lesson.spices, progress: nil, result: nil)
 				handler(true)
 			})
 		playAction.backgroundColor = .systemGreen

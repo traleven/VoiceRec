@@ -44,6 +44,19 @@ extension Model {
 				}
 			}
 		}
+		var shape: Shape {
+			get { meta.shape }
+			set { meta.shape = newValue }
+		}
+		var shapeString: String {
+			get { meta.shape.dna }
+			set { meta.shape = Shape(dna: newValue) }
+		}
+
+		var spices: Spices {
+			get { meta.spices }
+			set { meta.spices = newValue }
+		}
 
 		struct Meta : Codable {
 			var name : String = ""

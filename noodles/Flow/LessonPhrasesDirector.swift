@@ -30,14 +30,24 @@ extension LessonPhrasesDirector : LessonPhrasesViewFlowDelegate {
 		}
 
 		let director = LessonsMusicDirector(router: router)
-		let viewController = director.makeViewController(lesson: lesson, confirm: refresh)
-		router.push(viewController, onDismiss: nil)
+		let tuple = director.makeViewController(lesson: lesson, confirm: refresh)
+		router.push(tuple.0, onDismiss: nil)
 		return true
 	}
 
 
 	func openExportPage(_ lesson: Model.Recipe, _ refresh: @escaping (Model.Recipe) -> Void) -> Bool {
-		return false
+		
+		if lesson.contains(where: { !Model.Phrase(id: $0).isComplete }) {
+			return false
+		}
+
+		let director = LessonsMusicDirector(router: router)
+		let tuple = director.makeViewController(lesson: lesson, confirm: refresh)
+		router.push(tuple.0, onDismiss: nil)
+
+		director.openExport(lesson, tuple.1)
+		return true
 	}
 }
 
@@ -67,12 +77,11 @@ extension LessonPhrasesDirector : LessonPhrasesViewControlDelegate {
 	}
 
 
-	func play(phrase: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, result: ((Bool) -> Void)?) {
+	func play(phrase: URL, of shape: Shape, with spices: Spices, progress: PlayerProgressCallback?, result: ((Bool) -> Void)?) {
 
 		let phrase = Model.Phrase(id: phrase)
-		let shape = Shape(dna: Settings.language.preferBase ? "AB" : "BA")
 		let noodle = Model.Noodle(phrase: phrase, shape: shape)
-		playAudio(noodle, progress: progress, finish: result)
+		playAudio(noodle, with: spices.delayWithin, progress: progress, finish: result)
 	}
 
 

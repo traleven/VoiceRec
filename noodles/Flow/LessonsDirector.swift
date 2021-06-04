@@ -10,6 +10,12 @@ import UIKit
 protocol LessonSaveImplementation {
 }
 
+protocol ModelRefreshable {
+	associatedtype TModel
+
+	func refresh(_ model: TModel)
+}
+
 class LessonsDirector: DefaultDirector, AudioPlayerImplementation, LessonSaveImplementation {
 
 	var players: [URL: AudioPlayer] = [:]

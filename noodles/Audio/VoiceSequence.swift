@@ -37,7 +37,7 @@ class VoiceSequence: NSObject {
 		}, onFinish: {
 			(_ success: Bool) in
 			if success {
-				self.wait(forInterval: Settings.phrase.delay.inner, then: {then(true)})
+				self.wait(forInterval: TimeInterval(Settings.phrase.delay.inner), then: {then(true)})
 			} else {
 				then(false)
 			}
@@ -49,7 +49,7 @@ class VoiceSequence: NSObject {
 	func playSequence(then: @escaping (Bool) -> Void) {
 
 		NSLog("Play \(phrase)")
-		play(sequence: DB.phrases.getValue(forKey: phrase), then: then)
+		//play(sequence: DB.phrases.getValue(forKey: phrase), then: then)
 	}
 
 
@@ -71,7 +71,7 @@ class VoiceSequence: NSObject {
 				}
 			}
 		} else {
-			wait(forInterval: Settings.phrase.delay.outer, then: { then(true) })
+			wait(forInterval: TimeInterval(Settings.phrase.delay.outer), then: { then(true) })
 		}
 	}
 
@@ -105,26 +105,26 @@ class VoiceSequence: NSObject {
 
 	func tryPlayInto(_ compositionTrack: AVMutableCompositionTrack, at:CMTime, before:CMTime) -> Bool {
 
-		let native = VoiceSequence.buildVoiceURL(phrase, language: Settings.language.base)
-		let foreign = VoiceSequence.buildVoiceURL(phrase, language: Settings.language.target)
-
-		let sequence = Array(DB.phrases.getValue(forKey: phrase))
-		var position = at + CMTime(seconds: Settings.phrase.delay.outer, preferredTimescale: at.timescale)
-		for code in sequence {
-
-			let newAsset = AVURLAsset(url: code == "N" || code == "E" ? native : foreign)
-			if position.seconds + newAsset.duration.seconds > before.seconds {
-				return false
-			}
-
-			let range = CMTimeRangeMake(start: CMTime.zero, duration: newAsset.duration)
-			if let track = newAsset.tracks(withMediaType: AVMediaType.audio).first {
-				try! compositionTrack.insertTimeRange(range, of: track, at: position)
-			}
-			position = position + CMTime(seconds: Settings.phrase.delay.inner, preferredTimescale: position.timescale)
-			position = position + newAsset.duration
-
-		}
+//		let native = VoiceSequence.buildVoiceURL(phrase, language: Settings.language.base)
+//		let foreign = VoiceSequence.buildVoiceURL(phrase, language: Settings.language.target)
+//
+//		let sequence = Array(DB.phrases.getValue(forKey: phrase))
+//		var position = at + CMTime(seconds: Settings.phrase.delay.outer, preferredTimescale: at.timescale)
+//		for code in sequence {
+//
+//			let newAsset = AVURLAsset(url: code == "N" || code == "E" ? native : foreign)
+//			if position.seconds + newAsset.duration.seconds > before.seconds {
+//				return false
+//			}
+//
+//			let range = CMTimeRangeMake(start: CMTime.zero, duration: newAsset.duration)
+//			if let track = newAsset.tracks(withMediaType: AVMediaType.audio).first {
+//				try! compositionTrack.insertTimeRange(range, of: track, at: position)
+//			}
+//			position = position + CMTime(seconds: Settings.phrase.delay.inner, preferredTimescale: position.timescale)
+//			position = position + newAsset.duration
+//
+//		}
 		return true
 	}
 }

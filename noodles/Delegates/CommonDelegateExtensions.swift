@@ -41,33 +41,26 @@ extension AudioPlayerImplementation {
 
 	}
 
-	func playAudio(_ noodle: Model.Noodle, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) {
-		playAudio(noodle.makeIterator(), progress: progress, finish: finish)
+	func playAudio(_ noodle: Model.Noodle, with delay: Float, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) {
+		playAudio(noodle.makeIterator(), at: noodle.phrase.id, with: Double(delay), progress: progress, finish: finish)
 	}
 
-	func playAudio(_ noodle: Model.Noodle, at alias: URL, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) {
-		playAudio(noodle.makeIterator(), at: alias, progress: progress, finish: finish)
+	func playAudio(_ noodle: Model.Noodle, at alias: URL, with delay: Float, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) {
+		playAudio(noodle.makeIterator(), at: alias, with: Double(delay), progress: progress, finish: finish)
 	}
 
-	fileprivate func playAudio<Iterator: IteratorProtocol>(_ iterator: Iterator, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) where Iterator.Element == URL {
-		var iterator = iterator
-		if let url = iterator.next() {
-			playAudio(url, progress: progress, finish: { (result: Bool) -> Void in
-				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Settings.phrase.delay.inner) {
-					self.playAudio(iterator, progress: progress, finish: finish)
-				}
-			})
-		} else {
-			finish?(true)
-		}
-	}
+	fileprivate func playAudio<Iterator: IteratorProtocol>(_ iterator: Iterator,
+														   at alias: URL,
+														   with delay: Double,
+														   progress: PlayerProgressCallback?,
+														   finish: ((Bool) -> Void)?
+	) where Iterator.Element == URL {
 
-	fileprivate func playAudio<Iterator: IteratorProtocol>(_ iterator: Iterator, at alias: URL, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) where Iterator.Element == URL {
 		var iterator = iterator
 		if let url = iterator.next() {
 			playAudio(url, at: alias, progress: progress, finish: { (result: Bool) -> Void in
-				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Settings.phrase.delay.inner) {
-					self.playAudio(iterator, at: alias, progress: progress, finish: finish)
+				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
+					self.playAudio(iterator, at: alias, with: delay, progress: progress, finish: finish)
 				}
 			})
 		} else {

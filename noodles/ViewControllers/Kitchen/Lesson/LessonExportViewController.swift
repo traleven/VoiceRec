@@ -15,14 +15,19 @@ protocol LessonExportViewFlowDelegate: Director {
 
 protocol LessonExportViewControlDelegate: LessonExportViewFlowDelegate {
 
+	func selectRepetitionPattern(_ lesson: Model.Recipe, _ refresh: ((Model.Recipe) -> Void)?)
+
 	func startLivePreview(_ lesson: Model.Recipe, finish: (() -> Void)?)
 	func stopLivePreview(_ lesson: Model.Recipe)
 	func stopAllAudio()
+	func save(_ lesson: Model.Recipe)
 }
 
 class LessonExportViewController: NoodlesViewController {
+	typealias ApplyHandle = (Model.Recipe) -> Void
 
 	private var flowDelegate: LessonExportViewControlDelegate!
+	private var onApply: ApplyHandle?
 
 	private var lesson: Model.Recipe
 
@@ -32,6 +37,13 @@ class LessonExportViewController: NoodlesViewController {
 	@IBOutlet var durationLabel: UILabel?
 
 	@IBOutlet var languageButton: UIButton?
+
+	@IBOutlet var phraseRepetionLabel: UIButton!
+	@IBOutlet var randomOrderToggle: UISwitch!
+	@IBOutlet var insideTimeSpacing: UISlider!
+	@IBOutlet var outsideTimeSpacing: UISlider!
+	@IBOutlet var phraseVolume: UISlider!
+	@IBOutlet var musicVolume: UISlider!
 
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +63,16 @@ class LessonExportViewController: NoodlesViewController {
 	
 	override func viewWillDisappearOrMinimize() {
 		flowDelegate.stopAllAudio()
+		updateData()
+		flowDelegate.save(lesson)
 		super.viewWillDisappearOrMinimize()
+	}
+
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+
+		onApply?(lesson)
 	}
 
 
@@ -64,6 +85,7 @@ class LessonExportViewController: NoodlesViewController {
 
 		self.flowDelegate = flow
 		self.lesson = lesson
+		self.onApply = confirm
 		super.init(coder: coder)
 	}
 
@@ -74,6 +96,35 @@ class LessonExportViewController: NoodlesViewController {
 		phraseCount?.text = "\(lesson.phraseCount)"
 		durationLabel?.text = "00:00"
 		languageButton?.isSelected = !Settings.language.preferBase
+
+		phraseRepetionLabel.setTitle(lesson.shapeString, for: .normal)
+		randomOrderToggle.isOn = lesson.spices.randomize
+		insideTimeSpacing.value = lesson.spices.delayWithin
+		outsideTimeSpacing.value = lesson.spices.delayBetween
+		phraseVolume.value = lesson.spices.voiceVolume
+		musicVolume.value = lesson.spices.musicVolume
+	}
+
+
+	private func refresh(_ lesson: Model.Recipe) {
+
+		self.lesson = lesson
+		refresh()
+	}
+
+
+	private func updateData() {
+
+		let spices = Spices(
+			musicVolume: musicVolume.value,
+			voiceVolume: phraseVolume.value,
+			delayBetween: outsideTimeSpacing.value,
+			delayWithin: insideTimeSpacing.value,
+			randomize: randomOrderToggle.isOn
+		)
+		let shape = Shape(dna: phraseRepetionLabel.title(for: .normal) ?? Settings.phrase.defaultShape.dna)
+		lesson.spices = spices
+		lesson.shape = shape
 	}
 
 
@@ -94,6 +145,12 @@ class LessonExportViewController: NoodlesViewController {
 
 		Settings.language.preferBase.toggle()
 		refresh()
+	}
+
+
+	@IBAction func selectPattern(_ sender: UIControl) {
+
+		flowDelegate.selectRepetitionPattern(lesson, refresh(_:))
 	}
 
 
