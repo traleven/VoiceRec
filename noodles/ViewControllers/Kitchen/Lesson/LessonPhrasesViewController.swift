@@ -10,8 +10,8 @@ import UIKit
 protocol LessonPhrasesViewFlowDelegate: Director {
 	typealias ModelRefreshHandle = (Model.Recipe) -> Void
 
-	func openMusicPage(_ lesson: Model.Recipe, _ refresh: @escaping ModelRefreshHandle)
-	func openExportPage(_ lesson: Model.Recipe, _ refresh: @escaping ModelRefreshHandle)
+	func openMusicPage(_ lesson: Model.Recipe, _ refresh: @escaping ModelRefreshHandle) -> Bool
+	func openExportPage(_ lesson: Model.Recipe, _ refresh: @escaping ModelRefreshHandle) -> Bool
 }
 
 protocol LessonPhrasesViewControlDelegate: LessonPhrasesViewFlowDelegate {
@@ -170,15 +170,19 @@ class LessonPhrasesViewController: NoodlesViewController {
 	}
 
 
-	@IBAction func goToMusicPage() {
+	@IBAction func goToMusicPage(_ sender: UIControl) {
 
-		flowDelegate.openMusicPage(lesson, refresh(_:))
+		if !flowDelegate.openMusicPage(lesson, refresh(_:)) {
+			sender.shake()
+		}
 	}
 
 
-	@IBAction func goToExportPage() {
+	@IBAction func goToExportPage(_ sender: UIControl) {
 
-		flowDelegate.openExportPage(lesson, refresh(_:))
+		if !flowDelegate.openExportPage(lesson, refresh(_:)) {
+			sender.shake()
+		}
 	}
 }
 

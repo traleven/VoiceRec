@@ -51,6 +51,8 @@
 		DB55A8012664F90400CD963E /* LessonPhraseSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A8002664F90400CD963E /* LessonPhraseSelectorViewController.swift */; };
 		DB55A8042664F9BA00CD963E /* NoodlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A8032664F9BA00CD963E /* NoodlesViewController.swift */; };
 		DB55A8072666B08200CD963E /* CommonDelegateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A8062666B08200CD963E /* CommonDelegateExtensions.swift */; };
+		DB6A5470266A2BC200861135 /* AnimationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A546F266A2BC200861135 /* AnimationUtils.swift */; };
+		DB6A5475266A42CA00861135 /* LessonExportDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A5474266A42CA00861135 /* LessonExportDirector.swift */; };
 		DB79CAA8266788E600CDB01F /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAA7266788E600CDB01F /* MusicCell.swift */; };
 		DB79CAAB2667E82400CDB01F /* DispatchQueueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAAA2667E82400CDB01F /* DispatchQueueUtils.swift */; };
 		DB79CAAE2668D22B00CDB01F /* LessonMusicDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAAD2668D22B00CDB01F /* LessonMusicDirector.swift */; };
@@ -161,6 +163,8 @@
 		DB55A8002664F90400CD963E /* LessonPhraseSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPhraseSelectorViewController.swift; sourceTree = "<group>"; };
 		DB55A8032664F9BA00CD963E /* NoodlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoodlesViewController.swift; sourceTree = "<group>"; };
 		DB55A8062666B08200CD963E /* CommonDelegateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDelegateExtensions.swift; sourceTree = "<group>"; };
+		DB6A546F266A2BC200861135 /* AnimationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationUtils.swift; sourceTree = "<group>"; };
+		DB6A5474266A42CA00861135 /* LessonExportDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonExportDirector.swift; sourceTree = "<group>"; };
 		DB79CAA7266788E600CDB01F /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		DB79CAAA2667E82400CDB01F /* DispatchQueueUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueUtils.swift; sourceTree = "<group>"; };
 		DB79CAAD2668D22B00CDB01F /* LessonMusicDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonMusicDirector.swift; sourceTree = "<group>"; };
@@ -330,6 +334,7 @@
 				DB413A3D2643D8DA0035D952 /* FileUtils.swift */,
 				DB413A3E2643D8DA0035D952 /* DataUtils.swift */,
 				DB79CAAA2667E82400CDB01F /* DispatchQueueUtils.swift */,
+				DB6A546F266A2BC200861135 /* AnimationUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -430,6 +435,7 @@
 				DB79CAB32669156A00CDB01F /* LessonPhrasesDirector.swift */,
 				DB79CAB02669146800CDB01F /* LessonPhraseSelectorDirector.swift */,
 				DB79CAAD2668D22B00CDB01F /* LessonMusicDirector.swift */,
+				DB6A5474266A42CA00861135 /* LessonExportDirector.swift */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -608,6 +614,7 @@
 				DB413A272643D8CD0035D952 /* Model.Broth.swift in Sources */,
 				DBCF76C126611BEA00D80A6B /* LessonsDirector.swift in Sources */,
 				DB413A262643D8CD0035D952 /* Model.Phrase.swift in Sources */,
+				DB6A5470266A2BC200861135 /* AnimationUtils.swift in Sources */,
 				DBCF76AE265FD12E00D80A6B /* PhraseCell.swift in Sources */,
 				DBDC67EE2646D84200B99539 /* Director.swift in Sources */,
 				DB413A4B2643D8DA0035D952 /* PersistentObject.swift in Sources */,
@@ -631,6 +638,7 @@
 				DB4133332643D5650035D952 /* AppDelegate.swift in Sources */,
 				DBDC67F12646D84C00B99539 /* Router.swift in Sources */,
 				DBDC67EB2646D83200B99539 /* InboxDirector.swift in Sources */,
+				DB6A5475266A42CA00861135 /* LessonExportDirector.swift in Sources */,
 				DB79CAA8266788E600CDB01F /* MusicCell.swift in Sources */,
 				DB79CAB12669146800CDB01F /* LessonPhraseSelectorDirector.swift in Sources */,
 				DB413A342643D8CD0035D952 /* Model.Fridge.swift in Sources */,
@@ -807,7 +815,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -836,7 +844,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

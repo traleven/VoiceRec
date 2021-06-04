@@ -261,5 +261,6 @@ extension LessonMusicViewController : UITableViewDelegate {
 
 		let broth = items[indexPath.row]
 		flowDelegate.selectMusic(broth, for: lesson, refresh(_:))
+		setupNowPlaying(broth)
 	}
 }

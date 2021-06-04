@@ -23,15 +23,21 @@ class LessonPhrasesDirector: DefaultDirector, AudioPlayerImplementation, LessonS
 
 extension LessonPhrasesDirector : LessonPhrasesViewFlowDelegate {
 
-	func openMusicPage(_ lesson: Model.Recipe, _ refresh: @escaping (Model.Recipe) -> Void) {
+	func openMusicPage(_ lesson: Model.Recipe, _ refresh: @escaping (Model.Recipe) -> Void) -> Bool {
+
+		if lesson.contains(where: { !Model.Phrase(id: $0).isComplete }) {
+			return false
+		}
 
 		let director = LessonsMusicDirector(router: router)
 		let viewController = director.makeViewController(lesson: lesson, confirm: refresh)
 		router.push(viewController, onDismiss: nil)
+		return true
 	}
 
 
-	func openExportPage(_ lesson: Model.Recipe, _ refresh: @escaping (Model.Recipe) -> Void) {
+	func openExportPage(_ lesson: Model.Recipe, _ refresh: @escaping (Model.Recipe) -> Void) -> Bool {
+		return false
 	}
 }
 

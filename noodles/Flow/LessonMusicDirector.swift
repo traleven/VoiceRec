@@ -28,7 +28,9 @@ extension LessonsMusicDirector: LessonMusicViewFlowDelegate {
 
 	func openExport(_ lesson: Model.Recipe) {
 
-		print("go to lesson export page (not implemented yet)")
+		let director = LessonExportDirector(router: router)
+		let viewController = director.makeViewController(lesson: lesson, confirm: nil)
+		router.push(viewController, onDismiss: nil)
 	}
 
 }
