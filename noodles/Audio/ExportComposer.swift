@@ -75,3 +75,29 @@ class ExportComposer : NSObject {
 		return composition
 	}
 }
+
+//@IBAction func export() {
+//
+//	activityIndicator.startAnimating()
+//
+//	prepare_data()
+//
+//	let composer = ExportComposer(withMusic: buildMusicURLs(music), andPhrases: voice)
+//
+//	let resultFileName = Date().description + ".m4a"
+//	let destinationUrl = FileUtils.getDirectory("export").appendingPathComponent(resultFileName)
+//	do { try FileManager.default.removeItem(at: destinationUrl) } catch {}
+//
+//	let assetExport = AVAssetExportSession(asset: composer.compose(), presetName: AVAssetExportPresetAppleM4A)!
+//	assetExport.shouldOptimizeForNetworkUse = true
+//	assetExport.audioMix = composer.audioMix
+//	assetExport.outputFileType = AVFileType.m4a
+//	assetExport.outputURL = destinationUrl
+//
+//	assetExport.exportAsynchronously(completionHandler: {
+//		DispatchQueue.main.async {
+//			self.activityIndicator.stopAnimating()
+//			UIUtils.display_alert(at_view_controller: self, msg_title: "Mixture export: ".appending(assetExport.error?.localizedDescription ?? "OK"), msg_desc: "Export complete to: ".appending(destinationUrl.path), action_title: "OK")
+//		}
+//	})
+//}

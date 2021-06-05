@@ -2574,18 +2574,24 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="GWK-kh-S2e">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="GWK-kh-S2e" customClass="SliderWithHint" customModule="Noodles" customModuleProvider="target">
                                                 <rect key="frame" x="186" y="44" width="214" height="31"/>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <color key="thumbTintColor" name="AccentColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="format" value="%.1fs"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="spiceschanged" destination="s2K-j7-qW7" eventType="valueChanged" id="gBP-cD-sFd"/>
                                                 </connections>
                                             </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-w5-RUz">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-w5-RUz" customClass="SliderWithHint" customModule="Noodles" customModuleProvider="target">
                                                 <rect key="frame" x="186" y="80.5" width="214" height="31"/>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <color key="thumbTintColor" name="AccentColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="format" value="%.1fs"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="spiceschanged" destination="s2K-j7-qW7" eventType="valueChanged" id="uUZ-BA-4NI"/>
                                                 </connections>
@@ -2641,18 +2647,24 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="C70-Do-eHb">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="C70-Do-eHb" customClass="SliderWithHint" customModule="Noodles" customModuleProvider="target">
                                                 <rect key="frame" x="83.5" y="44" width="316.5" height="31"/>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <color key="thumbTintColor" name="AccentColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="format" value="%.2f"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="spiceschanged" destination="s2K-j7-qW7" eventType="valueChanged" id="KHA-Cf-qaW"/>
                                                 </connections>
                                             </slider>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4KJ-wk-tbC">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4KJ-wk-tbC" customClass="SliderWithHint" customModule="Noodles" customModuleProvider="target">
                                                 <rect key="frame" x="83.5" y="80.5" width="316.5" height="31"/>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <color key="thumbTintColor" name="AccentColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="format" value="%.2f"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="spiceschanged" destination="s2K-j7-qW7" eventType="valueChanged" id="7Fr-kH-SYE"/>
                                                 </connections>
@@ -2890,6 +2902,9 @@
         <designable name="1W8-7v-idU">
             <size key="intrinsicContentSize" width="44" height="42"/>
         </designable>
+        <designable name="4KJ-wk-tbC">
+            <size key="intrinsicContentSize" width="-1" height="30"/>
+        </designable>
         <designable name="59m-3f-1AL">
             <size key="intrinsicContentSize" width="65" height="50"/>
         </designable>
@@ -2899,8 +2914,17 @@
         <designable name="Byf-HB-4kB">
             <size key="intrinsicContentSize" width="44" height="42"/>
         </designable>
+        <designable name="C70-Do-eHb">
+            <size key="intrinsicContentSize" width="-1" height="30"/>
+        </designable>
         <designable name="Dtl-xp-l4r">
             <size key="intrinsicContentSize" width="53" height="47"/>
+        </designable>
+        <designable name="GWK-kh-S2e">
+            <size key="intrinsicContentSize" width="-1" height="30"/>
+        </designable>
+        <designable name="UfD-w5-RUz">
+            <size key="intrinsicContentSize" width="-1" height="30"/>
         </designable>
         <designable name="bYK-D8-RSD">
             <size key="intrinsicContentSize" width="96" height="42"/>

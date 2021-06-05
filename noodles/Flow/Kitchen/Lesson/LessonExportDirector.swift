@@ -7,9 +7,10 @@
 
 import UIKit
 
-class LessonExportDirector: DefaultDirector, AudioPlayerImplementation, LessonSaveImplementation {
+class LessonExportDirector: DefaultDirector, LessonSaveImplementation {
 
 	var players: [URL: AudioPlayer] = [:]
+	var composer: LiveComposer = LiveComposer()
 
 	func makeViewController(lesson: Model.Recipe, confirm: ((Model.Recipe) -> Void)?) -> UIViewController {
 		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
@@ -51,27 +52,19 @@ extension LessonExportDirector: LessonExportViewControlDelegate {
 
 	func updateLivePreviewSettings(_ lesson: Model.Recipe) {
 
-		if let music = lesson.music, let musicPlayer = players[music] {
-			musicPlayer.setVolume(lesson.spices.musicVolume)
-		}
+		composer.updateVolume(lesson)
 	}
 
-	func startLivePreview(_ lesson: Model.Recipe, finish: (() -> Void)?) {
+	func startLivePreview(_ lesson: @escaping () -> Model.Recipe) {
 
-		if let music = lesson.music {
-			playAudio(music, volume: lesson.spices.musicVolume, progress: nil, finish: { _ in finish?() })
-		}
+		composer.stop()
+		composer.play(lesson)
 	}
 
-	func stopLivePreview(_ lesson: Model.Recipe) {
+	func stopLivePreview() {
 
-		if let music = lesson.music {
-			_ = stopPlaying(music)
+		if composer.isPlaying {
+			composer.stop()
 		}
-	}
-
-	func stopAllAudio() {
-
-		self.stopPlayingAll()
 	}
 }

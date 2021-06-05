@@ -12,11 +12,12 @@ protocol AudioPlayerImplementation: class {
 }
 
 extension AudioPlayerImplementation {
+	fileprivate typealias DetailedResultCallback = (AudioPlayer?, PlayerResult) -> Void
+
 	func playAudio(_ url: URL, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
 		if let player = players[url] {
 			player.setVolume(volume, fadeDuration: 0.1)
 			player.play()
-			return
 		}
 		let player = AudioPlayer(url, volume: volume)
 		player.play(onProgress: { progress?($0, $1) }) { [weak self] (result: PlayerResult) in
@@ -28,12 +29,19 @@ extension AudioPlayerImplementation {
 
 	func playAudio(_ url: URL, at alias: URL, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
 
+		playAudio(url, at: alias, volume: volume, progress: progress, finish: {
+			finish?($1)
+		})
+	}
+
+	fileprivate func playAudio(_ url: URL, at alias: URL, volume: Float, progress: PlayerProgressCallback?, finish: DetailedResultCallback?) {
+
 		if let player = players[alias] {
 			player.stop()
 		}
 		let player = AudioPlayer(url, volume: volume)
 		player.play(onProgress: { progress?($0, $1) }) { [weak self] (result: PlayerResult) in
-			finish?(result)
+			finish?(player, result)
 			self?.players.removeValue(forKey: alias)
 		}
 		players[alias] = player
@@ -41,11 +49,15 @@ extension AudioPlayerImplementation {
 	}
 
 	func playAudio(_ noodle: Model.Noodle, with delay: Float, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
-		playAudio(noodle.makeIterator(), at: noodle.phrase.id, with: Double(delay), volume: volume, progress: progress, finish: finish)
+		playAudio(noodle.makeIterator(), at: noodle.phrase.id, with: Double(delay), volume: volume, progress: progress, finish: {
+			finish?($1)
+		})
 	}
 
 	func playAudio(_ noodle: Model.Noodle, at alias: URL, with delay: Float, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
-		playAudio(noodle.makeIterator(), at: alias, with: Double(delay), volume: volume, progress: progress, finish: finish)
+		playAudio(noodle.makeIterator(), at: alias, with: Double(delay), volume: volume, progress: progress, finish: {
+			finish?($1)
+		})
 	}
 
 	fileprivate func playAudio<Iterator: IteratorProtocol>(_ iterator: Iterator,
@@ -53,22 +65,22 @@ extension AudioPlayerImplementation {
 														   with delay: Double,
 														   volume: Float,
 														   progress: PlayerProgressCallback?,
-														   finish: PlayerResultCallback?
+														   finish: DetailedResultCallback?
 	) where Iterator.Element == URL {
 
 		var iterator = iterator
 		if let url = iterator.next() {
-			playAudio(url, at: alias, volume: volume, progress: progress, finish: { (result: PlayerResult) -> Void in
+			playAudio(url, at: alias, volume: volume, progress: progress, finish: { (player: AudioPlayer?, result: PlayerResult) -> Void in
 				guard result != .stopped else {
-					finish?(result)
+					finish?(player, result)
 					return
 				}
 				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
-					self.playAudio(iterator, at: alias, with: delay, volume: volume, progress: progress, finish: finish)
+					self.playAudio(iterator, at: alias, with: delay, volume: player?.volume ?? volume, progress: progress, finish: finish)
 				}
 			})
 		} else {
-			finish?(.finished)
+			finish?(nil, .finished)
 		}
 	}
 

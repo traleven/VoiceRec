@@ -18,9 +18,8 @@ protocol LessonExportViewControlDelegate: LessonExportViewFlowDelegate {
 	func selectRepetitionPattern(_ lesson: Model.Recipe, _ refresh: ((Model.Recipe) -> Void)?)
 	func updateLivePreviewSettings(_ lesson: Model.Recipe)
 
-	func startLivePreview(_ lesson: Model.Recipe, finish: (() -> Void)?)
-	func stopLivePreview(_ lesson: Model.Recipe)
-	func stopAllAudio()
+	func startLivePreview(_ lesson: @escaping () -> Model.Recipe)
+	func stopLivePreview()
 	func save(_ lesson: Model.Recipe)
 }
 
@@ -63,7 +62,7 @@ class LessonExportViewController: NoodlesViewController {
 
 	
 	override func viewWillDisappearOrMinimize() {
-		flowDelegate.stopAllAudio()
+		flowDelegate.stopLivePreview()
 		updateData()
 		flowDelegate.save(lesson)
 		super.viewWillDisappearOrMinimize()
@@ -132,12 +131,11 @@ class LessonExportViewController: NoodlesViewController {
 	@IBAction func toggleLivePreview(_ sender: UIControl) {
 
 		if sender.isSelected {
-			flowDelegate.stopLivePreview(lesson)
+			flowDelegate.stopLivePreview()
+			sender.isSelected = false
 		} else {
 			sender.isSelected = true
-			flowDelegate.startLivePreview(lesson) {
-				sender.isSelected = false
-			}
+			flowDelegate.startLivePreview({ self.lesson })
 		}
 	}
 
