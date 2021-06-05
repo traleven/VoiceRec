@@ -11,17 +11,18 @@ protocol InboxListViewFlowDelegate : Director {
 	typealias RefreshHandle = (URL) -> Void
 
 	func openInboxFolder(url: URL)
-	func openTextEgg(url: URL)
 	func openMyNoodles()
 }
 
 
 protocol InboxListViewControlDelegate : InboxListViewFlowDelegate {
+	
 	func startRecording(to parent: Model.Egg?, progress: ((TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
 	func stopRecording(_ refreshHandle: RefreshHandle)
 	func playAudioEgg(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
 	func stopAllAudio()
 	func addTextEgg(to parent: Model.Egg?, _ refreshHandle: @escaping RefreshHandle)
+	func readTextEgg(_ egg: Model.Egg, _ refreshHandle: @escaping () -> Void)
 	func delete(_ url: URL)
 	func share(_ egg: Model.Egg)
 }

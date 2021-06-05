@@ -22,14 +22,6 @@ extension InboxDirector: InboxListViewFlowDelegate {
 		router.push(inboxViewController, onDismiss: nil)
 	}
 
-	func openTextEgg(url: URL) {
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
-		let inboxViewController = storyboard.instantiateViewController(identifier: "inbox.textedit", creator: { (coder: NSCoder) -> UIViewController? in
-			return UIViewController(coder: coder)
-		})
-		router.present(inboxViewController, onDismiss: nil)
-	}
-
 	func openMyNoodles() {
 		let notification = Notification(name: .selectTab, object: nil, userInfo: ["page" : "Phrases"])
 		NotificationCenter.default.post(notification)
@@ -69,41 +61,48 @@ extension InboxDirector : InboxListViewControlDelegate {
 
 	func addTextEgg(to parent: Model.Egg?, _ refreshHandle: @escaping (URL) -> Void) {
 
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
-		let inboxViewController = storyboard.instantiateViewController(identifier: "inbox.textedit", creator: { (coder: NSCoder) -> InboxTextEditViewController? in
-			return InboxTextEditViewController(coder: coder, flow: self, content: nil) { (content: String) in
-				var parentId = parent?.id ?? FileUtils.getDirectory(.inbox)
-				if (nil != parent && parent!.type != .directory) {
-					parentId = FileUtils.convertToDirectory(parentId)
-				}
-
-				let newId = FileUtils.getNewInboxFile(at: parentId, withExtension: "txt")
-				do {
-					try content.write(to: newId, atomically: true, encoding: .utf8)
-				} catch let error {
-					NSLog("Failed to save text egg to file \(newId): \(error.localizedDescription)")
-				}
-
-				refreshHandle(parentId)
+		let director = InboxTextEditDirector(router: router)
+		let viewController = director.makeViewController(content: nil, applyHandle: { (content: String) in
+			var parentId = parent?.id ?? FileUtils.getDirectory(.inbox)
+			if (nil != parent && parent!.type != .directory) {
+				parentId = FileUtils.convertToDirectory(parentId)
 			}
+
+			let newId = FileUtils.getNewInboxFile(at: parentId, withExtension: "txt")
+			do {
+				try content.write(to: newId, atomically: true, encoding: .utf8)
+			} catch let error {
+				NSLog("Failed to save text egg to file \(newId): \(error.localizedDescription)")
+			}
+
+			refreshHandle(parentId)
 		})
-		router.present(inboxViewController) {
-		}
+		router.present(viewController, onDismiss: nil)
 	}
 
 
-	func readTextEgg(_ egg: Model.Egg) {
+	func readTextEgg(_ egg: Model.Egg, _ refreshHandle: @escaping () -> Void) {
+
+		let content = String()
+		let director = InboxTextEditDirector(router: router)
+		let viewController = director.makeViewController(content: content, applyHandle: { (content: String) in
+			do {
+				try content.write(to: egg.id, atomically: true, encoding: .utf8)
+			} catch let error {
+				NSLog("Failed to overwrite text egg to file \(egg.id): \(error.localizedDescription)")
+			}
+			refreshHandle()
+		})
+		router.present(viewController, onDismiss: nil)
 	}
 
 
 	func delete(_ url: URL) {
+
 		FileUtils.delete(url)
 	}
 
 
 	func share(_ egg: Model.Egg) {
 	}
-}
-
-extension InboxDirector : InboxTextEditViewFlowDelegate {
 }

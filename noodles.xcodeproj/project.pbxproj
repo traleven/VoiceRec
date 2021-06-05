@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB15F3C8266BB976009BFDA1 /* InboxTextEditDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3C7266BB976009BFDA1 /* InboxTextEditDirector.swift */; };
 		DB4133332643D5650035D952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133322643D5650035D952 /* AppDelegate.swift */; };
 		DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133342643D5650035D952 /* SceneDelegate.swift */; };
 		DB41333A2643D5650035D952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4133382643D5650035D952 /* Main.storyboard */; };
@@ -103,6 +104,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB15F3C7266BB976009BFDA1 /* InboxTextEditDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTextEditDirector.swift; sourceTree = "<group>"; };
 		DB41332F2643D5650035D952 /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4133322643D5650035D952 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4133342643D5650035D952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				DBDC67EA2646D83200B99539 /* InboxDirector.swift */,
+				DB15F3C7266BB976009BFDA1 /* InboxTextEditDirector.swift */,
 			);
 			path = Inbox;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				DBCF76B4266009B600D80A6B /* LessonCell.swift in Sources */,
 				DB55A8072666B08200CD963E /* CommonDelegateExtensions.swift in Sources */,
 				DB413A4E2643D8DA0035D952 /* DictionaryDB.swift in Sources */,
+				DB15F3C8266BB976009BFDA1 /* InboxTextEditDirector.swift in Sources */,
 				DBCF76BE2661134900D80A6B /* PhrasesDirector.swift in Sources */,
 				DBCF76B726602B7B00D80A6B /* GradientHorizontalProgressBar.swift in Sources */,
 				DB413A4C2643D8DA0035D952 /* WeakLink.swift in Sources */,
