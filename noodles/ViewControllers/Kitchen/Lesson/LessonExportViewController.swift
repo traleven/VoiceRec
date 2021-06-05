@@ -16,6 +16,7 @@ protocol LessonExportViewFlowDelegate: Director {
 protocol LessonExportViewControlDelegate: LessonExportViewFlowDelegate {
 
 	func selectRepetitionPattern(_ lesson: Model.Recipe, _ refresh: ((Model.Recipe) -> Void)?)
+	func updateLivePreviewSettings(_ lesson: Model.Recipe)
 
 	func startLivePreview(_ lesson: Model.Recipe, finish: (() -> Void)?)
 	func stopLivePreview(_ lesson: Model.Recipe)
@@ -138,6 +139,13 @@ class LessonExportViewController: NoodlesViewController {
 				sender.isSelected = false
 			}
 		}
+	}
+
+
+	@IBAction func spiceschanged() {
+
+		updateData()
+		flowDelegate.updateLivePreviewSettings(lesson)
 	}
 
 

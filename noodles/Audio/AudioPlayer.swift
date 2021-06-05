@@ -10,6 +10,13 @@ import Foundation
 import AVKit
 
 typealias PlayerProgressCallback = (TimeInterval, TimeInterval) -> Void
+typealias PlayerResultCallback = (PlayerResult) -> Void
+
+enum PlayerResult {
+	case finished
+	case stopped
+	case failed
+}
 
 class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 
@@ -17,6 +24,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 
 	var audioPlayer: AVAudioPlayer?
 	var meterTimer: Timer!
+	var volume: Float
 
 	@Published var isPlaying: Bool!
 	@Published var progress: TimeInterval = 0
@@ -31,10 +39,11 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 	}
 
 	var onProgress: PlayerProgressCallback?
-	var onComplete: ((Bool) -> Void)?
+	var onComplete: PlayerResultCallback?
 
-	init(_ url: URL?) {
+	init(_ url: URL?, volume: Float) {
 		self.url = url
+		self.volume = volume
 		isPlaying = false
 
 		super.init()
@@ -78,6 +87,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 			audioPlayer!.isMeteringEnabled = false
 			audioPlayer!.prepareToPlay()
 			audioPlayer!.currentTime = 0
+			audioPlayer!.setVolume(volume, fadeDuration: 0)
 
 		} catch let error {
 
@@ -89,7 +99,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 	}
 
 
-	func play(onProgress: @escaping PlayerProgressCallback, onFinish: @escaping (Bool) -> Void) {
+	func play(onProgress: @escaping PlayerProgressCallback, onFinish: @escaping PlayerResultCallback) {
 
 		self.onProgress = onProgress
 		self.onComplete = onFinish
@@ -115,7 +125,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 		} else {
 			NSLog("Audio file is missing: %@", url!.path)
 			isPlaying = false
-			self.onComplete?(false)
+			self.onComplete?(.failed)
 		}
 	}
 
@@ -133,7 +143,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 
 		audioPlayer?.stop()
 		isPlaying = false
-		onComplete?(true)
+		onComplete?(.stopped)
 	}
 
 
@@ -142,7 +152,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 		audioPlayer?.stop()
 		isPlaying = false
 		if (!silent) {
-			onComplete?(true)
+			onComplete?(.stopped)
 		}
 	}
 
@@ -150,6 +160,13 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
 
 		isPlaying = false
-		onComplete?(true)
+		onComplete?(flag ? .finished : .failed)
+	}
+
+
+	func setVolume(_ volume: Float, fadeDuration: TimeInterval = 0) {
+
+		self.volume = volume
+		audioPlayer?.setVolume(volume, fadeDuration: fadeDuration)
 	}
 }

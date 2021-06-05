@@ -2492,6 +2492,7 @@
                                                 <state key="normal" title="AB"/>
                                                 <connections>
                                                     <action selector="selectPattern:" destination="s2K-j7-qW7" eventType="primaryActionTriggered" id="7b1-xK-pYo"/>
+                                                    <action selector="spiceschanged" destination="s2K-j7-qW7" eventType="valueChanged" id="Zdg-n0-HJP"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-sS-zsP">
@@ -2527,6 +2528,9 @@
                                                 <rect key="frame" x="345" y="7" width="51" height="31"/>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <color key="onTintColor" name="AccentColor"/>
+                                                <connections>
+                                                    <action selector="spiceschanged" destination="s2K-j7-qW7" eventType="valueChanged" id="rZU-gD-SUJ"/>
+                                                </connections>
                                             </switch>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOC-SW-PU7">
                                                 <rect key="frame" x="8" y="42.5" width="398" height="2"/>
@@ -2574,11 +2578,17 @@
                                                 <rect key="frame" x="186" y="44" width="214" height="31"/>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <color key="thumbTintColor" name="AccentColor"/>
+                                                <connections>
+                                                    <action selector="spiceschanged" destination="s2K-j7-qW7" eventType="valueChanged" id="gBP-cD-sFd"/>
+                                                </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-w5-RUz">
                                                 <rect key="frame" x="186" y="80.5" width="214" height="31"/>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <color key="thumbTintColor" name="AccentColor"/>
+                                                <connections>
+                                                    <action selector="spiceschanged" destination="s2K-j7-qW7" eventType="valueChanged" id="uUZ-BA-4NI"/>
+                                                </connections>
                                             </slider>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vH-lX-BLL">
                                                 <rect key="frame" x="8" y="115.5" width="398" height="2"/>
@@ -2635,11 +2645,17 @@
                                                 <rect key="frame" x="83.5" y="44" width="316.5" height="31"/>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <color key="thumbTintColor" name="AccentColor"/>
+                                                <connections>
+                                                    <action selector="spiceschanged" destination="s2K-j7-qW7" eventType="valueChanged" id="KHA-Cf-qaW"/>
+                                                </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4KJ-wk-tbC">
                                                 <rect key="frame" x="83.5" y="80.5" width="316.5" height="31"/>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <color key="thumbTintColor" name="AccentColor"/>
+                                                <connections>
+                                                    <action selector="spiceschanged" destination="s2K-j7-qW7" eventType="valueChanged" id="7Fr-kH-SYE"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

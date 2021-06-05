@@ -61,8 +61,8 @@ extension PhraseEditDirector : PhraseEditViewControlDelegate {
 		refreshHandle?()
 	}
 
-	func startPlaying(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?) {
-		self.playAudio(url, progress: progress, finish: finish)
+	func startPlaying(_ url: URL, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
+		self.playAudio(url, volume: Settings.voice.volume, progress: progress, finish: finish)
 	}
 
 	func stopPlaying(_ url: URL, _ refreshHandle: RefreshHandle?) {

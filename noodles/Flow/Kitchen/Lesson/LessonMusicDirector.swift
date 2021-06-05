@@ -43,9 +43,9 @@ extension LessonsMusicDirector: LessonMusicViewControlDelegate {
 		refresh(newLesson)
 	}
 
-	func playMusic(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?) {
+	func playMusic(_ url: URL, volume: Float, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: PlayerResultCallback?) {
 
-		playAudio(url, at: FileUtils.getDirectory(.music), progress: progress, finish: finish)
+		playAudio(url, at: FileUtils.getDirectory(.music), volume: volume, progress: progress, finish: finish)
 	}
 
 	func stopMusic() {
@@ -53,10 +53,10 @@ extension LessonsMusicDirector: LessonMusicViewControlDelegate {
 		_ = stopPlaying(FileUtils.getDirectory(.music))
 	}
 
-	func play(_ phrase: Model.Phrase, of shape: Shape, with spices: Spices, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) {
+	func play(_ phrase: Model.Phrase, of shape: Shape, with spices: Spices, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
 
 		let noodle = Model.Noodle(phrase: phrase, shape: shape)
-		playAudio(noodle, at: phrase.id, with: spices.delayWithin, progress: progress, finish: finish)
+		playAudio(noodle, at: phrase.id, with: spices.delayWithin, volume: spices.voiceVolume, progress: progress, finish: finish)
 	}
 
 	func stop(_ phrase: Model.Phrase) {

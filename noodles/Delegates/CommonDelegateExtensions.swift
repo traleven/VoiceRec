@@ -12,28 +12,27 @@ protocol AudioPlayerImplementation: class {
 }
 
 extension AudioPlayerImplementation {
-	typealias PlayerProgressCallback = ((TimeInterval, TimeInterval) -> Void)
-
-	func playAudio(_ url: URL, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) {
+	func playAudio(_ url: URL, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
 		if let player = players[url] {
+			player.setVolume(volume, fadeDuration: 0.1)
 			player.play()
 			return
 		}
-		let player = AudioPlayer(url)
-		player.play(onProgress: { progress?($0, $1) }) { [weak self] (result: Bool) in
+		let player = AudioPlayer(url, volume: volume)
+		player.play(onProgress: { progress?($0, $1) }) { [weak self] (result: PlayerResult) in
 			finish?(result)
 			self?.players.removeValue(forKey: url)
 		}
 		players[url] = player
 	}
 
-	func playAudio(_ url: URL, at alias: URL, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) {
+	func playAudio(_ url: URL, at alias: URL, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
 
 		if let player = players[alias] {
 			player.stop()
 		}
-		let player = AudioPlayer(url)
-		player.play(onProgress: { progress?($0, $1) }) { [weak self] (result: Bool) in
+		let player = AudioPlayer(url, volume: volume)
+		player.play(onProgress: { progress?($0, $1) }) { [weak self] (result: PlayerResult) in
 			finish?(result)
 			self?.players.removeValue(forKey: alias)
 		}
@@ -41,30 +40,35 @@ extension AudioPlayerImplementation {
 
 	}
 
-	func playAudio(_ noodle: Model.Noodle, with delay: Float, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) {
-		playAudio(noodle.makeIterator(), at: noodle.phrase.id, with: Double(delay), progress: progress, finish: finish)
+	func playAudio(_ noodle: Model.Noodle, with delay: Float, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
+		playAudio(noodle.makeIterator(), at: noodle.phrase.id, with: Double(delay), volume: volume, progress: progress, finish: finish)
 	}
 
-	func playAudio(_ noodle: Model.Noodle, at alias: URL, with delay: Float, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?) {
-		playAudio(noodle.makeIterator(), at: alias, with: Double(delay), progress: progress, finish: finish)
+	func playAudio(_ noodle: Model.Noodle, at alias: URL, with delay: Float, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
+		playAudio(noodle.makeIterator(), at: alias, with: Double(delay), volume: volume, progress: progress, finish: finish)
 	}
 
 	fileprivate func playAudio<Iterator: IteratorProtocol>(_ iterator: Iterator,
 														   at alias: URL,
 														   with delay: Double,
+														   volume: Float,
 														   progress: PlayerProgressCallback?,
-														   finish: ((Bool) -> Void)?
+														   finish: PlayerResultCallback?
 	) where Iterator.Element == URL {
 
 		var iterator = iterator
 		if let url = iterator.next() {
-			playAudio(url, at: alias, progress: progress, finish: { (result: Bool) -> Void in
+			playAudio(url, at: alias, volume: volume, progress: progress, finish: { (result: PlayerResult) -> Void in
+				guard result != .stopped else {
+					finish?(result)
+					return
+				}
 				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
-					self.playAudio(iterator, at: alias, with: delay, progress: progress, finish: finish)
+					self.playAudio(iterator, at: alias, with: delay, volume: volume, progress: progress, finish: finish)
 				}
 			})
 		} else {
-			finish?(true)
+			finish?(.finished)
 		}
 	}
 

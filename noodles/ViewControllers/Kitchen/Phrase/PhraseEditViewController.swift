@@ -18,7 +18,7 @@ protocol PhraseEditViewControlDelegate : PhraseEditViewFlowDelegate {
 
 	func startRecording(to parent: URL, for language: Language, progress: ((TimeInterval) -> Void)?, finish: ((URL?) -> Void)?)
 	func stopRecording(_ refreshHandle: RefreshHandle?)
-	func startPlaying(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
+	func startPlaying(_ url: URL, progress: PlayerProgressCallback?, finish: PlayerResultCallback?)
 	func stopPlaying(_ url: URL, _ refreshHandle: RefreshHandle?)
 	func stopAllAudio()
 }
@@ -237,7 +237,7 @@ class PhraseEditViewController: NoodlesViewController {
 		sender?.isSelected = true
 		flowDelegate.startPlaying(audioUrl, progress: { (progress: TimeInterval, total: TimeInterval) in
 			durationLabel.text = (total - progress).toMinutesTimeString()
-		}, finish: { (result: Bool) in
+		}, finish: { _ in
 			sender?.isSelected = false
 			self.refreshLabel(durationLabel: durationLabel, for: audioUrl)
 		})

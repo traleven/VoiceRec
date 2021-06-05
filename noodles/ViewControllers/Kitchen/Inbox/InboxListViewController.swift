@@ -19,7 +19,7 @@ protocol InboxListViewControlDelegate : InboxListViewFlowDelegate {
 	
 	func startRecording(to parent: Model.Egg?, progress: ((TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
 	func stopRecording(_ refreshHandle: RefreshHandle)
-	func playAudioEgg(_ url: URL, progress: ((TimeInterval, TimeInterval) -> Void)?, finish: ((Bool) -> Void)?)
+	func playAudioEgg(_ url: URL, progress: PlayerProgressCallback?, finish: PlayerResultCallback?)
 	func stopAllAudio()
 	func addTextEgg(to parent: Model.Egg?, _ refreshHandle: @escaping RefreshHandle)
 	func readTextEgg(_ egg: Model.Egg, _ refreshHandle: @escaping () -> Void)
@@ -204,7 +204,7 @@ extension InboxListViewController : UITableViewDelegate {
 			let url = self.subitems[indexPath.row]
 			self.flowDelegate.playAudioEgg(url) { (progress: TimeInterval, total: TimeInterval) in
 				self.audioProgress(progress / total, at: indexPath)
-			} finish: { (result: Bool) in
+			} finish: { _ in
 				self.audioProgress(0, at: indexPath)
 			}
 

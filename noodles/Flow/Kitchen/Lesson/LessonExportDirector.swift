@@ -49,10 +49,17 @@ extension LessonExportDirector: LessonExportViewControlDelegate {
 		router.present(viewController, onDismiss: nil)
 	}
 
+	func updateLivePreviewSettings(_ lesson: Model.Recipe) {
+
+		if let music = lesson.music, let musicPlayer = players[music] {
+			musicPlayer.setVolume(lesson.spices.musicVolume)
+		}
+	}
+
 	func startLivePreview(_ lesson: Model.Recipe, finish: (() -> Void)?) {
 
 		if let music = lesson.music {
-			playAudio(music, progress: nil, finish: { _ in finish?() })
+			playAudio(music, volume: lesson.spices.musicVolume, progress: nil, finish: { _ in finish?() })
 		}
 	}
 

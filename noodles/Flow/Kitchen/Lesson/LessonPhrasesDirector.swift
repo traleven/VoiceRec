@@ -77,18 +77,18 @@ extension LessonPhrasesDirector : LessonPhrasesViewControlDelegate {
 	}
 
 
-	func play(phrase: URL, of shape: Shape, with spices: Spices, progress: PlayerProgressCallback?, result: ((Bool) -> Void)?) {
+	func play(phrase: URL, of shape: Shape, with spices: Spices, progress: PlayerProgressCallback?, result: PlayerResultCallback?) {
 
 		let phrase = Model.Phrase(id: phrase)
 		let noodle = Model.Noodle(phrase: phrase, shape: shape)
-		playAudio(noodle, with: spices.delayWithin, progress: progress, finish: result)
+		playAudio(noodle, with: spices.delayWithin, volume: spices.voiceVolume, progress: progress, finish: result)
 	}
 
 
-	func startLivePreview(_ lesson: Model.Recipe, _ onFinish: @escaping () -> Void) {
+	func startLivePreview(_ lesson: Model.Recipe, with spices: Spices, _ onFinish: @escaping () -> Void) {
 
 		if let music = lesson.music {
-			self.playAudio(music, progress: nil, finish: { _ in onFinish() })
+			self.playAudio(music, volume: spices.musicVolume, progress: nil, finish: { _ in onFinish() })
 		}
 	}
 

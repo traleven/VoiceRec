@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DB15F3C8266BB976009BFDA1 /* InboxTextEditDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3C7266BB976009BFDA1 /* InboxTextEditDirector.swift */; };
 		DB15F3CC266BBD8C009BFDA1 /* PatternSelectionDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3CB266BBD8C009BFDA1 /* PatternSelectionDirector.swift */; };
+		DB15F3D1266BDC08009BFDA1 /* Composer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3D0266BDC08009BFDA1 /* Composer.swift */; };
+		DB15F3D4266BDC13009BFDA1 /* LiveComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3D3266BDC13009BFDA1 /* LiveComposer.swift */; };
 		DB4133332643D5650035D952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133322643D5650035D952 /* AppDelegate.swift */; };
 		DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133342643D5650035D952 /* SceneDelegate.swift */; };
 		DB41333A2643D5650035D952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4133382643D5650035D952 /* Main.storyboard */; };
@@ -107,6 +109,8 @@
 /* Begin PBXFileReference section */
 		DB15F3C7266BB976009BFDA1 /* InboxTextEditDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTextEditDirector.swift; sourceTree = "<group>"; };
 		DB15F3CB266BBD8C009BFDA1 /* PatternSelectionDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternSelectionDirector.swift; sourceTree = "<group>"; };
+		DB15F3D0266BDC08009BFDA1 /* Composer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composer.swift; sourceTree = "<group>"; };
+		DB15F3D3266BDC13009BFDA1 /* LiveComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveComposer.swift; sourceTree = "<group>"; };
 		DB41332F2643D5650035D952 /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4133322643D5650035D952 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4133342643D5650035D952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -332,6 +336,8 @@
 				DB413A052643D8BF0035D952 /* AudioPlayer.swift */,
 				DB413A062643D8BF0035D952 /* OpusTranscoder.m */,
 				DB413A072643D8BF0035D952 /* OpusTranscoder.h */,
+				DB15F3D0266BDC08009BFDA1 /* Composer.swift */,
+				DB15F3D3266BDC13009BFDA1 /* LiveComposer.swift */,
 				DB413A082643D8BF0035D952 /* ExportComposer.swift */,
 				DB413A092643D8BF0035D952 /* AudioRecorder.swift */,
 				DB413A0A2643D8BF0035D952 /* VoiceSequence.swift */,
@@ -656,6 +662,7 @@
 				DB413A4E2643D8DA0035D952 /* DictionaryDB.swift in Sources */,
 				DB15F3C8266BB976009BFDA1 /* InboxTextEditDirector.swift in Sources */,
 				DBCF76BE2661134900D80A6B /* PhrasesDirector.swift in Sources */,
+				DB15F3D1266BDC08009BFDA1 /* Composer.swift in Sources */,
 				DBCF76B726602B7B00D80A6B /* GradientHorizontalProgressBar.swift in Sources */,
 				DB413A4C2643D8DA0035D952 /* WeakLink.swift in Sources */,
 				DBE8E0752662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift in Sources */,
@@ -705,6 +712,7 @@
 				DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */,
 				DB413A2A2643D8CD0035D952 /* Model.User.swift in Sources */,
 				DBDC67F52646DEEF00B99539 /* NavigationControllerRouter.swift in Sources */,
+				DB15F3D4266BDC13009BFDA1 /* LiveComposer.swift in Sources */,
 				DBDC67E726443DCB00B99539 /* InboxCell.swift in Sources */,
 				DB55A8042664F9BA00CD963E /* NoodlesViewController.swift in Sources */,
 				DB413A302643D8CD0035D952 /* Shape.swift in Sources */,

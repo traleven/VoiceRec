@@ -18,9 +18,9 @@ protocol LessonMusicViewControlDelegate: LessonMusicViewFlowDelegate {
 	typealias ModelRefreshHandle = (Model.Recipe) -> Void
 
 	func selectMusic(_ url: URL, for lesson: Model.Recipe, _ refresh: ModelRefreshHandle)
-	func playMusic(_ url: URL, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?)
+	func playMusic(_ url: URL, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?)
 	func stopMusic()
-	func play(_ phrase: Model.Phrase, of shape: Shape, with spices: Spices, progress: PlayerProgressCallback?, finish: ((Bool) -> Void)?)
+	func play(_ phrase: Model.Phrase, of shape: Shape, with spices: Spices, progress: PlayerProgressCallback?, finish: PlayerResultCallback?)
 	func stop(_ phrase: Model.Phrase)
 	func stopAllAudio()
 
@@ -139,7 +139,12 @@ class LessonMusicViewController: NoodlesViewController {
 		broth.loadAsyncTitle({ self.nowPlayingTitle?.text = $0 })
 		broth.loadAsyncArtist({ self.nowPlayingArtist?.text = $0 ?? Self.defaultArtist })
 		broth.loadAsyncDuration({ self.progressNowPlaying(progress: 0, total: $0) })
-		self.flowDelegate.playMusic(broth.audioFile, progress: progressNowPlaying(progress:total:), finish: nil)
+		self.flowDelegate.playMusic(
+			broth.audioFile,
+			volume: lesson.spices.musicVolume,
+			progress: progressNowPlaying(progress:total:),
+			finish: nil
+		)
 	}
 
 
