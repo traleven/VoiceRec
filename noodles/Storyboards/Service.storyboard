@@ -71,7 +71,6 @@
         <!--Kitchen Root-->
         <scene sceneID="U5E-rY-uuH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oAg-FI-Ia8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController title="Kitchen Root" id="pB8-E6-KHa" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KfQ-Sh-XsP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -84,6 +83,7 @@
                         <segue destination="jUS-HR-m9R" kind="relationship" relationship="viewControllers" id="hC0-4N-JPM"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oAg-FI-Ia8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-651" y="-332"/>
         </scene>
@@ -207,6 +207,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldw-IW-bZp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1426" y="807"/>
+        </scene>
+        <!--Repetition pattern-->
+        <scene sceneID="M8y-KZ-w8e">
+            <objects>
+                <viewController storyboardIdentifier="service.patternSelector" title="Repetition pattern" id="HiY-Gm-zWc" customClass="PatternSelectionViewController" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="DJQ-HF-bQi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3c-zL-hXH">
+                                <rect key="frame" x="0.0" y="602" width="414" height="260"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NvZ-n9-FrR">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="216"/>
+                                    </pickerView>
+                                    <navigationBar clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mET-cG-cbw">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <items>
+                                            <navigationItem id="jeT-Ax-axL">
+                                                <barButtonItem key="rightBarButtonItem" systemItem="save" id="zan-8N-E3s">
+                                                    <connections>
+                                                        <action selector="confirm:" destination="HiY-Gm-zWc" id="Otb-sB-lS6"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NvZ-n9-FrR" secondAttribute="trailing" id="36Q-eJ-GJ4"/>
+                                    <constraint firstItem="mET-cG-cbw" firstAttribute="leading" secondItem="F3c-zL-hXH" secondAttribute="leading" id="GWV-xx-HOk"/>
+                                    <constraint firstAttribute="trailing" secondItem="mET-cG-cbw" secondAttribute="trailing" id="Nsg-V5-Z6e"/>
+                                    <constraint firstItem="mET-cG-cbw" firstAttribute="top" secondItem="F3c-zL-hXH" secondAttribute="top" id="hcL-KG-kN9"/>
+                                    <constraint firstAttribute="bottom" secondItem="NvZ-n9-FrR" secondAttribute="bottom" id="itV-aG-EqE"/>
+                                    <constraint firstItem="NvZ-n9-FrR" firstAttribute="leading" secondItem="F3c-zL-hXH" secondAttribute="leading" id="pKc-46-JJj"/>
+                                    <constraint firstItem="NvZ-n9-FrR" firstAttribute="top" secondItem="mET-cG-cbw" secondAttribute="bottom" id="sdl-Mg-K1y"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rQF-ao-yaO"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="F3c-zL-hXH" firstAttribute="trailing" secondItem="rQF-ao-yaO" secondAttribute="trailing" id="18e-s7-17n"/>
+                            <constraint firstItem="NvZ-n9-FrR" firstAttribute="bottom" secondItem="rQF-ao-yaO" secondAttribute="bottom" id="LQu-Pe-QPK"/>
+                            <constraint firstItem="F3c-zL-hXH" firstAttribute="leading" secondItem="rQF-ao-yaO" secondAttribute="leading" id="g75-Gc-IPV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="picker" destination="NvZ-n9-FrR" id="pfp-gP-0Pf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VhR-CT-0PZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-652" y="806"/>
         </scene>
     </scenes>
     <resources>

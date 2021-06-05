@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol PatternSelectionViewFlowDelegate: Director {
+}
+
+protocol PatternSelectionViewControlDelegate: PatternSelectionViewFlowDelegate {
+}
+
 class PatternSelectionViewController: NoodlesViewController {
+	let flowDelegate: PatternSelectionViewControlDelegate
 
 	let preselected: String?
 	let onApply: ((String) -> Void)?
@@ -19,8 +26,9 @@ class PatternSelectionViewController: NoodlesViewController {
 	}
 
 
-	init?(coder: NSCoder, preselected: String?, confirm: ((String) -> Void)?) {
+	init?(coder: NSCoder, flow: PatternSelectionViewControlDelegate, preselected: String?, confirm: ((String) -> Void)?) {
 
+		self.flowDelegate = flow
 		self.onApply = confirm
 		self.preselected = preselected
 
@@ -50,25 +58,5 @@ class PatternSelectionViewController: NoodlesViewController {
 		if let result = DB.presets?[picker.selectedRow(inComponent: 0)] {
 			onApply?(result)
 		}
-	}
-}
-
-extension ArrayDB: UIPickerViewDataSource {
-
-	func numberOfComponents(in pickerView: UIPickerView) -> Int {
-
-		return 1
-	}
-
-	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-
-		return self.data.count
-	}
-}
-
-extension ArrayDB: UIPickerViewDelegate {
-
-	func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-		return self[row]
 	}
 }

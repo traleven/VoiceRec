@@ -2869,57 +2869,6 @@
             </objects>
             <point key="canvasLocation" x="4818.840579710145" y="253.79464285714283"/>
         </scene>
-        <!--Repetition pattern-->
-        <scene sceneID="nZK-hb-o3s">
-            <objects>
-                <viewController storyboardIdentifier="lesson.pattern" title="Repetition pattern" id="5yd-LJ-fM4" customClass="PatternSelectionViewController" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" contentMode="scaleToFill" id="blV-0Y-AOY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rE-Wi-um2">
-                                <rect key="frame" x="0.0" y="602" width="414" height="260"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Znx-YQ-5TT">
-                                <rect key="frame" x="0.0" y="602" width="414" height="44"/>
-                                <items>
-                                    <navigationItem id="qFE-ch-th0">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="rPh-jb-OL9">
-                                            <connections>
-                                                <action selector="confirm:" destination="5yd-LJ-fM4" id="7hk-Gu-W5i"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="837-hy-OQo">
-                                <rect key="frame" x="0.0" y="646" width="414" height="216"/>
-                            </pickerView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="I5F-Dk-b84"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Znx-YQ-5TT" firstAttribute="top" secondItem="7rE-Wi-um2" secondAttribute="top" id="3BR-Kn-XaV"/>
-                            <constraint firstItem="837-hy-OQo" firstAttribute="leading" secondItem="I5F-Dk-b84" secondAttribute="leading" id="Li6-Fc-7my"/>
-                            <constraint firstItem="I5F-Dk-b84" firstAttribute="bottom" secondItem="837-hy-OQo" secondAttribute="bottom" id="YhG-FG-Csb"/>
-                            <constraint firstItem="837-hy-OQo" firstAttribute="top" secondItem="Znx-YQ-5TT" secondAttribute="bottom" id="ZnP-0V-t6i"/>
-                            <constraint firstItem="837-hy-OQo" firstAttribute="leading" secondItem="7rE-Wi-um2" secondAttribute="leading" id="cPB-Ca-sbU"/>
-                            <constraint firstItem="Znx-YQ-5TT" firstAttribute="trailing" secondItem="I5F-Dk-b84" secondAttribute="trailing" id="gJt-up-jJr"/>
-                            <constraint firstItem="Znx-YQ-5TT" firstAttribute="leading" secondItem="I5F-Dk-b84" secondAttribute="leading" id="imM-TD-Iml"/>
-                            <constraint firstItem="837-hy-OQo" firstAttribute="bottom" secondItem="7rE-Wi-um2" secondAttribute="bottom" id="pV9-Ny-rGf"/>
-                            <constraint firstItem="837-hy-OQo" firstAttribute="trailing" secondItem="I5F-Dk-b84" secondAttribute="trailing" id="pec-EC-TIK"/>
-                            <constraint firstItem="837-hy-OQo" firstAttribute="trailing" secondItem="7rE-Wi-um2" secondAttribute="trailing" id="xuy-CD-B73"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="picker" destination="837-hy-OQo" id="a2v-E8-DcX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wDr-fE-MZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5575" y="254"/>
-        </scene>
     </scenes>
     <designables>
         <designable name="1W8-7v-idU">

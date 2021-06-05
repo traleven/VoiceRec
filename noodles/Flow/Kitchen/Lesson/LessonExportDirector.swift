@@ -37,14 +37,13 @@ extension LessonExportDirector: LessonExportViewFlowDelegate {
 extension LessonExportDirector: LessonExportViewControlDelegate {
 
 	func selectRepetitionPattern(_ lesson: Model.Recipe, _ refresh: ((Model.Recipe) -> Void)?) {
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
-		let viewController = storyboard.instantiateViewController(identifier: "lesson.pattern", creator: { (coder: NSCoder) -> PatternSelectionViewController? in
-			return PatternSelectionViewController(coder: coder, preselected: lesson.shapeString, confirm: { (result: String) in
-				var newLesson = lesson
-				newLesson.shape = Shape(dna: result)
-				self.router.dismiss(animated: true, completion: {
-					refresh?(newLesson)
-				})
+
+		let director = PatternSelectionDirector(router: router)
+		let viewController = director.makeViewController(current: lesson.shapeString, confirm: { (result: String) in
+			var newLesson = lesson
+			newLesson.shape = Shape(dna: result)
+			self.router.dismiss(animated: true, completion: {
+				refresh?(newLesson)
 			})
 		})
 		router.present(viewController, onDismiss: nil)

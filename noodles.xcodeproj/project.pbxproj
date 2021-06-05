@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DB15F3C8266BB976009BFDA1 /* InboxTextEditDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3C7266BB976009BFDA1 /* InboxTextEditDirector.swift */; };
+		DB15F3CC266BBD8C009BFDA1 /* PatternSelectionDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3CB266BBD8C009BFDA1 /* PatternSelectionDirector.swift */; };
 		DB4133332643D5650035D952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133322643D5650035D952 /* AppDelegate.swift */; };
 		DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133342643D5650035D952 /* SceneDelegate.swift */; };
 		DB41333A2643D5650035D952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4133382643D5650035D952 /* Main.storyboard */; };
@@ -105,6 +106,7 @@
 
 /* Begin PBXFileReference section */
 		DB15F3C7266BB976009BFDA1 /* InboxTextEditDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTextEditDirector.swift; sourceTree = "<group>"; };
+		DB15F3CB266BBD8C009BFDA1 /* PatternSelectionDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternSelectionDirector.swift; sourceTree = "<group>"; };
 		DB41332F2643D5650035D952 /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4133322643D5650035D952 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4133342643D5650035D952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -252,6 +254,14 @@
 			path = Lesson;
 			sourceTree = "<group>";
 		};
+		DB15F3CA266BBD58009BFDA1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DB15F3CB266BBD8C009BFDA1 /* PatternSelectionDirector.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		DB4133262643D5650035D952 = {
 			isa = PBXGroup;
 			children = (
@@ -367,7 +377,7 @@
 				DBDC67D62644072C00B99539 /* RootPageViewController.swift */,
 				DB55A8032664F9BA00CD963E /* NoodlesViewController.swift */,
 				DBE8E06726614D6300E48470 /* Kitchen */,
-				DB7BA8B6266AD422008223E4 /* Settings */,
+				DB7BA8B6266AD422008223E4 /* Service */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -443,12 +453,12 @@
 			path = Persistent;
 			sourceTree = "<group>";
 		};
-		DB7BA8B6266AD422008223E4 /* Settings */ = {
+		DB7BA8B6266AD422008223E4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				DB7BA8B7266AD44D008223E4 /* PatternSelectionViewController.swift */,
 			);
-			path = Settings;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		DBCF76A3265E610D00D80A6B /* Views */ = {
@@ -483,6 +493,7 @@
 				DBDC67F02646D84C00B99539 /* Router.swift */,
 				DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */,
 				DB15F3C2266BB84C009BFDA1 /* Kitchen */,
+				DB15F3CA266BBD58009BFDA1 /* Service */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -697,6 +708,7 @@
 				DBDC67E726443DCB00B99539 /* InboxCell.swift in Sources */,
 				DB55A8042664F9BA00CD963E /* NoodlesViewController.swift in Sources */,
 				DB413A302643D8CD0035D952 /* Shape.swift in Sources */,
+				DB15F3CC266BBD8C009BFDA1 /* PatternSelectionDirector.swift in Sources */,
 				DB413A2F2643D8CD0035D952 /* Model.Bowl.swift in Sources */,
 				DB413A492643D8DA0035D952 /* FileUtils.swift in Sources */,
 				DB413A0F2643D8BF0035D952 /* AudioRecorder.swift in Sources */,
