@@ -81,7 +81,6 @@
 		DBDC67F52646DEEF00B99539 /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */; };
 		DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67F8264942CE00B99539 /* InboxListViewController.swift */; };
 		DBDC67FE264A8AEE00B99539 /* InboxTextEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */; };
-		DBDC68022656B3C200B99539 /* InboxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC68012656B3C200B99539 /* InboxDelegate.swift */; };
 		DBE8E07226614E2100E48470 /* PhraseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8E07126614E2100E48470 /* PhraseEditViewController.swift */; };
 		DBE8E0752662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -195,7 +194,6 @@
 		DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
 		DBDC67F8264942CE00B99539 /* InboxListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListViewController.swift; sourceTree = "<group>"; };
 		DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTextEditViewController.swift; sourceTree = "<group>"; };
-		DBDC68012656B3C200B99539 /* InboxDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxDelegate.swift; sourceTree = "<group>"; };
 		DBE8E07126614E2100E48470 /* PhraseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEditViewController.swift; sourceTree = "<group>"; };
 		DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnKeyTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +210,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB15F3C2266BB84C009BFDA1 /* Kitchen */ = {
+			isa = PBXGroup;
+			children = (
+				DB15F3C3266BB855009BFDA1 /* Inbox */,
+				DB15F3C4266BB860009BFDA1 /* Phrase */,
+				DB15F3C5266BB867009BFDA1 /* Lesson */,
+			);
+			path = Kitchen;
+			sourceTree = "<group>";
+		};
+		DB15F3C3266BB855009BFDA1 /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				DBDC67EA2646D83200B99539 /* InboxDirector.swift */,
+			);
+			path = Inbox;
+			sourceTree = "<group>";
+		};
+		DB15F3C4266BB860009BFDA1 /* Phrase */ = {
+			isa = PBXGroup;
+			children = (
+				DBCF76BD2661134900D80A6B /* PhrasesDirector.swift */,
+				DB79CAB626691BB900CDB01F /* PhraseEditDirector.swift */,
+			);
+			path = Phrase;
+			sourceTree = "<group>";
+		};
+		DB15F3C5266BB867009BFDA1 /* Lesson */ = {
+			isa = PBXGroup;
+			children = (
+				DBCF76C026611BEA00D80A6B /* LessonsDirector.swift */,
+				DB79CAB32669156A00CDB01F /* LessonPhrasesDirector.swift */,
+				DB79CAB02669146800CDB01F /* LessonPhraseSelectorDirector.swift */,
+				DB79CAAD2668D22B00CDB01F /* LessonMusicDirector.swift */,
+				DB6A5474266A42CA00861135 /* LessonExportDirector.swift */,
+			);
+			path = Lesson;
+			sourceTree = "<group>";
+		};
 		DB4133262643D5650035D952 = {
 			isa = PBXGroup;
 			children = (
@@ -442,14 +479,7 @@
 				DBDC67ED2646D84200B99539 /* Director.swift */,
 				DBDC67F02646D84C00B99539 /* Router.swift */,
 				DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */,
-				DBDC67EA2646D83200B99539 /* InboxDirector.swift */,
-				DBCF76BD2661134900D80A6B /* PhrasesDirector.swift */,
-				DB79CAB626691BB900CDB01F /* PhraseEditDirector.swift */,
-				DBCF76C026611BEA00D80A6B /* LessonsDirector.swift */,
-				DB79CAB32669156A00CDB01F /* LessonPhrasesDirector.swift */,
-				DB79CAB02669146800CDB01F /* LessonPhraseSelectorDirector.swift */,
-				DB79CAAD2668D22B00CDB01F /* LessonMusicDirector.swift */,
-				DB6A5474266A42CA00861135 /* LessonExportDirector.swift */,
+				DB15F3C2266BB84C009BFDA1 /* Kitchen */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -457,7 +487,6 @@
 		DBDC68002656B3A900B99539 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				DBDC68012656B3C200B99539 /* InboxDelegate.swift */,
 				DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */,
 				DB55A8062666B08200CD963E /* CommonDelegateExtensions.swift */,
 			);
@@ -649,7 +678,6 @@
 				DB79CAB726691BB900CDB01F /* PhraseEditDirector.swift in Sources */,
 				DB55A7FB2664F8B100CD963E /* LessonMusicViewController.swift in Sources */,
 				DBCF76B12660091A00D80A6B /* LessonsListViewController.swift in Sources */,
-				DBDC68022656B3C200B99539 /* InboxDelegate.swift in Sources */,
 				DB55A7F82664F89900CD963E /* LessonPhrasesViewController.swift in Sources */,
 				DB4133332643D5650035D952 /* AppDelegate.swift in Sources */,
 				DBDC67F12646D84C00B99539 /* Router.swift in Sources */,
