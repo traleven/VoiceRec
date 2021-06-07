@@ -29,15 +29,16 @@ extension Model {
 		}
 
 		private(set) var id : URL
+		private var baseUrl : URL
 		private var meta : Meta
 		
 		var name : String { get { meta.name } set { meta.name = newValue } }
 		var phraseCount : Int { meta.count }
-		subscript(_ idx: Int) -> URL { meta[idx, at: id.baseURL] }
+		subscript(_ idx: Int) -> URL { meta[idx, at: baseUrl] }
 		var music : URL? {
-			get { meta.broth.isEmpty ? nil : URL(fileURLWithPath: ".", relativeTo: id.baseURL).appendingPathComponent(meta.broth) }
+			get { meta.broth.isEmpty ? nil : URL(fileURLWithPath: ".", relativeTo: baseUrl).appendingPathComponent(meta.broth) }
 			set {
-				if let base = id.baseURL, let newValue = newValue, let relativePath = newValue.relativePath(relativeTo: base) {
+				if let newValue = newValue, let relativePath = newValue.relativePath(relativeTo: baseUrl) {
 					meta.broth = relativePath
 				} else {
 					meta.broth = ""
@@ -85,19 +86,22 @@ extension Model {
 
 		init(id: URL) {
 			self.id = id
+			self.baseUrl = id.baseURL!
 			self.meta = FileUtils.isLessonDirectory(id)
 				? PersistentObject.load(FileUtils.getMetaFile(for: id))
 				: Meta()
 		}
 
+		init(id: URL, baked: Bool) {
+			self.init(id: id)
+			if baked {
+				baseUrl = id
+			}
+		}
+
 		mutating func addPhrase(id: URL) {
-			if let base = self.id.baseURL {
-				if let relativePath = id.relativePath(relativeTo: base) {
-					meta.phrases.append(relativePath)
-				}
-			} else {
-				NSLog("Serializing absolute path: \(id) for \(self.id)")
-				meta.phrases.append(id.relativePath)
+			if let relativePath = id.relativePath(relativeTo: baseUrl) {
+				meta.phrases.append(relativePath)
 			}
 		}
 
@@ -111,8 +115,13 @@ extension Model {
 			PersistentObject.save(meta, to: FileUtils.getMetaFile(for: id))
 		}
 
+		func save(to url: URL) {
+			FileUtils.ensureDirectory(url)
+			PersistentObject.save(meta, to: FileUtils.getMetaFile(for: url))
+		}
+
 		__consuming func makeIterator() -> RelativePathIterator {
-			return RelativePathIterator(paths: meta.phrases, baseUrl: id.baseURL)
+			return RelativePathIterator(paths: meta.phrases, baseUrl: baseUrl)
 		}
 
 		func contains(_ phrase: URL) -> Bool {

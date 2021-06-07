@@ -21,6 +21,8 @@ protocol LessonExportViewControlDelegate: LessonExportViewFlowDelegate {
 	func startLivePreview(_ lesson: @escaping () -> Model.Recipe)
 	func stopLivePreview()
 	func save(_ lesson: Model.Recipe)
+
+	func bake(_ lesson: Model.Recipe)
 }
 
 class LessonExportViewController: NoodlesViewController {
@@ -157,6 +159,12 @@ class LessonExportViewController: NoodlesViewController {
 	@IBAction func selectPattern(_ sender: UIControl) {
 
 		flowDelegate.selectRepetitionPattern(lesson, refresh(_:))
+	}
+
+
+	@IBAction func cookLesson(_ sender: UIColor) {
+
+		flowDelegate.bake(lesson)
 	}
 
 

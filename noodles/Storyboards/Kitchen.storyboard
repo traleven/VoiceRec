@@ -2728,6 +2728,9 @@
                                         </constraints>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" image="headphones.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="cookLesson:" destination="s2K-j7-qW7" eventType="primaryActionTriggered" id="JVR-2G-bSe"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="SecondaryFill"/>
@@ -2896,6 +2899,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6U-fS-xck" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4818.840579710145" y="253.79464285714283"/>
+        </scene>
+        <!--Cooking Progress-->
+        <scene sceneID="ban-YZ-dJo">
+            <objects>
+                <viewController storyboardIdentifier="lesson.cooking" title="Cooking Progress" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="4ex-fJ-gRF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R3k-KH-qoO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxb-lk-8sd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hiV-j8-XVC">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="jGB-fY-Azp">
+                                            <rect key="frame" x="188.5" y="390.5" width="37" height="37"/>
+                                        </activityIndicatorView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pretty cooking animation here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMj-Ic-fIu">
+                                            <rect key="frame" x="93" y="467.5" width="228" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jGB-fY-Azp" firstAttribute="centerY" secondItem="hiV-j8-XVC" secondAttribute="centerY" id="4OZ-QM-eb4"/>
+                                        <constraint firstItem="oMj-Ic-fIu" firstAttribute="top" secondItem="jGB-fY-Azp" secondAttribute="bottom" constant="40" id="7ui-WQ-2k3"/>
+                                        <constraint firstItem="oMj-Ic-fIu" firstAttribute="centerX" secondItem="hiV-j8-XVC" secondAttribute="centerX" id="woT-ug-5PW"/>
+                                        <constraint firstItem="jGB-fY-Azp" firstAttribute="centerX" secondItem="hiV-j8-XVC" secondAttribute="centerX" id="zfB-iK-yUX"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZEy-lk-ChZ"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bxb-lk-8sd" firstAttribute="leading" secondItem="ZEy-lk-ChZ" secondAttribute="leading" id="0E5-gr-so3"/>
+                            <constraint firstItem="ZEy-lk-ChZ" firstAttribute="trailing" secondItem="bxb-lk-8sd" secondAttribute="trailing" id="HIg-iQ-LVQ"/>
+                            <constraint firstItem="bxb-lk-8sd" firstAttribute="top" secondItem="ZEy-lk-ChZ" secondAttribute="top" id="iHW-EH-pdj"/>
+                            <constraint firstItem="ZEy-lk-ChZ" firstAttribute="bottom" secondItem="bxb-lk-8sd" secondAttribute="bottom" id="q5B-Jo-f3V"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xQh-Yx-cnv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5638" y="254"/>
         </scene>
     </scenes>
     <designables>

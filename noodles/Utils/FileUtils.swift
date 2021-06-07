@@ -15,6 +15,7 @@ class FileUtils {
 		case phrases = "Phrases"
 		case lessons = "Lessons"
 		case music = "Music"
+		case cooked = "Cooked"
 		case users = "Users"
 	}
 
@@ -203,6 +204,7 @@ class FileUtils {
 		return false
 	}
 
+
 	class func isPhraseDirectory(_ url: URL) -> Bool {
 
 		let fileManager = FileManager.default
@@ -240,6 +242,7 @@ class FileUtils {
 		}
 	}
 
+
 	class func makeLessonDirectory(_ lessonUrl: URL) {
 
 		ensureDirectory(lessonUrl)
@@ -255,6 +258,7 @@ class FileUtils {
 			}
 		}
 	}
+
 
 	class func PrepareDefaultData() {
 		let filemgr = FileManager.default
@@ -281,10 +285,25 @@ class FileUtils {
 		guard filemgr.isDeletableFile(atPath: url.path) else {
 			return
 		}
+		guard filemgr.fileExists(atPath: url.path) else {
+			return
+		}
 		do {
 			try filemgr.removeItem(atPath: url.path)
 		} catch let error {
 			NSLog("Failed to delete file at path \(url.path): \(error.localizedDescription)")
+		}
+	}
+
+
+	class func copy(_ source: URL, to directory: URL) {
+
+		let fileManager = FileManager.default
+		ensureDirectory(directory)
+		do {
+			try fileManager.copyItem(at: source, to: directory.appendingPathComponent(source.lastPathComponent))
+		} catch let error {
+			NSLog("Failed to copy \(source) to \(directory): \(error)")
 		}
 	}
 }

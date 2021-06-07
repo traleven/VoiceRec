@@ -67,4 +67,30 @@ extension LessonExportDirector: LessonExportViewControlDelegate {
 			composer.stop()
 		}
 	}
+
+	func bake(_ lesson: Model.Recipe) {
+
+		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let viewController = storyboard.instantiateViewController(identifier: "lesson.cooking")
+		router.present(viewController, onDismiss: nil)
+
+		let queue = OperationQueue()
+		queue.addOperation {
+			let root = FileUtils.getDirectory(.cooked)
+			let target = root.appendingPathComponent(lesson.id.lastPathComponent)
+			FileUtils.delete(target)
+			lesson.save(to: target)
+			if let music = lesson.music {
+				let musicRoot = target.appendingPathComponent(FileUtils.Directories.music.rawValue, isDirectory: true)
+				FileUtils.copy(music, to: musicRoot)
+			}
+			let phrasesRoot = target.appendingPathComponent(FileUtils.Directories.phrases.rawValue, isDirectory: true)
+			for phrase in lesson {
+				FileUtils.copy(phrase, to: phrasesRoot)
+			}
+			DispatchQueue.runOnMain {
+				self.router.dismiss(animated: true, completion: nil)
+			}
+		}
+	}
 }
