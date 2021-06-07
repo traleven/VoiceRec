@@ -2915,17 +2915,17 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="jGB-fY-Azp">
-                                            <rect key="frame" x="188.5" y="390.5" width="37" height="37"/>
+                                            <rect key="frame" x="188.5" y="350.5" width="37" height="37"/>
                                         </activityIndicatorView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pretty cooking animation here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMj-Ic-fIu">
-                                            <rect key="frame" x="93" y="467.5" width="228" height="21"/>
+                                            <rect key="frame" x="93" y="427.5" width="228" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="jGB-fY-Azp" firstAttribute="centerY" secondItem="hiV-j8-XVC" secondAttribute="centerY" id="4OZ-QM-eb4"/>
+                                        <constraint firstItem="jGB-fY-Azp" firstAttribute="centerY" secondItem="hiV-j8-XVC" secondAttribute="centerY" constant="-40" id="4OZ-QM-eb4"/>
                                         <constraint firstItem="oMj-Ic-fIu" firstAttribute="top" secondItem="jGB-fY-Azp" secondAttribute="bottom" constant="40" id="7ui-WQ-2k3"/>
                                         <constraint firstItem="oMj-Ic-fIu" firstAttribute="centerX" secondItem="hiV-j8-XVC" secondAttribute="centerX" id="woT-ug-5PW"/>
                                         <constraint firstItem="jGB-fY-Azp" firstAttribute="centerX" secondItem="hiV-j8-XVC" secondAttribute="centerX" id="zfB-iK-yUX"/>

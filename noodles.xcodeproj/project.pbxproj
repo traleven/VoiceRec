@@ -86,6 +86,8 @@
 		DBDC67F52646DEEF00B99539 /* NavigationControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */; };
 		DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67F8264942CE00B99539 /* InboxListViewController.swift */; };
 		DBDC67FE264A8AEE00B99539 /* InboxTextEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */; };
+		DBE7C6B7266EABFC00A92048 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE7C6B6266EABFB00A92048 /* ProfileViewController.swift */; };
+		DBE7C6BC266EAC0B00A92048 /* ProfileEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE7C6BB266EAC0B00A92048 /* ProfileEditorViewController.swift */; };
 		DBE8E07226614E2100E48470 /* PhraseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8E07126614E2100E48470 /* PhraseEditViewController.swift */; };
 		DBE8E0752662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -204,6 +206,8 @@
 		DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerRouter.swift; sourceTree = "<group>"; };
 		DBDC67F8264942CE00B99539 /* InboxListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxListViewController.swift; sourceTree = "<group>"; };
 		DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTextEditViewController.swift; sourceTree = "<group>"; };
+		DBE7C6B6266EABFB00A92048 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DBE7C6BB266EAC0B00A92048 /* ProfileEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorViewController.swift; sourceTree = "<group>"; };
 		DBE8E07126614E2100E48470 /* PhraseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEditViewController.swift; sourceTree = "<group>"; };
 		DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnKeyTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -465,6 +469,8 @@
 			isa = PBXGroup;
 			children = (
 				DB7BA8B7266AD44D008223E4 /* PatternSelectionViewController.swift */,
+				DBE7C6B6266EABFB00A92048 /* ProfileViewController.swift */,
+				DBE7C6BB266EAC0B00A92048 /* ProfileEditorViewController.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -681,6 +687,7 @@
 				DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */,
 				DB413A272643D8CD0035D952 /* Model.Broth.swift in Sources */,
 				DBCF76C126611BEA00D80A6B /* LessonsDirector.swift in Sources */,
+				DBE7C6BC266EAC0B00A92048 /* ProfileEditorViewController.swift in Sources */,
 				DB413A262643D8CD0035D952 /* Model.Phrase.swift in Sources */,
 				DB6A5470266A2BC200861135 /* AnimationUtils.swift in Sources */,
 				DBCF76AE265FD12E00D80A6B /* PhraseCell.swift in Sources */,
@@ -718,6 +725,7 @@
 				DBDC67F52646DEEF00B99539 /* NavigationControllerRouter.swift in Sources */,
 				DB15F3D4266BDC13009BFDA1 /* LiveComposer.swift in Sources */,
 				DBDC67E726443DCB00B99539 /* InboxCell.swift in Sources */,
+				DBE7C6B7266EABFC00A92048 /* ProfileViewController.swift in Sources */,
 				DB55A8042664F9BA00CD963E /* NoodlesViewController.swift in Sources */,
 				DB413A302643D8CD0035D952 /* Shape.swift in Sources */,
 				DB15F3CC266BBD8C009BFDA1 /* PatternSelectionDirector.swift in Sources */,
