@@ -52,10 +52,6 @@ class Settings {
 			get { return DB.options.getValue(forKey: "phrase.random") != "NO" }
 			set { DB.options.setValue(newValue ? "YES" : "NO", forKey: "phrase.random") }
 		}
-		static var defaultShape: Shape {
-			get { return Shape(dna: DB.options.getValue(forKey: "lesson.defaultShape")) }
-			set { DB.options.setValue(forKey: "lesson.defaultShape", value: newValue.dna) }
-		}
 		class delay {
 			static var inner: Float {
 				get { return DB.numerics.getValue(forKey: "phrase.delay.inner") }
@@ -71,20 +67,6 @@ class Settings {
 		static var preferBase: Bool {
 			get { return DB.options.getValue(forKey: "language.preferBase") != "NO" }
 			set { DB.options.setValue(forKey: "language.preferBase", value: newValue ? "YES" : "NO") }
-		}
-		static var base: Language {
-			get { return Language(withCode: DB.options.getValue(forKey: "language.base")) }
-			set { DB.options.setValue(forKey: "language.base", value: newValue.code) }
-		}
-		static var target: Language {
-			get { return Language(withCode: DB.options.getValue(forKey: "language.target")) }
-			set { DB.options.setValue(forKey: "language.target", value: newValue.code) }
-		}
-		class func getLanguage(_ languageCode: Character) -> Language {
-			return languageCode == "E" || languageCode == "N" || languageCode == "A" ? base : target
-		}
-		class func getLanguage(_ language: String) -> Language {
-			return language == "Base" ? base : language == "Target" ? target : Language(withCode: language)
 		}
 	}
 }

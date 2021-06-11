@@ -197,7 +197,7 @@ class PhraseEditViewController: NoodlesViewController {
 
 	@IBAction func startRecording(_ sender: UIView?) {
 		let isBaseLanguage = sender == baseRecordButton
-		let language = isBaseLanguage ? Settings.language.base : Settings.language.target
+		let language = isBaseLanguage ? Model.User.Me.base : Model.User.Me.target
 		let durationLabel: UILabel! = isBaseLanguage ? baseDuration : targetDuration
 
 		durationLabel.isHidden = false
@@ -221,7 +221,7 @@ class PhraseEditViewController: NoodlesViewController {
 
 	@IBAction func startPlaying(_ sender: UIControl?) {
 		let isBaseLanguage = sender == basePlayButton
-		let language = isBaseLanguage ? Settings.language.base : Settings.language.target
+		let language = isBaseLanguage ? Model.User.Me.base : Model.User.Me.target
 		let durationLabel: UILabel! = isBaseLanguage ? baseDuration : targetDuration
 
 		guard let audioUrl = content.audio(language) else {
@@ -246,7 +246,7 @@ class PhraseEditViewController: NoodlesViewController {
 
 	@IBAction func openOptionMenu(_ sender: UIView?) {
 		let isBaseLanguage = sender == baseMenu
-		let language = isBaseLanguage ? Settings.language.base : Settings.language.target
+		let language = isBaseLanguage ? Model.User.Me.base : Model.User.Me.target
 
 		self.updateContent()
 		flowDelegate.openOptionsMenu(content, language: language, refresh(_:))

@@ -9,7 +9,7 @@ import UIKit
 
 class PatternSelectionDirector: DefaultDirector {
 
-	func makeViewController(current: String?, confirm: ((String) -> Void)?) -> UIViewController {
+	func makeViewController(current: Shape?, confirm: ((Shape) -> Void)?) -> UIViewController {
 		let storyboard = UIStoryboard(name: "Service", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "service.patternSelector", creator: { (coder: NSCoder) -> PatternSelectionViewController? in
 			return PatternSelectionViewController(coder: coder, flow: self, preselected: current, confirm: confirm)

@@ -26,8 +26,8 @@ extension Model {
 		private var meta : Meta
 		var name : String {
 			let preferBase = Settings.language.preferBase
-			let base = Settings.language.base
-			let target = Settings.language.target
+			let base = Model.User.Me.base
+			let target = Model.User.Me.target
 			let first = preferBase ? base : target
 			let second = preferBase ? target : base
 			return meta.text[first] ?? meta.text[second] ?? ""
@@ -37,20 +37,20 @@ extension Model {
 			set { meta.comment = newValue }
 		}
 		var baseAudio : URL? {
-			get { audio(Settings.language.base) }
-			set { setAudio(newValue, for: Settings.language.base) }
+			get { audio(Model.User.Me.base) }
+			set { setAudio(newValue, for: Model.User.Me.base) }
 		}
 		var targetAudio : URL? {
-			get { audio(Settings.language.target) }
-			set { setAudio(newValue, for: Settings.language.target) }
+			get { audio(Model.User.Me.target) }
+			set { setAudio(newValue, for: Model.User.Me.target) }
 		}
 		var baseText : String {
-			get { text(Settings.language.base) }
-			set { setText(newValue, for: Settings.language.base) }
+			get { text(Model.User.Me.base) }
+			set { setText(newValue, for: Model.User.Me.base) }
 		}
 		var targetText : String {
-			get { text(Settings.language.target) }
-			set { setText(newValue, for: Settings.language.target) }
+			get { text(Model.User.Me.target) }
+			set { setText(newValue, for: Model.User.Me.target) }
 		}
 		func audio(_ key: Language) -> URL? {
 			meta.audioUrl(key, relativeTo: id)

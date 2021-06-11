@@ -73,7 +73,7 @@ extension Model {
 			}
 
 			init() {
-				self.shape = Settings.phrase.defaultShape
+				self.shape = Model.User.Me.sequence
 				self.spices = .init(
 					musicVolume: Settings.music.volume,
 					voiceVolume: Settings.voice.volume,

@@ -40,9 +40,9 @@ extension LessonExportDirector: LessonExportViewControlDelegate {
 	func selectRepetitionPattern(_ lesson: Model.Recipe, _ refresh: ((Model.Recipe) -> Void)?) {
 
 		let director = PatternSelectionDirector(router: router)
-		let viewController = director.makeViewController(current: lesson.shapeString, confirm: { (result: String) in
+		let viewController = director.makeViewController(current: lesson.shape, confirm: { (result: Shape) in
 			var newLesson = lesson
-			newLesson.shape = Shape(dna: result)
+			newLesson.shape = result
 			self.router.dismiss(animated: true, completion: {
 				refresh?(newLesson)
 			})

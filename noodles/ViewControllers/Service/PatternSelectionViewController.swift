@@ -16,8 +16,8 @@ protocol PatternSelectionViewControlDelegate: PatternSelectionViewFlowDelegate {
 class PatternSelectionViewController: NoodlesViewController {
 	let flowDelegate: PatternSelectionViewControlDelegate
 
-	let preselected: String?
-	let onApply: ((String) -> Void)?
+	let preselected: Shape?
+	let onApply: ((Shape) -> Void)?
 
 	@IBOutlet var picker: UIPickerView!
 
@@ -26,7 +26,7 @@ class PatternSelectionViewController: NoodlesViewController {
 	}
 
 
-	init?(coder: NSCoder, flow: PatternSelectionViewControlDelegate, preselected: String?, confirm: ((String) -> Void)?) {
+	init?(coder: NSCoder, flow: PatternSelectionViewControlDelegate, preselected: Shape?, confirm: ((Shape) -> Void)?) {
 
 		self.flowDelegate = flow
 		self.onApply = confirm
@@ -42,7 +42,7 @@ class PatternSelectionViewController: NoodlesViewController {
 		picker.dataSource = DB.presets
 		picker.delegate = DB.presets
 		if let preselected = preselected {
-			let preselected = DB.presets.firstIndex(of: preselected)
+			let preselected = DB.presets.firstIndex(of: preselected.dna)
 			picker.selectRow(preselected ?? 0, inComponent: 0, animated: true)
 		}
 	}
@@ -56,7 +56,7 @@ class PatternSelectionViewController: NoodlesViewController {
 	@IBAction func confirm(_ sender: UIControl?) {
 
 		if let result = DB.presets?[picker.selectedRow(inComponent: 0)] {
-			onApply?(result)
+			onApply?(Shape(dna: result))
 		}
 	}
 }

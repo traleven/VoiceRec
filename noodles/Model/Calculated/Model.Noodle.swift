@@ -17,8 +17,8 @@ extension Model {
 		var count : Int { shape.dna.count }
 		subscript(_ idx : Int) -> URL? {
 			switch shape.dna[shape.dna.index(shape.dna.startIndex, offsetBy: idx)] {
-			case "A", "N" : return self.phrase.audio(Settings.language.base)
-			case "B", "F" : return self.phrase.audio(Settings.language.target)
+			case "A", "N" : return self.phrase.audio(Model.User.Me.base)
+			case "B", "F" : return self.phrase.audio(Model.User.Me.target)
 			default: return nil
 			}
 		}
@@ -45,8 +45,8 @@ extension Model {
 				}
 				let result : URL?
 				switch noodle.shape.dna[idx] {
-				case "A", "N": result = noodle.phrase.audio(Settings.language.base)
-				case "B", "F": result = noodle.phrase.audio(Settings.language.target)
+				case "A", "N": result = noodle.phrase.audio(Model.User.Me.base)
+				case "B", "F": result = noodle.phrase.audio(Model.User.Me.target)
 				default:
 					result = nil
 				}

@@ -124,7 +124,7 @@ class LessonExportViewController: NoodlesViewController {
 			delayWithin: insideTimeSpacing.value,
 			randomize: randomOrderToggle.isOn
 		)
-		let shape = Shape(dna: phraseRepetionLabel.title(for: .normal) ?? Settings.phrase.defaultShape.dna)
+		let shape = Shape(dna: phraseRepetionLabel.title(for: .normal) ?? Model.User.Me.sequence.dna)
 		lesson.spices = spices
 		lesson.shape = shape
 	}

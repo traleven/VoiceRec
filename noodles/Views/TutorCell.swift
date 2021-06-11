@@ -8,11 +8,11 @@
 import UIKit
 
 class TutorCell : UITableViewCell {
-	static let defaultIcon: UIImage? = UIImage(systemName: "")
+	static let defaultIcon: UIImage? = UIImage(systemName: "person.crop.circle")
 
-	@IBOutlet var icon : UIImageView!
-	@IBOutlet var label : UILabel!
-	@IBOutlet var language : UILabel!
+	@IBOutlet var icon : UIImageView?
+	@IBOutlet var label : UILabel?
+	@IBOutlet var language : UILabel?
 	@IBOutlet var indexLabel : UILabel?
 
 	required init?(coder: NSCoder) {
@@ -31,9 +31,9 @@ class TutorCell : UITableViewCell {
 
 
 	func prepare(for tutor: Model.User?, of user: Model.User, at index: Int) {
-		icon.image = tutor?.icon ?? Self.defaultIcon
-		label.text = tutor?.name
-		language.text = tutor?.base.flag.rawValue
+		icon?.image = tutor?.icon ?? Self.defaultIcon
+		label?.text = tutor?.name
+		language?.text = tutor?.base.flag.rawValue
 		indexLabel?.text = "\(index)"
 	}
 }

@@ -13,6 +13,9 @@ protocol ProfileViewFlowDelegate : Director {
 
 protocol ProfileViewControlDelegate : ProfileViewFlowDelegate {
 	typealias RefreshHandle = () -> Void
+
+	func selectRepetitionPattern(_ user: Model.User, _ refresh: ((Model.User) -> Void)?)
+	func selectUserAvatar(_ user: Model.User, _ refresh: ((Model.User) -> Void)?)
 }
 
 class ProfileViewController: NoodlesViewController {
@@ -26,6 +29,7 @@ class ProfileViewController: NoodlesViewController {
 	@IBOutlet var tutorsTableView: UITableView!
 
 	@IBOutlet var avatar: UIImageView!
+	@IBOutlet var avatarMask: UIImageView?
 	@IBOutlet var name: UILabel!
 	@IBOutlet var mail: UILabel!
 	@IBOutlet var home: UILabel!
@@ -36,6 +40,8 @@ class ProfileViewController: NoodlesViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		avatar.mask = avatarMask
 
 		let languagesDelegate = LanguagesTableController({ [weak self] in self?.content })
 		nestedDelegates.append(languagesDelegate)
@@ -87,11 +93,14 @@ class ProfileViewController: NoodlesViewController {
 
 	private func refreshFields() {
 
+		avatar.image = content.icon ?? UIImage(systemName: "person.crop.circle")
 		name.text = content.name
 		mail.text = content.email
 		home.text = content.from
 		location.text = content.lives
-		repetitionPattern.setTitle(content.sequence, for: .normal)
+
+		repetitionPattern.setAttributedTitle(NSAttributedString(string: content.sequence.dna), for: .normal)
+		repetitionPattern.setTitle(content.sequence.dna, for: .normal)
 	}
 
 
@@ -121,6 +130,18 @@ class ProfileViewController: NoodlesViewController {
 
 	private func updateContent() {
 	}
+
+
+	@IBAction func selectRepetitionPattern() {
+
+		flowDelegate.selectRepetitionPattern(content, refresh(_:))
+	}
+
+
+	@IBAction func selectAvatar() {
+
+		flowDelegate.selectUserAvatar(content, refresh(_:))
+	}
 }
 
 fileprivate class LanguagesTableController: NSObject {
@@ -141,8 +162,7 @@ extension LanguagesTableController : UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let user = self.user() else { return UITableViewCell() }
-		let languages = user.languages
-		let language = Language(withCode: languages[indexPath.row])
+		let language = user.languages[indexPath.row]
 		let cellId = getCellIdentifier(for: language, of: user)
 
 		var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? LanguageCell

@@ -26,12 +26,22 @@ extension Model {
 		var lives : String? { meta.lives }
 		var base : Language { Language(withCode: meta.base) }
 		var target : Language { Language(withCode: meta.target) }
-		var sequence : String { meta.sequence ?? "ABABB" }
-		var icon : UIImage? { meta.icon != nil ? UIImage(data: meta.icon!) : nil }
-		subscript(_ language: Language) -> String? {
-			meta.languages[language.code]
+		var sequence : Shape {
+			get { Shape(dna: meta.sequence ?? "ABABB") }
+			set { meta.sequence = newValue.dna }
 		}
-		var languages : [String] { Array<String>(meta.languages.keys) }
+		var icon : UIImage? {
+			get { meta.icon != nil ? UIImage(data: meta.icon!) : nil }
+			set { meta.icon = newValue?.pngData() }
+		}
+		subscript(_ language: Language) -> String? {
+			meta.languages[language.code] ?? meta.languages.first(where: { Language(withCode: $0.key) == language })?.value
+		}
+		var languages : [Language] {
+			meta.languages.keys
+				.map({ Language(withCode: $0) })
+				.sorted(by: languageSorting(lhv:rhv:))
+		}
 		var tutors : [Model.User] { [] }
 
 		func makeIterator() -> some IteratorProtocol {
@@ -55,13 +65,19 @@ extension Model {
 			self.meta = PersistentObject.load(id)
 		}
 
-		static var Me: Model.User {
-			Model.User(id: FileUtils.getDirectory(.users).appendingPathComponent("me.json"))
-		}
+		static private(set) var Me: Model.User = Model.User(id: FileUtils.getDirectory(.users).appendingPathComponent("me.json"))
 
 		func save() {
 			FileUtils.ensureDirectory(id.deletingLastPathComponent())
 			PersistentObject.save(meta, to: id)
+			if self.id == Self.Me.id {
+				Self.Me = self
+			}
+		}
+
+		private func languageSorting(lhv: Language, rhv: Language) -> Bool {
+			return lhv == self.base || rhv != self.base && lhv == self.target
+				|| rhv != self.base && rhv != self.target && lhv.code < rhv.code
 		}
 	}
 }

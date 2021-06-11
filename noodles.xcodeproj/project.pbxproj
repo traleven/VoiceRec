@@ -13,6 +13,7 @@
 		DB15F3D4266BDC13009BFDA1 /* LiveComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3D3266BDC13009BFDA1 /* LiveComposer.swift */; };
 		DB15F3D8266BF282009BFDA1 /* SliderWithHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3D7266BF282009BFDA1 /* SliderWithHint.swift */; };
 		DB256DC32673436D009D2F7D /* TutorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB256DC22673436D009D2F7D /* TutorCell.swift */; };
+		DB256DC8267396F3009D2F7D /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB256DC7267396F3009D2F7D /* ImageUtils.swift */; };
 		DB4133332643D5650035D952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133322643D5650035D952 /* AppDelegate.swift */; };
 		DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133342643D5650035D952 /* SceneDelegate.swift */; };
 		DB41333A2643D5650035D952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4133382643D5650035D952 /* Main.storyboard */; };
@@ -121,6 +122,7 @@
 		DB15F3D3266BDC13009BFDA1 /* LiveComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveComposer.swift; sourceTree = "<group>"; };
 		DB15F3D7266BF282009BFDA1 /* SliderWithHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderWithHint.swift; sourceTree = "<group>"; };
 		DB256DC22673436D009D2F7D /* TutorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorCell.swift; sourceTree = "<group>"; };
+		DB256DC7267396F3009D2F7D /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		DB41332F2643D5650035D952 /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4133322643D5650035D952 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4133342643D5650035D952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 				DB413A3E2643D8DA0035D952 /* DataUtils.swift */,
 				DB79CAAA2667E82400CDB01F /* DispatchQueueUtils.swift */,
 				DB6A546F266A2BC200861135 /* AnimationUtils.swift */,
+				DB256DC7267396F3009D2F7D /* ImageUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				DB413A482643D8DA0035D952 /* NotificationUtils.swift in Sources */,
 				DB413A362643D8CD0035D952 /* Model.Noodle.swift in Sources */,
 				DBCF76A8265E948500D80A6B /* KitchenTabViewController.swift in Sources */,
+				DB256DC8267396F3009D2F7D /* ImageUtils.swift in Sources */,
 				DB413A452643D8DA0035D952 /* CSS.swift in Sources */,
 				DB79CAAE2668D22B00CDB01F /* LessonMusicDirector.swift in Sources */,
 				DB7BA8B8266AD44D008223E4 /* PatternSelectionViewController.swift in Sources */,
