@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Model {
 	struct User : Equatable, GlobalIdentifiable, IdInitializable, Savable, Sequence {
@@ -23,13 +24,15 @@ extension Model {
 		var email : String? { meta.email }
 		var from : String? { meta.from }
 		var lives : String? { meta.lives }
-		var base : String { meta.base }
-		var target : String { meta.target }
-		var sequence : String { meta.sequence }
-		var icon : Data? { meta.icon }
-		subscript(_ language: String) -> String? {
-			meta.languages[language]
+		var base : Language { Language(withCode: meta.base) }
+		var target : Language { Language(withCode: meta.target) }
+		var sequence : String { meta.sequence ?? "ABABB" }
+		var icon : UIImage? { meta.icon != nil ? UIImage(data: meta.icon!) : nil }
+		subscript(_ language: Language) -> String? {
+			meta.languages[language.code]
 		}
+		var languages : [String] { Array<String>(meta.languages.keys) }
+		var tutors : [Model.User] { [] }
 
 		func makeIterator() -> some IteratorProtocol {
 			meta.languages.makeIterator()
@@ -43,13 +46,17 @@ extension Model {
 			var languages : Dictionary<String, String> = Dictionary()
 			var base : String
 			var target : String
-			var sequence : String = "ABABB"
+			var sequence : String? = "ABABB"
 			var icon : Data?
 		}
 
 		init(id: URL) {
 			self.id = id
 			self.meta = PersistentObject.load(id)
+		}
+
+		static var Me: Model.User {
+			Model.User(id: FileUtils.getDirectory(.users).appendingPathComponent("me.json"))
 		}
 
 		func save() {

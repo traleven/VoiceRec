@@ -13,10 +13,12 @@ struct Language {
 	/// with optional [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) country code
 	let code: String
 	let name: String
+	let flag: NationalFlag
 
-	fileprivate init(code: String, name: String) {
+	fileprivate init(code: String, name: String, flag: NationalFlag) {
 		self.code = code
 		self.name = name
+		self.flag = flag
 	}
 
 	init?(rawValue: String) {
@@ -25,11 +27,12 @@ struct Language {
 
 	init(withCode code: String) {
 		switch code {
-		case "eng", "English": self = Language(code: "eng", name: "English")
-		case "cmn", "Chinese": self = Language(code: "cmn", name: "Mandarin")
-		case "rus":            self = Language(code: "rus", name: "Russian")
-		case "ukr":            self = Language(code: "ukr", name: "Ukrainian")
-		default:               self = Language(code: code, name: code)
+		case "cmn", "Chinese":           self = Language(code: "cmn", name: "Mandarin", flag: .China)
+		case "eng", "eng-UK", "English": self = Language(code: "eng-UK", name: "English", flag: .UnitedKingdom)
+		case "eng-US":                   self = Language(code: "eng-US", name: "English", flag: .UnitedStates)
+		case "rus":                      self = Language(code: "rus", name: "Russian", flag: .Russia)
+		case "ukr":                      self = Language(code: "ukr", name: "Ukrainian", flag: .Ukraine)
+		default:                         self = Language(code: code, name: code, flag: .World)
 		}
 	}
 }

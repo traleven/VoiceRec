@@ -12,6 +12,7 @@
 		DB15F3D1266BDC08009BFDA1 /* Composer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3D0266BDC08009BFDA1 /* Composer.swift */; };
 		DB15F3D4266BDC13009BFDA1 /* LiveComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3D3266BDC13009BFDA1 /* LiveComposer.swift */; };
 		DB15F3D8266BF282009BFDA1 /* SliderWithHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3D7266BF282009BFDA1 /* SliderWithHint.swift */; };
+		DB256DC32673436D009D2F7D /* TutorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB256DC22673436D009D2F7D /* TutorCell.swift */; };
 		DB4133332643D5650035D952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133322643D5650035D952 /* AppDelegate.swift */; };
 		DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133342643D5650035D952 /* SceneDelegate.swift */; };
 		DB41333A2643D5650035D952 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4133382643D5650035D952 /* Main.storyboard */; };
@@ -88,6 +89,10 @@
 		DBDC67FE264A8AEE00B99539 /* InboxTextEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */; };
 		DBE7C6B7266EABFC00A92048 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE7C6B6266EABFB00A92048 /* ProfileViewController.swift */; };
 		DBE7C6BC266EAC0B00A92048 /* ProfileEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE7C6BB266EAC0B00A92048 /* ProfileEditorViewController.swift */; };
+		DBE7C6BF266F596700A92048 /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE7C6BE266F596700A92048 /* SelfSizedTableView.swift */; };
+		DBE7C6C2266F61FF00A92048 /* ProfileDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE7C6C1266F61FF00A92048 /* ProfileDirector.swift */; };
+		DBE7C6C52670B10700A92048 /* LanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE7C6C42670B10700A92048 /* LanguageCell.swift */; };
+		DBE7C6C82670B1C000A92048 /* NationalFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE7C6C72670B1C000A92048 /* NationalFlag.swift */; };
 		DBE8E07226614E2100E48470 /* PhraseEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8E07126614E2100E48470 /* PhraseEditViewController.swift */; };
 		DBE8E0752662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -115,6 +120,7 @@
 		DB15F3D0266BDC08009BFDA1 /* Composer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composer.swift; sourceTree = "<group>"; };
 		DB15F3D3266BDC13009BFDA1 /* LiveComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveComposer.swift; sourceTree = "<group>"; };
 		DB15F3D7266BF282009BFDA1 /* SliderWithHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderWithHint.swift; sourceTree = "<group>"; };
+		DB256DC22673436D009D2F7D /* TutorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorCell.swift; sourceTree = "<group>"; };
 		DB41332F2643D5650035D952 /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4133322643D5650035D952 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4133342643D5650035D952 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +214,10 @@
 		DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTextEditViewController.swift; sourceTree = "<group>"; };
 		DBE7C6B6266EABFB00A92048 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DBE7C6BB266EAC0B00A92048 /* ProfileEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorViewController.swift; sourceTree = "<group>"; };
+		DBE7C6BE266F596700A92048 /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
+		DBE7C6C1266F61FF00A92048 /* ProfileDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDirector.swift; sourceTree = "<group>"; };
+		DBE7C6C42670B10700A92048 /* LanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageCell.swift; sourceTree = "<group>"; };
+		DBE7C6C72670B1C000A92048 /* NationalFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalFlag.swift; sourceTree = "<group>"; };
 		DBE8E07126614E2100E48470 /* PhraseEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEditViewController.swift; sourceTree = "<group>"; };
 		DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnKeyTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -268,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				DB15F3CB266BBD8C009BFDA1 /* PatternSelectionDirector.swift */,
+				DBE7C6C1266F61FF00A92048 /* ProfileDirector.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -368,6 +379,7 @@
 				DB413A1E2643D8CD0035D952 /* Shape.swift */,
 				DB413A1F2643D8CD0035D952 /* Spices.swift */,
 				DB55A7F22664C93E00CD963E /* Language.swift */,
+				DBE7C6C72670B1C000A92048 /* NationalFlag.swift */,
 			);
 			path = Inline;
 			sourceTree = "<group>";
@@ -481,10 +493,13 @@
 				DBCF76A4265E612B00D80A6B /* VerticalButton.swift */,
 				DBCF76B626602B7B00D80A6B /* GradientHorizontalProgressBar.swift */,
 				DB15F3D7266BF282009BFDA1 /* SliderWithHint.swift */,
+				DBE7C6BE266F596700A92048 /* SelfSizedTableView.swift */,
 				DBDC67E626443DCB00B99539 /* InboxCell.swift */,
 				DBCF76AD265FD12E00D80A6B /* PhraseCell.swift */,
 				DBCF76B3266009B600D80A6B /* LessonCell.swift */,
 				DB79CAA7266788E600CDB01F /* MusicCell.swift */,
+				DBE7C6C42670B10700A92048 /* LanguageCell.swift */,
+				DB256DC22673436D009D2F7D /* TutorCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -675,12 +690,14 @@
 				DBCF76B726602B7B00D80A6B /* GradientHorizontalProgressBar.swift in Sources */,
 				DB413A4C2643D8DA0035D952 /* WeakLink.swift in Sources */,
 				DBE8E0752662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift in Sources */,
+				DBE7C6C52670B10700A92048 /* LanguageCell.swift in Sources */,
 				DB413A352643D8CD0035D952 /* Model.Egg.swift in Sources */,
 				DB413A312643D8CD0035D952 /* Spices.swift in Sources */,
 				DB79CAAB2667E82400CDB01F /* DispatchQueueUtils.swift in Sources */,
 				DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */,
 				DB55A7FE2664F8CE00CD963E /* LessonExportViewController.swift in Sources */,
 				DBE8E07226614E2100E48470 /* PhraseEditViewController.swift in Sources */,
+				DB256DC32673436D009D2F7D /* TutorCell.swift in Sources */,
 				DBDC67D72644072C00B99539 /* RootPageViewController.swift in Sources */,
 				DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */,
 				DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */,
@@ -719,6 +736,7 @@
 				DB79CAA8266788E600CDB01F /* MusicCell.swift in Sources */,
 				DB79CAB12669146800CDB01F /* LessonPhraseSelectorDirector.swift in Sources */,
 				DB413A342643D8CD0035D952 /* Model.Fridge.swift in Sources */,
+				DBE7C6BF266F596700A92048 /* SelfSizedTableView.swift in Sources */,
 				DB413A0C2643D8BF0035D952 /* AudioPlayer.swift in Sources */,
 				DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */,
 				DB413A2A2643D8CD0035D952 /* Model.User.swift in Sources */,
@@ -732,7 +750,9 @@
 				DB413A2F2643D8CD0035D952 /* Model.Bowl.swift in Sources */,
 				DB413A492643D8DA0035D952 /* FileUtils.swift in Sources */,
 				DB413A0F2643D8BF0035D952 /* AudioRecorder.swift in Sources */,
+				DBE7C6C2266F61FF00A92048 /* ProfileDirector.swift in Sources */,
 				DB55A7F32664C93E00CD963E /* Language.swift in Sources */,
+				DBE7C6C82670B1C000A92048 /* NationalFlag.swift in Sources */,
 				DBDC67FE264A8AEE00B99539 /* InboxTextEditViewController.swift in Sources */,
 				DB413A4A2643D8DA0035D952 /* DataUtils.swift in Sources */,
 			);
