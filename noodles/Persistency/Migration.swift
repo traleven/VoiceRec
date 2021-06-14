@@ -65,6 +65,15 @@ class Migration {
 				at: defaults.appendingPathComponent("presets.json"),
 				to: documents.appendingPathComponent("presets.json")
 			)
-		}
+		},
+		1: {
+			let defaultUser = Model.User(
+				id: FileUtils.getDirectory(.users).appendingPathComponent("me.json"),
+				name: "New user",
+				base: Language(withCode: "English"),
+				target: Language(withCode: "Chinese")
+			)
+			defaultUser.save()
+		},
 	]
 }

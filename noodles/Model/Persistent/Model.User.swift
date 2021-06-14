@@ -51,8 +51,8 @@ extension Model {
 		struct Meta : Codable {
 			var name : String
 			var email : String?
-			var from : String?
-			var lives : String?
+			var from : String? = "Earth, Solar System"
+			var lives : String? = "Earth, Solar System"
 			var languages : Dictionary<String, String> = Dictionary()
 			var base : String
 			var target : String
@@ -63,6 +63,13 @@ extension Model {
 		init(id: URL) {
 			self.id = id
 			self.meta = PersistentObject.load(id)
+		}
+
+		init(id: URL, name: String, base: Language, target: Language) {
+			self.id = id
+			self.meta = Meta(name: name, base: base.code, target: target.code)
+			self.meta.languages[base.code] = "Mother tongue"
+			self.meta.languages[target.code] = "Newbie"
 		}
 
 		static private(set) var Me: Model.User = Model.User(id: FileUtils.getDirectory(.users).appendingPathComponent("me.json"))

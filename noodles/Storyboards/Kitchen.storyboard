@@ -35,6 +35,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="AccentIcon"/>
+                        <color key="barTintColor" name="PrimaryBackground"/>
+                        <color key="selectedImageTintColor" name="AccentIcon"/>
                     </tabBar>
                     <connections>
                         <segue destination="l6O-O1-cpI" kind="relationship" relationship="viewControllers" id="ZxB-wC-r9o"/>
@@ -73,16 +76,16 @@
                                                     </accessibility>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                            <color key="value" name="SecondaryFill"/>
+                                                            <color key="value" name="SecondaryBackground"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="gradientColor">
-                                                            <color key="value" name="PrimaryFill"/>
+                                                            <color key="value" name="PrimaryBackground"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="speaker.wave.2" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xAw-h3-zcx">
                                                     <rect key="frame" x="4" y="5.5" width="24" height="21"/>
-                                                    <color key="tintColor" name="AccentColor"/>
+                                                    <color key="tintColor" name="AccentIcon"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -144,7 +147,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note.text" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="F99-rP-TmC">
                                                     <rect key="frame" x="4" y="5" width="21" height="18.5"/>
-                                                    <color key="tintColor" name="AccentColor"/>
+                                                    <color key="tintColor" name="AccentIcon"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -191,7 +194,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1Id-iT-Fcw">
                                                     <rect key="frame" x="4" y="5" width="23" height="20.5"/>
-                                                    <color key="tintColor" name="AccentColor"/>
+                                                    <color key="tintColor" name="AccentIcon"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -257,13 +260,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New egg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqT-Yu-1gn">
                                                     <rect key="frame" x="173" y="567" width="68" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="PrimaryText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4my-aU-pf0">
                                                     <rect key="frame" x="161" y="596" width="92" height="41"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="PrimaryText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -295,7 +298,6 @@
                                             <constraint firstAttribute="width" constant="80" id="JVn-2g-Tdi"/>
                                             <constraint firstAttribute="width" secondItem="Pjh-rJ-Zkt" secondAttribute="height" multiplier="1:1" id="S89-bd-L2W"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal">
                                             <imageReference key="image" image="wave.3.right.circle" catalog="system" renderingMode="template"/>
                                         </state>
@@ -318,13 +320,12 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="56a-Yh-50m"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Inbox">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="tray.fill" catalog="system" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -337,13 +338,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Cq2-z3-oE4"/>
                                         </constraints>
-                                        <color key="tintColor" name="NormalColor"/>
+                                        <color key="tintColor" name="SecondaryIcon"/>
                                         <state key="normal" title="My Noodles">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="tray.full.fill" catalog="system" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -355,7 +356,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="PrimaryBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="E4d-su-CaS"/>
                                     <constraint firstItem="1W8-7v-idU" firstAttribute="centerX" secondItem="nJd-0T-ojz" secondAttribute="centerX" multiplier="0.5" id="LDE-YS-kUg"/>
@@ -372,7 +373,7 @@
                                     <constraint firstAttribute="width" secondItem="3i7-uq-ZrF" secondAttribute="height" multiplier="1:1" id="8bp-7J-eDe"/>
                                     <constraint firstAttribute="width" constant="36" id="WEV-kY-Tbl"/>
                                 </constraints>
-                                <color key="tintColor" name="AccentColor"/>
+                                <color key="tintColor" name="AccentIcon"/>
                                 <state key="normal" image="plus.circle.fill" catalog="system"/>
                                 <connections>
                                     <action selector="writeNewMemo" destination="BnQ-eg-992" eventType="primaryActionTriggered" id="tyK-iL-pM8"/>
@@ -380,7 +381,8 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CyM-Pc-Bu8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <color key="tintColor" name="AccentIcon"/>
                         <constraints>
                             <constraint firstItem="CyM-Pc-Bu8" firstAttribute="trailing" secondItem="nJd-0T-ojz" secondAttribute="trailing" id="77h-Z6-tKc"/>
                             <constraint firstItem="CyM-Pc-Bu8" firstAttribute="bottom" secondItem="nJd-0T-ojz" secondAttribute="bottom" id="AWg-2x-zoW"/>
@@ -398,7 +400,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="kRj-Vq-Oe7">
-                        <barButtonItem key="leftBarButtonItem" image="menu_small" id="Owi-NN-L2s"/>
+                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="Owi-NN-L2s">
+                            <color key="tintColor" name="AccentIcon"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="multiselect_small" id="gZa-eJ-koS"/>
                     </navigationItem>
                     <connections>
@@ -425,9 +429,13 @@
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z4t-Oe-qfu">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                        <textAttributes key="titleTextAttributes">
+                                            <color key="textColor" name="PrimaryText"/>
+                                        </textAttributes>
                                         <items>
                                             <navigationItem title="Add flour to your egg" largeTitleDisplayMode="never" id="e4b-up-cSC">
                                                 <barButtonItem key="rightBarButtonItem" systemItem="done" id="GRW-AO-9ML">
+                                                    <color key="tintColor" name="AccentText"/>
                                                     <connections>
                                                         <action selector="confirm" destination="uPP-fD-Gpy" id="DLO-fz-uJ3"/>
                                                     </connections>
@@ -437,11 +445,12 @@
                                     </navigationBar>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="B32-fm-Nni">
                                         <rect key="frame" x="8" y="52" width="366" height="28.5"/>
+                                        <color key="textColor" name="PrimaryText"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="PrimaryBackground"/>
                                 <constraints>
                                     <constraint firstItem="z4t-Oe-qfu" firstAttribute="top" secondItem="MpW-4O-jEG" secondAttribute="top" symbolic="YES" id="7QN-ai-Jd8"/>
                                     <constraint firstItem="B32-fm-Nni" firstAttribute="leading" secondItem="MpW-4O-jEG" secondAttribute="leading" constant="8" id="AH1-85-01b"/>
@@ -459,7 +468,8 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JMI-rM-RD9"/>
-                        <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="AccentIcon"/>
                         <constraints>
                             <constraint firstItem="MpW-4O-jEG" firstAttribute="top" secondItem="szL-pB-OPA" secondAttribute="centerY" constant="-150" id="avx-9T-uWM"/>
                             <constraint firstAttribute="trailing" secondItem="MpW-4O-jEG" secondAttribute="trailing" constant="16" id="pkc-bf-ZBo"/>
@@ -483,6 +493,14 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lb1-ai-mUk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="AccentIcon"/>
+                        <color key="barTintColor" name="PrimaryBackground"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="PrimaryText"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="PrimaryText"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BnQ-eg-992" kind="relationship" relationship="rootViewController" id="rZs-fT-Zj7"/>
@@ -515,6 +533,7 @@
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter English flour" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qJg-az-Rfu">
                                                 <rect key="frame" x="8" y="48" width="398" height="34"/>
+                                                <color key="textColor" name="PrimaryText"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="continue"/>
                                             </textField>
@@ -527,7 +546,6 @@
                                                             <constraint firstAttribute="width" secondItem="AXq-dv-8Kq" secondAttribute="height" multiplier="1:1" id="jVJ-RR-xxO"/>
                                                             <constraint firstAttribute="width" constant="60" id="vaC-PF-2g3"/>
                                                         </constraints>
-                                                        <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="wave.3.right.circle" catalog="system"/>
                                                         <connections>
                                                             <action selector="startRecording:" destination="ySu-Cd-Om2" eventType="touchDown" id="XGF-dC-iWu"/>
@@ -542,7 +560,6 @@
                                                             <constraint firstAttribute="width" constant="60" id="H0k-06-ZNq"/>
                                                             <constraint firstAttribute="width" secondItem="5mQ-qh-FCl" secondAttribute="height" multiplier="1:1" id="SSf-fH-jbj"/>
                                                         </constraints>
-                                                        <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="play.circle" catalog="system"/>
                                                         <state key="selected" image="stop.circle.fill" catalog="system"/>
                                                         <connections>
@@ -557,7 +574,6 @@
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5SY-Q1-z9q">
                                                         <rect key="frame" x="8" y="22.5" width="30" height="29"/>
-                                                        <color key="tintColor" name="AccentColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="5SY-Q1-z9q" secondAttribute="height" multiplier="1:1" id="IFW-xZ-P7l"/>
                                                             <constraint firstAttribute="width" constant="30" id="rsB-yG-tef"/>
@@ -565,14 +581,13 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYI-N5-aDX" userLabel="SearchButton">
                                                         <rect key="frame" x="370" y="26" width="20" height="22"/>
-                                                        <color key="tintColor" name="AccentColor"/>
+                                                        <color key="tintColor" name="AccentIcon"/>
                                                         <state key="normal" image="magnifyingglass" catalog="system">
                                                             <color key="titleColor" name="AccentText"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHV-P5-PtT" userLabel="OptionsButton">
                                                         <rect key="frame" x="369" y="26" width="22" height="22"/>
-                                                        <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="multiselect_small">
                                                             <color key="titleColor" name="AccentText"/>
                                                         </state>
@@ -581,7 +596,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" name="SecondaryFill"/>
+                                                <color key="backgroundColor" name="SecondaryBackground"/>
                                                 <constraints>
                                                     <constraint firstItem="AXq-dv-8Kq" firstAttribute="centerX" secondItem="5qE-z8-yUv" secondAttribute="centerX" id="1tg-Z8-3j6"/>
                                                     <constraint firstItem="DYI-N5-aDX" firstAttribute="centerY" secondItem="fHV-P5-PtT" secondAttribute="centerY" id="3bh-bA-ADn"/>
@@ -605,7 +620,6 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="G4I-GP-jRH" firstAttribute="leading" secondItem="d4i-Um-c7c" secondAttribute="leading" constant="8" id="GJH-dF-8kB"/>
                                             <constraint firstItem="qJg-az-Rfu" firstAttribute="top" secondItem="G4I-GP-jRH" secondAttribute="bottom" constant="8" id="XY7-4w-IC9"/>
@@ -630,6 +644,7 @@
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Mandarin flour" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ztg-S6-81H">
                                                 <rect key="frame" x="8" y="48" width="398" height="34"/>
+                                                <color key="textColor" name="PrimaryText"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="continue"/>
                                             </textField>
@@ -642,7 +657,6 @@
                                                             <constraint firstAttribute="width" constant="60" id="6uq-ZP-3v1"/>
                                                             <constraint firstAttribute="width" secondItem="BXV-eh-O8f" secondAttribute="height" multiplier="1:1" id="QAU-RJ-PHZ"/>
                                                         </constraints>
-                                                        <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="wave.3.right.circle" catalog="system"/>
                                                         <connections>
                                                             <action selector="startRecording:" destination="ySu-Cd-Om2" eventType="touchDown" id="Aed-GZ-rqW"/>
@@ -657,7 +671,6 @@
                                                             <constraint firstAttribute="width" secondItem="mAH-ZR-PrV" secondAttribute="height" multiplier="1:1" id="53y-UJ-UlW"/>
                                                             <constraint firstAttribute="width" constant="60" id="exR-EM-dJp"/>
                                                         </constraints>
-                                                        <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="play.circle" catalog="system"/>
                                                         <state key="selected" image="stop.circle.fill" catalog="system"/>
                                                         <connections>
@@ -672,7 +685,6 @@
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zVR-79-cUS">
                                                         <rect key="frame" x="8" y="22.5" width="30" height="29"/>
-                                                        <color key="tintColor" name="AccentColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="zVR-79-cUS" secondAttribute="height" multiplier="1:1" id="OxO-4W-TuJ"/>
                                                             <constraint firstAttribute="width" constant="30" id="kuI-Kp-0Aq"/>
@@ -680,14 +692,12 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDB-SB-WsN" userLabel="SearchButton">
                                                         <rect key="frame" x="370" y="26" width="20" height="22"/>
-                                                        <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="magnifyingglass" catalog="system">
                                                             <color key="titleColor" name="AccentText"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATD-SD-dZY" userLabel="OptionsButton">
                                                         <rect key="frame" x="369" y="26" width="22" height="22"/>
-                                                        <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" image="multiselect_small">
                                                             <color key="titleColor" name="AccentText"/>
                                                         </state>
@@ -696,7 +706,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" name="SecondaryFill"/>
+                                                <color key="backgroundColor" name="SecondaryBackground"/>
                                                 <constraints>
                                                     <constraint firstItem="uDB-SB-WsN" firstAttribute="centerY" secondItem="ATD-SD-dZY" secondAttribute="centerY" id="5Wu-wa-Ibw"/>
                                                     <constraint firstItem="uDB-SB-WsN" firstAttribute="centerX" secondItem="ATD-SD-dZY" secondAttribute="centerX" id="6go-2G-jTd"/>
@@ -720,7 +730,6 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Ztg-S6-81H" firstAttribute="leading" secondItem="BCT-kt-OlA" secondAttribute="leading" constant="8" id="6Ko-uh-16n"/>
                                             <constraint firstItem="l3d-QV-Dbq" firstAttribute="leading" secondItem="BCT-kt-OlA" secondAttribute="leading" constant="8" id="7cH-1Q-XyT"/>
@@ -739,13 +748,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwZ-9B-Kov">
                                                 <rect key="frame" x="8" y="8" width="45.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="PrimaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IjV-b1-hUI">
                                                 <rect key="frame" x="8" y="36.5" width="398" height="421.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <color key="textColor" systemColor="labelColor"/>
+                                                <color key="textColor" name="PrimaryText"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -755,11 +764,10 @@
                                                     <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                                 </accessibility>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" name="SecondaryText"/>
+                                                <color key="textColor" name="TertiaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="qbZ-BH-zWT" firstAttribute="top" secondItem="OwZ-9B-Kov" secondAttribute="bottom" constant="14" id="2Kc-jW-Cxc"/>
                                             <constraint firstItem="OwZ-9B-Kov" firstAttribute="top" secondItem="UAb-FW-nXd" secondAttribute="top" constant="8" id="FYC-Ei-nqf"/>
@@ -773,7 +781,6 @@
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rw-us-Pgo" userLabel="KeyboardStubView">
                                         <rect key="frame" x="0.0" y="818" width="414" height="409"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -790,7 +797,8 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UE3-7H-8ov"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <color key="tintColor" name="AccentIcon"/>
                         <constraints>
                             <constraint firstItem="5mN-d7-DfD" firstAttribute="trailing" secondItem="UE3-7H-8ov" secondAttribute="trailing" id="9S5-9Q-YIo"/>
                             <constraint firstItem="5mN-d7-DfD" firstAttribute="top" secondItem="UE3-7H-8ov" secondAttribute="top" id="IVi-aU-ZrZ"/>
@@ -833,6 +841,15 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EvF-we-lzQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <color key="tintColor" name="AccentIcon"/>
+                        <color key="barTintColor" name="PrimaryBackground"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="PrimaryText"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" name="PrimaryText"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="0Dj-wU-xAN" kind="relationship" relationship="rootViewController" id="NmI-jN-Byn"/>
@@ -858,16 +875,15 @@
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                         </accessibility>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Phrases" image="text.alignleft" catalog="system">
                                             <color key="titleColor" name="AccentText"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DO6-c7-6Ld">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DO6-c7-6Ld">
                                         <rect key="frame" x="207" y="0.0" width="207" height="40"/>
-                                        <color key="tintColor" name="NormalColor"/>
+                                        <color key="tintColor" name="SecondaryIcon"/>
                                         <state key="normal" title="Lessons" image="book.fill" catalog="system">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                         </state>
                                         <connections>
                                             <action selector="goToLessons" destination="XXs-ej-MyE" eventType="primaryActionTriggered" id="Uhg-PQ-Rsl"/>
@@ -917,7 +933,6 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.triangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qGn-mH-TmB">
                                                     <rect key="frame" x="20" y="12.5" width="21" height="19"/>
-                                                    <color key="tintColor" name="AccentColor"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -962,7 +977,6 @@
                                             <constraint firstAttribute="width" secondItem="14p-wp-mo6" secondAttribute="height" multiplier="1:1" id="O8a-9U-jsN"/>
                                             <constraint firstAttribute="width" constant="80" id="oLX-Wv-1HY"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal">
                                             <imageReference key="image" image="plus.circle" catalog="system" renderingMode="template"/>
                                         </state>
@@ -975,13 +989,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="bgI-ki-UUD"/>
                                         </constraints>
-                                        <color key="tintColor" name="NormalColor"/>
+                                        <color key="tintColor" name="SecondaryIcon"/>
                                         <state key="normal" title="Inbox">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="tray.fill" catalog="system" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -1000,13 +1014,12 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="fUt-jt-oXF"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="My Noodles">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="tray.full.fill" catalog="system" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -1015,7 +1028,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="PrimaryBackground"/>
                                 <constraints>
                                     <constraint firstItem="y5Z-do-paA" firstAttribute="centerY" secondItem="opE-R4-YZK" secondAttribute="centerY" id="Ihu-er-2c3"/>
                                     <constraint firstItem="bYK-D8-RSD" firstAttribute="centerY" secondItem="opE-R4-YZK" secondAttribute="centerY" id="Iny-BJ-D7F"/>
@@ -1028,7 +1041,8 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ody-Gz-I0o"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <color key="tintColor" name="AccentIcon"/>
                         <constraints>
                             <constraint firstItem="Ody-Gz-I0o" firstAttribute="trailing" secondItem="opE-R4-YZK" secondAttribute="trailing" id="07L-mv-iSt"/>
                             <constraint firstItem="opE-R4-YZK" firstAttribute="leading" secondItem="Ody-Gz-I0o" secondAttribute="leading" id="7gD-ti-pah"/>
@@ -1044,7 +1058,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Noodles" leftItemsSupplementBackButton="YES" id="kBN-JY-vKs">
-                        <barButtonItem key="leftBarButtonItem" image="menu_small" id="VIE-Rf-WuP"/>
+                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="VIE-Rf-WuP">
+                            <color key="tintColor" name="AccentIcon"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="MHe-l0-qOE">
                             <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHi-qC-Ifx">
                                 <rect key="frame" x="350" y="0.0" width="44" height="44"/>
@@ -1079,9 +1095,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4o-Ih-UA4">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
-                                        <color key="tintColor" name="NormalColor"/>
+                                        <color key="tintColor" name="SecondaryIcon"/>
                                         <state key="normal" title="Phrases" image="text.alignleft" catalog="system">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                         </state>
                                         <connections>
                                             <action selector="goToPhrases" destination="0Dj-wU-xAN" eventType="primaryActionTriggered" id="2Jg-nm-iPp"/>
@@ -1092,7 +1108,7 @@
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                         </accessibility>
-                                        <color key="tintColor" name="AccentColor"/>
+                                        <color key="tintColor" name="AccentIcon"/>
                                         <state key="normal" title="Lessons" image="book.fill" catalog="system">
                                             <color key="titleColor" name="AccentText"/>
                                         </state>
@@ -1115,7 +1131,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8dy-da-R0K">
                                                     <rect key="frame" x="4" y="4.5" width="20.5" height="19.5"/>
-                                                    <color key="tintColor" name="NormalColor"/>
+                                                    <color key="tintColor" name="SecondaryIcon"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -1132,13 +1148,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="10 phrases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjM-f9-RPz">
                                                     <rect key="frame" x="28.5" y="28.5" width="83" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="NormalColor"/>
+                                                    <color key="textColor" name="SecondaryText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPZ-It-XYK">
                                                     <rect key="frame" x="333" y="28.5" width="46" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="NormalColor"/>
+                                                    <color key="textColor" name="SecondaryText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1171,7 +1187,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.triangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vLJ-Ip-UIA">
                                                     <rect key="frame" x="4" y="5" width="20.5" height="18.5"/>
-                                                    <color key="tintColor" name="AccentColor"/>
+                                                    <color key="tintColor" name="AccentIcon"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -1188,13 +1204,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="10 phrases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVi-5R-cr7">
                                                     <rect key="frame" x="28.5" y="28.5" width="83" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="NormalColor"/>
+                                                    <color key="textColor" name="SecondaryText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wii-TF-hJi">
                                                     <rect key="frame" x="333" y="28.5" width="46" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="NormalColor"/>
+                                                    <color key="textColor" name="SecondaryText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1233,7 +1249,6 @@
                                             <constraint firstAttribute="width" constant="80" id="Tah-ST-uQC"/>
                                             <constraint firstAttribute="width" secondItem="UMf-dT-yyr" secondAttribute="height" multiplier="1:1" id="UYM-EU-d7j"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal">
                                             <imageReference key="image" image="plus.circle" catalog="system" renderingMode="template"/>
                                         </state>
@@ -1246,13 +1261,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="x1R-Er-Pdl"/>
                                         </constraints>
-                                        <color key="tintColor" name="NormalColor"/>
+                                        <color key="tintColor" name="SecondaryIcon"/>
                                         <state key="normal" title="Inbox">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="tray.fill" catalog="system" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -1271,13 +1286,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="XCI-YS-2ai"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
+                                        <color key="tintColor" name="AccentIcon"/>
                                         <state key="normal" title="My Noodles">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="tray.full.fill" catalog="system" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -1299,7 +1314,8 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="URD-bE-NGW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <color key="tintColor" name="AccentIcon"/>
                         <constraints>
                             <constraint firstItem="TZl-jR-Bfx" firstAttribute="leading" secondItem="URD-bE-NGW" secondAttribute="leading" id="5Ml-53-QrR"/>
                             <constraint firstItem="TZl-jR-Bfx" firstAttribute="top" secondItem="mUF-jG-s70" secondAttribute="bottom" id="77L-Zj-AAF"/>
@@ -1315,7 +1331,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Noodles" leftItemsSupplementBackButton="YES" id="E2j-k5-lGm">
-                        <barButtonItem key="leftBarButtonItem" image="menu_small" id="RwX-pn-vYe"/>
+                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="RwX-pn-vYe">
+                            <color key="tintColor" name="AccentIcon"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="9ID-S5-Uhe">
                             <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvw-hE-h8g">
                                 <rect key="frame" x="350" y="0.0" width="44" height="44"/>
@@ -1361,13 +1379,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="phrases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qii-ol-Neo">
                                                 <rect key="frame" x="36" y="45.5" width="61" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" name="NormalColor"/>
+                                                <color key="textColor" name="SecondaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrB-72-oz0">
                                                 <rect key="frame" x="55" y="8.5" width="23" height="41"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                                <color key="textColor" name="NormalColor"/>
+                                                <color key="textColor" name="PrimaryIcon"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -1385,12 +1403,12 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9B-gr-PQz">
                                                 <rect key="frame" x="31" y="45.5" width="71.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" name="ErrorColor"/>
+                                                <color key="textColor" name="ErrorText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.quarternote.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xvN-AI-9fi">
                                                 <rect key="frame" x="48.5" y="11.5" width="36" height="35"/>
-                                                <color key="tintColor" name="NormalColor"/>
+                                                <color key="tintColor" name="PrimaryIcon"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="xvN-AI-9fi" secondAttribute="height" multiplier="1:1" id="Vh7-W4-xZr"/>
                                                     <constraint firstAttribute="width" constant="36" id="duS-aH-iIy"/>
@@ -1411,12 +1429,12 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unusable phrases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RI-tp-bdg">
                                                 <rect key="frame" x="-68.5" y="45.5" width="137" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" name="ErrorColor"/>
+                                                <color key="textColor" name="ErrorText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.bubble.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="crk-Wr-wRF">
                                                 <rect key="frame" x="-18" y="11.5" width="36" height="35.5"/>
-                                                <color key="tintColor" name="NormalColor"/>
+                                                <color key="tintColor" name="PrimaryIcon"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="crk-Wr-wRF" secondAttribute="height" multiplier="1:1" id="DjR-U0-dCa"/>
                                                     <constraint firstAttribute="width" constant="36" id="x2M-ip-uDy"/>
@@ -1440,7 +1458,7 @@
                                                     <constraint firstAttribute="width" secondItem="H1I-FR-Vbs" secondAttribute="height" multiplier="1:1" id="bgQ-B7-4JS"/>
                                                     <constraint firstAttribute="width" constant="36" id="iMD-xG-w0i"/>
                                                 </constraints>
-                                                <color key="tintColor" name="AccentColor"/>
+                                                <color key="tintColor" name="AccentIcon"/>
                                                 <state key="normal" image="play.fill" catalog="system"/>
                                                 <state key="selected" image="pause.fill" catalog="system"/>
                                                 <connections>
@@ -1468,12 +1486,12 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCq-6F-0Me">
                                                 <rect key="frame" x="43" y="45.5" width="46" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" name="NormalColor"/>
+                                                <color key="textColor" name="SecondaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="r2b-1g-ERB">
                                                 <rect key="frame" x="48" y="12" width="36" height="35"/>
-                                                <color key="tintColor" name="NormalColor"/>
+                                                <color key="tintColor" name="PrimaryIcon"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="36" id="BOY-Wn-RR1"/>
                                                     <constraint firstAttribute="width" secondItem="r2b-1g-ERB" secondAttribute="height" multiplier="1:1" id="j68-Md-SeT"/>
@@ -1489,7 +1507,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" name="SecondaryFill"/>
+                                <color key="backgroundColor" name="SecondaryBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="XG9-y0-sLQ" secondAttribute="bottom" id="0FE-10-BbK"/>
                                     <constraint firstItem="iSu-SP-Qwj" firstAttribute="top" secondItem="FoW-kY-spE" secondAttribute="top" id="AdX-HR-gyZ"/>
@@ -1520,7 +1538,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9F-EJ-MAM">
                                                     <rect key="frame" x="16.5" y="12" width="7.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="SecondaryText"/>
+                                                    <color key="textColor" name="TertiaryText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmc-xk-2hQ">
@@ -1554,7 +1572,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.triangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Zs6-a4-vA1">
                                                     <rect key="frame" x="9.5" y="12.5" width="21" height="19"/>
-                                                    <color key="tintColor" name="AccentColor"/>
+                                                    <color key="tintColor" name="AccentIcon"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -1596,7 +1614,6 @@
                                     <constraint firstAttribute="width" constant="40" id="aWn-ch-GeN"/>
                                     <constraint firstAttribute="width" secondItem="VRO-kv-dx3" secondAttribute="height" multiplier="1:1" id="j5R-h0-MFj"/>
                                 </constraints>
-                                <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" image="line.horizontal.3.circle" catalog="system"/>
                                 <connections>
                                     <action selector="selectPhrases" destination="tq4-mK-4Xi" eventType="primaryActionTriggered" id="2MF-6y-f45"/>
@@ -1608,7 +1625,6 @@
                                     <constraint firstAttribute="width" constant="40" id="8dT-mR-9Gl"/>
                                     <constraint firstAttribute="width" secondItem="gQs-2I-cbg" secondAttribute="height" multiplier="1:1" id="SGM-PO-HIW"/>
                                 </constraints>
-                                <color key="tintColor" name="AccentColor"/>
                                 <state key="normal" image="plus.circle.fill" catalog="system"/>
                                 <connections>
                                     <action selector="createPhrase" destination="tq4-mK-4Xi" eventType="primaryActionTriggered" id="dky-GB-aHH"/>
@@ -1625,13 +1641,12 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="GWo-FF-7Df"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Phrases">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="text.bubble.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -1644,13 +1659,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="91k-UV-Qkj"/>
                                         </constraints>
-                                        <color key="tintColor" name="NormalColor"/>
+                                        <color key="tintColor" name="PrimaryIcon"/>
                                         <state key="normal" title="Music">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="music.quarternote.3" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -1666,13 +1681,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="wwJ-vf-sAe"/>
                                         </constraints>
-                                        <color key="tintColor" name="NormalColor"/>
+                                        <color key="tintColor" name="PrimaryIcon"/>
                                         <state key="normal" title="Export">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="speaker.wave.2.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -1685,20 +1700,19 @@
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="251" image="play.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="v0f-en-27H">
                                         <rect key="frame" x="101" y="29.5" width="82" height="12.5"/>
-                                        <color key="tintColor" name="SecondaryText"/>
+                                        <color key="tintColor" name="PrimaryIcon"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="dbo-36-buZ"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="251" image="play.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ovd-7a-WDF">
                                         <rect key="frame" x="231" y="29.5" width="86" height="12.5"/>
-                                        <color key="tintColor" name="SecondaryText"/>
+                                        <color key="tintColor" name="SecondaryIcon"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="Go6-Wk-H4F"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="f5v-IF-MTq" firstAttribute="leading" secondItem="v0f-en-27H" secondAttribute="trailing" id="GkK-sQ-BHM"/>
                                     <constraint firstItem="59m-3f-1AL" firstAttribute="centerY" secondItem="tz5-qY-lWN" secondAttribute="centerY" id="KJF-BH-y5I"/>
@@ -1717,7 +1731,8 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HH0-P9-zxX"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <color key="tintColor" name="AccentIcon"/>
                         <constraints>
                             <constraint firstItem="HH0-P9-zxX" firstAttribute="trailing" secondItem="gQs-2I-cbg" secondAttribute="trailing" constant="8" id="1Ne-5y-HHW"/>
                             <constraint firstItem="Cui-rp-f7A" firstAttribute="top" secondItem="FoW-kY-spE" secondAttribute="bottom" id="1fw-bl-Ih0"/>
@@ -1815,7 +1830,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.triangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="l7S-3j-kop">
                                                     <rect key="frame" x="20" y="12.5" width="21" height="19"/>
-                                                    <color key="tintColor" name="AccentColor"/>
+                                                    <color key="tintColor" name="AccentIcon"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -1856,19 +1871,20 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCt-1D-cHz">
                                         <rect key="frame" x="167" y="5" width="80" height="40"/>
-                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <color key="backgroundColor" name="AccentIcon"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="DSW-eN-aV9"/>
                                             <constraint firstAttribute="width" secondItem="DCt-1D-cHz" secondAttribute="height" multiplier="2:1" id="xbb-1F-yU7"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
-                                        <state key="normal" title="Done"/>
+                                        <color key="tintColor" name="AccentIcon"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" name="PrimaryText"/>
+                                        </state>
                                         <connections>
                                             <action selector="confirm" destination="ndU-aG-PwH" eventType="primaryActionTriggered" id="UUx-wh-XwR"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="DCt-1D-cHz" firstAttribute="centerX" secondItem="sGw-HS-2Ys" secondAttribute="centerX" id="0VV-2J-MdX"/>
                                     <constraint firstAttribute="height" constant="50" id="VP1-rv-wMU"/>
@@ -1877,7 +1893,8 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2ad-WU-Zs3"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <color key="tintColor" name="AccentIcon"/>
                         <constraints>
                             <constraint firstItem="gI2-Sj-opS" firstAttribute="leading" secondItem="2ad-WU-Zs3" secondAttribute="leading" id="01Y-0I-c8P"/>
                             <constraint firstItem="sGw-HS-2Ys" firstAttribute="top" secondItem="gI2-Sj-opS" secondAttribute="bottom" id="Gop-tz-bhY"/>
@@ -1948,14 +1965,13 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDC-vb-t3C">
                                         <rect key="frame" x="8" y="8" width="382" height="59"/>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <connections>
                                             <action selector="stopNowPlaying" destination="dye-Vh-WoW" eventType="primaryActionTriggered" id="tdu-fn-s82"/>
                                         </connections>
                                     </button>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="W0E-FG-9O5">
                                         <rect key="frame" x="0.0" y="79" width="398" height="4"/>
-                                        <color key="tintColor" name="AccentColor"/>
+                                        <color key="tintColor" name="AccentIcon"/>
                                     </progressView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hga-R1-3um">
                                         <rect key="frame" x="8" y="87" width="54" height="21"/>
@@ -1970,7 +1986,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="SecondaryFill"/>
+                                <color key="backgroundColor" name="SecondaryBackground"/>
                                 <constraints>
                                     <constraint firstItem="GK8-Eq-mLs" firstAttribute="bottom" secondItem="DDC-vb-t3C" secondAttribute="bottom" id="3MT-Fe-ifA"/>
                                     <constraint firstAttribute="bottom" secondItem="hga-R1-3um" secondAttribute="bottom" constant="4" id="AKA-Xy-PTw"/>
@@ -2042,15 +2058,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="music.folder" id="faS-eJ-RSO" customClass="MusicFolderCell" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="96.5" width="414" height="68"/>
+                                        <rect key="frame" x="0.0" y="96.5" width="414" height="67.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="faS-eJ-RSO" id="ajn-kD-4cb">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uwr-6r-1lp">
                                                     <rect key="frame" x="9.5" y="12.5" width="21" height="18.5"/>
-                                                    <color key="tintColor" name="AccentColor"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
                                                     </accessibility>
@@ -2066,7 +2081,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 tracks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSd-LM-ALg">
-                                                    <rect key="frame" x="40" y="36" width="61.5" height="21.5"/>
+                                                    <rect key="frame" x="40" y="36" width="61.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="SecondaryText"/>
                                                     <nil key="highlightedColor"/>
@@ -2108,7 +2123,7 @@
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="laY-CC-QFU">
                                 <rect key="frame" x="343" y="99" width="13" height="12"/>
-                                <color key="tintColor" name="AccentColor"/>
+                                <color key="tintColor" name="AccentIcon"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13" id="GAe-yt-QWM"/>
                                     <constraint firstAttribute="width" secondItem="laY-CC-QFU" secondAttribute="height" multiplier="1:1" id="H47-L8-g4c"/>
@@ -2122,13 +2137,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="v5f-qR-3Uc"/>
                                         </constraints>
-                                        <color key="tintColor" name="NormalColor"/>
+                                        <color key="tintColor" name="SecondaryIcon"/>
                                         <state key="normal" title="Phrases">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="text.bubble.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -2147,13 +2162,12 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="BAg-5A-qbh"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Music">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="music.quarternote.3" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -2166,13 +2180,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="Wcd-Qf-Nz3"/>
                                         </constraints>
-                                        <color key="tintColor" name="NormalColor"/>
+                                        <color key="tintColor" name="PrimaryIcon"/>
                                         <state key="normal" title="Export">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="speaker.wave.2.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -2185,20 +2199,19 @@
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="251" image="play.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dTA-2w-oZs">
                                         <rect key="frame" x="101" y="29.5" width="82" height="12.5"/>
-                                        <color key="tintColor" name="SecondaryText"/>
+                                        <color key="tintColor" name="SecondaryIcon"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="gbk-ee-zwR"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="251" image="play.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZSa-0H-Gj3">
                                         <rect key="frame" x="231" y="29.5" width="86" height="12.5"/>
-                                        <color key="tintColor" name="SecondaryText"/>
+                                        <color key="tintColor" name="PrimaryIcon"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="8GM-n5-a2S"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Dtl-xp-l4r" firstAttribute="centerY" secondItem="PxY-tj-JTe" secondAttribute="centerY" id="0Ir-en-hZg"/>
                                     <constraint firstItem="dTA-2w-oZs" firstAttribute="leading" secondItem="oXd-NR-snG" secondAttribute="trailing" id="1dB-3a-6fb"/>
@@ -2241,7 +2254,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="k1B-Kl-Lwd"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" image="chevron.left" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                         </state>
@@ -2254,7 +2266,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="m6i-S5-YnG"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" image="chevron.right" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                         </state>
@@ -2270,13 +2281,11 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rX5-FT-eOp">
                                         <rect key="frame" x="76" y="49" width="262" height="27"/>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <connections>
                                             <action selector="previewPhrase" destination="dye-Vh-WoW" eventType="primaryActionTriggered" id="Qk4-WI-EJh"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="ctV-sJ-qhx" firstAttribute="top" secondItem="C0l-ja-PJM" secondAttribute="bottom" constant="8" symbolic="YES" id="2UT-3A-9P7"/>
                                     <constraint firstItem="C0l-ja-PJM" firstAttribute="centerX" secondItem="x5l-Jh-pda" secondAttribute="centerX" id="3ms-S6-xf6"/>
@@ -2299,7 +2308,8 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IzU-TS-bAP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <color key="tintColor" name="AccentIcon"/>
                         <constraints>
                             <constraint firstItem="wyR-wz-Q8L" firstAttribute="top" secondItem="J9A-WM-8dJ" secondAttribute="bottom" constant="8" symbolic="YES" id="8JL-2e-TKc"/>
                             <constraint firstItem="IzU-TS-bAP" firstAttribute="trailing" secondItem="ViD-fp-z08" secondAttribute="trailing" constant="8" id="AFT-1m-ZI9"/>
@@ -2374,13 +2384,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="phrases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8r3-CL-OhD">
                                                 <rect key="frame" x="36" y="45.5" width="61" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" name="NormalColor"/>
+                                                <color key="textColor" name="SecondaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOH-z9-IXb">
                                                 <rect key="frame" x="55" y="8.5" width="23" height="41"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                                <color key="textColor" name="NormalColor"/>
+                                                <color key="textColor" name="PrimaryIcon"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -2401,7 +2411,6 @@
                                                     <constraint firstAttribute="width" constant="36" id="0ci-xa-qMs"/>
                                                     <constraint firstAttribute="width" secondItem="5KA-h1-exJ" secondAttribute="height" multiplier="1:1" id="93d-bw-0FN"/>
                                                 </constraints>
-                                                <color key="tintColor" name="AccentColor"/>
                                                 <state key="normal" image="play.fill" catalog="system"/>
                                                 <state key="selected" image="pause.fill" catalog="system"/>
                                                 <connections>
@@ -2429,12 +2438,12 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PjH-Y7-lZu">
                                                 <rect key="frame" x="43" y="45.5" width="46" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" name="NormalColor"/>
+                                                <color key="textColor" name="SecondaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="timer" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TqE-Mr-M9n">
                                                 <rect key="frame" x="48" y="12" width="36" height="35"/>
-                                                <color key="tintColor" name="NormalColor"/>
+                                                <color key="tintColor" name="PrimaryIcon"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="TqE-Mr-M9n" secondAttribute="height" multiplier="1:1" id="UNX-zv-mT5"/>
                                                     <constraint firstAttribute="width" constant="36" id="ku2-z5-bxF"/>
@@ -2450,7 +2459,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" name="SecondaryFill"/>
+                                <color key="backgroundColor" name="SecondaryBackground"/>
                                 <constraints>
                                     <constraint firstItem="tJx-Gg-cW0" firstAttribute="top" secondItem="n1V-nA-Jux" secondAttribute="top" id="2we-IF-pcc"/>
                                     <constraint firstItem="Nbb-mU-NlK" firstAttribute="top" secondItem="n1V-nA-Jux" secondAttribute="top" id="D9f-sw-aRf"/>
@@ -2488,8 +2497,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="cyd-Se-wA2"/>
                                                 </constraints>
-                                                <color key="tintColor" name="AccentColor"/>
-                                                <state key="normal" title="AB"/>
+                                                <state key="normal" title="AB">
+                                                    <color key="titleColor" name="AccentText"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="selectPattern:" destination="s2K-j7-qW7" eventType="primaryActionTriggered" id="7b1-xK-pYo"/>
                                                     <action selector="spiceschanged" destination="s2K-j7-qW7" eventType="valueChanged" id="Zdg-n0-HJP"/>
@@ -2497,13 +2507,13 @@
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Txe-sS-zsP">
                                                 <rect key="frame" x="8" y="42.5" width="398" height="2"/>
-                                                <color key="backgroundColor" name="SecondaryText"/>
+                                                <color key="backgroundColor" name="SecondaryBackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="aIK-dc-EqQ"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="PrimaryBackground"/>
                                         <constraints>
                                             <constraint firstItem="Txe-sS-zsP" firstAttribute="leading" secondItem="TCN-8R-kPT" secondAttribute="leading" constant="8" id="7Hs-cS-Pfx"/>
                                             <constraint firstAttribute="trailing" secondItem="c51-6s-4m2" secondAttribute="trailing" constant="20" symbolic="YES" id="Fmn-T4-1A6"/>
@@ -2526,22 +2536,21 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfH-H0-s0D">
                                                 <rect key="frame" x="345" y="7" width="51" height="31"/>
-                                                <color key="tintColor" name="AccentColor"/>
-                                                <color key="onTintColor" name="AccentColor"/>
+                                                <color key="onTintColor" name="AccentIcon"/>
                                                 <connections>
                                                     <action selector="spiceschanged" destination="s2K-j7-qW7" eventType="valueChanged" id="rZU-gD-SUJ"/>
                                                 </connections>
                                             </switch>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOC-SW-PU7">
                                                 <rect key="frame" x="8" y="42.5" width="398" height="2"/>
-                                                <color key="backgroundColor" name="SecondaryText"/>
+                                                <color key="backgroundColor" name="SecondaryBackground"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2" id="bU1-1c-gDn"/>
                                                     <constraint firstAttribute="height" constant="2" id="jBV-n4-0du"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="PrimaryBackground"/>
                                         <constraints>
                                             <constraint firstItem="mA4-gU-nIq" firstAttribute="top" secondItem="X1D-xb-Pac" secondAttribute="topMargin" constant="4" id="3uL-TY-HjF"/>
                                             <constraint firstItem="nfH-H0-s0D" firstAttribute="centerY" secondItem="X1D-xb-Pac" secondAttribute="centerY" id="6fg-vT-wqG"/>
@@ -2559,25 +2568,24 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Time spacing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvu-gJ-dQK">
                                                 <rect key="frame" x="16" y="12" width="102" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="PrimaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Between each egg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryw-7l-apq">
                                                 <rect key="frame" x="16" y="48.5" width="164" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="PrimaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Between each noodle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxp-IE-old">
                                                 <rect key="frame" x="16" y="85" width="164" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="PrimaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="GWK-kh-S2e" customClass="SliderWithHint" customModule="Noodles" customModuleProvider="target">
                                                 <rect key="frame" x="186" y="44" width="214" height="31"/>
-                                                <color key="tintColor" name="AccentColor"/>
-                                                <color key="thumbTintColor" name="AccentColor"/>
+                                                <color key="thumbTintColor" name="AccentIcon"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="format" value="%.1fs"/>
                                                 </userDefinedRuntimeAttributes>
@@ -2587,8 +2595,7 @@
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="UfD-w5-RUz" customClass="SliderWithHint" customModule="Noodles" customModuleProvider="target">
                                                 <rect key="frame" x="186" y="80.5" width="214" height="31"/>
-                                                <color key="tintColor" name="AccentColor"/>
-                                                <color key="thumbTintColor" name="AccentColor"/>
+                                                <color key="thumbTintColor" name="AccentIcon"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="format" value="%.1fs"/>
                                                 </userDefinedRuntimeAttributes>
@@ -2605,7 +2612,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="PrimaryBackground"/>
                                         <constraints>
                                             <constraint firstItem="gvu-gJ-dQK" firstAttribute="leading" secondItem="vnz-nO-UZK" secondAttribute="leadingMargin" constant="8" id="2Aw-ql-AaS"/>
                                             <constraint firstAttribute="trailing" secondItem="8vH-lX-BLL" secondAttribute="trailing" constant="8" id="7LP-cl-4m0"/>
@@ -2632,25 +2639,24 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nq1-Ve-bOA">
                                                 <rect key="frame" x="16" y="12" width="57" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="PrimaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Phrases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agq-4s-x70">
                                                 <rect key="frame" x="16" y="48.5" width="61.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="PrimaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBG-VG-TKg">
                                                 <rect key="frame" x="16" y="85" width="61.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="PrimaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="C70-Do-eHb" customClass="SliderWithHint" customModule="Noodles" customModuleProvider="target">
                                                 <rect key="frame" x="83.5" y="44" width="316.5" height="31"/>
-                                                <color key="tintColor" name="AccentColor"/>
-                                                <color key="thumbTintColor" name="AccentColor"/>
+                                                <color key="thumbTintColor" name="AccentIcon"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="format" value="%.2f"/>
                                                 </userDefinedRuntimeAttributes>
@@ -2660,8 +2666,7 @@
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4KJ-wk-tbC" customClass="SliderWithHint" customModule="Noodles" customModuleProvider="target">
                                                 <rect key="frame" x="83.5" y="80.5" width="316.5" height="31"/>
-                                                <color key="tintColor" name="AccentColor"/>
-                                                <color key="thumbTintColor" name="AccentColor"/>
+                                                <color key="thumbTintColor" name="AccentIcon"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="format" value="%.2f"/>
                                                 </userDefinedRuntimeAttributes>
@@ -2670,7 +2675,7 @@
                                                 </connections>
                                             </slider>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="PrimaryBackground"/>
                                         <constraints>
                                             <constraint firstItem="C70-Do-eHb" firstAttribute="leading" secondItem="Agq-4s-x70" secondAttribute="trailing" constant="8" symbolic="YES" id="10U-Dc-z4E"/>
                                             <constraint firstItem="Nq1-Ve-bOA" firstAttribute="top" secondItem="5Ed-xN-ieu" secondAttribute="topMargin" constant="4" id="4ig-Qn-cKh"/>
@@ -2718,7 +2723,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cook lesson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTM-2c-qb1">
                                         <rect key="frame" x="160.5" y="8" width="93.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="PrimaryText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acI-3H-NfV">
@@ -2726,14 +2731,13 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="acI-3H-NfV" secondAttribute="height" multiplier="1:1" id="IaM-nQ-ZVL"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" image="headphones.circle" catalog="system"/>
                                         <connections>
                                             <action selector="cookLesson:" destination="s2K-j7-qW7" eventType="primaryActionTriggered" id="JVR-2G-bSe"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" name="SecondaryFill"/>
+                                <color key="backgroundColor" name="SecondaryBackground"/>
                                 <constraints>
                                     <constraint firstItem="acI-3H-NfV" firstAttribute="top" secondItem="oTM-2c-qb1" secondAttribute="bottom" constant="4" id="28e-Ul-Vqt"/>
                                     <constraint firstItem="oTM-2c-qb1" firstAttribute="centerX" secondItem="dYb-KH-WWN" secondAttribute="centerX" id="H8o-iR-mag"/>
@@ -2751,13 +2755,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="JG1-VU-Blb"/>
                                         </constraints>
-                                        <color key="tintColor" name="NormalColor"/>
+                                        <color key="tintColor" name="PrimaryIcon"/>
                                         <state key="normal" title="Phrases">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="text.bubble.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -2773,13 +2777,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="Jt7-rA-DvZ"/>
                                         </constraints>
-                                        <color key="tintColor" name="NormalColor"/>
+                                        <color key="tintColor" name="PrimaryIcon"/>
                                         <state key="normal" title="Music">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="music.quarternote.3" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -2798,13 +2802,12 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="eXQ-Cb-izw"/>
                                         </constraints>
-                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Export">
-                                            <color key="titleColor" name="NormalColor"/>
+                                            <color key="titleColor" name="SecondaryText"/>
                                             <imageReference key="image" image="speaker.wave.2.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </state>
                                         <state key="selected">
-                                            <color key="titleColor" name="AccentColor"/>
+                                            <color key="titleColor" name="AccentText"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="padding">
@@ -2814,20 +2817,19 @@
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="251" image="play.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8xO-qP-Mml">
                                         <rect key="frame" x="101" y="29.5" width="82" height="12.5"/>
-                                        <color key="tintColor" name="SecondaryText"/>
+                                        <color key="tintColor" name="SecondaryIcon"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="78k-kj-8N6"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="251" image="play.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tI8-W0-qc0">
                                         <rect key="frame" x="231" y="29.5" width="86" height="12.5"/>
-                                        <color key="tintColor" name="SecondaryText"/>
+                                        <color key="tintColor" name="SecondaryIcon"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="16" id="c3G-oK-gXc"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="jER-qJ-mue" firstAttribute="centerX" secondItem="aK4-WO-T0n" secondAttribute="centerX" multiplier="0.33" id="4nC-Un-gfc"/>
                                     <constraint firstItem="zRu-Ou-bSP" firstAttribute="centerX" secondItem="aK4-WO-T0n" secondAttribute="centerX" id="5cI-n0-OQ7"/>
@@ -2846,7 +2848,8 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QTC-ob-FA4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <color key="tintColor" name="AccentIcon"/>
                         <constraints>
                             <constraint firstItem="tTF-u7-kEq" firstAttribute="leading" secondItem="gdW-Ll-CgQ" secondAttribute="leading" id="3Ic-YV-es6"/>
                             <constraint firstItem="dYb-KH-WWN" firstAttribute="top" secondItem="tTF-u7-kEq" secondAttribute="bottom" id="7xn-Q4-DPU"/>
@@ -2904,7 +2907,7 @@
         <scene sceneID="ban-YZ-dJo">
             <objects>
                 <viewController storyboardIdentifier="lesson.cooking" title="Cooking Progress" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="4ex-fJ-gRF" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="R3k-KH-qoO">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="R3k-KH-qoO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -2916,14 +2919,16 @@
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="jGB-fY-Azp">
                                             <rect key="frame" x="188.5" y="350.5" width="37" height="37"/>
+                                            <color key="color" name="PrimaryIcon"/>
                                         </activityIndicatorView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pretty cooking animation here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMj-Ic-fIu">
                                             <rect key="frame" x="93" y="427.5" width="228" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" name="PrimaryText"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="tintColor" name="AccentIcon"/>
                                     <constraints>
                                         <constraint firstItem="jGB-fY-Azp" firstAttribute="centerY" secondItem="hiV-j8-XVC" secondAttribute="centerY" constant="-40" id="4OZ-QM-eb4"/>
                                         <constraint firstItem="oMj-Ic-fIu" firstAttribute="top" secondItem="jGB-fY-Azp" secondAttribute="bottom" constant="40" id="7ui-WQ-2k3"/>
@@ -2936,6 +2941,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZEy-lk-ChZ"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="AccentIcon"/>
                         <constraints>
                             <constraint firstItem="bxb-lk-8sd" firstAttribute="leading" secondItem="ZEy-lk-ChZ" secondAttribute="leading" id="0E5-gr-so3"/>
                             <constraint firstItem="ZEy-lk-ChZ" firstAttribute="trailing" secondItem="bxb-lk-8sd" secondAttribute="trailing" id="HIg-iQ-LVQ"/>
@@ -3021,9 +3027,9 @@
         <image name="folder" catalog="system" width="128" height="97"/>
         <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="headphones.circle" catalog="system" width="128" height="121"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="line.horizontal.3.circle" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="menu_small" width="22" height="22"/>
         <image name="multiselect_small" width="22" height="22"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="103"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
@@ -3042,38 +3048,38 @@
         <image name="tray.fill" catalog="system" width="128" height="88"/>
         <image name="tray.full.fill" catalog="system" width="128" height="88"/>
         <image name="wave.3.right.circle" catalog="system" width="128" height="121"/>
-        <namedColor name="AccentColor">
-            <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="AccentIcon">
+            <color red="0.023529411764705882" green="0.46666666666666667" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="AccentText">
-            <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.023529411764705882" green="0.46666666666666667" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="ErrorColor">
-            <color red="1" green="0.23100000619888306" blue="0.18799999356269836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="ErrorText">
+            <color red="0.98431372549019602" green="0.41568627450980394" blue="0.41568627450980394" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="NormalColor">
-            <color red="0.23499999940395355" green="0.23499999940395355" blue="0.2630000114440918" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="PrimaryBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="PrimaryFill">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <namedColor name="PrimaryIcon">
+            <color red="0.6470588235294118" green="0.68235294117647061" blue="0.75294117647058822" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryText">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.17647058823529413" green="0.19215686274509805" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="SecondaryFill">
-            <color red="0.46299999952316284" green="0.46299999952316284" blue="0.50199997425079346" alpha="0.11999999731779099" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="SecondaryBackground">
+            <color red="0.94509803921568625" green="0.95294117647058818" blue="0.97647058823529409" alpha="0.95999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryIcon">
+            <color red="0.34509803921568627" green="0.396078431372549" blue="0.45490196078431372" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecondaryText">
-            <color red="0.23499999940395355" green="0.23499999940395355" blue="0.2630000114440918" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.6470588235294118" green="0.68235294117647061" blue="0.75294117647058822" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="TertiaryText">
+            <color red="0.34509803921568627" green="0.396078431372549" blue="0.45490196078431372" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="tertiarySystemFillColor">
-            <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
