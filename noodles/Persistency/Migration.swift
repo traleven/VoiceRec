@@ -43,6 +43,34 @@ class Migration {
 	}
 
 	static private let migrations: [Int: () -> Void] = [
+		2: {
+			let fileManager = FileManager.default
+			let musicDir = FileUtils.getDirectory(.music)
+			let defaultMusicDir = FileUtils.getDefaultsDirectory(.music)
+
+			guard let files = try? fileManager.contentsOfDirectory(at: defaultMusicDir, includingPropertiesForKeys: nil, options: .skipsHiddenFiles) else {
+				fatalError("Migration failed")
+			}
+
+			for file in files {
+				let filename = file.lastPathComponent
+				let ext = file.pathExtension
+				guard ext == "m4a" else {
+					continue
+				}
+
+				try? fileManager.copyItem(at: file, to: musicDir.appendingPathComponent(filename))
+			}
+		},
+		1: {
+			let defaultUser = Model.User(
+				id: FileUtils.getDirectory(.users).appendingPathComponent("me.json"),
+				name: "New user",
+				base: Language(withCode: "English"),
+				target: Language(withCode: "Chinese")
+			)
+			defaultUser.save()
+		},
 		0: {
 			let defaults = FileUtils.getDefaultsDirectory()
 			let documents = FileUtils.getDocumentsDirectory()
@@ -65,15 +93,6 @@ class Migration {
 				at: defaults.appendingPathComponent("presets.json"),
 				to: documents.appendingPathComponent("presets.json")
 			)
-		},
-		1: {
-			let defaultUser = Model.User(
-				id: FileUtils.getDirectory(.users).appendingPathComponent("me.json"),
-				name: "New user",
-				base: Language(withCode: "English"),
-				target: Language(withCode: "Chinese")
-			)
-			defaultUser.save()
 		},
 	]
 }
