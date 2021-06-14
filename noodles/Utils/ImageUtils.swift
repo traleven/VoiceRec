@@ -7,6 +7,7 @@
 
 import UIKit
 import ImageIO
+import AVFoundation
 
 extension UIImage {
 
@@ -26,5 +27,14 @@ extension UIImage {
 		}
 
 		return UIImage(cgImage: image)
+	}
+
+	func resizedImage2(for size: CGSize) -> UIImage? {
+
+		let rect = AVMakeRect(aspectRatio: self.size, insideRect: CGRect(origin: .zero, size: size))
+		let renderer = UIGraphicsImageRenderer(size: rect.size)
+		return renderer.image { (context) in
+			self.draw(in: rect)
+		}
 	}
 }
