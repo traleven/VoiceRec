@@ -12,9 +12,9 @@ class DictionaryDB<ValueType> : DB where ValueType : Codable & Equatable {
 	var data: Dictionary<String, ValueType> = Dictionary()
 	let defaultValue : ValueType
 
-	init(withUrl: URL!, andDefaultValue defaultValue: ValueType) {
+	init(with url: URL!, andDefaultValue defaultValue: ValueType) {
 		self.defaultValue = defaultValue
-		super.init(withUrl: withUrl)
+		super.init(with: url)
 
 		do {
 			let encoded = try Data(contentsOf: url, options: .mappedIfSafe)

@@ -10,16 +10,18 @@ import Foundation
 
 class DB: NSObject {
 
-	static var options: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("options.json", isDirectory: false), andDefaultValue: "")
+	static var options   = DictionaryDB(with: FileUtils.getConfigFile(.options),  andDefaultValue: "")
+	static var numerics  = DictionaryDB(with: FileUtils.getConfigFile(.numerics), andDefaultValue: Float(0.5))
+	static var presets   =     StringDB(with: FileUtils.getConfigFile(.presets))
+	static var languages =   LanguageDB(with: FileUtils.getConfigFile(.languages))
+	static var proficiencies = StringDB(with: FileUtils.getConfigFile(.proficiencies), content: [
+		"Newbie", "Beginner", "Intermediate", "Advanced", "Fluent", "Mother tongue"
+	])
 
-	static var numerics: DictionaryDB! = DictionaryDB(withUrl: FileUtils.getDocumentsDirectory().appendingPathComponent("numerics.json", isDirectory: false), andDefaultValue: Float(0.5))
+	let url: URL
 
-	static var presets: ArrayDB! = ArrayDB(withUrl:FileUtils.getDocumentsDirectory().appendingPathComponent("presets.json", isDirectory: false))
-
-	let url: URL!
-
-	init(withUrl: URL!) {
-		url = withUrl
+	init(with url: URL) {
+		self.url = url
 		super.init()
 	}
 
@@ -33,6 +35,8 @@ class Settings {
 		DB.options.flush()
 		DB.numerics.flush()
 		DB.presets.flush()
+		DB.languages.flush()
+		DB.proficiencies.flush()
 	}
 
 	class music {

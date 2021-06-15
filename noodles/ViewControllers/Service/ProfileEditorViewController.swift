@@ -8,11 +8,22 @@
 import UIKit
 
 protocol ProfileEditorViewFlowDelegate : Director {
-	typealias ModelRefreshHandle = (Model.User) -> Void
+	typealias ModelRefreshHandler = (Model.User) -> Void
 }
 
-protocol ProfileEditorViewControlDelegate : ProfileEditorViewFlowDelegate {
-	typealias RefreshHandle = () -> Void
+protocol ProfileEditorViewControlDelegate : ProfileEditorViewFlowDelegate & LanguagesTableControllerDelegate {
+	typealias RefreshHandler = () -> Void
+	typealias ModelRefreshHandler = (Model.User) -> Void
+
+	func selectUserAvatar(_ user: Model.User, _ refresh: ModelRefreshHandler?)
+	func selectRepetitionPattern(_ user: Model.User, _ refresh: ModelRefreshHandler?)
+
+	func setBaseLanguage(_ user: Model.User, language: Language, _ refresh: ModelRefreshHandler?)
+	func setTargetLanguage(_ user: Model.User, language: Language, _ refresh: ModelRefreshHandler?)
+	func deleteLanguage(_ user: Model.User, language: Language, _ refresh: ModelRefreshHandler?)
+	func addLanguage(_ user: Model.User, _ refresh: ModelRefreshHandler?)
+
+	func addTutor(_ user: Model.User, _ refresh: ModelRefreshHandler?)
 }
 
 class ProfileEditorViewController: NoodlesViewController {
@@ -22,21 +33,83 @@ class ProfileEditorViewController: NoodlesViewController {
 	private var content: Model.User
 	private var onApply: ApplyHandle?
 
-	private var textDelegates: [Any] = []
+	private var textDelegates: [AnyObject] = []
+
+
+	@IBOutlet var avatar: UIImageView!
+	@IBOutlet var avatarMask: UIImageView?
+
+	@IBOutlet var nameField: UITextField!
+	@IBOutlet var emailField: UITextField!
+	@IBOutlet var homeField: UITextField!
+	@IBOutlet var locationField: UITextField!
+
+	@IBOutlet var languageTable: UITableView!
+	@IBOutlet var tutorsTable: UITableView!
+
+	@IBOutlet var repetitionPattern: UIButton!
+
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+
+		avatar.mask = avatarMask
+
+		let languagesDelegate = LanguagesTableController(
+			delegate: flowDelegate, readOnly: false,
+			user: { [weak self] in self?.content },
+			refresh: { [weak self] (user: Model.User) in self?.refresh(user) }
+		)
+		textDelegates.append(languagesDelegate)
+		languageTable.dataSource = languagesDelegate
+		languageTable.delegate = languagesDelegate
+
+		let tutorsDelegate = TutorsTableController(
+			user: { [weak self] in self?.content },
+			refresh: { [weak self] (user: Model.User) in self?.refresh(user) }
+		)
+		textDelegates.append(tutorsDelegate)
+		tutorsTable.dataSource = tutorsDelegate
+		tutorsTable.delegate = tutorsDelegate
+
+		nameField.delegate = textDelegates.retain(ReturnKeyTextFieldDelegate(
+			onBeginEdit: {
+			}, onEndEdit: { (result: String?) in
+				if let result = result { self.content.name = result }
+			}, onReturnKey: true
+		))
+		emailField.delegate = textDelegates.retain(ReturnKeyTextFieldDelegate(
+			onBeginEdit: {
+			}, onEndEdit: { (result: String?) in
+				self.content.email = result
+			}, onReturnKey: true
+		))
+		homeField.delegate = textDelegates.retain(ReturnKeyTextFieldDelegate(
+			onBeginEdit: {
+			}, onEndEdit: { (result: String?) in
+				self.content.from = result
+			}, onReturnKey: true
+		))
+		locationField.delegate = textDelegates.retain(ReturnKeyTextFieldDelegate(
+			onBeginEdit: {
+			}, onEndEdit: { (result: String?) in
+				self.content.lives = result
+			}, onReturnKey: true
+		))
+	}
 
 
 	override func viewWillAppear(_ animated: Bool) {
-		refresh()
+		refreshFields()
 
 		super.viewWillAppear(animated)
 	}
 
 
-	override func viewWillDisappearOrMinimize() {
-		updateContent()
-		save()
+	override func viewDidAppear(_ animated: Bool) {
+		refreshTables()
 
-		super.viewWillDisappearOrMinimize()
+		super.viewDidAppear(animated)
 	}
 
 
@@ -56,6 +129,27 @@ class ProfileEditorViewController: NoodlesViewController {
 
 
 	private func refresh() {
+
+		refreshFields()
+		refreshTables()
+	}
+
+
+	private func refreshFields() {
+
+		nameField.text = content.name
+		emailField.text = content.email
+		homeField.text = content.from
+		locationField.text = content.lives
+		repetitionPattern.setTitle(content.sequence.dna, for: .normal)
+		repetitionPattern.setAttributedTitle(content.sequence.colorCoded, for: .normal)
+	}
+
+
+	private func refreshTables() {
+
+		languageTable.reloadData()
+		tutorsTable.reloadData()
 	}
 
 
@@ -72,13 +166,38 @@ class ProfileEditorViewController: NoodlesViewController {
 	}
 
 
-	private func updateContent() {
+	@IBAction func selectAvatar() {
+
+		flowDelegate.selectUserAvatar(content, refresh(_:))
+	}
+
+
+	@IBAction func selectRepetitionPattern() {
+
+		flowDelegate.selectRepetitionPattern(content, refresh(_:))
+	}
+
+
+	@IBAction func addLanguage() {
+
+		flowDelegate.addLanguage(content, refresh(_:))
+	}
+
+
+	@IBAction func addTutor() {
+
+		flowDelegate.addTutor(content, refresh(_:))
 	}
 
 
 	@IBAction func save() {
 
-		updateContent()
 		onApply?(content)
+	}
+
+
+	@IBAction func cancel() {
+
+		onApply?(nil)
 	}
 }

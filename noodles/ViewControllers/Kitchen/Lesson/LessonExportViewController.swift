@@ -162,7 +162,7 @@ class LessonExportViewController: NoodlesViewController {
 	}
 
 
-	@IBAction func cookLesson(_ sender: UIColor) {
+	@IBAction func cookLesson(_ sender: UIControl) {
 
 		updateData()
 		flowDelegate.save(lesson)

@@ -20,12 +20,30 @@ extension Model {
 
 		private(set) var id : URL
 		private var meta : Meta
-		var name : String { meta.name }
-		var email : String? { meta.email }
-		var from : String? { meta.from }
-		var lives : String? { meta.lives }
-		var base : Language { Language(withCode: meta.base) }
-		var target : Language { Language(withCode: meta.target) }
+		var name : String {
+			get { meta.name }
+			set { meta.name = newValue }
+		}
+		var email : String? {
+			get { meta.email }
+			set { meta.email = newValue }
+		}
+		var from : String? {
+			get { meta.from }
+			set { meta.from = newValue }
+		}
+		var lives : String? {
+			get { meta.lives }
+			set { meta.lives = newValue }
+		}
+		var base : Language {
+			get { Language(withCode: meta.base) }
+			set { meta.base = newValue.code }
+		}
+		var target : Language {
+			get { Language(withCode: meta.target) }
+			set { meta.target = newValue.code }
+		}
 		var sequence : Shape {
 			get { Shape(dna: meta.sequence ?? "ABABB") }
 			set { meta.sequence = newValue.dna }
@@ -35,12 +53,24 @@ extension Model {
 			set { meta.icon = newValue?.pngData() }
 		}
 		subscript(_ language: Language) -> String? {
-			meta.languages[language.code] ?? meta.languages.first(where: { Language(withCode: $0.key) == language })?.value
+			get { meta.languages[language.code] ?? meta.languages.first(where: { Language(withCode: $0.key) == language })?.value }
+			set {
+				meta.languages[language.code] = newValue
+				while let key = meta.languages.first(
+						where: { $0.key != language.code && Language(withCode: $0.key) == language }
+				)?.key {
+					meta.languages.removeValue(forKey: key)
+				}
+			}
 		}
 		var languages : [Language] {
 			meta.languages.keys
 				.map({ Language(withCode: $0) })
 				.sorted(by: languageSorting(lhv:rhv:))
+		}
+		mutating func remove(language: Language) {
+			let key = meta.languages.first(where: { Language(withCode: $0.key) == language })?.key
+			meta.languages.removeValue(forKey: key ?? language.code)
 		}
 		var tutors : [Model.User] { [] }
 

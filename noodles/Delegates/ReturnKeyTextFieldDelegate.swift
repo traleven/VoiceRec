@@ -74,3 +74,13 @@ class ReturnKeyTextViewDelegate : NSObject, UITextViewDelegate {
 		handleEndEdit?()
 	}
 }
+
+extension Array where Element: AnyObject {
+	mutating func retain<T: AnyObject>(_ element: T) -> T {
+
+		if let v = element as? Element {
+			self.append(v)
+		}
+		return element
+	}
+}

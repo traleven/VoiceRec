@@ -26,14 +26,28 @@ struct Language {
 	}
 
 	init(withCode code: String) {
-		switch code {
-		case "cmn", "Chinese":           self = Language(code: "cmn", name: "Mandarin", flag: .China)
-		case "eng", "eng-UK", "English": self = Language(code: "eng-UK", name: "English", flag: .UnitedKingdom)
-		case "eng-US":                   self = Language(code: "eng-US", name: "English", flag: .UnitedStates)
-		case "rus":                      self = Language(code: "rus", name: "Russian", flag: .Russia)
-		case "ukr":                      self = Language(code: "ukr", name: "Ukrainian", flag: .Ukraine)
-		default:                         self = Language(code: code, name: code, flag: .World)
-		}
+		self = Self.languages[code] ?? Language(code: code, name: code, flag: .World)
+	}
+}
+
+extension Language {
+
+	fileprivate static let languages = [
+		"eng":    Language(code: "eng-UK", name: "English",   flag: .UnitedKingdom),
+		"eng-UK": Language(code: "eng-UK", name: "English",   flag: .UnitedKingdom),
+		"English":Language(code: "eng-UK", name: "English",   flag: .UnitedKingdom),
+
+		"eng-US": Language(code: "eng-US", name: "English",   flag: .UnitedStates),
+		"cmn":    Language(code: "cmn",    name: "Mandarin",  flag: .China),
+		"Chinese":Language(code: "cmn",    name: "Mandarin",  flag: .China),
+		"rus-RU": Language(code: "rus-RU", name: "Russian",   flag: .Russia),
+		"ukr":    Language(code: "ukr",    name: "Ukrainian", flag: .Ukraine),
+		"jpn":    Language(code: "jpn",    name: "Japanese",  flag: .Japan),
+		"spa-ES": Language(code: "spa-ES", name: "Spanish",   flag: .Spain),
+	]
+
+	static var supportedLanguages: [Language] {
+		return languages.filter({ $0.key == $0.value.code }).map({ $0.value })
 	}
 }
 

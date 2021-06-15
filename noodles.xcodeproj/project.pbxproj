@@ -68,6 +68,14 @@
 		DB79CAB726691BB900CDB01F /* PhraseEditDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAB626691BB900CDB01F /* PhraseEditDirector.swift */; };
 		DB7BA8B8266AD44D008223E4 /* PatternSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BA8B7266AD44D008223E4 /* PatternSelectionViewController.swift */; };
 		DB7BA8BC266AD856008223E4 /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7BA8BB266AD856008223E4 /* Migration.swift */; };
+		DB8AA9F426777422001A40ED /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8AA9F326777422001A40ED /* UITableViewExtensions.swift */; };
+		DB8AA9F7267788E5001A40ED /* LanguagesViewTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8AA9F6267788E5001A40ED /* LanguagesViewTableController.swift */; };
+		DB8AA9FA267788F8001A40ED /* TutorsViewTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8AA9F9267788F8001A40ED /* TutorsViewTableController.swift */; };
+		DB8AA9FD26778AAA001A40ED /* ProfileEditorDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8AA9FC26778AAA001A40ED /* ProfileEditorDirector.swift */; };
+		DBAA69212679421A0079B78C /* ProficiencySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA69202679421A0079B78C /* ProficiencySelectionViewController.swift */; };
+		DBAA69242679422C0079B78C /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA69232679422C0079B78C /* LanguageSelectionViewController.swift */; };
+		DBAA692726795EC20079B78C /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA692626795EC20079B78C /* MusicViewController.swift */; };
+		DBAA692A267960C90079B78C /* MusicDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA6929267960C90079B78C /* MusicDirector.swift */; };
 		DBCF76A5265E612B00D80A6B /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76A4265E612B00D80A6B /* VerticalButton.swift */; };
 		DBCF76A8265E948500D80A6B /* KitchenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */; };
 		DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */; };
@@ -194,6 +202,14 @@
 		DB79CAB626691BB900CDB01F /* PhraseEditDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEditDirector.swift; sourceTree = "<group>"; };
 		DB7BA8B7266AD44D008223E4 /* PatternSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternSelectionViewController.swift; sourceTree = "<group>"; };
 		DB7BA8BB266AD856008223E4 /* Migration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
+		DB8AA9F326777422001A40ED /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
+		DB8AA9F6267788E5001A40ED /* LanguagesViewTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewTableController.swift; sourceTree = "<group>"; };
+		DB8AA9F9267788F8001A40ED /* TutorsViewTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorsViewTableController.swift; sourceTree = "<group>"; };
+		DB8AA9FC26778AAA001A40ED /* ProfileEditorDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorDirector.swift; sourceTree = "<group>"; };
+		DBAA69202679421A0079B78C /* ProficiencySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProficiencySelectionViewController.swift; sourceTree = "<group>"; };
+		DBAA69232679422C0079B78C /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
+		DBAA692626795EC20079B78C /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
+		DBAA6929267960C90079B78C /* MusicDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDirector.swift; sourceTree = "<group>"; };
 		DBCF76A4265E612B00D80A6B /* VerticalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
 		DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenTabViewController.swift; sourceTree = "<group>"; };
 		DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesListViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +297,8 @@
 			children = (
 				DB15F3CB266BBD8C009BFDA1 /* PatternSelectionDirector.swift */,
 				DBE7C6C1266F61FF00A92048 /* ProfileDirector.swift */,
+				DB8AA9FC26778AAA001A40ED /* ProfileEditorDirector.swift */,
+				DBAA6929267960C90079B78C /* MusicDirector.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -484,8 +502,13 @@
 			isa = PBXGroup;
 			children = (
 				DB7BA8B7266AD44D008223E4 /* PatternSelectionViewController.swift */,
+				DBAA69202679421A0079B78C /* ProficiencySelectionViewController.swift */,
+				DBAA69232679422C0079B78C /* LanguageSelectionViewController.swift */,
 				DBE7C6B6266EABFB00A92048 /* ProfileViewController.swift */,
+				DB8AA9F6267788E5001A40ED /* LanguagesViewTableController.swift */,
+				DB8AA9F9267788F8001A40ED /* TutorsViewTableController.swift */,
 				DBE7C6BB266EAC0B00A92048 /* ProfileEditorViewController.swift */,
+				DBAA692626795EC20079B78C /* MusicViewController.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -536,6 +559,7 @@
 			children = (
 				DBE8E0742662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift */,
 				DB55A8062666B08200CD963E /* CommonDelegateExtensions.swift */,
+				DB8AA9F326777422001A40ED /* UITableViewExtensions.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -699,10 +723,12 @@
 				DB79CAAB2667E82400CDB01F /* DispatchQueueUtils.swift in Sources */,
 				DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */,
 				DB55A7FE2664F8CE00CD963E /* LessonExportViewController.swift in Sources */,
+				DB8AA9FD26778AAA001A40ED /* ProfileEditorDirector.swift in Sources */,
 				DBE8E07226614E2100E48470 /* PhraseEditViewController.swift in Sources */,
 				DB256DC32673436D009D2F7D /* TutorCell.swift in Sources */,
 				DBDC67D72644072C00B99539 /* RootPageViewController.swift in Sources */,
 				DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */,
+				DBAA69242679422C0079B78C /* LanguageSelectionViewController.swift in Sources */,
 				DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */,
 				DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */,
 				DB413A272643D8CD0035D952 /* Model.Broth.swift in Sources */,
@@ -723,10 +749,12 @@
 				DB413A362643D8CD0035D952 /* Model.Noodle.swift in Sources */,
 				DBCF76A8265E948500D80A6B /* KitchenTabViewController.swift in Sources */,
 				DB256DC8267396F3009D2F7D /* ImageUtils.swift in Sources */,
+				DB8AA9F7267788E5001A40ED /* LanguagesViewTableController.swift in Sources */,
 				DB413A452643D8DA0035D952 /* CSS.swift in Sources */,
 				DB79CAAE2668D22B00CDB01F /* LessonMusicDirector.swift in Sources */,
 				DB7BA8B8266AD44D008223E4 /* PatternSelectionViewController.swift in Sources */,
 				DB15F3D8266BF282009BFDA1 /* SliderWithHint.swift in Sources */,
+				DB8AA9F426777422001A40ED /* UITableViewExtensions.swift in Sources */,
 				DB413A282643D8CD0035D952 /* Model.swift in Sources */,
 				DB413A4D2643D8DA0035D952 /* DB.swift in Sources */,
 				DB79CAB726691BB900CDB01F /* PhraseEditDirector.swift in Sources */,
@@ -744,9 +772,13 @@
 				DB413A0C2643D8BF0035D952 /* AudioPlayer.swift in Sources */,
 				DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */,
 				DB413A2A2643D8CD0035D952 /* Model.User.swift in Sources */,
+				DBAA692726795EC20079B78C /* MusicViewController.swift in Sources */,
+				DB8AA9FA267788F8001A40ED /* TutorsViewTableController.swift in Sources */,
 				DBDC67F52646DEEF00B99539 /* NavigationControllerRouter.swift in Sources */,
 				DB15F3D4266BDC13009BFDA1 /* LiveComposer.swift in Sources */,
 				DBDC67E726443DCB00B99539 /* InboxCell.swift in Sources */,
+				DBAA692A267960C90079B78C /* MusicDirector.swift in Sources */,
+				DBAA69212679421A0079B78C /* ProficiencySelectionViewController.swift in Sources */,
 				DBE7C6B7266EABFC00A92048 /* ProfileViewController.swift in Sources */,
 				DB55A8042664F9BA00CD963E /* NoodlesViewController.swift in Sources */,
 				DB413A302643D8CD0035D952 /* Shape.swift in Sources */,
@@ -916,7 +948,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentIcon;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
@@ -945,7 +977,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentIcon;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;

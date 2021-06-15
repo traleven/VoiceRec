@@ -43,6 +43,10 @@ class Migration {
 	}
 
 	static private let migrations: [Int: () -> Void] = [
+		3: {
+			DB.languages = LanguageDB(with: FileUtils.getDocumentsDirectory().appendingPathComponent("languages.json"), content: Language.supportedLanguages)
+			DB.languages.flush()
+		},
 		2: {
 			let fileManager = FileManager.default
 			let musicDir = FileUtils.getDirectory(.music)

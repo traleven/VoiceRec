@@ -11,11 +11,41 @@ class ProfileDirector: DefaultDirector {
 }
 
 extension ProfileDirector: ProfileViewFlowDelegate {
+
+	func editUserProfile(_ user: Model.User, _ refresh: ModelRefreshHandler?) {
+
+		let director = ProfileEditorDirector(router: router)
+		let viewController = director.makeViewController(user: user) { [weak self] (result: Model.User?) in
+			if let result = result {
+				result.save()
+				refresh?(result)
+			}
+			self?.router.pop(animated: true)
+		}
+
+		router.push(viewController, onDismiss: nil)
+	}
 }
 
 extension ProfileDirector: ProfileViewControlDelegate {
+	
+	func selectProficiency(_ user: Model.User, language: Language, _ refresh: ModelRefreshHandler?) {
+		
+		let director = ProficiencySelectionDirector(router: router)
+		let viewController = director.makeViewController(current: nil, confirm: { (result: String) in
+			var newUser = user
+			newUser[language] = result
+			newUser.save()
 
-	func selectRepetitionPattern(_ user: Model.User, _ refresh: ((Model.User) -> Void)?) {
+			self.router.dismiss(animated: true, completion: {
+				refresh?(newUser)
+			})
+		})
+		router.present(viewController, onDismiss: nil)
+	}
+
+
+	func selectRepetitionPattern(_ user: Model.User, _ refresh: ModelRefreshHandler?) {
 
 		let director = PatternSelectionDirector(router: router)
 		let viewController = director.makeViewController(current: user.sequence, confirm: { (result: Shape) in
@@ -31,28 +61,28 @@ extension ProfileDirector: ProfileViewControlDelegate {
 	}
 
 
-	func selectUserAvatar(_ user: Model.User, _ refresh: ((Model.User) -> Void)?) {
-
-		let picker = UIImagePickerController()
-		picker.allowsEditing = true
-		picker.delegate = self
-		router.present(picker, onDismiss: nil)
+	func setBaseLanguage(_ user: Model.User, language: Language, _ refresh: ModelRefreshHandler?) {
+		var user = user
+		if user.target == language { user.target = user.base }
+		user.base = language
+		user.save()
+		refresh?(user)
 	}
-}
 
-extension ProfileDirector: UIImagePickerControllerDelegate {
 
-	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-		guard let image = info[.editedImage] as? UIImage else { return }
-
-		router.dismiss(animated: true) {
-
-			var user = Model.User.Me
-			user.icon = image.resizedImage(for: CGSize(width: 200, height: 200))
-			user.save()
-		}
+	func setTargetLanguage(_ user: Model.User, language: Language, _ refresh: ModelRefreshHandler?) {
+		var user = user
+		if user.base == language { user.base = user.target }
+		user.target = language
+		user.save()
+		refresh?(user)
 	}
-}
 
-extension ProfileDirector: UINavigationControllerDelegate {
+	
+	func deleteLanguage(_ user: Model.User, language: Language, _ refresh: ModelRefreshHandler?) {
+		var user = user
+		user.remove(language: language)
+		user.save()
+		refresh?(user)
+	}
 }

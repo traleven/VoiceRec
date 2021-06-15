@@ -30,7 +30,7 @@ class LessonPhrasesViewController: NoodlesViewController {
 	private var flowDelegate: LessonPhrasesViewControlDelegate!
 
 	private var lesson: Model.Recipe
-	private var delegates: [Any] = []
+	private var delegates: [AnyObject] = []
 
 	@IBOutlet var nameField: UITextField!
 	@IBOutlet var tableView: UITableView!
@@ -224,31 +224,24 @@ extension LessonPhrasesViewController : UITableViewDelegate {
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
 		let phrase = self.lesson[indexPath.row]
-		let playAction = UIContextualAction(style: .normal, title: "Play", handler: { [self] (action: UIContextualAction, view: UIView, handler: @escaping (Bool) -> Void) in
+		var actions: [UIContextualAction] = []
+		actions.addPlayAction { [unowned self] in
+			flowDelegate.play(phrase: phrase, of: lesson.shape, with: lesson.spices, progress: nil, result: nil)
+		}
 
-				self.flowDelegate.play(phrase: phrase, of: lesson.shape, with: lesson.spices, progress: nil, result: nil)
-				handler(true)
-			})
-		playAction.backgroundColor = .systemGreen
-		let configuration = UISwipeActionsConfiguration(actions: [playAction])
-		configuration.performsFirstActionWithFullSwipe = true
-		return configuration
+		return makeConfiguration(fullSwipe: true, actions: actions)
 	}
 
 
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
 		let phrase = self.lesson[indexPath.row]
-		let configuration = UISwipeActionsConfiguration(actions: [
-			UIContextualAction(style: .destructive, title: "Remove", handler: { [self] (action: UIContextualAction, view: UIView, handler: @escaping (Bool) -> Void) in
+		var actions: [UIContextualAction] = []
+		actions.addDeleteAction(title: "Remove") { [unowned self] in
+			flowDelegate.remove(phrase: phrase, from: lesson, refresh(_:))
+		}
 
-				self.flowDelegate.remove(phrase: phrase, from: lesson, refresh(_:))
-
-				handler(true)
-			})
-		])
-		configuration.performsFirstActionWithFullSwipe = false
-		return configuration
+		return makeConfiguration(fullSwipe: false, actions: actions)
 	}
 
 

@@ -19,6 +19,14 @@ class FileUtils {
 		case users = "Users"
 	}
 
+	enum Configs : String {
+		case options = "options.json"
+		case numerics = "numerics.json"
+		case presets = "presets.json"
+		case languages = "languages.json"
+		case proficiencies = "proficiencies.json"
+	}
+
 	static let documentsDirectory: URL = getDocumentsDirectory()
 	static let defaultsDirectory: URL = getDefaultsDirectory()
 
@@ -68,6 +76,16 @@ class FileUtils {
 
 	class func getDefaultsDirectory(_ dir: Directories) -> URL {
 		return getDefaultsDirectory(dir.rawValue)
+	}
+
+
+	class func getConfigFile(_ file: String) -> URL {
+		return getDocumentsDirectory().appendingPathComponent(file, isDirectory: false)
+	}
+
+
+	class func getConfigFile(_ file: Configs) -> URL {
+		return getConfigFile(file.rawValue)
 	}
 
 

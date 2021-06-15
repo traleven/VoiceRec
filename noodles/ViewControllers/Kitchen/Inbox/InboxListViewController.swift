@@ -199,7 +199,8 @@ extension InboxListViewController : UITableViewDelegate {
 			return nil
 		}
 
-		let playAction = UIContextualAction(style: .normal, title: "Play", handler: { (action: UIContextualAction, view: UIView, handler: @escaping (Bool) -> Void) in
+		var actions: [UIContextualAction] = []
+		actions.addPlayAction { [unowned self] () -> Void in
 
 			let url = self.subitems[indexPath.row]
 			self.flowDelegate.playAudioEgg(url) { (progress: TimeInterval, total: TimeInterval) in
@@ -207,37 +208,23 @@ extension InboxListViewController : UITableViewDelegate {
 			} finish: { _ in
 				self.audioProgress(0, at: indexPath)
 			}
+		}
 
-			handler(true)
-		   })
-		playAction.backgroundColor = .systemGreen
-
-		let configuration = UISwipeActionsConfiguration(actions: [playAction])
-		configuration.performsFirstActionWithFullSwipe = true
-
-		return configuration
+		return makeConfiguration(fullSwipe: true, actions: actions)
 	}
 
 
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-		let configuration = UISwipeActionsConfiguration(actions: [
-			UIContextualAction(style: .destructive, title: "Delete", handler: { (action: UIContextualAction, view: UIView, handler: @escaping (Bool) -> Void) in
+		var actions: [UIContextualAction] = []
+		actions.addDeleteAction { [unowned self] () -> Void in
 
-				let url = self.subitems[indexPath.row]
-				self.flowDelegate.delete(url)
-				self.refresh()
+			let url = self.subitems[indexPath.row]
+			self.flowDelegate.delete(url)
+			self.refresh()
+		}
 
-				handler(true)
-			})
-		])
-		configuration.performsFirstActionWithFullSwipe = false
-		return configuration
-	}
-
-
-	func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-		//super.tableView(tableView, accessoryButtonTappedForRowWith: indexPath)
+		return makeConfiguration(fullSwipe: false, actions: actions)
 	}
 
 

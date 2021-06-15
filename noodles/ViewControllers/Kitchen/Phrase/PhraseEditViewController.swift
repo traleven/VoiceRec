@@ -30,7 +30,7 @@ class PhraseEditViewController: NoodlesViewController {
 	private var content: Model.Phrase
 	private var onApply: ApplyHandle?
 
-	private var textDelegates: [Any] = []
+	private var textDelegates: [AnyObject] = []
 
 	@IBOutlet var baseBlock: UIView!
 	@IBOutlet var baseFlag: UIImageView!

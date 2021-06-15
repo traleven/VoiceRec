@@ -250,15 +250,12 @@ extension LessonMusicViewController : UITableViewDelegate {
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
 		let url = self.items[indexPath.row]
-		let playAction = UIContextualAction(style: .normal, title: "Play", handler: { [self] (action: UIContextualAction, view: UIView, handler: @escaping (Bool) -> Void) in
+		var actions: [UIContextualAction] = []
+		actions.addPlayAction { [unowned self] in
+			self.setupNowPlaying(url)
+		}
 
-				self.setupNowPlaying(url)
-				handler(true)
-			})
-		playAction.backgroundColor = .systemGreen
-		let configuration = UISwipeActionsConfiguration(actions: [playAction])
-		configuration.performsFirstActionWithFullSwipe = true
-		return configuration
+		return makeConfiguration(fullSwipe: true, actions: actions)
 	}
 
 

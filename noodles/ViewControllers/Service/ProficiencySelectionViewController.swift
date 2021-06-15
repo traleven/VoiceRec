@@ -1,16 +1,16 @@
 //
-//  PatternSelectionViewController.swift
+//  ProficiencySelectionViewController.swift
 //  Noodles
 //
-//  Created by Ivan Dolgushin on 05.06.21.
+//  Created by Ivan Dolgushin on 15.06.21.
 //
 
 import UIKit
 
-class PatternSelectionViewController: NoodlesViewController {
+class ProficiencySelectionViewController: NoodlesViewController {
 
-	let preselected: Shape?
-	let onApply: ((Shape) -> Void)?
+	let preselected: String?
+	let onApply: ((String) -> Void)?
 
 	@IBOutlet var picker: UIPickerView!
 
@@ -19,7 +19,7 @@ class PatternSelectionViewController: NoodlesViewController {
 	}
 
 
-	init?(coder: NSCoder, preselected: Shape?, confirm: ((Shape) -> Void)?) {
+	init?(coder: NSCoder, preselected: String?, confirm: ((String) -> Void)?) {
 
 		self.onApply = confirm
 		self.preselected = preselected
@@ -31,10 +31,10 @@ class PatternSelectionViewController: NoodlesViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		picker.dataSource = DB.presets
-		picker.delegate = DB.presets
+		picker.dataSource = DB.proficiencies
+		picker.delegate = DB.proficiencies
 		if let preselected = preselected {
-			let preselected = DB.presets.firstIndex(of: preselected.dna)
+			let preselected = DB.proficiencies.firstIndex(of: preselected)
 			picker.selectRow(preselected ?? 0, inComponent: 0, animated: true)
 		}
 	}
@@ -47,7 +47,7 @@ class PatternSelectionViewController: NoodlesViewController {
 
 	@IBAction func confirm(_ sender: UIControl?) {
 
-		let result = DB.presets[picker.selectedRow(inComponent: 0)]
-		onApply?(Shape(dna: result))
+		let result = DB.proficiencies[picker.selectedRow(inComponent: 0)]
+		onApply?(result)
 	}
 }

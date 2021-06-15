@@ -101,3 +101,25 @@ extension Dictionary {
 		return result
 	}
 }
+
+extension NSString {
+
+	func range(ofAll substring: String) -> [NSRange] {
+		var result: [NSRange] = []
+
+		var searchRange = NSMakeRange(0, self.length)
+		while (searchRange.location < self.length) {
+			searchRange.length = self.length - searchRange.location
+			let foundRange = self.range(of: substring, range: searchRange)
+			if (foundRange.location != NSNotFound) {
+				// found an occurrence of the substring! do stuff here
+				result.append(foundRange)
+				searchRange.location = foundRange.location + foundRange.length
+			} else {
+				// no more substring to find
+				break
+			}
+		}
+		return result
+	}
+}

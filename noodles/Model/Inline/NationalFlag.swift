@@ -272,3 +272,10 @@ enum NationalFlag: String {
 	case Wales                = "🏴󠁧󠁢󠁷󠁬󠁳󠁿"
 	case World                = "🌐"
 }
+
+extension NationalFlag : CustomStringConvertible {
+
+	var description: String {
+		return rawValue
+	}
+}

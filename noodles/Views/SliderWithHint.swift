@@ -30,8 +30,8 @@ class SliderWithHint: UISlider {
 
 		let label = UILabel()
 		label.textAlignment = .center
-		label.textColor = UIColor(named: "PrimaryText")
-		label.backgroundColor = UIColor(named: "SecondaryFill")
+		label.textColor = .primaryText
+		label.backgroundColor = .secondaryBackground
 		label.font = UIFont.systemFont(ofSize: 24)
 		label.numberOfLines = 1
 		label.layer.masksToBounds = true
