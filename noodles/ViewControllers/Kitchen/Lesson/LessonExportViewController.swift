@@ -97,7 +97,8 @@ class LessonExportViewController: NoodlesViewController {
 		nameField.text = lesson.name
 		phraseCount?.text = "\(lesson.phraseCount)"
 		durationLabel?.text = "00:00"
-		languageButton?.isSelected = !Settings.language.preferBase
+
+		languageButton?.setLanguageFlag(for: Model.User.Me)
 
 		phraseRepetionLabel.setTitle(lesson.shapeString, for: .normal)
 		randomOrderToggle.isOn = lesson.spices.randomize

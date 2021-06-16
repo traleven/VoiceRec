@@ -33,7 +33,7 @@ class PhraseEditViewController: NoodlesViewController {
 	private var textDelegates: [AnyObject] = []
 
 	@IBOutlet var baseBlock: UIView!
-	@IBOutlet var baseFlag: UIImageView!
+	@IBOutlet var baseFlag: UILabel!
 	@IBOutlet var baseText: UITextField!
 	@IBOutlet var baseAvatar: UIButton!
 	@IBOutlet var baseDuration: UILabel!
@@ -43,7 +43,7 @@ class PhraseEditViewController: NoodlesViewController {
 	@IBOutlet var baseRecordButton: UIButton!
 
 	@IBOutlet var targetBlock: UIView!
-	@IBOutlet var targetFlag: UIImageView!
+	@IBOutlet var targetFlag: UILabel!
 	@IBOutlet var targetText: UITextField!
 	@IBOutlet var targetAvatar: UIButton!
 	@IBOutlet var targetDuration: UILabel!
@@ -139,7 +139,8 @@ class PhraseEditViewController: NoodlesViewController {
 
 
 	private func refresh() {
-		
+
+		baseFlag.text = Model.User.Me.base.flag.rawValue
 		baseText.text = content.baseText
 		let hasBaseAudio = content.baseAudio != nil
 		baseRecordButton.isHidden = hasBaseAudio
@@ -150,6 +151,7 @@ class PhraseEditViewController: NoodlesViewController {
 		baseDuration.text = ""
 		refreshLabel(durationLabel: baseDuration, for: content.baseAudio)
 
+		targetFlag.text = Model.User.Me.target.flag.rawValue
 		targetText.text = content.targetText
 		let hasTargetAudio = content.targetAudio != nil
 		targetRecordButton.isHidden = hasTargetAudio

@@ -107,7 +107,9 @@ class LessonPhrasesViewController: NoodlesViewController {
 
 		nameField.text = lesson.name
 		phraseCount?.text = "\(lesson.phraseCount)"
-		languageButton?.isSelected = !Settings.language.preferBase
+
+		languageButton?.setLanguageFlag(for: Model.User.Me)
+
 		activateCorrectWarning()
 		tableView.reloadData()
 	}

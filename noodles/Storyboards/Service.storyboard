@@ -612,10 +612,9 @@
         <!--Music Navigation-->
         <scene sceneID="II3-n0-tsh">
             <objects>
-                <navigationController title="Music Navigation" id="fcc-7j-nBm" sceneMemberID="viewController">
+                <navigationController title="Music Navigation" navigationBarHidden="YES" id="fcc-7j-nBm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Music" image="music.note.house.fill" catalog="system" id="NAP-5I-5uu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cGe-AL-22U">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="AccentIcon"/>
                         <color key="barTintColor" name="PrimaryBackground"/>
@@ -1284,7 +1283,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrQ-nJ-eOU">
-                                <rect key="frame" x="8" y="117" width="398" height="112"/>
+                                <rect key="frame" x="8" y="73" width="398" height="112"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPR-Hh-bbZ">
                                         <rect key="frame" x="8" y="8" width="382" height="34"/>
@@ -1345,7 +1344,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YpQ-Qg-R8Z">
-                                <rect key="frame" x="0.0" y="266" width="414" height="547"/>
+                                <rect key="frame" x="0.0" y="222" width="414" height="591"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="music.item" id="cGo-VL-IZL" customClass="MusicAudioCell" customModule="Noodles" customModuleProvider="target">
@@ -1445,13 +1444,13 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current background track" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiV-JM-0fA">
-                                <rect key="frame" x="0.0" y="92" width="414" height="21"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="SecondaryText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY TRACKS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gv8-vH-aiP">
-                                <rect key="frame" x="8" y="237" width="94" height="21"/>
+                                <rect key="frame" x="8" y="193" width="94" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="SecondaryText"/>
                                 <nil key="highlightedColor"/>

@@ -55,6 +55,7 @@ class LessonPhraseSelectorViewController: NoodlesViewController {
 
 
 	init?(coder: NSCoder, flow: LessonPhraseSelectorViewControlDelegate, lesson: Model.Recipe, confirm: @escaping (Model.Recipe) -> Void) {
+		
 		self.flowDelegate = flow
 		self.lesson = lesson
 		self.confirmHandle = confirm
@@ -67,11 +68,14 @@ class LessonPhraseSelectorViewController: NoodlesViewController {
 
 
 	private func refresh() {
+
+		flagButton?.setLanguageFlag(for: Model.User.Me)
 		tableView.reloadData()
 	}
 
 
 	@IBAction func toggleLanguage(_ sender: UIControl) {
+
 		Settings.language.preferBase.toggle()
 		refresh()
 	}

@@ -137,6 +137,7 @@ class ProfileEditorViewController: NoodlesViewController {
 
 	private func refreshFields() {
 
+		avatar.image = content.icon
 		nameField.text = content.name
 		emailField.text = content.email
 		homeField.text = content.from

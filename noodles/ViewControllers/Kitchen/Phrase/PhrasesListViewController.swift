@@ -63,7 +63,8 @@ class PhrasesListViewController : NoodlesViewController {
 
 
 	private func refresh() {
-		flagButton.isSelected = !Settings.language.preferBase
+
+		flagButton.setLanguageFlag(for: Model.User.Me)
 		let fridge = Model.Fridge<Model.Phrase>(FileUtils.getDirectory(.phrases))
 		items = fridge.fetch()
 		tableView.reloadData()
