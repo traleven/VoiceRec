@@ -13,6 +13,8 @@
 		DB15F3D4266BDC13009BFDA1 /* LiveComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3D3266BDC13009BFDA1 /* LiveComposer.swift */; };
 		DB15F3D8266BF282009BFDA1 /* SliderWithHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB15F3D7266BF282009BFDA1 /* SliderWithHint.swift */; };
 		DB1656E8267A605400A45323 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1656E7267A605400A45323 /* UIUtils.swift */; };
+		DB1656EE267A641F00A45323 /* LessonPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1656ED267A641F00A45323 /* LessonPlayerViewController.swift */; };
+		DB1656F3267A841200A45323 /* LessonPlayerDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1656F2267A841200A45323 /* LessonPlayerDirector.swift */; };
 		DB256DC32673436D009D2F7D /* TutorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB256DC22673436D009D2F7D /* TutorCell.swift */; };
 		DB256DC8267396F3009D2F7D /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB256DC7267396F3009D2F7D /* ImageUtils.swift */; };
 		DB4133332643D5650035D952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133322643D5650035D952 /* AppDelegate.swift */; };
@@ -131,6 +133,8 @@
 		DB15F3D3266BDC13009BFDA1 /* LiveComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveComposer.swift; sourceTree = "<group>"; };
 		DB15F3D7266BF282009BFDA1 /* SliderWithHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderWithHint.swift; sourceTree = "<group>"; };
 		DB1656E7267A605400A45323 /* UIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
+		DB1656ED267A641F00A45323 /* LessonPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPlayerViewController.swift; sourceTree = "<group>"; };
+		DB1656F2267A841200A45323 /* LessonPlayerDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPlayerDirector.swift; sourceTree = "<group>"; };
 		DB256DC22673436D009D2F7D /* TutorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorCell.swift; sourceTree = "<group>"; };
 		DB256DC7267396F3009D2F7D /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		DB41332F2643D5650035D952 /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -305,6 +309,22 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		DB1656EC267A63B000A45323 /* Dining */ = {
+			isa = PBXGroup;
+			children = (
+				DB1656ED267A641F00A45323 /* LessonPlayerViewController.swift */,
+			);
+			path = Dining;
+			sourceTree = "<group>";
+		};
+		DB1656F1267A83FB00A45323 /* Dining */ = {
+			isa = PBXGroup;
+			children = (
+				DB1656F2267A841200A45323 /* LessonPlayerDirector.swift */,
+			);
+			path = Dining;
+			sourceTree = "<group>";
+		};
 		DB4133262643D5650035D952 = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +443,7 @@
 				DBDC67D62644072C00B99539 /* RootPageViewController.swift */,
 				DB55A8032664F9BA00CD963E /* NoodlesViewController.swift */,
 				DBE8E06726614D6300E48470 /* Kitchen */,
+				DB1656EC267A63B000A45323 /* Dining */,
 				DB7BA8B6266AD422008223E4 /* Service */,
 			);
 			path = ViewControllers;
@@ -552,6 +573,7 @@
 				DBDC67F02646D84C00B99539 /* Router.swift */,
 				DBDC67F42646DEEF00B99539 /* NavigationControllerRouter.swift */,
 				DB15F3C2266BB84C009BFDA1 /* Kitchen */,
+				DB1656F1267A83FB00A45323 /* Dining */,
 				DB15F3CA266BBD58009BFDA1 /* Service */,
 			);
 			path = Flow;
@@ -723,6 +745,7 @@
 				DBE8E0752662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift in Sources */,
 				DBE7C6C52670B10700A92048 /* LanguageCell.swift in Sources */,
 				DB413A352643D8CD0035D952 /* Model.Egg.swift in Sources */,
+				DB1656EE267A641F00A45323 /* LessonPlayerViewController.swift in Sources */,
 				DB413A312643D8CD0035D952 /* Spices.swift in Sources */,
 				DB79CAAB2667E82400CDB01F /* DispatchQueueUtils.swift in Sources */,
 				DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */,
@@ -734,6 +757,7 @@
 				DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */,
 				DBAA69242679422C0079B78C /* LanguageSelectionViewController.swift in Sources */,
 				DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */,
+				DB1656F3267A841200A45323 /* LessonPlayerDirector.swift in Sources */,
 				DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */,
 				DB413A272643D8CD0035D952 /* Model.Broth.swift in Sources */,
 				DBCF76C126611BEA00D80A6B /* LessonsDirector.swift in Sources */,
@@ -955,7 +979,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentIcon;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -984,7 +1008,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentIcon;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

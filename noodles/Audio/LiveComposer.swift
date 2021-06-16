@@ -40,10 +40,10 @@ class LiveComposer: Composer, AudioPlayerImplementation {
 
 		let lesson = lessonProvider()
 		if let music = lesson.music {
-			self.playAudio(music, volume: lesson.spices.musicVolume, progress: nil) { (result: PlayerResult) in
+			self.playAudio(music, volume: lesson.spices.musicVolume, progress: nil) { [weak self] (result: PlayerResult) in
 				guard result == .finished else { return }
 				DispatchQueue.main.async {
-					self.playMusic(lessonProvider)
+					self?.playMusic(lessonProvider)
 				}
 			}
 		}
@@ -62,20 +62,20 @@ class LiveComposer: Composer, AudioPlayerImplementation {
 
 		let lesson = lessonProvider()
 		let delay = Double(lesson.spices.delayBetween)
-		DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
-			guard self.isPlaying else { return }
+		DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) { [weak self] in
+			guard let self = self, self.isPlaying else { return }
 
 			let lesson = lessonProvider()
 			let spices = lesson.spices
 			let phrase = Model.Phrase(id: lesson[idx % lesson.phraseCount])
 			let noodle = Model.Noodle(phrase: phrase, shape: lesson.shape)
-			self.playAudio(noodle, with: spices.delayWithin, volume: spices.voiceVolume, progress: nil) { (result: PlayerResult) in
+			self.playAudio(noodle, with: spices.delayWithin, volume: spices.voiceVolume, progress: nil) { [weak self] (result: PlayerResult) in
 
 				let lesson = lessonProvider()
 				let spices = lesson.spices
 				let random = spices.randomize
 				let next = random ? Int.random(in: 0 ..< lesson.phraseCount) : lesson.index(after: idx)
-				self.playPhrase(lessonProvider, idx: next)
+				self?.playPhrase(lessonProvider, idx: next)
 			}
 		}
 	}
