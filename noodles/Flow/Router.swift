@@ -13,6 +13,7 @@ import UIKit
 	@objc func dismiss(animated: Bool, completion: (() -> Void)?)
 	@objc func push(_ viewController: UIViewController, onDismiss: (() -> Void)?)
 	@objc func pop(animated: Bool)
+	@objc func popToRoot(animated: Bool)
 
 	@objc func willDismiss(_ viewController: UIViewController)
 }

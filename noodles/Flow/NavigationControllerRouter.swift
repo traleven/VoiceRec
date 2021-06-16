@@ -34,6 +34,16 @@ extension NavigationControllerRouter : Router {
 	}
 
 
+	@objc func popToRoot(animated: Bool) {
+		let vcs = navigationController.viewControllers
+		for idx in stride(from: vcs.count - 1, to: 0, by: -1) {
+			willDismiss(vcs[idx])
+		}
+
+		navigationController.popToRootViewController(animated: animated)
+	}
+
+
 	@objc func present(_ viewController: UIViewController, onDismiss: (() -> Void)?) {
 		dismissHandlers[viewController] = onDismiss
 		navigationController.present(viewController, animated: true)

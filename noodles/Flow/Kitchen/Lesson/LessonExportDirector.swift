@@ -89,7 +89,9 @@ extension LessonExportDirector: LessonExportViewControlDelegate {
 				FileUtils.copy(phrase, to: phrasesRoot)
 			}
 			DispatchQueue.runOnMain {
-				self.router.dismiss(animated: true, completion: nil)
+				self.router.dismiss(animated: true, completion: {
+					self.router.popToRoot(animated: true)
+				})
 			}
 		}
 	}
