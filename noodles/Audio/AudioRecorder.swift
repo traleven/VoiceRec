@@ -71,17 +71,27 @@ class AudioRecorder : NSObject, ObservableObject, AVAudioRecorderDelegate {
 		onProgress = progress
 		onFinish = finish
 		let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
+		if audioSession.category != .record
+			|| audioSession.mode != .default
+			|| audioSession.routeSharingPolicy != .default
+			|| !audioSession.categoryOptions.isSuperset(of: [.allowBluetooth]) {
+			do {
+				try audioSession.setCategory(.record, mode: .default, policy: .default, options: [.allowBluetooth])
+				try audioSession.setActive(true)
+			} catch let error {
+				NSLog("Failed to initialize proper audio session category: \(error.localizedDescription)");
+				onFinish?(false)
+			}
+		}
+
+		let recordSettings = [AVFormatIDKey:Int(kAudioFormatMPEG4AAC),
+							  AVSampleRateKey:44100,
+							  AVNumberOfChannelsKey:2,
+							  //AVEncoderBitRateKey:12800,
+			//AVLinearPCMBitDepthKey:16,
+			AVEncoderAudioQualityKey:AVAudioQuality.high.rawValue]
+
 		do {
-			try audioSession.setCategory(.playAndRecord, mode: .default, policy: .default, options: [.mixWithOthers, .allowBluetooth, .allowAirPlay, .defaultToSpeaker])
-			try audioSession.setActive(true)
-
-			let recordSettings = [AVFormatIDKey:Int(kAudioFormatMPEG4AAC),
-								  AVSampleRateKey:44100,
-								  AVNumberOfChannelsKey:2,
-								  //AVEncoderBitRateKey:12800,
-				//AVLinearPCMBitDepthKey:16,
-				AVEncoderAudioQualityKey:AVAudioQuality.high.rawValue]
-
 			audioRecorder = try AVAudioRecorder(url: url, settings: recordSettings)
 			audioRecorder.delegate = self
 			audioRecorder.isMeteringEnabled = false

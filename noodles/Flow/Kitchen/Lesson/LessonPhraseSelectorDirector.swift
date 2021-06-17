@@ -8,6 +8,7 @@
 import UIKit
 
 class LessonsPhraseSelectorDirector: DefaultDirector, AudioPlayerImplementation, LessonSaveImplementation {
+	typealias AudioPlayerType = AudioPlayer
 
 	var players: [URL: AudioPlayer] = [:]
 

@@ -8,6 +8,7 @@
 import UIKit
 
 class MusicDirector: DefaultDirector, AudioPlayerImplementation, LessonSaveImplementation {
+	typealias AudioPlayerType = AudioPlayer
 
 	var players: [URL: AudioPlayer] = [:]
 

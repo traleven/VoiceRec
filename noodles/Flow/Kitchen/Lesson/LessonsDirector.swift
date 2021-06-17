@@ -17,6 +17,7 @@ protocol ModelRefreshable {
 }
 
 class LessonsDirector: DefaultDirector, AudioPlayerImplementation, LessonSaveImplementation {
+	typealias AudioPlayerType = AudioPlayer
 
 	var players: [URL: AudioPlayer] = [:]
 }

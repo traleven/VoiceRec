@@ -15,6 +15,25 @@
 		DB1656E8267A605400A45323 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1656E7267A605400A45323 /* UIUtils.swift */; };
 		DB1656EE267A641F00A45323 /* LessonPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1656ED267A641F00A45323 /* LessonPlayerViewController.swift */; };
 		DB1656F3267A841200A45323 /* LessonPlayerDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1656F2267A841200A45323 /* LessonPlayerDirector.swift */; };
+		DB165716267B37D900A45323 /* ConfigAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165700267B37D900A45323 /* ConfigAsset.swift */; };
+		DB165717267B37D900A45323 /* ConfigCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165701267B37D900A45323 /* ConfigCommand.swift */; };
+		DB165718267B37D900A45323 /* ConfigCommandCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165702267B37D900A45323 /* ConfigCommandCollection.swift */; };
+		DB165719267B37D900A45323 /* ConfigPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165703267B37D900A45323 /* ConfigPath.swift */; };
+		DB16571A267B37D900A45323 /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165704267B37D900A45323 /* ConfigModel.swift */; };
+		DB16571B267B37D900A45323 /* NowPlayableMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165706267B37D900A45323 /* NowPlayableMetadata.swift */; };
+		DB16571C267B37D900A45323 /* NowPlayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165707267B37D900A45323 /* NowPlayable.swift */; };
+		DB16571D267B37D900A45323 /* NowPlayableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165708267B37D900A45323 /* NowPlayableError.swift */; };
+		DB16571E267B37D900A45323 /* NowPlayableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165709267B37D900A45323 /* NowPlayableCommand.swift */; };
+		DB16571F267B37D900A45323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB16570B267B37D900A45323 /* Assets.xcassets */; };
+		DB165720267B37D900A45323 /* Song 1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DB16570C267B37D900A45323 /* Song 1.m4a */; };
+		DB165721267B37D900A45323 /* Song 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DB16570D267B37D900A45323 /* Song 2.m4a */; };
+		DB165722267B37D900A45323 /* Song 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DB16570E267B37D900A45323 /* Song 3.m4a */; };
+		DB165724267B37D900A45323 /* AssetPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165711267B37D900A45323 /* AssetPlayer.swift */; };
+		DB165725267B37D900A45323 /* EnabledItemCellViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165713267B37D900A45323 /* EnabledItemCellViewDelegate.swift */; };
+		DB165726267B37D900A45323 /* CommandCellViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165714267B37D900A45323 /* CommandCellViewDelegate.swift */; };
+		DB165727267B37D900A45323 /* AssetPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165715267B37D900A45323 /* AssetPlayerView.swift */; };
+		DB16572B267B381200A45323 /* IOSNowPlayableBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16572A267B381200A45323 /* IOSNowPlayableBehavior.swift */; };
+		DB165762267B3C9900A45323 /* NowPlayingComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165761267B3C9900A45323 /* NowPlayingComposer.swift */; };
 		DB256DC32673436D009D2F7D /* TutorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB256DC22673436D009D2F7D /* TutorCell.swift */; };
 		DB256DC8267396F3009D2F7D /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB256DC7267396F3009D2F7D /* ImageUtils.swift */; };
 		DB4133332643D5650035D952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133322643D5650035D952 /* AppDelegate.swift */; };
@@ -135,6 +154,25 @@
 		DB1656E7267A605400A45323 /* UIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
 		DB1656ED267A641F00A45323 /* LessonPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPlayerViewController.swift; sourceTree = "<group>"; };
 		DB1656F2267A841200A45323 /* LessonPlayerDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPlayerDirector.swift; sourceTree = "<group>"; };
+		DB165700267B37D900A45323 /* ConfigAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigAsset.swift; sourceTree = "<group>"; };
+		DB165701267B37D900A45323 /* ConfigCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigCommand.swift; sourceTree = "<group>"; };
+		DB165702267B37D900A45323 /* ConfigCommandCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigCommandCollection.swift; sourceTree = "<group>"; };
+		DB165703267B37D900A45323 /* ConfigPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigPath.swift; sourceTree = "<group>"; };
+		DB165704267B37D900A45323 /* ConfigModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
+		DB165706267B37D900A45323 /* NowPlayableMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableMetadata.swift; sourceTree = "<group>"; };
+		DB165707267B37D900A45323 /* NowPlayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayable.swift; sourceTree = "<group>"; };
+		DB165708267B37D900A45323 /* NowPlayableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableError.swift; sourceTree = "<group>"; };
+		DB165709267B37D900A45323 /* NowPlayableCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableCommand.swift; sourceTree = "<group>"; };
+		DB16570B267B37D900A45323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB16570C267B37D900A45323 /* Song 1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Song 1.m4a"; sourceTree = "<group>"; };
+		DB16570D267B37D900A45323 /* Song 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Song 2.m4a"; sourceTree = "<group>"; };
+		DB16570E267B37D900A45323 /* Song 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Song 3.m4a"; sourceTree = "<group>"; };
+		DB165711267B37D900A45323 /* AssetPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetPlayer.swift; sourceTree = "<group>"; };
+		DB165713267B37D900A45323 /* EnabledItemCellViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnabledItemCellViewDelegate.swift; sourceTree = "<group>"; };
+		DB165714267B37D900A45323 /* CommandCellViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandCellViewDelegate.swift; sourceTree = "<group>"; };
+		DB165715267B37D900A45323 /* AssetPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetPlayerView.swift; sourceTree = "<group>"; };
+		DB16572A267B381200A45323 /* IOSNowPlayableBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOSNowPlayableBehavior.swift; sourceTree = "<group>"; };
+		DB165761267B3C9900A45323 /* NowPlayingComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingComposer.swift; sourceTree = "<group>"; };
 		DB256DC22673436D009D2F7D /* TutorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorCell.swift; sourceTree = "<group>"; };
 		DB256DC7267396F3009D2F7D /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		DB41332F2643D5650035D952 /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,11 +363,85 @@
 			path = Dining;
 			sourceTree = "<group>";
 		};
+		DB1656FD267B37AD00A45323 /* NowPlayable */ = {
+			isa = PBXGroup;
+			children = (
+				DB1656FE267B37D900A45323 /* Shared */,
+				DB16572A267B381200A45323 /* IOSNowPlayableBehavior.swift */,
+			);
+			path = NowPlayable;
+			sourceTree = "<group>";
+		};
+		DB1656FE267B37D900A45323 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DB1656FF267B37D900A45323 /* Configuration */,
+				DB165705267B37D900A45323 /* NowPlayable */,
+				DB16570A267B37D900A45323 /* Resources */,
+				DB165710267B37D900A45323 /* Player */,
+				DB165712267B37D900A45323 /* Utility */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		DB1656FF267B37D900A45323 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DB165700267B37D900A45323 /* ConfigAsset.swift */,
+				DB165701267B37D900A45323 /* ConfigCommand.swift */,
+				DB165702267B37D900A45323 /* ConfigCommandCollection.swift */,
+				DB165703267B37D900A45323 /* ConfigPath.swift */,
+				DB165704267B37D900A45323 /* ConfigModel.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		DB165705267B37D900A45323 /* NowPlayable */ = {
+			isa = PBXGroup;
+			children = (
+				DB165706267B37D900A45323 /* NowPlayableMetadata.swift */,
+				DB165707267B37D900A45323 /* NowPlayable.swift */,
+				DB165708267B37D900A45323 /* NowPlayableError.swift */,
+				DB165709267B37D900A45323 /* NowPlayableCommand.swift */,
+			);
+			path = NowPlayable;
+			sourceTree = "<group>";
+		};
+		DB16570A267B37D900A45323 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DB16570B267B37D900A45323 /* Assets.xcassets */,
+				DB16570C267B37D900A45323 /* Song 1.m4a */,
+				DB16570D267B37D900A45323 /* Song 2.m4a */,
+				DB16570E267B37D900A45323 /* Song 3.m4a */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DB165710267B37D900A45323 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				DB165711267B37D900A45323 /* AssetPlayer.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		DB165712267B37D900A45323 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				DB165713267B37D900A45323 /* EnabledItemCellViewDelegate.swift */,
+				DB165714267B37D900A45323 /* CommandCellViewDelegate.swift */,
+				DB165715267B37D900A45323 /* AssetPlayerView.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		DB4133262643D5650035D952 = {
 			isa = PBXGroup;
 			children = (
 				DB413A552643D9F10035D952 /* Opus */,
 				DB4139F22643D8360035D952 /* CustomFonts */,
+				DB1656FD267B37AD00A45323 /* NowPlayable */,
 				DB4133312643D5650035D952 /* Noodles */,
 				DB4133302643D5650035D952 /* Products */,
 				DB41334C2643D7690035D952 /* Frameworks */,
@@ -397,6 +509,7 @@
 				DB413A072643D8BF0035D952 /* OpusTranscoder.h */,
 				DB15F3D0266BDC08009BFDA1 /* Composer.swift */,
 				DB15F3D3266BDC13009BFDA1 /* LiveComposer.swift */,
+				DB165761267B3C9900A45323 /* NowPlayingComposer.swift */,
 				DB413A082643D8BF0035D952 /* ExportComposer.swift */,
 				DB413A092643D8BF0035D952 /* AudioRecorder.swift */,
 				DB413A0A2643D8BF0035D952 /* VoiceSequence.swift */,
@@ -644,8 +757,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				DB165733267B39F100A45323 /* PBXTargetDependency */,
 			);
 			name = Noodles;
+			packageProductDependencies = (
+			);
 			productName = noodles;
 			productReference = DB41332F2643D5650035D952 /* Noodles.app */;
 			productType = "com.apple.product-type.application";
@@ -713,7 +829,10 @@
 				DBDC67D12644067800B99539 /* Kitchen.storyboard in Resources */,
 				DBDC67DE26441B9400B99539 /* Dining.storyboard in Resources */,
 				DB4139FB2643D8360035D952 /* MarketFreshBold.ttf in Resources */,
+				DB165721267B37D900A45323 /* Song 2.m4a in Resources */,
 				DB41333F2643D5660035D952 /* LaunchScreen.storyboard in Resources */,
+				DB165720267B37D900A45323 /* Song 1.m4a in Resources */,
+				DB16571F267B37D900A45323 /* Assets.xcassets in Resources */,
 				DB4139FD2643D8360035D952 /* AlteHaasGroteskRegular.ttf in Resources */,
 				DB413A512643D8E40035D952 /* DefaultData in Resources */,
 				DB4139FC2643D8360035D952 /* Market Fresh Italic.ttf in Resources */,
@@ -721,6 +840,7 @@
 				DB4139FE2643D8360035D952 /* AlteHaasGroteskBold.ttf in Resources */,
 				DB4139F92643D8360035D952 /* MarketFresh.ttf in Resources */,
 				DB4139FA2643D8360035D952 /* Market Fresh Bold Italic.ttf in Resources */,
+				DB165722267B37D900A45323 /* Song 3.m4a in Resources */,
 				DB41333C2643D5660035D952 /* Assets.xcassets in Resources */,
 				DB41333A2643D5650035D952 /* Main.storyboard in Resources */,
 			);
@@ -742,6 +862,7 @@
 				DB15F3D1266BDC08009BFDA1 /* Composer.swift in Sources */,
 				DBCF76B726602B7B00D80A6B /* GradientHorizontalProgressBar.swift in Sources */,
 				DB413A4C2643D8DA0035D952 /* WeakLink.swift in Sources */,
+				DB165716267B37D900A45323 /* ConfigAsset.swift in Sources */,
 				DBE8E0752662B31A00E48470 /* ReturnKeyTextFieldDelegate.swift in Sources */,
 				DBE7C6C52670B10700A92048 /* LanguageCell.swift in Sources */,
 				DB413A352643D8CD0035D952 /* Model.Egg.swift in Sources */,
@@ -749,6 +870,7 @@
 				DB413A312643D8CD0035D952 /* Spices.swift in Sources */,
 				DB79CAAB2667E82400CDB01F /* DispatchQueueUtils.swift in Sources */,
 				DBDC67F9264942CE00B99539 /* InboxListViewController.swift in Sources */,
+				DB16571A267B37D900A45323 /* ConfigModel.swift in Sources */,
 				DB55A7FE2664F8CE00CD963E /* LessonExportViewController.swift in Sources */,
 				DB8AA9FD26778AAA001A40ED /* ProfileEditorDirector.swift in Sources */,
 				DBE8E07226614E2100E48470 /* PhraseEditViewController.swift in Sources */,
@@ -756,6 +878,7 @@
 				DBDC67D72644072C00B99539 /* RootPageViewController.swift in Sources */,
 				DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */,
 				DBAA69242679422C0079B78C /* LanguageSelectionViewController.swift in Sources */,
+				DB165725267B37D900A45323 /* EnabledItemCellViewDelegate.swift in Sources */,
 				DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */,
 				DB1656F3267A841200A45323 /* LessonPlayerDirector.swift in Sources */,
 				DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */,
@@ -763,6 +886,7 @@
 				DBCF76C126611BEA00D80A6B /* LessonsDirector.swift in Sources */,
 				DBE7C6BC266EAC0B00A92048 /* ProfileEditorViewController.swift in Sources */,
 				DB413A262643D8CD0035D952 /* Model.Phrase.swift in Sources */,
+				DB16571E267B37D900A45323 /* NowPlayableCommand.swift in Sources */,
 				DB6A5470266A2BC200861135 /* AnimationUtils.swift in Sources */,
 				DBCF76AE265FD12E00D80A6B /* PhraseCell.swift in Sources */,
 				DBDC67EE2646D84200B99539 /* Director.swift in Sources */,
@@ -770,8 +894,10 @@
 				DB55A8012664F90400CD963E /* LessonPhraseSelectorViewController.swift in Sources */,
 				DB79CAB42669156A00CDB01F /* LessonPhrasesDirector.swift in Sources */,
 				DB7BA8BC266AD856008223E4 /* Migration.swift in Sources */,
+				DB16571B267B37D900A45323 /* NowPlayableMetadata.swift in Sources */,
 				DB413A292643D8CD0035D952 /* Model.Recipe.swift in Sources */,
 				DB413A0E2643D8BF0035D952 /* ExportComposer.swift in Sources */,
+				DB16572B267B381200A45323 /* IOSNowPlayableBehavior.swift in Sources */,
 				DBCF76A5265E612B00D80A6B /* VerticalButton.swift in Sources */,
 				DB413A482643D8DA0035D952 /* NotificationUtils.swift in Sources */,
 				DB413A362643D8CD0035D952 /* Model.Noodle.swift in Sources */,
@@ -782,13 +908,16 @@
 				DB79CAAE2668D22B00CDB01F /* LessonMusicDirector.swift in Sources */,
 				DB7BA8B8266AD44D008223E4 /* PatternSelectionViewController.swift in Sources */,
 				DB15F3D8266BF282009BFDA1 /* SliderWithHint.swift in Sources */,
+				DB165718267B37D900A45323 /* ConfigCommandCollection.swift in Sources */,
 				DB8AA9F426777422001A40ED /* UITableViewExtensions.swift in Sources */,
 				DB413A282643D8CD0035D952 /* Model.swift in Sources */,
 				DB413A4D2643D8DA0035D952 /* DB.swift in Sources */,
 				DB79CAB726691BB900CDB01F /* PhraseEditDirector.swift in Sources */,
+				DB16571D267B37D900A45323 /* NowPlayableError.swift in Sources */,
 				DB55A7FB2664F8B100CD963E /* LessonMusicViewController.swift in Sources */,
 				DBCF76B12660091A00D80A6B /* LessonsListViewController.swift in Sources */,
 				DB55A7F82664F89900CD963E /* LessonPhrasesViewController.swift in Sources */,
+				DB16571C267B37D900A45323 /* NowPlayable.swift in Sources */,
 				DB4133332643D5650035D952 /* AppDelegate.swift in Sources */,
 				DBDC67F12646D84C00B99539 /* Router.swift in Sources */,
 				DBDC67EB2646D83200B99539 /* InboxDirector.swift in Sources */,
@@ -799,6 +928,7 @@
 				DBE7C6BF266F596700A92048 /* SelfSizedTableView.swift in Sources */,
 				DB413A0C2643D8BF0035D952 /* AudioPlayer.swift in Sources */,
 				DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */,
+				DB165717267B37D900A45323 /* ConfigCommand.swift in Sources */,
 				DB413A2A2643D8CD0035D952 /* Model.User.swift in Sources */,
 				DBAA692726795EC20079B78C /* MusicViewController.swift in Sources */,
 				DB8AA9FA267788F8001A40ED /* TutorsViewTableController.swift in Sources */,
@@ -807,12 +937,17 @@
 				DBDC67E726443DCB00B99539 /* InboxCell.swift in Sources */,
 				DBAA692A267960C90079B78C /* MusicDirector.swift in Sources */,
 				DBAA69212679421A0079B78C /* ProficiencySelectionViewController.swift in Sources */,
+				DB165726267B37D900A45323 /* CommandCellViewDelegate.swift in Sources */,
 				DBE7C6B7266EABFC00A92048 /* ProfileViewController.swift in Sources */,
+				DB165719267B37D900A45323 /* ConfigPath.swift in Sources */,
+				DB165762267B3C9900A45323 /* NowPlayingComposer.swift in Sources */,
 				DB55A8042664F9BA00CD963E /* NoodlesViewController.swift in Sources */,
 				DB413A302643D8CD0035D952 /* Shape.swift in Sources */,
 				DB15F3CC266BBD8C009BFDA1 /* PatternSelectionDirector.swift in Sources */,
 				DB413A2F2643D8CD0035D952 /* Model.Bowl.swift in Sources */,
+				DB165727267B37D900A45323 /* AssetPlayerView.swift in Sources */,
 				DB413A492643D8DA0035D952 /* FileUtils.swift in Sources */,
+				DB165724267B37D900A45323 /* AssetPlayer.swift in Sources */,
 				DB413A0F2643D8BF0035D952 /* AudioRecorder.swift in Sources */,
 				DBE7C6C2266F61FF00A92048 /* ProfileDirector.swift in Sources */,
 				DB55A7F32664C93E00CD963E /* Language.swift in Sources */,
@@ -823,6 +958,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DB165733267B39F100A45323 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = DB165732267B39F100A45323 /* NowPlayable */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DB4133382643D5650035D952 /* Main.storyboard */ = {
@@ -1052,6 +1194,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB165732267B39F100A45323 /* NowPlayable */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NowPlayable;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB4133272643D5650035D952 /* Project object */;
 }

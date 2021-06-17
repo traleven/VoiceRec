@@ -8,6 +8,8 @@
 import UIKit
 
 protocol AudioPlayerImplementation: class {
+	associatedtype AudioPlayerType : AudioPlayer
+
 	var players: [URL: AudioPlayer] { get set }
 }
 
@@ -18,8 +20,9 @@ extension AudioPlayerImplementation {
 		if let player = players[url] {
 			player.setVolume(volume, fadeDuration: 0.1)
 			player.play()
+			return
 		}
-		let player = AudioPlayer(url, volume: volume)
+		let player = AudioPlayerType(url, volume: volume)
 		player.play(onProgress: { progress?($0, $1) }) { [weak self] (result: PlayerResult) in
 			finish?(result)
 			self?.players.removeValue(forKey: url)
@@ -39,7 +42,7 @@ extension AudioPlayerImplementation {
 		if let player = players[alias] {
 			player.stop()
 		}
-		let player = AudioPlayer(url, volume: volume)
+		let player = AudioPlayerType(url, volume: volume)
 		player.play(onProgress: { progress?($0, $1) }) { [weak self] (result: PlayerResult) in
 			finish?(player, result)
 			self?.players.removeValue(forKey: alias)

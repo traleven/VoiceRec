@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import MediaPlayer
 
 class LiveComposer: Composer, AudioPlayerImplementation {
+	typealias AudioPlayerType = LongformAudioPlayer
 
 	var players: [URL : AudioPlayer] = [:]
 	private(set) var isPlaying: Bool = false
 
-	func play(_ lesson: @escaping LessonProvider) {
+	open func play(_ lesson: @escaping LessonProvider) {
 
 		DispatchQueue.main.async {
 			self.isPlaying = true
@@ -80,7 +82,7 @@ class LiveComposer: Composer, AudioPlayerImplementation {
 		}
 	}
 
-	func stop() {
+	open func stop() {
 
 		isPlaying = false
 		self.stopPlayingAll()

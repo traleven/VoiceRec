@@ -8,6 +8,7 @@
 import UIKit
 
 class PhraseEditDirector: DefaultDirector, AudioPlayerImplementation & AudioRecorderImplementation {
+	typealias AudioPlayerType = AudioPlayer
 
 	let recorder: AudioRecorder = AudioRecorder()
 	var players: [URL: AudioPlayer] = [:]

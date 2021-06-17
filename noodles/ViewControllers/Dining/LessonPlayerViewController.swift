@@ -28,6 +28,7 @@ class LessonPlayerViewController: NoodlesViewController {
 	@IBOutlet var lessonName: UILabel!
 	@IBOutlet var phraseCount: UILabel?
 	@IBOutlet var durationLabel: UILabel?
+	@IBOutlet var playButton: UIButton?
 
 	@IBOutlet var languageButton: UIButton?
 
@@ -58,7 +59,12 @@ class LessonPlayerViewController: NoodlesViewController {
 		guard let navigationController = navigationController else { fatalError() }
 
 		let router = NavigationControllerRouter(controller: navigationController)
-		self.flowDelegate = LessonPlayerDirector(router: router)
+		self.flowDelegate = LessonPlayerDirector(router: router, timer: { [weak self] (duration: TimeInterval) -> Void in
+			if let self = self {
+				self.durationLabel?.text = duration.toMinutesTimeString()
+				self.playButton?.isSelected = self.flowDelegate.isPlaying()
+			}
+		})
 	}
 
 
@@ -85,6 +91,7 @@ class LessonPlayerViewController: NoodlesViewController {
 			durationLabel?.text = "00:00"
 		}
 		languageButton?.setLanguageFlag(for: Model.User.Me)
+		playButton?.isSelected = flowDelegate.isPlaying()
 	}
 
 
@@ -103,9 +110,7 @@ class LessonPlayerViewController: NoodlesViewController {
 			refresh()
 		} else if let lesson = lesson {
 			sender.isSelected = true
-			flowDelegate.startLesson(lesson, { [weak self] (duration: TimeInterval) -> Void in
-				self?.durationLabel?.text = duration.toMinutesTimeString()
-			})
+			flowDelegate.startLesson(lesson, nil)
 		}
 	}
 

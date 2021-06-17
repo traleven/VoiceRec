@@ -10,12 +10,11 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		DispatchQueue.main.setSpecific(key: DispatchSpecificKey<Bool>(), value: true)
 		Migration.migrateOutdated()
+		ConfigModel.shared = ConfigModel(nowPlayableBehavior: IOSNowPlayableBehavior())
 		return true
 	}
 

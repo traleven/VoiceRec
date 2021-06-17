@@ -22,7 +22,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 
 	var url: URL?
 
-	var audioPlayer: AVAudioPlayer?
+	@objc dynamic var audioPlayer: AVAudioPlayer?
 	var meterTimer: Timer!
 	var volume: Float
 
@@ -41,12 +41,35 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 	var onProgress: PlayerProgressCallback?
 	var onComplete: PlayerResultCallback?
 
-	init(_ url: URL?, volume: Float) {
+	required init(_ url: URL?, volume: Float) {
 		self.url = url
 		self.volume = volume
 		isPlaying = false
 
 		super.init()
+	}
+
+
+	fileprivate func setAudioCategory(_ audioSession: AVAudioSession) -> Bool {
+
+		if audioSession.category != .playback
+			|| audioSession.mode != .default
+			|| audioSession.routeSharingPolicy != .default
+			|| !audioSession.categoryOptions.isSuperset(of: [.mixWithOthers]) {
+
+			do {
+				try audioSession.setCategory(.playback,
+					mode: .default,
+					policy: .default,
+					options: [.mixWithOthers]
+				)
+				try audioSession.setActive(true)
+			} catch let error {
+				NSLog("Failed to activate audio session: \(error.localizedDescription)")
+				return false
+			}
+		}
+		return true
 	}
 
 
@@ -62,24 +85,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 		}
 
 		let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
-		if audioSession.category != .playAndRecord
-			|| audioSession.mode != .default
-			|| audioSession.routeSharingPolicy != .default
-			|| !audioSession.categoryOptions.isSuperset(of: [.mixWithOthers, .allowBluetooth, .allowAirPlay, .defaultToSpeaker]) {
-
-			do {
-				try audioSession.setCategory(
-					.playAndRecord,
-					mode: .default,
-					policy: .default,
-					options: [.mixWithOthers, .allowBluetooth, .allowAirPlay, .defaultToSpeaker]
-				)
-				try audioSession.setActive(true)
-			} catch let error {
-				NSLog("Failed to activate audio session: \(error.localizedDescription)")
-				return false
-			}
-		}
+		guard setAudioCategory(audioSession) else { return false }
 
 		do {
 			audioPlayer = try AVAudioPlayer(contentsOf: url!)
@@ -168,5 +174,28 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
 
 		self.volume = volume
 		audioPlayer?.setVolume(volume, fadeDuration: fadeDuration)
+	}
+}
+
+class LongformAudioPlayer: AudioPlayer {
+
+	override func setAudioCategory(_ audioSession: AVAudioSession) -> Bool {
+
+		if audioSession.category != .playback
+			|| audioSession.mode != .default
+			|| audioSession.routeSharingPolicy != .longFormAudio {
+
+			do {
+				try audioSession.setCategory(.playback,
+					mode: .default,
+					policy: .default
+				)
+				try audioSession.setActive(true)
+			} catch let error {
+				NSLog("Failed to activate audio session: \(error.localizedDescription)")
+				return false
+			}
+		}
+		return true
 	}
 }

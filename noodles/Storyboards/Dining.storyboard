@@ -239,6 +239,7 @@
                         <outlet property="durationLabel" destination="Vhh-oE-7D6" id="RpP-Ra-Pvb"/>
                         <outlet property="lessonName" destination="FeG-Yw-eCG" id="QrC-9S-jnD"/>
                         <outlet property="phraseCount" destination="3Mn-bE-Nk9" id="Fet-to-yCs"/>
+                        <outlet property="playButton" destination="Xnt-hL-xjf" id="pEl-CJ-h9Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ouU-S0-h5r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
