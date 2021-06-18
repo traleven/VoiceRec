@@ -34,6 +34,8 @@
 		DB165727267B37D900A45323 /* AssetPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165715267B37D900A45323 /* AssetPlayerView.swift */; };
 		DB16572B267B381200A45323 /* IOSNowPlayableBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB16572A267B381200A45323 /* IOSNowPlayableBehavior.swift */; };
 		DB165762267B3C9900A45323 /* NowPlayingComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165761267B3C9900A45323 /* NowPlayingComposer.swift */; };
+		DB165766267BE17B00A45323 /* InboxSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165765267BE17B00A45323 /* InboxSearchViewController.swift */; };
+		DB165769267BE2D300A45323 /* InboxSearchDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165768267BE2D300A45323 /* InboxSearchDirector.swift */; };
 		DB256DC32673436D009D2F7D /* TutorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB256DC22673436D009D2F7D /* TutorCell.swift */; };
 		DB256DC8267396F3009D2F7D /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB256DC7267396F3009D2F7D /* ImageUtils.swift */; };
 		DB4133332643D5650035D952 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4133322643D5650035D952 /* AppDelegate.swift */; };
@@ -173,6 +175,8 @@
 		DB165715267B37D900A45323 /* AssetPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetPlayerView.swift; sourceTree = "<group>"; };
 		DB16572A267B381200A45323 /* IOSNowPlayableBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOSNowPlayableBehavior.swift; sourceTree = "<group>"; };
 		DB165761267B3C9900A45323 /* NowPlayingComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingComposer.swift; sourceTree = "<group>"; };
+		DB165765267BE17B00A45323 /* InboxSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxSearchViewController.swift; sourceTree = "<group>"; };
+		DB165768267BE2D300A45323 /* InboxSearchDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxSearchDirector.swift; sourceTree = "<group>"; };
 		DB256DC22673436D009D2F7D /* TutorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorCell.swift; sourceTree = "<group>"; };
 		DB256DC7267396F3009D2F7D /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		DB41332F2643D5650035D952 /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,6 +315,7 @@
 			children = (
 				DBDC67EA2646D83200B99539 /* InboxDirector.swift */,
 				DB15F3C7266BB976009BFDA1 /* InboxTextEditDirector.swift */,
+				DB165768267BE2D300A45323 /* InboxSearchDirector.swift */,
 			);
 			path = Inbox;
 			sourceTree = "<group>";
@@ -718,6 +723,7 @@
 			children = (
 				DBDC67F8264942CE00B99539 /* InboxListViewController.swift */,
 				DBDC67FD264A8AEE00B99539 /* InboxTextEditViewController.swift */,
+				DB165765267BE17B00A45323 /* InboxSearchViewController.swift */,
 			);
 			path = Inbox;
 			sourceTree = "<group>";
@@ -921,6 +927,7 @@
 				DB4133332643D5650035D952 /* AppDelegate.swift in Sources */,
 				DBDC67F12646D84C00B99539 /* Router.swift in Sources */,
 				DBDC67EB2646D83200B99539 /* InboxDirector.swift in Sources */,
+				DB165769267BE2D300A45323 /* InboxSearchDirector.swift in Sources */,
 				DB6A5475266A42CA00861135 /* LessonExportDirector.swift in Sources */,
 				DB79CAA8266788E600CDB01F /* MusicCell.swift in Sources */,
 				DB79CAB12669146800CDB01F /* LessonPhraseSelectorDirector.swift in Sources */,
@@ -948,6 +955,7 @@
 				DB165727267B37D900A45323 /* AssetPlayerView.swift in Sources */,
 				DB413A492643D8DA0035D952 /* FileUtils.swift in Sources */,
 				DB165724267B37D900A45323 /* AssetPlayer.swift in Sources */,
+				DB165766267BE17B00A45323 /* InboxSearchViewController.swift in Sources */,
 				DB413A0F2643D8BF0035D952 /* AudioRecorder.swift in Sources */,
 				DBE7C6C2266F61FF00A92048 /* ProfileDirector.swift in Sources */,
 				DB55A7F32664C93E00CD963E /* Language.swift in Sources */,

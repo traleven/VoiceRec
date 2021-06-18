@@ -39,6 +39,7 @@ extension Language {
 
 		"eng-US": Language(code: "eng-US", name: "English",   flag: .UnitedStates),
 		"cmn":    Language(code: "cmn",    name: "Mandarin",  flag: .China),
+		"cmn-CN": Language(code: "cmn-CN", name: "Mandarin",  flag: .China),
 		"Chinese":Language(code: "cmn",    name: "Mandarin",  flag: .China),
 		"rus-RU": Language(code: "rus-RU", name: "Russian",   flag: .Russia),
 		"ukr":    Language(code: "ukr",    name: "Ukrainian", flag: .Ukraine),

@@ -47,6 +47,16 @@ extension PhraseEditDirector : PhraseEditViewFlowDelegate {
 
 		router.present(alert, onDismiss: nil)
 	}
+
+	func searchInbox(_ phrase: Model.Phrase, for language: Language, _ refresh: ModelRefreshHandle?) {
+
+//		let director = InboxDirector(router: router)
+//		let viewController = director.makeViewController(id: FileUtils.getDirectory(.inbox))
+		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let viewController = storyboard.instantiateViewController(identifier: "inbox.search.navigation")
+		router.present(viewController) {
+		}
+	}
 }
 
 extension PhraseEditDirector : PhraseEditViewControlDelegate {

@@ -21,6 +21,7 @@ protocol PhraseEditViewControlDelegate : PhraseEditViewFlowDelegate {
 	func startPlaying(_ url: URL, progress: PlayerProgressCallback?, finish: PlayerResultCallback?)
 	func stopPlaying(_ url: URL, _ refreshHandle: RefreshHandle?)
 	func stopAllAudio()
+	func searchInbox(_ phrase: Model.Phrase, for language: Language, _ refresh: ModelRefreshHandle?)
 }
 
 class PhraseEditViewController: NoodlesViewController {
@@ -243,6 +244,15 @@ class PhraseEditViewController: NoodlesViewController {
 			sender?.isSelected = false
 			self.refreshLabel(durationLabel: durationLabel, for: audioUrl)
 		})
+	}
+
+
+	@IBAction func searchInbox(_ sender: UIView?) {
+		let isBaseLanguage = sender == baseSearch
+		let language = isBaseLanguage ? Model.User.Me.base : Model.User.Me.target
+
+		self.updateContent()
+		flowDelegate.searchInbox(content, for: language, refresh(_:))
 	}
 
 
