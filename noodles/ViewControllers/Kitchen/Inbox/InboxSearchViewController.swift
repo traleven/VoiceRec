@@ -9,8 +9,9 @@ import UIKit
 
 protocol InboxSearchViewFlowDelegate : Director {
 	typealias RefreshHandle = (URL) -> Void
+	typealias ApplyHandler = (Model.Egg?) -> Void
 
-	func openInboxFolder(url: URL)
+	func openInboxFolder(url: URL, onApply: ApplyHandler?)
 }
 
 
@@ -24,8 +25,10 @@ protocol InboxSearchViewControlDelegate : InboxSearchViewFlowDelegate {
 
 
 class InboxSearchViewController : NoodlesViewController, FlowControlable {
-
+	typealias ApplyHandler = (Model.Egg?) -> Void
+	
 	internal var flowDelegate: InboxSearchViewControlDelegate!
+	private var onApply: ApplyHandler?
 
 	private var url: URL
 	private var current: Model.Egg!
@@ -79,18 +82,14 @@ class InboxSearchViewController : NoodlesViewController, FlowControlable {
 
 
 	required init?(coder: NSCoder) {
-		self.url = FileUtils.getDirectory(.inbox)
-		super.init(coder: coder)
-
-		let router = NavigationControllerRouter(controller: self.navigationController!)
-		let director = InboxSearchDirector(router: router)
-		self.flowDelegate = director
+		fatalError("Instantiating `InboxSearchViewController from storyboard is not supported")
 	}
 
 
-	init?(coder: NSCoder, flow: InboxSearchViewControlDelegate, id: URL) {
+	init?(coder: NSCoder, flow: InboxSearchViewControlDelegate, id: URL, onApply: ApplyHandler?) {
 		self.flowDelegate = flow
 		self.url = id
+		self.onApply = onApply
 		super.init(coder: coder)
 	}
 
@@ -196,6 +195,13 @@ extension InboxSearchViewController : UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		flowDelegate.openInboxFolder(url: subitems[indexPath.row])
+
+		let egg = Model.Egg(id: subitems[indexPath.row])
+		switch egg.type {
+		case .directory:
+			flowDelegate.openInboxFolder(url: subitems[indexPath.row], onApply: onApply)
+		default:
+			onApply?(egg)
+		}
 	}
 }

@@ -9,15 +9,28 @@ import UIKit
 
 class InboxSearchDirector: DefaultDirector, AudioPlayerImplementation & AudioRecorderImplementation {
 	typealias AudioPlayerType = AudioPlayer
+	typealias ApplyHandler = (Model.Egg?) -> Void
 
 	let recorder: AudioRecorder = AudioRecorder()
 	var players: [URL: AudioPlayer] = [:]
 
-	func makeViewController(id: URL) -> UIViewController {
+	func makeViewController(onApply: ApplyHandler?) -> UIViewController {
+
+		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let navigation = storyboard.instantiateViewController(identifier: "navigation") as UINavigationController
+		let viewController = storyboard.instantiateViewController(identifier: "inbox.search", creator: { (coder: NSCoder) -> InboxSearchViewController? in
+			return InboxSearchViewController(coder: coder, flow: self, id: FileUtils.getDirectory(.inbox), onApply: onApply)
+		})
+		navigation.setViewControllers([viewController], animated: false)
+		self.router = NavigationControllerRouter(controller: navigation)
+		return navigation
+	}
+
+	func makeViewController(id: URL, onApply: ApplyHandler?) -> UIViewController {
 
 		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "inbox.search", creator: { (coder: NSCoder) -> InboxSearchViewController? in
-			return InboxSearchViewController(coder: coder, flow: self, id: id)
+			return InboxSearchViewController(coder: coder, flow: self, id: id, onApply: onApply)
 		})
 		return viewController
 	}
@@ -25,9 +38,9 @@ class InboxSearchDirector: DefaultDirector, AudioPlayerImplementation & AudioRec
 
 extension InboxSearchDirector: InboxSearchViewFlowDelegate {
 
-	func openInboxFolder(url: URL) {
+	func openInboxFolder(url: URL, onApply: ApplyHandler?) {
 
-		let viewController = self.makeViewController(id: url)
+		let viewController = self.makeViewController(id: url, onApply: onApply)
 		router.push(viewController, onDismiss: nil)
 	}
 }
