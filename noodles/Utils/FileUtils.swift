@@ -314,14 +314,24 @@ class FileUtils {
 	}
 
 
-	class func copy(_ source: URL, to directory: URL) {
+	/// Copy a `source` file to the `directory`, keep the file name
+	class func copy(_ source: URL, to directory: URL) -> URL? {
+
+		return copy(source, to: directory, as: source.lastPathComponent)
+	}
+
+	/// Copy a `source` file to the `directory` as a file named `filename`
+	class func copy(_ source: URL, to directory: URL, as filename: String) -> URL? {
 
 		let fileManager = FileManager.default
+		let targetFile = directory.appendingPathComponent(filename)
 		ensureDirectory(directory)
 		do {
-			try fileManager.copyItem(at: source, to: directory.appendingPathComponent(source.lastPathComponent))
+			try fileManager.copyItem(at: source, to: targetFile)
 		} catch let error {
-			NSLog("Failed to copy \(source) to \(directory): \(error)")
+			NSLog("Failed to copy \(source) to \(directory) as \(filename): \(error)")
+			return nil
 		}
+		return targetFile
 	}
 }

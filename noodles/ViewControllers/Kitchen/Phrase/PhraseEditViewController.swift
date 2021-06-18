@@ -36,6 +36,7 @@ class PhraseEditViewController: NoodlesViewController {
 	@IBOutlet var baseBlock: UIView!
 	@IBOutlet var baseFlag: UILabel!
 	@IBOutlet var baseText: UITextField!
+	@IBOutlet var baseTextSearch: UIButton?
 	@IBOutlet var baseAvatar: UIButton!
 	@IBOutlet var baseDuration: UILabel!
 	@IBOutlet var baseSearch: UIButton!
@@ -46,6 +47,7 @@ class PhraseEditViewController: NoodlesViewController {
 	@IBOutlet var targetBlock: UIView!
 	@IBOutlet var targetFlag: UILabel!
 	@IBOutlet var targetText: UITextField!
+	@IBOutlet var targetTextSearch: UIButton?
 	@IBOutlet var targetAvatar: UIButton!
 	@IBOutlet var targetDuration: UILabel!
 	@IBOutlet var targetSearch: UIButton!
@@ -66,20 +68,24 @@ class PhraseEditViewController: NoodlesViewController {
 			self.targetBlock.isHidden = true
 			self.notesBlock.isHidden = true
 			self.keyboardStubBlock.isHidden = false
-		}, onEndEdit: { _ in
+			self.baseTextSearch?.isHidden = true
+		}, onEndEdit: {
 			self.targetBlock.isHidden = false
 			self.notesBlock.isHidden = false
 			self.keyboardStubBlock.isHidden = true
+			self.baseTextSearch?.isHidden = !($0?.isEmpty ?? true)
 		}, onReturnKey: true)
 
 		let targetTextDelegate = ReturnKeyTextFieldDelegate(onBeginEdit: {
 			self.baseBlock.isHidden = true
 			self.notesBlock.isHidden = true
 			self.keyboardStubBlock.isHidden = false
-		}, onEndEdit: { _ in
+			self.targetTextSearch?.isHidden = true
+		}, onEndEdit: {
 			self.baseBlock.isHidden = false
 			self.notesBlock.isHidden = false
 			self.keyboardStubBlock.isHidden = true
+			self.targetTextSearch?.isHidden = !($0?.isEmpty ?? true)
 		}, onReturnKey: true)
 
 		let notesTextDelegate = ReturnKeyTextViewDelegate(onBeginEdit: {
@@ -143,6 +149,7 @@ class PhraseEditViewController: NoodlesViewController {
 
 		baseFlag.text = Model.User.Me.base.flag.rawValue
 		baseText.text = content.baseText
+		baseTextSearch?.isHidden = !content.baseText.isEmpty
 		let hasBaseAudio = content.baseAudio != nil
 		baseRecordButton.isHidden = hasBaseAudio
 		basePlayButton.isHidden = !baseRecordButton.isHidden
@@ -154,6 +161,7 @@ class PhraseEditViewController: NoodlesViewController {
 
 		targetFlag.text = Model.User.Me.target.flag.rawValue
 		targetText.text = content.targetText
+		targetTextSearch?.isHidden = !content.targetText.isEmpty
 		let hasTargetAudio = content.targetAudio != nil
 		targetRecordButton.isHidden = hasTargetAudio
 		targetPlayButton.isHidden = !targetRecordButton.isHidden

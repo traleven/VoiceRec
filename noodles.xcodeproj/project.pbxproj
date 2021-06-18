@@ -24,10 +24,6 @@
 		DB16571C267B37D900A45323 /* NowPlayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165707267B37D900A45323 /* NowPlayable.swift */; };
 		DB16571D267B37D900A45323 /* NowPlayableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165708267B37D900A45323 /* NowPlayableError.swift */; };
 		DB16571E267B37D900A45323 /* NowPlayableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165709267B37D900A45323 /* NowPlayableCommand.swift */; };
-		DB16571F267B37D900A45323 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB16570B267B37D900A45323 /* Assets.xcassets */; };
-		DB165720267B37D900A45323 /* Song 1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DB16570C267B37D900A45323 /* Song 1.m4a */; };
-		DB165721267B37D900A45323 /* Song 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DB16570D267B37D900A45323 /* Song 2.m4a */; };
-		DB165722267B37D900A45323 /* Song 3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DB16570E267B37D900A45323 /* Song 3.m4a */; };
 		DB165724267B37D900A45323 /* AssetPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165711267B37D900A45323 /* AssetPlayer.swift */; };
 		DB165725267B37D900A45323 /* EnabledItemCellViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165713267B37D900A45323 /* EnabledItemCellViewDelegate.swift */; };
 		DB165726267B37D900A45323 /* CommandCellViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB165714267B37D900A45323 /* CommandCellViewDelegate.swift */; };
@@ -165,10 +161,6 @@
 		DB165707267B37D900A45323 /* NowPlayable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayable.swift; sourceTree = "<group>"; };
 		DB165708267B37D900A45323 /* NowPlayableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableError.swift; sourceTree = "<group>"; };
 		DB165709267B37D900A45323 /* NowPlayableCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayableCommand.swift; sourceTree = "<group>"; };
-		DB16570B267B37D900A45323 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DB16570C267B37D900A45323 /* Song 1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Song 1.m4a"; sourceTree = "<group>"; };
-		DB16570D267B37D900A45323 /* Song 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Song 2.m4a"; sourceTree = "<group>"; };
-		DB16570E267B37D900A45323 /* Song 3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Song 3.m4a"; sourceTree = "<group>"; };
 		DB165711267B37D900A45323 /* AssetPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetPlayer.swift; sourceTree = "<group>"; };
 		DB165713267B37D900A45323 /* EnabledItemCellViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnabledItemCellViewDelegate.swift; sourceTree = "<group>"; };
 		DB165714267B37D900A45323 /* CommandCellViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandCellViewDelegate.swift; sourceTree = "<group>"; };
@@ -382,7 +374,6 @@
 			children = (
 				DB1656FF267B37D900A45323 /* Configuration */,
 				DB165705267B37D900A45323 /* NowPlayable */,
-				DB16570A267B37D900A45323 /* Resources */,
 				DB165710267B37D900A45323 /* Player */,
 				DB165712267B37D900A45323 /* Utility */,
 			);
@@ -410,17 +401,6 @@
 				DB165709267B37D900A45323 /* NowPlayableCommand.swift */,
 			);
 			path = NowPlayable;
-			sourceTree = "<group>";
-		};
-		DB16570A267B37D900A45323 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				DB16570B267B37D900A45323 /* Assets.xcassets */,
-				DB16570C267B37D900A45323 /* Song 1.m4a */,
-				DB16570D267B37D900A45323 /* Song 2.m4a */,
-				DB16570E267B37D900A45323 /* Song 3.m4a */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		DB165710267B37D900A45323 /* Player */ = {
@@ -835,10 +815,7 @@
 				DBDC67D12644067800B99539 /* Kitchen.storyboard in Resources */,
 				DBDC67DE26441B9400B99539 /* Dining.storyboard in Resources */,
 				DB4139FB2643D8360035D952 /* MarketFreshBold.ttf in Resources */,
-				DB165721267B37D900A45323 /* Song 2.m4a in Resources */,
 				DB41333F2643D5660035D952 /* LaunchScreen.storyboard in Resources */,
-				DB165720267B37D900A45323 /* Song 1.m4a in Resources */,
-				DB16571F267B37D900A45323 /* Assets.xcassets in Resources */,
 				DB4139FD2643D8360035D952 /* AlteHaasGroteskRegular.ttf in Resources */,
 				DB413A512643D8E40035D952 /* DefaultData in Resources */,
 				DB4139FC2643D8360035D952 /* Market Fresh Italic.ttf in Resources */,
@@ -846,7 +823,6 @@
 				DB4139FE2643D8360035D952 /* AlteHaasGroteskBold.ttf in Resources */,
 				DB4139F92643D8360035D952 /* MarketFresh.ttf in Resources */,
 				DB4139FA2643D8360035D952 /* Market Fresh Bold Italic.ttf in Resources */,
-				DB165722267B37D900A45323 /* Song 3.m4a in Resources */,
 				DB41333C2643D5660035D952 /* Assets.xcassets in Resources */,
 				DB41333A2643D5650035D952 /* Main.storyboard in Resources */,
 			);
@@ -1129,7 +1105,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentIcon;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1158,7 +1134,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentIcon;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

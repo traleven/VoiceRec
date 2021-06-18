@@ -28,9 +28,21 @@ class InboxSearchDirector: DefaultDirector, AudioPlayerImplementation & AudioRec
 
 	func makeViewController(id: URL, onApply: ApplyHandler?) -> UIViewController {
 
+		let router = self.router
 		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "inbox.search", creator: { (coder: NSCoder) -> InboxSearchViewController? in
-			return InboxSearchViewController(coder: coder, flow: self, id: id, onApply: onApply)
+			return InboxSearchViewController(coder: coder, flow: self, id: id, onApply: { (egg: Model.Egg?) in
+				if let egg = egg {
+					let alert = UIAlertController(title: nil, message: "Do you want to set this \(egg.type)?", preferredStyle: .actionSheet)
+					alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_: UIAlertAction) in
+						onApply?(egg)
+					}))
+					alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+					router.present(alert, onDismiss: nil)
+				} else {
+					onApply?(egg)
+				}
+			})
 		})
 		return viewController
 	}

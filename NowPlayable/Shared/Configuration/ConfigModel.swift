@@ -48,65 +48,8 @@ extension ConfigModel {
     // Create the assets with synthesized metadata.
     
     fileprivate var defaultAssets: [ConfigAsset] {
-        
-        // Find the audio files in the app bundle.
-        
-        let song1URL = Bundle.main.url(forResource: "Song 1", withExtension: ".m4a")!
-        let song2URL = Bundle.main.url(forResource: "Song 2", withExtension: ".m4a")!
-        let song3URL = Bundle.main.url(forResource: "Song 3", withExtension: ".m4a")!
-        let videoURL = URL(string: "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8")!
-        
-        // Create metadata.
-        
-        let metadatas: [NowPlayableStaticMetadata] = [
-            
-            NowPlayableStaticMetadata(assetURL: song1URL,
-                                mediaType: .audio,
-                                isLiveStream: false,
-                                title: "First Song",
-                                artist: "Singer of Songs",
-                                artwork: artworkNamed("Song 1"),
-                                albumArtist: "Singer of Songs",
-                                albumTitle: "Songs to Sing"),
-            
-            NowPlayableStaticMetadata(assetURL: videoURL,
-                                mediaType: .video,
-                                isLiveStream: false,
-                                title: "Bip Bop, The Movie",
-                                artist: nil,
-                                artwork: nil,
-                                albumArtist: nil,
-                                albumTitle: nil),
-            
-            NowPlayableStaticMetadata(assetURL: song2URL,
-                                mediaType: .audio,
-                                isLiveStream: false,
-                                title: "Second Song",
-                                artist: "Other Singer",
-                                artwork: artworkNamed("Song 2"),
-                                albumArtist: "Singer of Songs",
-                                albumTitle: "Songs to Sing"),
-            
-            NowPlayableStaticMetadata(assetURL: videoURL,
-                                mediaType: .video,
-                                isLiveStream: false,
-                                title: "Bip Bop, The Sequel",
-                                artist: nil,
-                                artwork: nil,
-                                albumArtist: nil,
-                                albumTitle: nil),
-            
-            NowPlayableStaticMetadata(assetURL: song3URL,
-                                mediaType: .audio,
-                                isLiveStream: false,
-                                title: "Third Song",
-                                artist: "Singer of Songs",
-                                artwork: artworkNamed("Song 3"),
-                                albumArtist: "Singer of Songs",
-                                albumTitle: "Songs to Sing")
-        ]
-        
-        return metadatas.map { ConfigAsset(metadata: $0) }
+
+		return []
     }
     
     // Create the command collections, and enable a default set of commands.

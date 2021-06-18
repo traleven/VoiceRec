@@ -51,8 +51,31 @@ extension PhraseEditDirector : PhraseEditViewFlowDelegate {
 	func searchInbox(_ phrase: Model.Phrase, for language: Language, _ refresh: ModelRefreshHandle?) {
 
 		let director = InboxSearchDirector(router: router)
-		let viewController = director.makeViewController(onApply: {
-			print("\($0)")
+		let viewController = director.makeViewController(onApply: { [weak self] in
+			guard let egg = $0 else {
+				self?.router.dismiss(animated: true, completion: nil)
+				return
+			}
+
+			switch egg.type {
+			case .audio:
+				var phrase = phrase
+				if let audio = FileUtils.copy(egg.id, to: phrase.id) {
+					FileUtils.delete(egg.id)
+					phrase.setAudio(audio, for: language)
+					refresh?(phrase)
+				}
+			case .text, .json:
+				var phrase = phrase
+				if let text = try? String(contentsOf: egg.id) {
+					FileUtils.delete(egg.id)
+					phrase.setText(text, for: language)
+					refresh?(phrase)
+				}
+			default:
+				print("Unsupported egg type \(egg.type): \(egg.name)")
+			}
+			self?.router.dismiss(animated: true, completion: nil)
 		})
 		router.present(viewController) {
 		}

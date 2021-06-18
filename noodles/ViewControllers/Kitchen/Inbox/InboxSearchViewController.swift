@@ -116,6 +116,12 @@ class InboxSearchViewController : NoodlesViewController, FlowControlable {
 		let cell = tableView.cellForRow(at: indexPath) as? InboxAudioCell
 		cell?.progressView.progress = CGFloat(progress)
 	}
+
+
+	@IBAction func cancel() {
+
+		onApply?(nil)
+	}
 }
 
 
