@@ -32,7 +32,7 @@ class InboxCell : UITableViewCell {
 	func prepare(for egg: Model.Egg, at index: IndexPath) {
 		self.index = index
 		label?.text = egg.name
-		//place?.text = ""
+		place?.text = ""
 	}
 }
 
@@ -50,6 +50,9 @@ class InboxAudioCell : InboxCell {
 			let minutes = Int(totalSeconds / 60)
 			let seconds = Int(totalSeconds) - 60 * minutes
 			self?.duration?.text = String(format: "%02d:%02d", minutes, seconds)
+		}
+		egg.loadAsyncLocation { [weak self] in
+			self?.place?.text = $0
 		}
 	}
 }

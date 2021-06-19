@@ -24,6 +24,12 @@
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need to access your location to automatically tag new eggs with it</string>
+	<key>NSLocationUsageDescription</key>
+	<string>We need to access your location to automatically tag new eggs with it</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need to access your location to automatically tag new eggs with it</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>We need an access to your microphone to help you to catch the phrases as seamlessly as possible</string>
 	<key>UIApplicationSceneManifest</key>

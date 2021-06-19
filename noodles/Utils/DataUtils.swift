@@ -76,13 +76,28 @@ extension URL {
 	}
 
 	func loadAsyncDuration(_ onValueLoaded: @escaping (TimeInterval) -> Void) {
-		let audioAsset = AVURLAsset.init(url: self);
+		let audioAsset = AVURLAsset.init(url: self)
 		audioAsset.loadValuesAsynchronously(forKeys: ["duration"]) {
 			switch audioAsset.statusOfValue(forKey: "duration", error: nil) {
 			case .loaded:
 				let avduration = audioAsset.duration
 				DispatchQueue.runOnMain {
 					onValueLoaded(avduration.seconds)
+				}
+			default:
+				return
+			}
+		}
+	}
+
+	func loadAsyncLocation(_ onValueLoaded: @escaping (String?) -> Void) {
+		let audioAsset = AVURLAsset.init(url: self)
+		audioAsset.loadValuesAsynchronously(forKeys: ["commonMetadata"]) {
+			switch audioAsset.statusOfValue(forKey: "commonMetadata", error: nil) {
+			case .loaded:
+				let location = AVMetadataItem.metadataItems(from: audioAsset.commonMetadata, filteredByIdentifier: .commonIdentifierLocation).first
+				DispatchQueue.runOnMain {
+					onValueLoaded(location?.stringValue)
 				}
 			default:
 				return

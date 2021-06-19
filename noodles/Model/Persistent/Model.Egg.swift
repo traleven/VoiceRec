@@ -72,8 +72,12 @@ extension Model {
 			self.init(id: id, type: type, name: nameResolver)
 		}
 
-		func loadAsyncDuration(_ onValueLoaded: @escaping (Double) -> Void) {
+		func loadAsyncDuration(_ onValueLoaded: @escaping (TimeInterval) -> Void) {
 			id.loadAsyncDuration(onValueLoaded)
+		}
+
+		func loadAsyncLocation(_ onValueLoaded: @escaping (String?) -> Void) {
+			id.loadAsyncLocation(onValueLoaded)
 		}
 
 		fileprivate struct DefaultName : FileNameResolver {

@@ -90,6 +90,8 @@
 		DBAA69242679422C0079B78C /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA69232679422C0079B78C /* LanguageSelectionViewController.swift */; };
 		DBAA692726795EC20079B78C /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA692626795EC20079B78C /* MusicViewController.swift */; };
 		DBAA692A267960C90079B78C /* MusicDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA6929267960C90079B78C /* MusicDirector.swift */; };
+		DBC29E77267E49FE00C01C03 /* LocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC29E76267E49FE00C01C03 /* LocationUtils.swift */; };
+		DBC29E7B267E5FA100C01C03 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC29E7A267E5FA100C01C03 /* CoreServices.framework */; };
 		DBCF76A5265E612B00D80A6B /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76A4265E612B00D80A6B /* VerticalButton.swift */; };
 		DBCF76A8265E948500D80A6B /* KitchenTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */; };
 		DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */; };
@@ -238,6 +240,8 @@
 		DBAA69232679422C0079B78C /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
 		DBAA692626795EC20079B78C /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
 		DBAA6929267960C90079B78C /* MusicDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDirector.swift; sourceTree = "<group>"; };
+		DBC29E76267E49FE00C01C03 /* LocationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
+		DBC29E7A267E5FA100C01C03 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		DBCF76A4265E612B00D80A6B /* VerticalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
 		DBCF76A7265E948500D80A6B /* KitchenTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenTabViewController.swift; sourceTree = "<group>"; };
 		DBCF76AA265FCF9D00D80A6B /* PhrasesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesListViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB41334E2643D7690035D952 /* AudioToolbox.framework in Frameworks */,
+				DBC29E7B267E5FA100C01C03 /* CoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +459,7 @@
 		DB41334C2643D7690035D952 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBC29E7A267E5FA100C01C03 /* CoreServices.framework */,
 				DB41334D2643D7690035D952 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
@@ -531,6 +537,7 @@
 				DB6A546F266A2BC200861135 /* AnimationUtils.swift */,
 				DB256DC7267396F3009D2F7D /* ImageUtils.swift */,
 				DB1656E7267A605400A45323 /* UIUtils.swift */,
+				DBC29E76267E49FE00C01C03 /* LocationUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -859,6 +866,7 @@
 				DB7BA8B8266AD44D008223E4 /* PatternSelectionViewController.swift in Sources */,
 				DB15F3D8266BF282009BFDA1 /* SliderWithHint.swift in Sources */,
 				DB165718267B37D900A45323 /* ConfigCommandCollection.swift in Sources */,
+				DBC29E77267E49FE00C01C03 /* LocationUtils.swift in Sources */,
 				DB8AA9F426777422001A40ED /* UITableViewExtensions.swift in Sources */,
 				DB413A282643D8CD0035D952 /* Model.swift in Sources */,
 				DB413A4D2643D8DA0035D952 /* DB.swift in Sources */,

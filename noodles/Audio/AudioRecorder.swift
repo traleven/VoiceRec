@@ -47,8 +47,13 @@ class AudioRecorder : NSObject, ObservableObject, AVAudioRecorderDelegate {
 
 	internal func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
 
-		if !flag
-		{
+		if flag {
+			LocationUtils.shared.fetchLocationDescription {
+				if $0 != nil {
+					print("\(String(describing: $0))")
+				}
+			}
+		} else {
 			NSLog("Recording failed.")
 		}
 		onFinish?(flag)
