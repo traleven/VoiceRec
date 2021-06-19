@@ -85,14 +85,3 @@ struct LazyLink<Element : GlobalIdentifiable & Persistent> : Codable {
 		return Element.with(contentOf: url)
 	}
 }
-
-protocol GlobalIdentifiable : Identifiable where ID : Codable {
-    /// The stable identity of the entity associated with `self`.
-    var id: Self.ID { get }
-	static func getBy(id: Self.ID) -> Self?
-}
-
-protocol Persistent : GlobalIdentifiable {
-	static var index : [Self.ID : URL] { get }
-	static func with(contentOf file: URL) -> Self?
-}

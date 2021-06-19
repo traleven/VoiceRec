@@ -26,8 +26,8 @@ protocol Savable {
 }
 
 struct Model {
-	var eggs	: Model.Fridge<Model.Egg>
-	var broths	: Model.Fridge<Model.Broth>
-	var phrases	: Model.Fridge<Model.Phrase>
-	var recipes	: Model.Fridge<Model.Recipe>
+//	var eggs	: Model.Fridge<Model.Egg>
+//	var broths	: Model.Fridge<Model.Broth>
+//	var phrases	: Model.Fridge<Model.Phrase>
+//	var recipes	: Model.Fridge<Model.Recipe>
 }

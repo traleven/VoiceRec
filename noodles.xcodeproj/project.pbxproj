@@ -74,6 +74,14 @@
 		DB55A8072666B08200CD963E /* CommonDelegateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55A8062666B08200CD963E /* CommonDelegateExtensions.swift */; };
 		DB6A5470266A2BC200861135 /* AnimationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A546F266A2BC200861135 /* AnimationUtils.swift */; };
 		DB6A5475266A42CA00861135 /* LessonExportDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A5474266A42CA00861135 /* LessonExportDirector.swift */; };
+		DB6CD1E6267E9FD400E91F49 /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAA7266788E600CDB01F /* MusicCell.swift */; };
+		DB6CD1E9267E9FF500E91F49 /* Model.Broth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A132643D8CD0035D952 /* Model.Broth.swift */; };
+		DB6CD1EC267EA00F00E91F49 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A142643D8CD0035D952 /* Model.swift */; };
+		DB6CD1EF267EA02500E91F49 /* PersistentObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A402643D8DA0035D952 /* PersistentObject.swift */; };
+		DB6CD1F6267EA04600E91F49 /* GlobalIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6CD1F5267EA04600E91F49 /* GlobalIdentifiable.swift */; };
+		DB6CD1FB267EA05C00E91F49 /* GlobalIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6CD1F5267EA04600E91F49 /* GlobalIdentifiable.swift */; };
+		DB6CD1FE267EA0AB00E91F49 /* DispatchQueueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAAA2667E82400CDB01F /* DispatchQueueUtils.swift */; };
+		DB6CD201267EA0C300E91F49 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A3E2643D8DA0035D952 /* DataUtils.swift */; };
 		DB79CAA8266788E600CDB01F /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAA7266788E600CDB01F /* MusicCell.swift */; };
 		DB79CAAB2667E82400CDB01F /* DispatchQueueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAAA2667E82400CDB01F /* DispatchQueueUtils.swift */; };
 		DB79CAAE2668D22B00CDB01F /* LessonMusicDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79CAAD2668D22B00CDB01F /* LessonMusicDirector.swift */; };
@@ -86,6 +94,11 @@
 		DB8AA9F7267788E5001A40ED /* LanguagesViewTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8AA9F6267788E5001A40ED /* LanguagesViewTableController.swift */; };
 		DB8AA9FA267788F8001A40ED /* TutorsViewTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8AA9F9267788F8001A40ED /* TutorsViewTableController.swift */; };
 		DB8AA9FD26778AAA001A40ED /* ProfileEditorDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8AA9FC26778AAA001A40ED /* ProfileEditorDirector.swift */; };
+		DB9FC8CC267E87B900C36F14 /* SharedFileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9FC8CB267E87B900C36F14 /* SharedFileUtils.swift */; };
+		DB9FC8D9267E8EAB00C36F14 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9FC8D8267E8EAB00C36F14 /* ShareViewController.swift */; };
+		DB9FC8DC267E8EAB00C36F14 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9FC8DA267E8EAB00C36F14 /* MainInterface.storyboard */; };
+		DB9FC8E0267E8EAB00C36F14 /* Import.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DB9FC8D6267E8EAB00C36F14 /* Import.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DB9FC8EE267E8F3400C36F14 /* SharedFileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9FC8CB267E87B900C36F14 /* SharedFileUtils.swift */; };
 		DBAA69212679421A0079B78C /* ProficiencySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA69202679421A0079B78C /* ProficiencySelectionViewController.swift */; };
 		DBAA69242679422C0079B78C /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA69232679422C0079B78C /* LanguageSelectionViewController.swift */; };
 		DBAA692726795EC20079B78C /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA692626795EC20079B78C /* MusicViewController.swift */; };
@@ -137,7 +150,28 @@
 			remoteGlobalIDString = 734FB2E50B18B33E00D561D7;
 			remoteInfo = "libogg (static)";
 		};
+		DB9FC8DE267E8EAB00C36F14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB4133272643D5650035D952 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB9FC8D5267E8EAB00C36F14;
+			remoteInfo = "import to inbox";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DBC29E94267E713400C01C03 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DB9FC8E0267E8EAB00C36F14 /* Import.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DB15F3C7266BB976009BFDA1 /* InboxTextEditDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxTextEditDirector.swift; sourceTree = "<group>"; };
@@ -224,6 +258,7 @@
 		DB55A8062666B08200CD963E /* CommonDelegateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDelegateExtensions.swift; sourceTree = "<group>"; };
 		DB6A546F266A2BC200861135 /* AnimationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationUtils.swift; sourceTree = "<group>"; };
 		DB6A5474266A42CA00861135 /* LessonExportDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonExportDirector.swift; sourceTree = "<group>"; };
+		DB6CD1F5267EA04600E91F49 /* GlobalIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalIdentifiable.swift; sourceTree = "<group>"; };
 		DB79CAA7266788E600CDB01F /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		DB79CAAA2667E82400CDB01F /* DispatchQueueUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueUtils.swift; sourceTree = "<group>"; };
 		DB79CAAD2668D22B00CDB01F /* LessonMusicDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonMusicDirector.swift; sourceTree = "<group>"; };
@@ -236,6 +271,12 @@
 		DB8AA9F6267788E5001A40ED /* LanguagesViewTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewTableController.swift; sourceTree = "<group>"; };
 		DB8AA9F9267788F8001A40ED /* TutorsViewTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorsViewTableController.swift; sourceTree = "<group>"; };
 		DB8AA9FC26778AAA001A40ED /* ProfileEditorDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorDirector.swift; sourceTree = "<group>"; };
+		DB9FC8CB267E87B900C36F14 /* SharedFileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFileUtils.swift; sourceTree = "<group>"; };
+		DB9FC8D6267E8EAB00C36F14 /* Import.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Import.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB9FC8D8267E8EAB00C36F14 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		DB9FC8DB267E8EAB00C36F14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		DB9FC8DD267E8EAB00C36F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB9FC8E7267E8EB200C36F14 /* Import.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Import.entitlements; sourceTree = "<group>"; };
 		DBAA69202679421A0079B78C /* ProficiencySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProficiencySelectionViewController.swift; sourceTree = "<group>"; };
 		DBAA69232679422C0079B78C /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
 		DBAA692626795EC20079B78C /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +320,13 @@
 			files = (
 				DB41334E2643D7690035D952 /* AudioToolbox.framework in Frameworks */,
 				DBC29E7B267E5FA100C01C03 /* CoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB9FC8D3267E8EAB00C36F14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +468,8 @@
 				DB413A552643D9F10035D952 /* Opus */,
 				DB1656FD267B37AD00A45323 /* NowPlayable */,
 				DB4133312643D5650035D952 /* Noodles */,
+				DB9FC8CA267E879700C36F14 /* Shared */,
+				DB9FC8D7267E8EAB00C36F14 /* ImportExtension */,
 				DB4133302643D5650035D952 /* Products */,
 				DB41334C2643D7690035D952 /* Frameworks */,
 			);
@@ -429,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				DB41332F2643D5650035D952 /* Noodles.app */,
+				DB9FC8D6267E8EAB00C36F14 /* Import.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -547,6 +598,7 @@
 			children = (
 				DB413A402643D8DA0035D952 /* PersistentObject.swift */,
 				DB413A412643D8DA0035D952 /* WeakLink.swift */,
+				DB6CD1F5267EA04600E91F49 /* GlobalIdentifiable.swift */,
 				DB413A422643D8DA0035D952 /* DB.swift */,
 				DB413A432643D8DA0035D952 /* DictionaryDB.swift */,
 				DB413A442643D8DA0035D952 /* ArrayDB.swift */,
@@ -614,6 +666,25 @@
 				DBAA692626795EC20079B78C /* MusicViewController.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		DB9FC8CA267E879700C36F14 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DB9FC8CB267E87B900C36F14 /* SharedFileUtils.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		DB9FC8D7267E8EAB00C36F14 /* ImportExtension */ = {
+			isa = PBXGroup;
+			children = (
+				DB9FC8E7267E8EB200C36F14 /* Import.entitlements */,
+				DB9FC8D8267E8EAB00C36F14 /* ShareViewController.swift */,
+				DB9FC8DA267E8EAB00C36F14 /* MainInterface.storyboard */,
+				DB9FC8DD267E8EAB00C36F14 /* Info.plist */,
+			);
+			path = ImportExtension;
 			sourceTree = "<group>";
 		};
 		DBCF76A3265E610D00D80A6B /* Views */ = {
@@ -720,11 +791,13 @@
 				DB41332B2643D5650035D952 /* Sources */,
 				DB41332C2643D5650035D952 /* Frameworks */,
 				DB41332D2643D5650035D952 /* Resources */,
+				DBC29E94267E713400C01C03 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				DB165733267B39F100A45323 /* PBXTargetDependency */,
+				DB9FC8DF267E8EAB00C36F14 /* PBXTargetDependency */,
 			);
 			name = Noodles;
 			packageProductDependencies = (
@@ -732,6 +805,23 @@
 			productName = noodles;
 			productReference = DB41332F2643D5650035D952 /* Noodles.app */;
 			productType = "com.apple.product-type.application";
+		};
+		DB9FC8D5267E8EAB00C36F14 /* Import */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB9FC8E1267E8EAB00C36F14 /* Build configuration list for PBXNativeTarget "Import" */;
+			buildPhases = (
+				DB9FC8D2267E8EAB00C36F14 /* Sources */,
+				DB9FC8D3267E8EAB00C36F14 /* Frameworks */,
+				DB9FC8D4267E8EAB00C36F14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Import;
+			productName = "import to inbox";
+			productReference = DB9FC8D6267E8EAB00C36F14 /* Import.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -743,6 +833,9 @@
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					DB41332E2643D5650035D952 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					DB9FC8D5267E8EAB00C36F14 = {
 						CreatedOnToolsVersion = 12.4;
 					};
 				};
@@ -767,6 +860,7 @@
 			projectRoot = "";
 			targets = (
 				DB41332E2643D5650035D952 /* Noodles */,
+				DB9FC8D5267E8EAB00C36F14 /* Import */,
 			);
 		};
 /* End PBXProject section */
@@ -800,6 +894,14 @@
 				DBDC67DB26441B8000B99539 /* Service.storyboard in Resources */,
 				DB41333C2643D5660035D952 /* Assets.xcassets in Resources */,
 				DB41333A2643D5650035D952 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB9FC8D4267E8EAB00C36F14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB9FC8DC267E8EAB00C36F14 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,6 +988,7 @@
 				DB413A342643D8CD0035D952 /* Model.Fridge.swift in Sources */,
 				DBE7C6BF266F596700A92048 /* SelfSizedTableView.swift in Sources */,
 				DB413A0C2643D8BF0035D952 /* AudioPlayer.swift in Sources */,
+				DB6CD1F6267EA04600E91F49 /* GlobalIdentifiable.swift in Sources */,
 				DB4133352643D5650035D952 /* SceneDelegate.swift in Sources */,
 				DB165717267B37D900A45323 /* ConfigCommand.swift in Sources */,
 				DB413A2A2643D8CD0035D952 /* Model.User.swift in Sources */,
@@ -907,6 +1010,7 @@
 				DB165727267B37D900A45323 /* AssetPlayerView.swift in Sources */,
 				DB413A492643D8DA0035D952 /* FileUtils.swift in Sources */,
 				DB165724267B37D900A45323 /* AssetPlayer.swift in Sources */,
+				DB9FC8CC267E87B900C36F14 /* SharedFileUtils.swift in Sources */,
 				DB165766267BE17B00A45323 /* InboxSearchViewController.swift in Sources */,
 				DB413A0F2643D8BF0035D952 /* AudioRecorder.swift in Sources */,
 				DBE7C6C2266F61FF00A92048 /* ProfileDirector.swift in Sources */,
@@ -917,12 +1021,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DB9FC8D2267E8EAB00C36F14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB6CD1EC267EA00F00E91F49 /* Model.swift in Sources */,
+				DB6CD1FE267EA0AB00E91F49 /* DispatchQueueUtils.swift in Sources */,
+				DB9FC8EE267E8F3400C36F14 /* SharedFileUtils.swift in Sources */,
+				DB9FC8D9267E8EAB00C36F14 /* ShareViewController.swift in Sources */,
+				DB6CD1E9267E9FF500E91F49 /* Model.Broth.swift in Sources */,
+				DB6CD1E6267E9FD400E91F49 /* MusicCell.swift in Sources */,
+				DB6CD1FB267EA05C00E91F49 /* GlobalIdentifiable.swift in Sources */,
+				DB6CD201267EA0C300E91F49 /* DataUtils.swift in Sources */,
+				DB6CD1EF267EA02500E91F49 /* PersistentObject.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		DB165733267B39F100A45323 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = DB165732267B39F100A45323 /* NowPlayable */;
+		};
+		DB9FC8DF267E8EAB00C36F14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB9FC8D5267E8EAB00C36F14 /* Import */;
+			targetProxy = DB9FC8DE267E8EAB00C36F14 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -941,6 +1066,14 @@
 				DB41333E2643D5660035D952 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DB9FC8DA267E8EAB00C36F14 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB9FC8DB267E8EAB00C36F14 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1077,6 +1210,7 @@
 		DB4133442643D5660035D952 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentIcon;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
@@ -1106,6 +1240,7 @@
 		DB4133452643D5660035D952 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentIcon;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
@@ -1132,6 +1267,52 @@
 			};
 			name = Release;
 		};
+		DB9FC8E2267E8EAB00C36F14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ImportExtension/Import.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 15;
+				DEVELOPMENT_TEAM = P49RX2B23K;
+				INFOPLIST_FILE = ImportExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly.import;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		DB9FC8E3267E8EAB00C36F14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ImportExtension/Import.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 15;
+				DEVELOPMENT_TEAM = P49RX2B23K;
+				INFOPLIST_FILE = ImportExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.3;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly.import;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1149,6 +1330,15 @@
 			buildConfigurations = (
 				DB4133442643D5660035D952 /* Debug */,
 				DB4133452643D5660035D952 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB9FC8E1267E8EAB00C36F14 /* Build configuration list for PBXNativeTarget "Import" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB9FC8E2267E8EAB00C36F14 /* Debug */,
+				DB9FC8E3267E8EAB00C36F14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
