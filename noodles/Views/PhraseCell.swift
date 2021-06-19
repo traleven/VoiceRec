@@ -27,12 +27,8 @@ class PhraseCell : UITableViewCell {
 	}
 
 
-	func prepare(for egg: Model.Phrase, at index: Int, preferBaseLanguage: Bool) {
-		if preferBaseLanguage {
-			label.text = egg.baseText.isEmpty ? egg.targetText : egg.baseText
-		} else {
-			label.text = egg.targetText.isEmpty ? egg.baseText : egg.targetText
-		}
+	func prepare(for phrase: Model.Phrase, at index: Int) {
+		label.attributedText = phrase.attributedName
 		indexLabel?.text = "\(index)"
 	}
 }

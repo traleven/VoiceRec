@@ -204,8 +204,7 @@ extension LessonPhrasesViewController : UITableViewDataSource {
 		if (cell == nil) {
 			cell = PhraseCell()
 		}
-		let preferBase = Settings.language.preferBase
-		cell?.prepare(for: phrase, at: indexPath.row + 1, preferBaseLanguage: preferBase)
+		cell?.prepare(for: phrase, at: indexPath.row + 1)
 		return cell!
 	}
 

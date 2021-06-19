@@ -82,11 +82,11 @@ extension LessonExportDirector: LessonExportViewControlDelegate {
 			lesson.save(to: target)
 			if let music = lesson.music {
 				let musicRoot = target.appendingPathComponent(FileUtils.Directories.music.rawValue, isDirectory: true)
-				FileUtils.copy(music, to: musicRoot)
+				_ = FileUtils.copy(music, to: musicRoot)
 			}
 			let phrasesRoot = target.appendingPathComponent(FileUtils.Directories.phrases.rawValue, isDirectory: true)
 			for phrase in lesson {
-				FileUtils.copy(phrase, to: phrasesRoot)
+				_ = FileUtils.copy(phrase, to: phrasesRoot)
 			}
 			DispatchQueue.runOnMain {
 				self.router.dismiss(animated: true, completion: {

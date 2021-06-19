@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit.UIColor
 
 extension Model {
 	/// Annotated and translated phrase that can be used to produce `Noodle`
@@ -29,8 +30,38 @@ extension Model {
 			let base = Model.User.Me.base
 			let target = Model.User.Me.target
 			let first = preferBase ? base : target
+			if let text = meta.text[first], !text.isEmpty {
+				return text
+			}
 			let second = preferBase ? target : base
-			return meta.text[first] ?? meta.text[second] ?? ""
+			if let text = meta.text[second], !text.isEmpty {
+				return text
+			}
+			if let text = meta.text.first(where: { !$0.value.isEmpty })?.value {
+				return text
+			}
+			return meta.comment ?? ""
+		}
+		var attributedName : NSAttributedString {
+			let preferBase = Settings.language.preferBase
+			let base = Model.User.Me.base
+			let target = Model.User.Me.target
+			let first = preferBase ? base : target
+			if let text = meta.text[first], !text.isEmpty {
+				return NSAttributedString(string: text, attributes: nil)
+			}
+			let second = preferBase ? target : base
+			if let text = meta.text[second], !text.isEmpty {
+				return NSAttributedString(string: text, attributes: nil)
+			}
+			if let text = meta.text.first(where: { !$0.value.isEmpty })?.value {
+				return NSAttributedString(string: text, attributes: [
+											NSAttributedString.Key.foregroundColor : UIColor.secondaryText!
+				])
+			}
+			return NSAttributedString(string: meta.comment ?? "", attributes: [
+				NSAttributedString.Key.foregroundColor : UIColor.secondaryText!
+			])
 		}
 		var comment : String {
 			get { meta.comment ?? "" }

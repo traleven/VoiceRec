@@ -101,8 +101,7 @@ extension LessonPhraseSelectorViewController: UITableViewDataSource {
 		if (cell == nil) {
 			cell = PhraseCell()
 		}
-		let preferBase = Settings.language.preferBase
-		cell?.prepare(for: phrase, at: indexPath.row + 1, preferBaseLanguage: preferBase)
+		cell?.prepare(for: phrase, at: indexPath.row + 1)
 		cell?.accessoryType = lesson.contains(phrase.id) ? .checkmark : .none
 		return cell!
 	}
