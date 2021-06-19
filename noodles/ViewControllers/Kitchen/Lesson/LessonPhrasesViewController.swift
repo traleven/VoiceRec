@@ -9,9 +9,11 @@ import UIKit
 
 protocol LessonPhrasesViewFlowDelegate: Director {
 	typealias ModelRefreshHandle = (Model.Recipe) -> Void
+	typealias RefreshHandle = () -> Void
 
 	func openMusicPage(_ lesson: Model.Recipe, _ refresh: @escaping ModelRefreshHandle) -> Bool
 	func openExportPage(_ lesson: Model.Recipe, _ refresh: @escaping ModelRefreshHandle) -> Bool
+	func openPhrasePage(_ phrase: Model.Phrase, _ refresh: RefreshHandle?)
 }
 
 protocol LessonPhrasesViewControlDelegate: LessonPhrasesViewFlowDelegate {
@@ -172,6 +174,13 @@ class LessonPhrasesViewController: NoodlesViewController {
 	}
 
 
+	@IBAction func reorderPhrases(_ sender: UIControl) {
+
+		tableView.setEditing(!tableView.isEditing, animated: true)
+		sender.isSelected = tableView.isEditing
+	}
+
+
 	@IBAction func goToMusicPage(_ sender: UIControl) {
 
 		if !flowDelegate.openMusicPage(lesson, refresh(_:)) {
@@ -215,6 +224,17 @@ extension LessonPhrasesViewController : UITableViewDataSource {
 	}
 
 
+	func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+		return .delete
+	}
+
+
+	func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+
+		lesson.movePhrase(from: sourceIndexPath.row, to: destinationIndexPath.row)
+	}
+
+
 	func numberOfSections(in tableView: UITableView) -> Int { return 1 }
 	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return true }
 }
@@ -249,7 +269,7 @@ extension LessonPhrasesViewController : UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 
-		//let phrase = lesson[indexPath.row]
-		//flowDelegate.openPhrase(phrase.id, refresh)
+		let phrase = lesson[indexPath.row]
+		flowDelegate.openPhrasePage(Model.Phrase(id: phrase), refresh)
 	}
 }

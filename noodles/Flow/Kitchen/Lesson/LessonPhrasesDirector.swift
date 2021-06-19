@@ -50,6 +50,18 @@ extension LessonPhrasesDirector : LessonPhrasesViewFlowDelegate {
 		director.openExport(lesson, tuple.1)
 		return true
 	}
+
+
+	func openPhrasePage(_ phrase: Model.Phrase, _ refresh: RefreshHandle?) {
+
+		let director = PhraseEditDirector(router: router)
+		let viewController = director.makeViewController(phrase: phrase) { (result: Model.Phrase?) in
+			result?.save()
+			refresh?()
+		}
+
+		router.push(viewController, onDismiss: nil)
+	}
 }
 
 extension LessonPhrasesDirector : LessonPhrasesViewControlDelegate {

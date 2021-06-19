@@ -133,12 +133,7 @@ extension LessonsListViewController : UITableViewDelegate {
 		return nil
 	}
 
-
-	func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-		//super.tableView(tableView, accessoryButtonTappedForRowWith: indexPath)
-	}
-
-
+	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		let lesson = items[indexPath.row]

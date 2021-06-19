@@ -110,6 +110,13 @@ extension Model {
 			meta.phrases.removeAll(where: { path.hasSuffix($0) })
 		}
 
+		mutating func movePhrase(from sourceIndex: Int, to targetIndex: Int) {
+
+			let source = meta.phrases[sourceIndex]
+			meta.phrases.remove(at: sourceIndex)
+			meta.phrases.insert(source, at: targetIndex)
+		}
+
 		func save() {
 			FileUtils.ensureDirectory(id)
 			PersistentObject.save(meta, to: FileUtils.getMetaFile(for: id))

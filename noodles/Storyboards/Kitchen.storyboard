@@ -1571,7 +1571,7 @@
                                 </userDefinedRuntimeAttributes>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cui-rp-f7A">
-                                <rect key="frame" x="0.0" y="169" width="414" height="572"/>
+                                <rect key="frame" x="0.0" y="189" width="414" height="552"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="phrase.complete" id="t0l-lD-IaC" customClass="PhraseCell" customModule="Noodles" customModuleProvider="target">
@@ -1604,6 +1604,7 @@
                                                 <constraint firstItem="bmc-xk-2hQ" firstAttribute="leading" secondItem="OHg-5G-7eN" secondAttribute="leading" constant="40" id="r3W-Bc-1vl"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="indexLabel" destination="d9F-EJ-MAM" id="UHG-sY-p9T"/>
                                             <outlet property="label" destination="bmc-xk-2hQ" id="wCW-lJ-8Df"/>
@@ -1654,6 +1655,18 @@
                                     <outlet property="delegate" destination="tq4-mK-4Xi" id="ilh-YD-m3L"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryR-Eo-Z64">
+                                <rect key="frame" x="372" y="165" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="7Ju-o5-SBW"/>
+                                    <constraint firstAttribute="width" secondItem="ryR-Eo-Z64" secondAttribute="height" multiplier="1:1" id="Cjt-8B-EDS"/>
+                                </constraints>
+                                <state key="normal" image="arrow.up.arrow.down.circle" catalog="system"/>
+                                <state key="selected" image="arrow.up.arrow.down.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="reorderPhrases:" destination="tq4-mK-4Xi" eventType="primaryActionTriggered" id="7Rk-tX-PSF"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VRO-kv-dx3">
                                 <rect key="frame" x="366" y="645" width="40" height="40"/>
                                 <constraints>
@@ -1781,14 +1794,16 @@
                         <color key="tintColor" name="AccentIcon"/>
                         <constraints>
                             <constraint firstItem="HH0-P9-zxX" firstAttribute="trailing" secondItem="gQs-2I-cbg" secondAttribute="trailing" constant="8" id="1Ne-5y-HHW"/>
-                            <constraint firstItem="Cui-rp-f7A" firstAttribute="top" secondItem="FoW-kY-spE" secondAttribute="bottom" id="1fw-bl-Ih0"/>
+                            <constraint firstItem="Cui-rp-f7A" firstAttribute="top" secondItem="FoW-kY-spE" secondAttribute="bottom" constant="20" id="1fw-bl-Ih0"/>
                             <constraint firstItem="jsU-0a-bUg" firstAttribute="top" secondItem="HH0-P9-zxX" secondAttribute="top" constant="8" id="3fq-hU-he0"/>
                             <constraint firstItem="jsU-0a-bUg" firstAttribute="leading" secondItem="HH0-P9-zxX" secondAttribute="leading" constant="4" id="5ke-T5-HbM"/>
                             <constraint firstItem="HH0-P9-zxX" firstAttribute="trailing" secondItem="tz5-qY-lWN" secondAttribute="trailing" id="EXn-k6-UYa"/>
                             <constraint firstItem="tz5-qY-lWN" firstAttribute="leading" secondItem="HH0-P9-zxX" secondAttribute="leading" id="KLg-re-SF4"/>
+                            <constraint firstItem="HH0-P9-zxX" firstAttribute="trailing" secondItem="ryR-Eo-Z64" secondAttribute="trailing" constant="14" id="Moo-kR-9SW"/>
                             <constraint firstItem="Cui-rp-f7A" firstAttribute="leading" secondItem="HH0-P9-zxX" secondAttribute="leading" id="P8x-nF-bU5"/>
                             <constraint firstItem="tz5-qY-lWN" firstAttribute="bottom" secondItem="HH0-P9-zxX" secondAttribute="bottom" id="SqF-S8-6EI"/>
                             <constraint firstItem="gQs-2I-cbg" firstAttribute="top" secondItem="VRO-kv-dx3" secondAttribute="bottom" constant="8" id="aIb-e5-Ehj"/>
+                            <constraint firstItem="Cui-rp-f7A" firstAttribute="top" secondItem="ryR-Eo-Z64" secondAttribute="centerY" constant="10" id="cdf-uo-TTu"/>
                             <constraint firstItem="FoW-kY-spE" firstAttribute="leading" secondItem="HH0-P9-zxX" secondAttribute="leading" constant="8" id="eqF-mU-8Y7"/>
                             <constraint firstItem="tz5-qY-lWN" firstAttribute="top" secondItem="Cui-rp-f7A" secondAttribute="bottom" id="gLs-E7-Dpx"/>
                             <constraint firstItem="HH0-P9-zxX" firstAttribute="trailing" secondItem="VRO-kv-dx3" secondAttribute="trailing" constant="8" id="h0G-8W-qeW"/>
@@ -3320,6 +3335,8 @@
         </designable>
     </designables>
     <resources>
+        <image name="arrow.up.arrow.down.circle" catalog="system" width="128" height="121"/>
+        <image name="arrow.up.arrow.down.circle.fill" catalog="system" width="128" height="121"/>
         <image name="book.fill" catalog="system" width="128" height="102"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
