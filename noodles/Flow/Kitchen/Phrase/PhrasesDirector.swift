@@ -34,8 +34,10 @@ extension PhrasesDirector : PhrasesListViewFlowDelegate {
 		let phraseId = url ?? FileUtils.getNewPhraseId()
 		let director = PhraseEditDirector(router: self.router)
 		let viewController = director.makeViewController(phrase: Model.Phrase(id: phraseId), confirm: { (phrase: Model.Phrase?) -> Void in
-			FileUtils.makePhraseDirectory(phraseId)
-			phrase?.save()
+			if let phrase = phrase {
+				FileUtils.makePhraseDirectory(phraseId)
+				phrase.save()
+			}
 		})
 		router.push(viewController, onDismiss: refresh)
 	}

@@ -62,6 +62,10 @@ extension Language: CustomStringConvertible {
 	var description: String {
 		return name
 	}
+
+	var prettyDescription: String {
+		return "\(flag) \(name)"
+	}
 }
 
 extension Language: Hashable {

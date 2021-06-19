@@ -72,7 +72,7 @@ extension InboxSearchDirector : InboxSearchViewControlDelegate {
 
 	func readTextEgg(_ egg: Model.Egg, _ refreshHandle: @escaping () -> Void) {
 
-		let content = String()
+		let content = try? String(contentsOf: egg.id)
 		let director = InboxTextEditDirector(router: router)
 		let viewController = director.makeViewController(content: content, applyHandle: { (content: String) in
 			do {

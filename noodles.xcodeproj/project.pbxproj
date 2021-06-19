@@ -40,12 +40,6 @@
 		DB41333C2643D5660035D952 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB41333B2643D5660035D952 /* Assets.xcassets */; };
 		DB41333F2643D5660035D952 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB41333D2643D5660035D952 /* LaunchScreen.storyboard */; };
 		DB41334E2643D7690035D952 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB41334D2643D7690035D952 /* AudioToolbox.framework */; };
-		DB4139F92643D8360035D952 /* MarketFresh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4139F32643D8360035D952 /* MarketFresh.ttf */; };
-		DB4139FA2643D8360035D952 /* Market Fresh Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4139F42643D8360035D952 /* Market Fresh Bold Italic.ttf */; };
-		DB4139FB2643D8360035D952 /* MarketFreshBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4139F52643D8360035D952 /* MarketFreshBold.ttf */; };
-		DB4139FC2643D8360035D952 /* Market Fresh Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4139F62643D8360035D952 /* Market Fresh Italic.ttf */; };
-		DB4139FD2643D8360035D952 /* AlteHaasGroteskRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4139F72643D8360035D952 /* AlteHaasGroteskRegular.ttf */; };
-		DB4139FE2643D8360035D952 /* AlteHaasGroteskBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4139F82643D8360035D952 /* AlteHaasGroteskBold.ttf */; };
 		DB413A0C2643D8BF0035D952 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A052643D8BF0035D952 /* AudioPlayer.swift */; };
 		DB413A0E2643D8BF0035D952 /* ExportComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A082643D8BF0035D952 /* ExportComposer.swift */; };
 		DB413A0F2643D8BF0035D952 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A092643D8BF0035D952 /* AudioRecorder.swift */; };
@@ -180,12 +174,6 @@
 		DB4133402643D5660035D952 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB41334B2643D7690035D952 /* Noodles.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Noodles.entitlements; sourceTree = "<group>"; };
 		DB41334D2643D7690035D952 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		DB4139F32643D8360035D952 /* MarketFresh.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarketFresh.ttf; sourceTree = "<group>"; };
-		DB4139F42643D8360035D952 /* Market Fresh Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Market Fresh Bold Italic.ttf"; sourceTree = "<group>"; };
-		DB4139F52643D8360035D952 /* MarketFreshBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarketFreshBold.ttf; sourceTree = "<group>"; };
-		DB4139F62643D8360035D952 /* Market Fresh Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Market Fresh Italic.ttf"; sourceTree = "<group>"; };
-		DB4139F72643D8360035D952 /* AlteHaasGroteskRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlteHaasGroteskRegular.ttf; sourceTree = "<group>"; };
-		DB4139F82643D8360035D952 /* AlteHaasGroteskBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlteHaasGroteskBold.ttf; sourceTree = "<group>"; };
 		DB413A022643D8460035D952 /* Noodles-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Noodles-Bridging-Header.h"; sourceTree = "<group>"; };
 		DB413A042643D8BF0035D952 /* OpusTranscoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpusTranscoder.swift; sourceTree = "<group>"; };
 		DB413A052643D8BF0035D952 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
@@ -425,7 +413,6 @@
 			isa = PBXGroup;
 			children = (
 				DB413A552643D9F10035D952 /* Opus */,
-				DB4139F22643D8360035D952 /* CustomFonts */,
 				DB1656FD267B37AD00A45323 /* NowPlayable */,
 				DB4133312643D5650035D952 /* Noodles */,
 				DB4133302643D5650035D952 /* Products */,
@@ -470,19 +457,6 @@
 				DB41334D2643D7690035D952 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DB4139F22643D8360035D952 /* CustomFonts */ = {
-			isa = PBXGroup;
-			children = (
-				DB4139F32643D8360035D952 /* MarketFresh.ttf */,
-				DB4139F42643D8360035D952 /* Market Fresh Bold Italic.ttf */,
-				DB4139F52643D8360035D952 /* MarketFreshBold.ttf */,
-				DB4139F62643D8360035D952 /* Market Fresh Italic.ttf */,
-				DB4139F72643D8360035D952 /* AlteHaasGroteskRegular.ttf */,
-				DB4139F82643D8360035D952 /* AlteHaasGroteskBold.ttf */,
-			);
-			path = CustomFonts;
 			sourceTree = "<group>";
 		};
 		DB413A032643D8BF0035D952 /* Audio */ = {
@@ -814,15 +788,9 @@
 			files = (
 				DBDC67D12644067800B99539 /* Kitchen.storyboard in Resources */,
 				DBDC67DE26441B9400B99539 /* Dining.storyboard in Resources */,
-				DB4139FB2643D8360035D952 /* MarketFreshBold.ttf in Resources */,
 				DB41333F2643D5660035D952 /* LaunchScreen.storyboard in Resources */,
-				DB4139FD2643D8360035D952 /* AlteHaasGroteskRegular.ttf in Resources */,
 				DB413A512643D8E40035D952 /* DefaultData in Resources */,
-				DB4139FC2643D8360035D952 /* Market Fresh Italic.ttf in Resources */,
 				DBDC67DB26441B8000B99539 /* Service.storyboard in Resources */,
-				DB4139FE2643D8360035D952 /* AlteHaasGroteskBold.ttf in Resources */,
-				DB4139F92643D8360035D952 /* MarketFresh.ttf in Resources */,
-				DB4139FA2643D8360035D952 /* Market Fresh Bold Italic.ttf in Resources */,
 				DB41333C2643D5660035D952 /* Assets.xcassets in Resources */,
 				DB41333A2643D5650035D952 /* Main.storyboard in Resources */,
 			);
@@ -1105,7 +1073,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentIcon;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1134,7 +1102,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentIcon;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

@@ -93,7 +93,7 @@ extension InboxDirector : InboxListViewControlDelegate {
 
 	func readTextEgg(_ egg: Model.Egg, _ refreshHandle: @escaping () -> Void) {
 
-		let content = String()
+		let content = try? String(contentsOf: egg.id)
 		let director = InboxTextEditDirector(router: router)
 		let viewController = director.makeViewController(content: content, applyHandle: { (content: String) in
 			do {
@@ -113,6 +113,53 @@ extension InboxDirector : InboxListViewControlDelegate {
 	}
 
 
+	func convertToPhrase(_ egg: Model.Egg, _ refresh: (() -> Void)?) {
+
+		let user = Model.User.Me
+		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: "\(user.base.prettyDescription)", style: .default, handler: {_ in
+			self.convertToPhrase(egg, language: user.base, refresh)
+		}))
+		alert.addAction(UIAlertAction(title: "\(user.target.prettyDescription)", style: .default, handler: {_ in
+			self.convertToPhrase(egg, language: user.target, refresh)
+		}))
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+		router.present(alert, onDismiss: nil)
+	}
+
+
+	func convertToPhrase(_ egg: Model.Egg, language: Language, _ refresh: (() -> Void)?) {
+
+		let director = PhraseEditDirector(router: router)
+		var phrase =  Model.Phrase(id: FileUtils.getNewPhraseId())
+		FileUtils.makePhraseDirectory(phrase.id)
+
+		if egg.type == .text || egg.type == .json {
+			if let text = try? String(contentsOf: egg.id) {
+				phrase.setText(text, for: language)
+				FileUtils.delete(egg.id)
+			}
+		}
+		if egg.type == .audio {
+			if let audio = FileUtils.copy(egg.id, to: phrase.id) {
+				phrase.setAudio(audio, for: language)
+				FileUtils.delete(egg.id)
+			}
+		}
+		phrase.save()
+
+		let viewController = director.makeViewController(phrase: phrase, confirm: {
+			$0?.save()
+		})
+		router.push(viewController, onDismiss: {
+			refresh?()
+		})
+	}
+
+
 	func share(_ egg: Model.Egg) {
+
+		print("InboxDirector.share(_:) is not implemented yet")
 	}
 }

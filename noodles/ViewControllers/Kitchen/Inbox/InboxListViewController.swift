@@ -25,6 +25,7 @@ protocol InboxListViewControlDelegate : InboxListViewFlowDelegate {
 	func readTextEgg(_ egg: Model.Egg, _ refreshHandle: @escaping () -> Void)
 	func delete(_ url: URL)
 	func share(_ egg: Model.Egg)
+	func convertToPhrase(_ egg: Model.Egg, _ refresh: (() -> Void)?)
 }
 
 
@@ -195,18 +196,32 @@ extension InboxListViewController : UITableViewDelegate {
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
 		let target = Model.Egg(id: self.subitems[indexPath.row])
-		if target.type != .audio {
-			return nil
-		}
-
+		let type = target.type
 		var actions: [UIContextualAction] = []
-		actions.addPlayAction { [unowned self] () -> Void in
 
-			let url = self.subitems[indexPath.row]
-			self.flowDelegate.playAudioEgg(url) { (progress: TimeInterval, total: TimeInterval) in
-				self.audioProgress(progress / total, at: indexPath)
-			} finish: { _ in
-				self.audioProgress(0, at: indexPath)
+		if type == .audio {
+			actions.addPlayAction { [unowned self] () -> Void in
+
+				let url = self.subitems[indexPath.row]
+				self.flowDelegate.playAudioEgg(url) { (progress: TimeInterval, total: TimeInterval) in
+					self.audioProgress(progress / total, at: indexPath)
+				} finish: { _ in
+					self.audioProgress(0, at: indexPath)
+				}
+			}
+		}
+		if type == .text || type == .json {
+			actions.addNormalAction(title: "Edit", accent: true) { [weak self] () -> Void in
+				if let self = self {
+					self.flowDelegate.readTextEgg(target, self.refresh)
+				}
+			}
+		}
+		if type == .audio || type == .text || type == .json {
+			actions.addNormalAction(title: "Convert to phrase", accent: false) { [unowned self] in
+				self.flowDelegate.convertToPhrase(target, { [weak self] in
+					self?.refresh()
+				})
 			}
 		}
 
