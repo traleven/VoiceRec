@@ -12,6 +12,7 @@ class ShareViewController: UIViewController {
 
 	fileprivate let m4aIdentifier = "public.mpeg-4-audio"
 	private var items: [(NSItemProvider, URL?)] = []
+	private var inputItems: [NSExtensionItem] = []
 	@IBOutlet var tableView: UITableView?
 
 	override func viewDidLoad() {
@@ -24,6 +25,7 @@ class ShareViewController: UIViewController {
 
 			for itemProvider in attachments {
 				guard itemProvider.hasItemConformingToTypeIdentifier(m4aIdentifier) else { continue }
+				inputItems.append(item)
 				group.enter()
 				itemProvider.loadInPlaceFileRepresentation(forTypeIdentifier: m4aIdentifier) { (url, inPlace, error) in
 					DispatchQueue.main.async { [self] in
@@ -66,18 +68,19 @@ class ShareViewController: UIViewController {
 		for itemProvider in items {
 			group.enter()
 			itemProvider.0.loadFileRepresentation(forTypeIdentifier: m4aIdentifier) { (url, error) in
+				if let error = error { print(error) }
+				if let url = url {
+					_ = FileUtils.copy(url, to: directory)
+				}
 				DispatchQueue.main.async {
-					if let url = url {
-						_ = FileUtils.copy(url, to: directory.appendingPathComponent(url.lastPathComponent))
-						group.leave()
-					}
+					group.leave()
 				}
 			}
 		}
 
 		// Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
 		group.notify(queue: .main) { [self] in
-			context.completeRequest(returningItems: items, completionHandler: nil)
+			context.completeRequest(returningItems: inputItems, completionHandler: nil)
 		}
 	}
 }

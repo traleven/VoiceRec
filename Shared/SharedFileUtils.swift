@@ -117,4 +117,27 @@ class FileUtils {
 		}
 		return targetFile
 	}
+
+
+	/// Move a `source` file to the `directory`, keep the file name
+	class func move(_ source: URL, to directory: URL) -> URL? {
+
+		return move(source, to: directory, as: source.lastPathComponent)
+	}
+
+
+	/// Move a `source` file to the `directory` as a file named `filename`
+	class func move(_ source: URL, to directory: URL, as filename: String) -> URL? {
+
+		let fileManager = FileManager.default
+		let targetFile = directory.appendingPathComponent(filename)
+		ensureDirectory(directory)
+		do {
+			try fileManager.moveItem(at: source, to: targetFile)
+		} catch let error {
+			NSLog("Failed to copy \(source) to \(directory) as \(filename): \(error)")
+			return nil
+		}
+		return targetFile
+	}
 }

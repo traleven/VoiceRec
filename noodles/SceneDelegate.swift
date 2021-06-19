@@ -39,6 +39,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	func sceneWillEnterForeground(_ scene: UIScene) {
 		// Called as the scene transitions from the background to the foreground.
 		// Use this method to undo the changes made on entering the background.
+		let sharedMusic = FileUtils.getSharedDirectory(.music)
+		let music = FileUtils.getDirectory(.music)
+		for item in FileUtils.relativeContentsOfDirectory(sharedMusic) {
+			_ = FileUtils.move(item, to: music)
+		}
+
+		let sharedInbox = FileUtils.getSharedDirectory(.inbox)
+		let inbox = FileUtils.getDirectory(.inbox)
+		for item in FileUtils.relativeContentsOfDirectory(sharedInbox) {
+			_ = FileUtils.move(item, to: inbox)
+		}
 	}
 
 	func sceneDidEnterBackground(_ scene: UIScene) {
