@@ -42,6 +42,15 @@ extension LessonsDirector : LessonsListViewFlowDelegate {
 	}
 }
 
+extension LessonsDirector : LessonsListViewControlDelegate {
+
+	func delete(_ lesson: Model.Recipe, _ refresh: (() -> Void)?) {
+
+		FileUtils.delete(lesson.id)
+		refresh?()
+	}
+}
+
 extension LessonSaveImplementation {
 	func save(_ lesson: Model.Recipe) {
 		FileUtils.makePhraseDirectory(lesson.id)

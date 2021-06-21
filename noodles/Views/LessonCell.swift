@@ -11,6 +11,7 @@ class LessonCell : UITableViewCell {
 
 	@IBOutlet var label : UILabel!
 	@IBOutlet var phraseCount : UILabel?
+	@IBOutlet var duration : UILabel?
 
 	required init?(coder: NSCoder) {
 		super.init(coder: coder)
@@ -31,5 +32,10 @@ class LessonCell : UITableViewCell {
 
 		label.text = lesson.name
 		phraseCount?.text = "\(lesson.phraseCount) phrases"
+		if let duration = duration {
+			lesson.loadAsyncDuration({
+				duration.text = $0.toMinutesTimeString()
+			})
+		}
 	}
 }

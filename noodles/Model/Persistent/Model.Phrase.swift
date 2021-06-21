@@ -159,4 +159,24 @@ extension Model.Phrase {
 	var isComplete: Bool {
 		return !baseText.isEmpty && !targetText.isEmpty && baseAudio != nil && targetAudio != nil
 	}
+
+	func loadAsyncDuration(with shape: Shape, and spice: Spices, _ onValueLoaded: @escaping (TimeInterval) -> Void) {
+		guard let baseAudio = baseAudio, let targetAudio = targetAudio else {
+			onValueLoaded(0)
+			return
+		}
+
+		baseAudio.loadAsyncDuration({ (baseDuration: TimeInterval) in
+			targetAudio.loadAsyncDuration({ (targetDuration: TimeInterval) in
+				var result = Double(shape.count) * Double(spice.delayWithin) + Double(spice.delayBetween)
+				var iterator = shape.makeIterator(base: baseDuration, target: targetDuration)
+				while let value = iterator.next() {
+					result += value
+				}
+				DispatchQueue.runOnMain {
+					onValueLoaded(result)
+				}
+			})
+		})
+	}
 }

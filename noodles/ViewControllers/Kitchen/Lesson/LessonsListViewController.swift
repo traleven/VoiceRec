@@ -13,9 +13,13 @@ protocol LessonsListViewFlowDelegate : Director {
 	func openLesson(_ lesson: Model.Recipe?)
 }
 
+protocol LessonsListViewControlDelegate : LessonsListViewFlowDelegate {
+	func delete(_ lesson: Model.Recipe, _ refresh: (() -> Void)?)
+}
+
 class LessonsListViewController : NoodlesViewController {
 
-	private var flowDelegate: LessonsListViewFlowDelegate!
+	private var flowDelegate: LessonsListViewControlDelegate!
 	private var url: URL
 	private var items: [Model.Recipe] = []
 
@@ -54,7 +58,7 @@ class LessonsListViewController : NoodlesViewController {
 	}
 
 
-	init?(coder: NSCoder, flow: LessonsListViewFlowDelegate, id: URL) {
+	init?(coder: NSCoder, flow: LessonsListViewControlDelegate, id: URL) {
 		self.flowDelegate = flow
 		self.url = id
 		super.init(coder: coder)
@@ -98,39 +102,43 @@ extension LessonsListViewController : UITableViewDataSource {
 
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let phrase = items[indexPath.row]
-		let cellId = getCellIdentifier(for: nil)
+		let lesson = items[indexPath.row]
+		let cellId = getCellIdentifier(for: lesson)
 
 		var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? LessonCell
 		if (cell == nil) {
 			cell = LessonCell()
 		}
-		cell?.prepare(for: phrase)
+		cell?.prepare(for: lesson)
 		return cell!
 	}
 
 
-	private func getCellIdentifier(for lesson: Any?) -> String {
-		return "lesson.complete"
+	private func getCellIdentifier(for lesson: Model.Recipe) -> String {
+		return lesson.status == .complete ? "lesson.complete" : "lesson.incomplete"
 	}
 
 
 	func numberOfSections(in tableView: UITableView) -> Int { return 1 }
-	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return false }
+	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return true }
 }
 
 
 extension LessonsListViewController : UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-		//return super.tableView(tableView, leadingSwipeActionsConfigurationForRowAt: indexPath)
 		return nil
 	}
 
 
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-		//return super.tableView(tableView, trailingSwipeActionsConfigurationForRowAt: indexPath)
-		return nil
+
+		let item = items[indexPath.row]
+		var actions: [UIContextualAction] = []
+		actions.addDeleteAction { [unowned self] in
+			self.flowDelegate.delete(item, refresh)
+		}
+		return makeConfiguration(fullSwipe: false, actions: actions)
 	}
 
 	

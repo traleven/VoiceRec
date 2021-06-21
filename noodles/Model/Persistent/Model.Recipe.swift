@@ -152,3 +152,41 @@ extension Model {
 		}
 	}
 }
+
+extension Model.Recipe {
+	
+	func loadAsyncDuration(_ onValueLoaded: @escaping (TimeInterval) -> Void) {
+		let shape = self.shape
+		let spices = self.spices
+
+		var result: TimeInterval = 0
+		let group = DispatchGroup()
+		for phraseUrl in self {
+
+			let phrase = Model.Phrase(id: phraseUrl)
+			group.enter()
+			phrase.loadAsyncDuration(with: shape, and: spices) { (duration: TimeInterval) in
+				result += duration
+				group.leave()
+			}
+		}
+		group.notify(queue: .main) {
+			onValueLoaded(result)
+		}
+	}
+
+	enum LessonStatus {
+		case complete
+		case noMusic
+		case unusablePhrases
+	}
+
+	var status : LessonStatus {
+		if self.music == nil {
+			return .noMusic
+		} else if self.contains(where: { !Model.Phrase(id: $0).isComplete }) {
+			return .unusablePhrases
+		}
+		return .complete
+	}
+}

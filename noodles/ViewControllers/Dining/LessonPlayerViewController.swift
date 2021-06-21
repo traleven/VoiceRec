@@ -12,9 +12,11 @@ protocol LessonPlayerViewFlowDelegate: Director {
 
 protocol LessonPlayerViewControlDelegate: LessonPlayerViewFlowDelegate {
 
+	//func startLesson(_ lesson: Model.Recipe, _ timer: ((TimeInterval) -> Void)?)
 	func startLesson(_ lesson: Model.Recipe, _ timer: ((TimeInterval) -> Void)?)
 	func stopLesson()
 	func isPlaying() -> Bool
+	func delete(_ lesson: Model.Recipe, _ refresh: (() -> Void)?)
 }
 
 class LessonPlayerViewController: NoodlesViewController {
@@ -25,6 +27,7 @@ class LessonPlayerViewController: NoodlesViewController {
 	private var items: [Model.Recipe] = []
 	private var lesson: Model.Recipe?
 
+	@IBOutlet var tableView: UITableView?
 	@IBOutlet var lessonName: UILabel!
 	@IBOutlet var phraseCount: UILabel?
 	@IBOutlet var durationLabel: UILabel?
@@ -59,7 +62,7 @@ class LessonPlayerViewController: NoodlesViewController {
 		guard let navigationController = navigationController else { fatalError() }
 
 		let router = NavigationControllerRouter(controller: navigationController)
-		self.flowDelegate = LessonPlayerDirector(router: router, timer: { [weak self] (duration: TimeInterval) -> Void in
+		self.flowDelegate = LessonPlayerDirector(router: router, prev: previousTrack, next: nextTrack, timer: { [weak self] (duration: TimeInterval) -> Void in
 			if let self = self {
 				self.durationLabel?.text = duration.toMinutesTimeString()
 				self.playButton?.isSelected = self.flowDelegate.isPlaying()
@@ -75,10 +78,43 @@ class LessonPlayerViewController: NoodlesViewController {
 	}
 
 
+	private func nextTrack() {
+		guard items.count > 0 else { return }
+
+		if let lesson = lesson, let idx = items.firstIndex(of: lesson) {
+
+			let next = (idx + 1) % items.count
+			refresh(items[next])
+			flowDelegate.startLesson(items[next], nil)
+
+		} else {
+			refresh(items[0])
+			flowDelegate.startLesson(items[0], nil)
+		}
+	}
+
+
+	private func previousTrack() {
+		guard items.count > 0 else { return }
+
+		if let lesson = lesson, let idx = items.firstIndex(of: lesson) {
+
+			let prev = (idx + items.count - 1) % items.count
+			refresh(items[prev])
+			flowDelegate.startLesson(items[prev], nil)
+
+		} else {
+			refresh(items[0])
+			flowDelegate.startLesson(items[0], nil)
+		}
+	}
+
+
 	private func reloadData() {
 
 		let fridge = Model.Fridge<Model.Recipe>(FileUtils.getDirectory(.cooked))
 		items = fridge.fetch(ctor: { Model.Recipe(id: $0, baked: true) })
+		tableView?.reloadData()
 	}
 
 
@@ -168,11 +204,20 @@ extension LessonPlayerViewController : UITableViewDelegate {
 
 
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		guard indexPath.row < items.count else { return nil }
 
-//		let lesson = items[indexPath.row]
-//		var actions: [UIContextualAction] = []
-//		return makeConfiguration(fullSwipe: true, actions: actions)
-		return nil
+		let item = items[indexPath.row]
+		var actions: [UIContextualAction] = []
+		actions.addDeleteAction { [unowned self] () -> Void in
+			flowDelegate.delete(item, {
+				reloadData()
+				if item == lesson {
+					lesson = nil
+					refresh()
+				}
+			})
+		}
+		return makeConfiguration(fullSwipe: false, actions: actions)
 	}
 
 

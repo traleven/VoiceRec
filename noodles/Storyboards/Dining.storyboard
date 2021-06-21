@@ -210,6 +210,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="duration" destination="tfI-fb-PZG" id="Fav-XB-hjh"/>
                                             <outlet property="label" destination="Yx9-1u-k14" id="XVY-B0-YNy"/>
                                             <outlet property="phraseCount" destination="Ldh-7q-BPR" id="s5G-iG-mnU"/>
                                         </connections>
@@ -240,6 +241,7 @@
                         <outlet property="lessonName" destination="FeG-Yw-eCG" id="QrC-9S-jnD"/>
                         <outlet property="phraseCount" destination="3Mn-bE-Nk9" id="Fet-to-yCs"/>
                         <outlet property="playButton" destination="Xnt-hL-xjf" id="pEl-CJ-h9Z"/>
+                        <outlet property="tableView" destination="AxE-wr-Bpz" id="J8m-aw-u3m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ouU-S0-h5r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

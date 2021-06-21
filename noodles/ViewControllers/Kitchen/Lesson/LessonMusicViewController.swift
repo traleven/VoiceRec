@@ -106,7 +106,9 @@ class LessonMusicViewController: NoodlesViewController {
 
 		nameField.text = lesson.name
 		phraseCount?.text = "\(lesson.phraseCount) phrases"
-		durationLabel?.text = "00:00"
+		lesson.loadAsyncDuration { [weak self] (duration: TimeInterval) in
+			self?.durationLabel?.text = duration.toMinutesTimeString()
+		}
 		tableView.reloadData()
 		if phrase == nil && lesson.phraseCount > 0 {
 			phrase = Model.Phrase(id: lesson[0])

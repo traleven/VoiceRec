@@ -109,6 +109,9 @@ class LessonPhrasesViewController: NoodlesViewController {
 
 		nameField.text = lesson.name
 		phraseCount?.text = "\(lesson.phraseCount)"
+		lesson.loadAsyncDuration { [weak self] (duration: TimeInterval) in
+			self?.durationLabel?.text = duration.toMinutesTimeString()
+		}
 
 		languageButton?.setLanguageFlag(for: Model.User.Me)
 
@@ -126,15 +129,16 @@ class LessonPhrasesViewController: NoodlesViewController {
 
 	private func activateCorrectWarning() {
 
-		if lesson.music == nil {
+		switch lesson.status {
+		case .noMusic:
 			noMusicWarning?.isHidden = false
 			unusablePhrasesWarning?.isHidden = true
 			livePreviewGroup?.isHidden = true
-		} else if lesson.contains(where: { !Model.Phrase(id: $0).isComplete }) {
+		case .unusablePhrases:
 			noMusicWarning?.isHidden = true
 			unusablePhrasesWarning?.isHidden = false
 			livePreviewGroup?.isHidden = true
-		} else {
+		case.complete:
 			noMusicWarning?.isHidden = true
 			unusablePhrasesWarning?.isHidden = true
 			livePreviewGroup?.isHidden = false

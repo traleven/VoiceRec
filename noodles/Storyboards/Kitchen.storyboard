@@ -62,14 +62,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="inbox.audio" id="o2c-bZ-fUN" customClass="InboxAudioCell" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="57"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="57.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o2c-bZ-fUN" id="CoT-j6-EqG">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="57"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="57.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9rl-ej-ObK" userLabel="ProgressView" customClass="GradientHorizontalProgressBar" customModule="Noodles" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="383" height="57"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="383" height="57.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -100,13 +100,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccm-Xk-MHG">
-                                                    <rect key="frame" x="32" y="32" width="46" height="21"/>
+                                                    <rect key="frame" x="32" y="32" width="46" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="AccentText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaV-In-8cr">
-                                                    <rect key="frame" x="337.5" y="32" width="41.5" height="21"/>
+                                                    <rect key="frame" x="337.5" y="32" width="41.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="SecondaryText"/>
                                                     <nil key="highlightedColor"/>
@@ -139,10 +139,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="inbox.text" id="hkC-no-eZA" customClass="InboxTextCell" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="85" width="414" height="54"/>
+                                        <rect key="frame" x="0.0" y="85.5" width="414" height="54.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hkC-no-eZA" id="i6V-TA-Tdn">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="54"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note.text" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="F99-rP-TmC">
@@ -162,7 +162,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQM-Ep-S9S">
-                                                    <rect key="frame" x="337.5" y="29" width="41.5" height="21"/>
+                                                    <rect key="frame" x="337.5" y="29" width="41.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="SecondaryText"/>
                                                     <nil key="highlightedColor"/>
@@ -186,10 +186,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="inbox.folder" id="tu2-tI-wqJ" customClass="InboxFolderCell" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="139" width="414" height="56"/>
+                                        <rect key="frame" x="0.0" y="140" width="414" height="56.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tu2-tI-wqJ" id="Mhw-TW-uxU">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1Id-iT-Fcw">
@@ -209,13 +209,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWi-d8-4UJ">
-                                                    <rect key="frame" x="31" y="31" width="46" height="21"/>
+                                                    <rect key="frame" x="31" y="31" width="46" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="AccentText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHV-RJ-HPn">
-                                                    <rect key="frame" x="337.5" y="31" width="41.5" height="21"/>
+                                                    <rect key="frame" x="337.5" y="31" width="41.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="SecondaryText"/>
                                                     <nil key="highlightedColor"/>
@@ -1220,6 +1220,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="duration" destination="dPZ-It-XYK" id="bMa-1n-ADn"/>
                                             <outlet property="label" destination="5Qk-p3-ZKk" id="BF3-Hx-CzC"/>
                                             <outlet property="phraseCount" destination="fjM-f9-RPz" id="cqA-rA-sYA"/>
                                         </connections>
@@ -1253,25 +1254,16 @@
                                                     <color key="textColor" name="SecondaryText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wii-TF-hJi">
-                                                    <rect key="frame" x="333" y="28.5" width="46" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="SecondaryText"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zVi-5R-cr7" firstAttribute="top" secondItem="JUq-qA-HQ1" secondAttribute="bottom" constant="4" id="0RC-NP-Gee"/>
                                                 <constraint firstItem="zVi-5R-cr7" firstAttribute="leading" secondItem="JUq-qA-HQ1" secondAttribute="leading" id="ASn-rf-Tx7"/>
                                                 <constraint firstAttribute="bottom" secondItem="zVi-5R-cr7" secondAttribute="bottom" constant="4" id="G5b-Mg-YYN"/>
-                                                <constraint firstAttribute="trailing" secondItem="wii-TF-hJi" secondAttribute="trailing" constant="4" id="Jbz-V0-rax"/>
                                                 <constraint firstAttribute="trailing" secondItem="JUq-qA-HQ1" secondAttribute="trailing" constant="4" id="Ltb-gT-WuP"/>
                                                 <constraint firstItem="JUq-qA-HQ1" firstAttribute="leading" secondItem="vLJ-Ip-UIA" secondAttribute="trailing" constant="4" id="Oet-5E-EHD"/>
                                                 <constraint firstItem="JUq-qA-HQ1" firstAttribute="height" secondItem="vLJ-Ip-UIA" secondAttribute="height" id="QXt-Kn-5s1"/>
-                                                <constraint firstAttribute="bottom" secondItem="wii-TF-hJi" secondAttribute="bottom" constant="4" id="Qvq-Pf-xt3"/>
                                                 <constraint firstItem="vLJ-Ip-UIA" firstAttribute="leading" secondItem="AMi-R7-HwC" secondAttribute="leading" constant="4" id="WXa-Dd-fWx"/>
                                                 <constraint firstItem="vLJ-Ip-UIA" firstAttribute="top" secondItem="AMi-R7-HwC" secondAttribute="top" constant="4" id="bEO-Z1-PUQ"/>
-                                                <constraint firstItem="wii-TF-hJi" firstAttribute="top" secondItem="JUq-qA-HQ1" secondAttribute="bottom" constant="4" id="i0a-Df-5fy"/>
                                                 <constraint firstItem="JUq-qA-HQ1" firstAttribute="top" secondItem="AMi-R7-HwC" secondAttribute="top" constant="4" id="ji3-vZ-K1i"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -2119,10 +2111,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="music.folder" id="faS-eJ-RSO" customClass="MusicFolderCell" customModule="Noodles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="96.5" width="414" height="68"/>
+                                        <rect key="frame" x="0.0" y="96.5" width="414" height="67.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="faS-eJ-RSO" id="ajn-kD-4cb">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uwr-6r-1lp">
@@ -2142,7 +2134,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 tracks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSd-LM-ALg">
-                                                    <rect key="frame" x="40" y="36" width="61.5" height="21.5"/>
+                                                    <rect key="frame" x="40" y="36" width="61.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="SecondaryText"/>
                                                     <nil key="highlightedColor"/>

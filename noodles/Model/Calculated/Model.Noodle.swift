@@ -23,36 +23,8 @@ extension Model {
 			}
 		}
 
-		func makeIterator() -> DNAIterator {
-			return DNAIterator(noodle: self)
-		}
-
-		struct DNAIterator : IteratorProtocol {
-			typealias Element = URL
-			let noodle : Noodle
-			var idx : String.Index
-			var end : String.Index
-
-			init(noodle: Noodle) {
-				self.noodle = noodle
-				self.idx = noodle.shape.dna.startIndex
-				self.end = noodle.shape.dna.endIndex
-			}
-
-			mutating func next() -> URL? {
-				guard idx < end else {
-					return nil
-				}
-				let result : URL?
-				switch noodle.shape.dna[idx] {
-				case "A", "N": result = noodle.phrase.audio(Model.User.Me.base)
-				case "B", "F": result = noodle.phrase.audio(Model.User.Me.target)
-				default:
-					result = nil
-				}
-				idx = noodle.shape.dna.index(after: idx)
-				return result
-			}
+		func makeIterator() -> Shape.DNAIterator<URL> {
+			return shape.makeIterator(base: phrase.baseAudio, target: phrase.targetAudio)
 		}
 	}
 }

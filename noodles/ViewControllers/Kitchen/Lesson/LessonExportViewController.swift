@@ -96,7 +96,9 @@ class LessonExportViewController: NoodlesViewController {
 
 		nameField.text = lesson.name
 		phraseCount?.text = "\(lesson.phraseCount)"
-		durationLabel?.text = "00:00"
+		lesson.loadAsyncDuration { [weak self] (duration: TimeInterval) in
+			self?.durationLabel?.text = duration.toMinutesTimeString()
+		}
 
 		languageButton?.setLanguageFlag(for: Model.User.Me)
 

@@ -10,6 +10,8 @@ import Foundation
 fileprivate let mainQueueKey = DispatchSpecificKey<Bool>()
 
 extension DispatchQueue {
+
+	/// Run `block` synchronously if the calling queue is main; dispatch `block` async to the main queue otherwise
 	public static func runOnMain(_ block: @escaping () -> Void) {
 		if getSpecific(key: mainQueueKey) ?? false {
 			block()

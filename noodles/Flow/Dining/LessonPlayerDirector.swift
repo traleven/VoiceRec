@@ -13,10 +13,14 @@ class LessonPlayerDirector : DefaultDirector {
 	var composer = NowPlayingLiveComposer()
 	var lessonTimer: Timer?
 	var defaultTimerHandler: ((TimeInterval) -> Void)?
+	var defaultPrevHandler: (() -> Void)?
+	var defaultNextHandler: (() -> Void)?
 	unowned let nowPlayableBehavior: NowPlayable = ConfigModel.shared.nowPlayableBehavior
 
-	init(router: Router, timer: ((TimeInterval) -> Void)?) {
+	init(router: Router, prev: (() -> Void)?, next: (() -> Void)?, timer: ((TimeInterval) -> Void)?) {
 		self.defaultTimerHandler = timer
+		self.defaultNextHandler = next
+		self.defaultPrevHandler = prev
 		super.init(router: router)
 
 		setupRemoteCommands()
@@ -28,7 +32,7 @@ extension LessonPlayerDirector : LessonPlayerViewFlowDelegate {
 
 extension LessonPlayerDirector : LessonPlayerViewControlDelegate {
 
-	func startLesson(_ lesson: Model.Recipe, _ timer: ((TimeInterval) -> Void)? = nil) {
+	func startLesson(_ lesson: Model.Recipe, _ timer: ((TimeInterval) -> Void)?) {
 
 		stopLesson()
 		composer = NowPlayingLiveComposer()
@@ -72,20 +76,26 @@ extension LessonPlayerDirector : LessonPlayerViewControlDelegate {
 
 	func isPlaying() -> Bool { composer.isPlaying }
 
-	func setupRemoteCommands() {
+
+	func delete(_ lesson: Model.Recipe, _ refresh: (() -> Void)?) {
+
+		if isPlaying() {
+			stopLesson()
+		}
+		FileUtils.delete(lesson.id)
+		refresh?()
+	}
+
+
+	private func setupRemoteCommands() {
 		
 		// Construct lists of commands to be registered or disabled.
-		var registeredCommands = [.play, .stop] as [NowPlayableCommand]
-		var enabledCommands = [.play, .stop] as [NowPlayableCommand]
-
-		for group in ConfigModel.shared.commandCollections {
-			registeredCommands.append(contentsOf: group.commands.compactMap { $0.shouldRegister ? $0.command : nil })
-			enabledCommands.append(contentsOf: group.commands.compactMap { $0.shouldDisable ? $0.command : nil })
-		}
+		let registeredCommands = [.play, .stop, .pause, .togglePausePlay, .previousTrack, .nextTrack] as [NowPlayableCommand]
+		let disabledCommands = [] as [NowPlayableCommand]
 
 		// Configure the app for Now Playing Info and Remote Command Center behaviors.
 		try! nowPlayableBehavior.handleNowPlayableConfiguration(commands: registeredCommands,
-															   disabledCommands: enabledCommands,
+															   disabledCommands: disabledCommands,
 															   commandHandler: handleCommand(command:event:),
 															   interruptionHandler: handleInterrupt(with:))
 	}
@@ -154,6 +164,12 @@ extension LessonPlayerDirector : LessonPlayerViewControlDelegate {
 			} else {
 				startLesson()
 			}
+
+		case .nextTrack:
+			defaultNextHandler?()
+
+		case .previousTrack:
+			defaultPrevHandler?()
 
 		default:
 			break
