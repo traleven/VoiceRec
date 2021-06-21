@@ -10,17 +10,8 @@
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" title="Room Selection" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="gTW-SH-k1D" customClass="RootPageViewController" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <connections>
-                        <outlet property="panGestureRecognizer" destination="bkI-Du-zts" id="EJe-oe-xDP"/>
-                    </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAj-aR-RZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="bkI-Du-zts">
-                    <rectEdge key="edges" left="YES" right="YES"/>
-                    <connections>
-                        <outlet property="delegate" destination="gTW-SH-k1D" id="dl9-OV-HTo"/>
-                    </connections>
-                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-758" y="-48"/>
         </scene>

@@ -23,11 +23,10 @@ class RootPageViewController : UIPageViewController {
 
 		for recognizer in self.gestureRecognizers {
 			if let pan = recognizer as? UIPanGestureRecognizer {
-				pan.isEnabled = false
+				pan.isEnabled = true
 			}
 			if let tap = recognizer as? UITapGestureRecognizer {
-				tap.numberOfTapsRequired = 2
-				tap.numberOfTouchesRequired = 1
+				tap.isEnabled = false
 			}
 		}
 
@@ -56,4 +55,19 @@ extension RootPageViewController : UIPageViewControllerDataSource {
 }
 
 extension RootPageViewController : UIPageViewControllerDelegate {
+}
+
+extension RootPageViewController : UIGestureRecognizerDelegate {
+
+	// called before touchesBegan:withEvent: is called on the gesture recognizer for a new touch. return NO to prevent the gesture recognizer from seeing this touch
+	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+
+		if let window = touch.window {
+			let point = touch.location(in: nil)
+			let bounds = window.bounds
+			let horizontalEdge = point.x / bounds.width
+			return horizontalEdge < 0.1 || 0.9 < horizontalEdge
+		}
+		return false
+	}
 }
