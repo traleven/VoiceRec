@@ -11,6 +11,8 @@ import Social
 class ShareViewController: UIViewController {
 
 	fileprivate let m4aIdentifier = "public.mpeg-4-audio"
+	fileprivate let oggIdentifier = "org.xiph.oga"
+	
 	private var items: [(NSItemProvider, URL?)] = []
 	private var inputItems: [NSExtensionItem] = []
 	@IBOutlet var tableView: UITableView?
@@ -18,26 +20,42 @@ class ShareViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		DispatchQueue.main.setSpecific(key: DispatchSpecificKey<Bool>(), value: true)
 		guard let context = extensionContext else { return }
 		let group = DispatchGroup()
+		let loadCompletionHandler = { [unowned self] (item: NSItemProvider, url: URL?) -> Void in
+			DispatchQueue.syncToMain {
+				items.append((item, url))
+			}
+		}
 		for item in context.inputItems as! [NSExtensionItem] {
 			guard let attachments = item.attachments else { continue }
 
 			for itemProvider in attachments {
-				guard itemProvider.hasItemConformingToTypeIdentifier(m4aIdentifier) else { continue }
-				inputItems.append(item)
-				group.enter()
-				itemProvider.loadInPlaceFileRepresentation(forTypeIdentifier: m4aIdentifier) { (url, inPlace, error) in
-					DispatchQueue.main.async { [self] in
-						items.append((itemProvider, url))
-						group.leave()
-					}
+				if loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: m4aIdentifier, loadCompletionHandler)
+					|| loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: oggIdentifier, loadCompletionHandler) {
+
+					inputItems.append(item)
 				}
 			}
 		}
 		group.notify(queue: .main) {
 			self.tableView?.reloadData()
 		}
+	}
+
+
+	private func loadInPlaceRepresentation(group: DispatchGroup, itemProvider: NSItemProvider, uti: String, _ completionHandler: @escaping (NSItemProvider, URL?) -> Void) -> Bool {
+		guard itemProvider.hasItemConformingToTypeIdentifier(uti) else { return false }
+
+		group.enter()
+		itemProvider.loadInPlaceFileRepresentation(forTypeIdentifier: uti) { (url, inPlace, error) in
+			completionHandler(itemProvider, url)
+			DispatchQueue.main.async {
+				group.leave()
+			}
+		}
+		return true
 	}
 
 
@@ -66,16 +84,21 @@ class ShareViewController: UIViewController {
 		guard let context = extensionContext else { return }
 		let group = DispatchGroup()
 		for itemProvider in items {
-			group.enter()
-			itemProvider.0.loadFileRepresentation(forTypeIdentifier: m4aIdentifier) { (url, error) in
-				if let error = error { print(error) }
-				if let url = url {
+			if loadFileRepresentation(group: group, itemProvider: itemProvider.0, uti: m4aIdentifier, {
+				if let url = $0 {
 					_ = FileUtils.copy(url, to: directory)
 				}
-				DispatchQueue.main.async {
-					group.leave()
-				}
+			}) {
+				continue
 			}
+			if loadFileRepresentation(group: group, itemProvider: itemProvider.0, uti: oggIdentifier, {
+				if let url = $0 {
+					importAudio(ogg: url, m4a: directory.appendingPathComponent("\(UUID().uuidString).m4a"))
+				}
+			}) {
+				continue
+			}
+			print("Unsupported attachment format for: \(itemProvider)")
 		}
 
 		// Inform the host that we're done, so it un-blocks its UI. Note: Alternatively you could call super's -didSelectPost, which will similarly complete the extension context.
@@ -83,6 +106,24 @@ class ShareViewController: UIViewController {
 			context.completeRequest(returningItems: inputItems, completionHandler: nil)
 		}
 	}
+
+
+	private func loadFileRepresentation(group: DispatchGroup, itemProvider: NSItemProvider, uti: String, _ completionHandler: @escaping (URL?) -> Void) -> Bool {
+		guard itemProvider.hasItemConformingToTypeIdentifier(uti) else { return false }
+
+		group.enter()
+		itemProvider.loadFileRepresentation(forTypeIdentifier: uti) { (url, error) in
+			if let error = error { print(error) }
+			completionHandler(url)
+			DispatchQueue.main.async {
+				group.leave()
+			}
+		}
+		return true
+	}
+}
+
+fileprivate func importAudio(ogg source: URL, m4a destination: URL) {
 }
 
 extension ShareViewController : UITableViewDataSource {
@@ -110,3 +151,16 @@ extension ShareViewController : UITableViewDelegate {
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }
+
+/*
+SUBQUERY(
+	extensionItems,
+	$extensionItem,
+	SUBQUERY(
+		$extensionItem.attachments,
+		$attachment,
+		ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.mpeg-4-audio"
+		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "org.xiph.oga"
+	).@count > 0
+).@count > 0
+*/
