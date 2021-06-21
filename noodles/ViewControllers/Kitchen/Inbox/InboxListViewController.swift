@@ -62,6 +62,12 @@ class InboxListViewController : NoodlesViewController, FlowControlable {
 	}
 
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		refresh()
+	}
+
+
 	@objc private func onAppMoveToBackground() {
 		flowDelegate.stopAllAudio()
 	}
