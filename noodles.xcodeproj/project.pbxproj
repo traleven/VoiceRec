@@ -107,8 +107,7 @@
 		DB91BB4D2684B01300502F09 /* stream.c in Sources */ = {isa = PBXBuildFile; fileRef = DB91BB1F2684B01300502F09 /* stream.c */; };
 		DB91C0552684C1AC00502F09 /* OpusTranscoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DB413A062643D8BF0035D952 /* OpusTranscoder.m */; };
 		DB91C0562684C1AC00502F09 /* OpusTranscoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A042643D8BF0035D952 /* OpusTranscoder.swift */; };
-		DB91C07A2684C5ED00502F09 /* opus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB91C0772684C5DB00502F09 /* opus.framework */; };
-		DB91C07B2684C5ED00502F09 /* opus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DB91C0772684C5DB00502F09 /* opus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DB91C0D42684F4DE00502F09 /* libopus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB91C0D32684F4DE00502F09 /* libopus.a */; };
 		DB9FC8CC267E87B900C36F14 /* SharedFileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9FC8CB267E87B900C36F14 /* SharedFileUtils.swift */; };
 		DB9FC8D9267E8EAB00C36F14 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9FC8D8267E8EAB00C36F14 /* ShareViewController.swift */; };
 		DB9FC8DC267E8EAB00C36F14 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9FC8DA267E8EAB00C36F14 /* MainInterface.storyboard */; };
@@ -161,13 +160,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DB91C0742684C57100502F09 /* Embed Frameworks */ = {
+		DB91C0902684EFEC00502F09 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DB91C07B2684C5ED00502F09 /* opus.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,8 +299,12 @@
 		DB91BB1D2684B01300502F09 /* http.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = http.c; sourceTree = "<group>"; };
 		DB91BB1E2684B01300502F09 /* wincerts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wincerts.c; sourceTree = "<group>"; };
 		DB91BB1F2684B01300502F09 /* stream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stream.c; sourceTree = "<group>"; };
-		DB91C0772684C5DB00502F09 /* opus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opus.framework; path = "opus/Opus-iOS/opus.framework"; sourceTree = "<group>"; };
 		DB91C0832684C91000502F09 /* Import-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Import-Bridging-Header.h"; sourceTree = "<group>"; };
+		DB91C0CF2684F4DE00502F09 /* opus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opus.h; sourceTree = "<group>"; };
+		DB91C0D02684F4DE00502F09 /* opus_multistream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opus_multistream.h; sourceTree = "<group>"; };
+		DB91C0D12684F4DE00502F09 /* opus_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opus_types.h; sourceTree = "<group>"; };
+		DB91C0D22684F4DE00502F09 /* opus_defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opus_defines.h; sourceTree = "<group>"; };
+		DB91C0D32684F4DE00502F09 /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopus.a; sourceTree = "<group>"; };
 		DB9FC8CB267E87B900C36F14 /* SharedFileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFileUtils.swift; sourceTree = "<group>"; };
 		DB9FC8D6267E8EAB00C36F14 /* Import.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Import.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9FC8D8267E8EAB00C36F14 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -359,8 +361,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB91C0D42684F4DE00502F09 /* libopus.a in Frameworks */,
 				DB91B64026847E2C00502F09 /* AudioToolbox.framework in Frameworks */,
-				DB91C07A2684C5ED00502F09 /* opus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,7 +643,7 @@
 		DB413A552643D9F10035D952 /* Opus */ = {
 			isa = PBXGroup;
 			children = (
-				DB91C0772684C5DB00502F09 /* opus.framework */,
+				DB91C0CC2684F4DE00502F09 /* static */,
 				DB91BAE32684B01200502F09 /* opusfile */,
 				DB91B6622684A56600502F09 /* libogg */,
 			);
@@ -764,6 +766,35 @@
 				DB91BB1F2684B01300502F09 /* stream.c */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		DB91C0CC2684F4DE00502F09 /* static */ = {
+			isa = PBXGroup;
+			children = (
+				DB91C0CD2684F4DE00502F09 /* include */,
+				DB91C0D32684F4DE00502F09 /* libopus.a */,
+			);
+			name = static;
+			path = "opus/Opus-iOS/static";
+			sourceTree = "<group>";
+		};
+		DB91C0CD2684F4DE00502F09 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				DB91C0CE2684F4DE00502F09 /* opus */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		DB91C0CE2684F4DE00502F09 /* opus */ = {
+			isa = PBXGroup;
+			children = (
+				DB91C0CF2684F4DE00502F09 /* opus.h */,
+				DB91C0D02684F4DE00502F09 /* opus_multistream.h */,
+				DB91C0D12684F4DE00502F09 /* opus_types.h */,
+				DB91C0D22684F4DE00502F09 /* opus_defines.h */,
+			);
+			path = opus;
 			sourceTree = "<group>";
 		};
 		DB9FC8CA267E879700C36F14 /* Shared */ = {
@@ -916,7 +947,7 @@
 				DB9FC8D2267E8EAB00C36F14 /* Sources */,
 				DB9FC8D3267E8EAB00C36F14 /* Frameworks */,
 				DB9FC8D4267E8EAB00C36F14 /* Resources */,
-				DB91C0742684C57100502F09 /* Embed Frameworks */,
+				DB91C0902684EFEC00502F09 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1300,7 +1331,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentIcon;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1324,7 +1355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentIcon;
 				CODE_SIGN_ENTITLEMENTS = Noodles/Noodles.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = P49RX2B23K;
 				INFOPLIST_FILE = noodles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -1345,8 +1376,9 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ImportExtension/Import.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = P49RX2B23K;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/opus/Opus-iOS",
@@ -1362,6 +1394,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opus/Opus-iOS/static",
+				);
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly.import;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1370,7 +1406,7 @@
 				SYSTEM_HEADER_SEARCH_PATHS = (
 					opus/libogg/include/,
 					opus/opusfile/include/,
-					"opus/Opus-iOS/opus.framework/**",
+					"opus/Opus-iOS/static/**",
 					"$(inherited)",
 				);
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1382,8 +1418,9 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ImportExtension/Import.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = P49RX2B23K;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/opus/Opus-iOS",
@@ -1399,6 +1436,10 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opus/Opus-iOS/static",
+				);
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly.import;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1407,7 +1448,7 @@
 				SYSTEM_HEADER_SEARCH_PATHS = (
 					opus/libogg/include/,
 					opus/opusfile/include/,
-					"opus/Opus-iOS/opus.framework/**",
+					"opus/Opus-iOS/static/**",
 					"$(inherited)",
 				);
 				TARGETED_DEVICE_FAMILY = 1;
