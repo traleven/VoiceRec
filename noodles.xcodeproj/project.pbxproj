@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -108,11 +108,13 @@
 		DB91C0552684C1AC00502F09 /* OpusTranscoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DB413A062643D8BF0035D952 /* OpusTranscoder.m */; };
 		DB91C0562684C1AC00502F09 /* OpusTranscoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A042643D8BF0035D952 /* OpusTranscoder.swift */; };
 		DB91C0D42684F4DE00502F09 /* libopus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB91C0D32684F4DE00502F09 /* libopus.a */; };
+		DB91C0DA2684F80300502F09 /* ZipUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91C0D92684F80300502F09 /* ZipUtils.swift */; };
 		DB9FC8CC267E87B900C36F14 /* SharedFileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9FC8CB267E87B900C36F14 /* SharedFileUtils.swift */; };
 		DB9FC8D9267E8EAB00C36F14 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9FC8D8267E8EAB00C36F14 /* ShareViewController.swift */; };
 		DB9FC8DC267E8EAB00C36F14 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9FC8DA267E8EAB00C36F14 /* MainInterface.storyboard */; };
 		DB9FC8E0267E8EAB00C36F14 /* Import.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DB9FC8D6267E8EAB00C36F14 /* Import.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DB9FC8EE267E8F3400C36F14 /* SharedFileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9FC8CB267E87B900C36F14 /* SharedFileUtils.swift */; };
+		DBA8DB7D26850420009CB5B6 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = DBA8DB7C26850420009CB5B6 /* ZipArchive */; };
 		DBAA69212679421A0079B78C /* ProficiencySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA69202679421A0079B78C /* ProficiencySelectionViewController.swift */; };
 		DBAA69242679422C0079B78C /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA69232679422C0079B78C /* LanguageSelectionViewController.swift */; };
 		DBAA692726795EC20079B78C /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAA692626795EC20079B78C /* MusicViewController.swift */; };
@@ -305,6 +307,8 @@
 		DB91C0D12684F4DE00502F09 /* opus_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opus_types.h; sourceTree = "<group>"; };
 		DB91C0D22684F4DE00502F09 /* opus_defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opus_defines.h; sourceTree = "<group>"; };
 		DB91C0D32684F4DE00502F09 /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopus.a; sourceTree = "<group>"; };
+		DB91C0D92684F80300502F09 /* ZipUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipUtils.swift; sourceTree = "<group>"; };
+		DB91C0DD2684FCEE00502F09 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		DB9FC8CB267E87B900C36F14 /* SharedFileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFileUtils.swift; sourceTree = "<group>"; };
 		DB9FC8D6267E8EAB00C36F14 /* Import.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Import.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9FC8D8267E8EAB00C36F14 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -354,6 +358,7 @@
 			files = (
 				DB41334E2643D7690035D952 /* AudioToolbox.framework in Frameworks */,
 				DBC29E7B267E5FA100C01C03 /* CoreServices.framework in Frameworks */,
+				DBA8DB7D26850420009CB5B6 /* ZipArchive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +506,7 @@
 		DB4133262643D5650035D952 = {
 			isa = PBXGroup;
 			children = (
+				DB91C0DD2684FCEE00502F09 /* icon.png */,
 				DB413A552643D9F10035D952 /* Opus */,
 				DB1656FD267B37AD00A45323 /* NowPlayable */,
 				DB4133312643D5650035D952 /* Noodles */,
@@ -622,6 +628,7 @@
 				DB256DC7267396F3009D2F7D /* ImageUtils.swift */,
 				DB1656E7267A605400A45323 /* UIUtils.swift */,
 				DBC29E76267E49FE00C01C03 /* LocationUtils.swift */,
+				DB91C0D92684F80300502F09 /* ZipUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -935,6 +942,7 @@
 			);
 			name = Noodles;
 			packageProductDependencies = (
+				DBA8DB7C26850420009CB5B6 /* ZipArchive */,
 			);
 			productName = noodles;
 			productReference = DB41332F2643D5650035D952 /* Noodles.app */;
@@ -985,6 +993,9 @@
 				English,
 			);
 			mainGroup = DB4133262643D5650035D952;
+			packageReferences = (
+				DBA8DB7B26850420009CB5B6 /* XCRemoteSwiftPackageReference "ZipArchive" */,
+			);
 			productRefGroup = DB4133302643D5650035D952 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1054,6 +1065,7 @@
 				DB165725267B37D900A45323 /* EnabledItemCellViewDelegate.swift in Sources */,
 				DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */,
 				DB1656F3267A841200A45323 /* LessonPlayerDirector.swift in Sources */,
+				DB91C0DA2684F80300502F09 /* ZipUtils.swift in Sources */,
 				DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */,
 				DB413A272643D8CD0035D952 /* Model.Broth.swift in Sources */,
 				DBCF76C126611BEA00D80A6B /* LessonsDirector.swift in Sources */,
@@ -1487,10 +1499,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		DBA8DB7B26850420009CB5B6 /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZipArchive/ZipArchive.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		DB165732267B39F100A45323 /* NowPlayable */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NowPlayable;
+		};
+		DBA8DB7C26850420009CB5B6 /* ZipArchive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBA8DB7B26850420009CB5B6 /* XCRemoteSwiftPackageReference "ZipArchive" */;
+			productName = ZipArchive;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

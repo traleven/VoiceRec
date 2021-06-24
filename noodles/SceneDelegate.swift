@@ -50,6 +50,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		for item in FileUtils.relativeContentsOfDirectory(sharedInbox) {
 			_ = FileUtils.move(item, to: inbox)
 		}
+
+		let sharedCookedLessons = FileUtils.getSharedDirectory(.cooked)
+		let cookedLessons = FileUtils.getDirectory(.cooked)
+		for item in FileUtils.relativeContentsOfDirectory(sharedCookedLessons) {
+			if ZipUtils.unzip(item, destination: FileUtils.getNewLessonId(at: cookedLessons)) {
+				FileUtils.delete(item)
+			}
+		}
 	}
 
 	func sceneDidEnterBackground(_ scene: UIScene) {

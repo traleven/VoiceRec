@@ -15,6 +15,7 @@ class ShareViewController: UIViewController {
 	fileprivate let m4aIdentifier = "com.apple.m4a-audio"
 	fileprivate let oggIdentifier = "org.xiph.oga"
 	fileprivate let mp3Identifier = "public.mp3"
+	fileprivate let cookedBowlIdentifier = "com.noodles.cooked-bowl"
 
 	private var items: [(NSItemProvider, URL?)] = []
 	private var inputItems: [NSExtensionItem] = []
@@ -38,7 +39,8 @@ class ShareViewController: UIViewController {
 				if loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: m4aIdentifier, loadCompletionHandler)
 					|| loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: mpeg4aIdentifier, loadCompletionHandler)
 					|| loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: oggIdentifier, loadCompletionHandler)
-					|| loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: mp3Identifier, loadCompletionHandler) {
+					|| loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: mp3Identifier, loadCompletionHandler)
+					|| loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: cookedBowlIdentifier, loadCompletionHandler) {
 
 					inputItems.append(item)
 				}
@@ -84,12 +86,19 @@ class ShareViewController: UIViewController {
 		importFiles(to: musicRoot)
     }
 
-	
+
 	private func importFiles(to directory: URL) {
 		guard let context = extensionContext else { return }
 
 		let group = DispatchGroup()
 		for itemProvider in items {
+			if loadFileRepresentation(group: group, itemProvider: itemProvider.0, uti: cookedBowlIdentifier, {
+				if let url = $0 {
+					_ = FileUtils.copy(url, to: FileUtils.getSharedDirectory(.cooked))
+				}
+			}) {
+				continue
+			}
 			if loadFileRepresentation(group: group, itemProvider: itemProvider.0, uti: m4aIdentifier, {
 				if let url = $0 {
 					_ = FileUtils.copy(url, to: directory, fallback: "\(UUID().uuidString).m4a")
@@ -203,6 +212,7 @@ SUBQUERY(
 		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "com.apple.m4a-audio"
 		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "org.xiph.oga"
 		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.mp3"
+		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "com.noodles.cooked-bowl"
 	).@count > 0
 ).@count > 0
 */

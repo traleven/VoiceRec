@@ -51,22 +51,27 @@ extension AudioPlayerImplementation {
 
 	}
 
-	func playAudio(_ noodle: Model.Noodle, with delay: Float, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
-		playAudio(noodle.makeIterator(), at: noodle.phrase.id, with: Double(delay), volume: volume, progress: progress, finish: {
+	func playAudio(_ noodle: Model.Noodle, with delay: Float, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) -> Cancelable {
+		let cancelable = Pointer<Timer>()
+		playAudio(noodle.makeIterator(), at: noodle.phrase.id, with: Double(delay), volume: volume, cancelable: cancelable, progress: progress, finish: {
 			finish?($1)
 		})
+		return cancelable
 	}
 
-	func playAudio(_ noodle: Model.Noodle, at alias: URL, with delay: Float, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
-		playAudio(noodle.makeIterator(), at: alias, with: Double(delay), volume: volume, progress: progress, finish: {
+	func playAudio(_ noodle: Model.Noodle, at alias: URL, with delay: Float, volume: Float, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) -> Cancelable {
+		let cancelable = Pointer<Timer>()
+		playAudio(noodle.makeIterator(), at: alias, with: Double(delay), volume: volume, cancelable: cancelable, progress: progress, finish: {
 			finish?($1)
 		})
+		return cancelable
 	}
 
 	fileprivate func playAudio<Iterator: IteratorProtocol>(_ iterator: Iterator,
 														   at alias: URL,
 														   with delay: Double,
 														   volume: Float,
+														   cancelable: Pointer<Timer>,
 														   progress: PlayerProgressCallback?,
 														   finish: DetailedResultCallback?
 	) where Iterator.Element == URL {
@@ -78,9 +83,9 @@ extension AudioPlayerImplementation {
 					finish?(player, result)
 					return
 				}
-				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
-					self.playAudio(iterator, at: alias, with: delay, volume: player?.volume ?? volume, progress: progress, finish: finish)
-				}
+				cancelable.value = Timer.scheduledTimer(withTimeInterval: delay, repeats: false, block: { _ in
+					self.playAudio(iterator, at: alias, with: delay, volume: player?.volume ?? volume, cancelable: cancelable, progress: progress, finish: finish)
+				})
 			})
 		} else {
 			finish?(nil, .finished)
@@ -99,6 +104,26 @@ extension AudioPlayerImplementation {
 		for player in players {
 			player.value.stop()
 		}
+	}
+}
+
+protocol Cancelable {
+	func cancel()
+}
+
+fileprivate class Pointer<Element : AnyObject & Cancelable> : Cancelable {
+	var value: Element?
+
+	func cancel() {
+		value?.cancel()
+		value = nil
+	}
+}
+
+extension Timer: Cancelable {
+
+	func cancel() {
+		self.invalidate()
 	}
 }
 

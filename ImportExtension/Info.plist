@@ -35,6 +35,7 @@
 		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "com.apple.m4a-audio"
 		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "org.xiph.oga"
 		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.mp3"
+		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "com.noodles.cooked-bowl"
 	).@count &gt; 0
 ).@count &gt; 0</string>
 		</dict>

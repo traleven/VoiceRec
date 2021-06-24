@@ -27,9 +27,6 @@ extension Model {
 		private(set) var id : URL
 		private(set) var audioFile : URL
 		private(set) var avAsset : AVAsset
-		//private(set) var meta : Meta
-		//var name : String { self.meta.name }
-		//var author : String { self.meta.author }
 
 		struct Meta : Codable {
 			private(set) var name : String
@@ -40,14 +37,10 @@ extension Model {
 			self.id = id
 			self.audioFile = id
 			self.avAsset = AVURLAsset(url: id)
-			//self.audioFile = id.appendingPathComponent("audio.m4a")
-			//let metaFile = FileUtils.getMetaFile(for: id)
-			//self.meta = PersistentObject.load(metaFile)
 		}
 
 		func save() {
 			FileUtils.ensureDirectory(id)
-			//PersistentObject.save(meta, to: FileUtils.getMetaFile(for: id))
 		}
 
 		func loadAsyncDuration(_ onValueLoaded: @escaping (TimeInterval) -> Void) {

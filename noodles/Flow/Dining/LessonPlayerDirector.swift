@@ -87,6 +87,24 @@ extension LessonPlayerDirector : LessonPlayerViewControlDelegate {
 	}
 
 
+	func share(_ lesson: Model.Recipe) {
+		DispatchQueue.global().async {
+			ZipUtils.zip(lesson.id, file: "\(lesson.name).noodlez") { (result: URL?) in
+				if let archiveUrl = result {
+					DispatchQueue.main.sync {
+						// bring up the share sheet so we can send the archive with AirDrop for example
+						let avc = UIActivityViewController(activityItems: [archiveUrl], applicationActivities: nil)
+						self.router.present(avc) {
+						}
+					}
+				} else {
+					print("Failed")
+				}
+			}
+		}
+	}
+
+
 	private func setupRemoteCommands() {
 		
 		// Construct lists of commands to be registered or disabled.

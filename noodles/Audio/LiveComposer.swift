@@ -13,6 +13,7 @@ class LiveComposer: Composer, AudioPlayerImplementation {
 
 	var players: [URL : AudioPlayer] = [:]
 	private(set) var isPlaying: Bool = false
+	private var timer: Cancelable?
 
 	open func play(_ lesson: @escaping LessonProvider) {
 
@@ -64,14 +65,14 @@ class LiveComposer: Composer, AudioPlayerImplementation {
 
 		let lesson = lessonProvider()
 		let delay = Double(lesson.spices.delayBetween)
-		DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) { [weak self] in
+		timer = Timer.scheduledTimer(withTimeInterval: delay, repeats: false, block: { [weak self] _ in
 			guard let self = self, self.isPlaying else { return }
 
 			let lesson = lessonProvider()
 			let spices = lesson.spices
 			let phrase = Model.Phrase(id: lesson[idx % lesson.phraseCount])
 			let noodle = Model.Noodle(phrase: phrase, shape: lesson.shape)
-			self.playAudio(noodle, with: spices.delayWithin, volume: spices.voiceVolume, progress: nil) { [weak self] (result: PlayerResult) in
+			self.timer = self.playAudio(noodle, with: spices.delayWithin, volume: spices.voiceVolume, progress: nil) { [weak self] (result: PlayerResult) in
 
 				let lesson = lessonProvider()
 				let spices = lesson.spices
@@ -79,12 +80,13 @@ class LiveComposer: Composer, AudioPlayerImplementation {
 				let next = random ? Int.random(in: 0 ..< lesson.phraseCount) : lesson.index(after: idx)
 				self?.playPhrase(lessonProvider, idx: next)
 			}
-		}
+		})
 	}
 
 	open func stop() {
 
 		isPlaying = false
+		self.timer?.cancel()
 		self.stopPlayingAll()
 	}
 }

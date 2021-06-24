@@ -17,6 +17,7 @@ protocol LessonPlayerViewControlDelegate: LessonPlayerViewFlowDelegate {
 	func stopLesson()
 	func isPlaying() -> Bool
 	func delete(_ lesson: Model.Recipe, _ refresh: (() -> Void)?)
+	func share(_ lesson: Model.Recipe)
 }
 
 class LessonPlayerViewController: NoodlesViewController {
@@ -192,14 +193,16 @@ extension LessonPlayerViewController : UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-//		let lesson = items[indexPath.row]
-//		var actions: [UIContextualAction] = []
+		let lesson = items[indexPath.row]
+		var actions: [UIContextualAction] = []
 //		actions.addPlayAction { [unowned self] () -> Void in
 //			self.flowDelegate.startLivePreview(lesson)
 //			self.refresh(lesson)
 //		}
-//		return makeConfiguration(fullSwipe: true, actions: actions)
-		return nil
+		actions.addNormalAction(title: "Share", accent: false) { [unowned self] in
+			flowDelegate.share(lesson)
+		}
+		return makeConfiguration(fullSwipe: true, actions: actions)
 	}
 
 
