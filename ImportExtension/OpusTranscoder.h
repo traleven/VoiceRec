@@ -9,6 +9,6 @@
 #ifndef OpusTranscoder_h
 #define OpusTranscoder_h
 
-int transcode(const char* inputFile, const char* outputFile);
+int transcodeOpus(const char* inputFile, const char* outputFile);
 
 #endif /* OpusTranscoder_h */

@@ -57,6 +57,12 @@ class FileUtils {
 	}
 
 
+	class func getTempFile(withExtension: String) -> URL {
+
+		return FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString, isDirectory: false).appendingPathExtension(withExtension)
+	}
+
+
 	class func relativeContentsOfDirectory(_ url: URL) -> [URL] {
 		let fmg = FileManager.default
 		let filenames = (try? fmg.contentsOfDirectory(atPath: url.path)) ?? []

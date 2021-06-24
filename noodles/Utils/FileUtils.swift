@@ -73,12 +73,6 @@ extension FileUtils {
 	}
 
 
-	class func getTempFile(withExtension: String) -> URL {
-
-		return FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString, isDirectory: false).appendingPathExtension(withExtension)
-	}
-
-
 	class func getNewInboxFile(at path: URL, withName name: String, andExtension ext: String) -> URL {
 
 		FileUtils.ensureDirectory(path)

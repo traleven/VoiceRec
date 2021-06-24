@@ -11,9 +11,9 @@ import MediaPlayer
 
 class OpusTranscoder: NSObject {
 
-	static let SAMPLE_RATE : opus_int32 = 48000
-	static let FRAME_SIZE : opus_int32 = 5760
-	static let CHANNELS : opus_int32 = 1
+	static let SAMPLE_RATE : Int32 = 48000
+	static let FRAME_SIZE : Int32 = 5760
+	static let CHANNELS : Int32 = 1
 
 
 //	class func convertOpus(_ data: AudioData) {
@@ -25,7 +25,7 @@ class OpusTranscoder: NSObject {
 	class func convert(opusFile: URL, toM4A: URL, completionHandler: @escaping () -> Void) {
 
 		let tmp = FileUtils.getTempFile(withExtension: "wav")
-		transcode(opusFile.path, tmp.path)
+		transcodeOpus(opusFile.path, tmp.path)
 
 		let composition = AVMutableComposition()
 

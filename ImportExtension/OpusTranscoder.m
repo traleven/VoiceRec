@@ -118,7 +118,7 @@ static void make_wav_header(unsigned char _dst[44],ogg_int64_t _duration){
 	}
 }
 
-int transcode(const char* inputFile, const char* outputFile) {
+int transcodeOpus(const char* inputFile, const char* outputFile) {
 
 	OggOpusFile  *of;
 	FILE         *output;
