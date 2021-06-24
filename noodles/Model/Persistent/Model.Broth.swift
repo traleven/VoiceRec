@@ -65,21 +65,24 @@ extension Model {
 		}
 
 		func loadAsyncArtist(_ onValueLoaded: @escaping (String?) -> Void) {
-			loadAsyncCommonValue(for: .commonKeyArtist, onValueLoaded)
+			loadAsyncCommonValue(for: AVMetadataIdentifier.commonIdentifierArtist, onValueLoaded)
 		}
 
 		func loadAsyncTitle(_ onValueLoaded: @escaping (String?) -> Void) {
-			loadAsyncCommonValue(for: .commonKeyTitle, {
+			loadAsyncCommonValue(for: AVMetadataIdentifier.commonIdentifierTitle, {
 				onValueLoaded($0 ?? id.lastPathComponentWithoutExtension)
 			})
 		}
 
-		private func loadAsyncCommonValue<T>(for key: AVMetadataKey, _ onValueLoaded: @escaping (T?) -> Void) {
-			avAsset.loadValuesAsynchronously(forKeys: ["commonMetadata"]) {
-				switch avAsset.statusOfValue(forKey: "commonMetadata", error: nil) {
+		private func loadAsyncCommonValue<T>(for identifier: AVMetadataIdentifier, _ onValueLoaded: @escaping (T?) -> Void) {
+			let anyKey = AVMetadataItem.key(forIdentifier: identifier)
+			let space = AVMetadataItem.keySpace(forIdentifier: identifier)
+			let key = anyKey as? String ?? String(describing: anyKey)
+			avAsset.loadValuesAsynchronously(forKeys: [ "metadata" ]) {
+				switch avAsset.statusOfValue(forKey: "metadata", error: nil) {
 				case .loaded:
-					let metadata = avAsset.commonMetadata
-					let items = AVMetadataItem.metadataItems(from: metadata, withKey: key, keySpace: AVMetadataKeySpace.common)
+					let metadata = avAsset.metadata
+					let items = AVMetadataItem.metadataItems(from: metadata, withKey: key, keySpace: space)
 					DispatchQueue.runOnMain {
 						onValueLoaded(items.first?.value as? T)
 					}

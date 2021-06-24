@@ -87,20 +87,19 @@ class ShareViewController: UIViewController {
 	
 	private func importFiles(to directory: URL) {
 		guard let context = extensionContext else { return }
+
 		let group = DispatchGroup()
 		for itemProvider in items {
 			if loadFileRepresentation(group: group, itemProvider: itemProvider.0, uti: m4aIdentifier, {
 				if let url = $0 {
-					printFormatId(url)
-					_ = FileUtils.copy(url, to: directory)
+					_ = FileUtils.copy(url, to: directory, fallback: "\(UUID().uuidString).m4a")
 				}
 			}) {
 				continue
 			}
 			if loadFileRepresentation(group: group, itemProvider: itemProvider.0, uti: mpeg4aIdentifier, {
 				if let url = $0 {
-					printFormatId(url)
-					_ = FileUtils.copy(url, to: directory)
+					_ = FileUtils.copy(url, to: directory, fallback: "\(UUID().uuidString).m4a")
 				}
 			}) {
 				continue
@@ -152,7 +151,6 @@ class ShareViewController: UIViewController {
 
 fileprivate func importAudio(mp3 source: URL, m4a destination: URL, _ onComplete: (() -> Void)? = nil) {
 
-	//printFormatId(source)
 	if let converter = AVAudioFileConverter(inputFileURL: source, outputFileURL: destination) {
 		converter.convert(onComplete: { _ in
 			onComplete?()
@@ -162,117 +160,11 @@ fileprivate func importAudio(mp3 source: URL, m4a destination: URL, _ onComplete
 
 fileprivate func importAudio(ogg source: URL, m4a destination: URL, _ onComplete: (() -> Void)? = nil) {
 
-	printFormatId(source)
+	OpusTranscoder.convert(opusFile: source, toM4A: destination, completionHandler: {
+		onComplete?()
+	})
 }
 
-func printFormatId(_ url: URL) {
-	var sourceFile : ExtAudioFileRef? = nil
-
-	var srcFormat : AudioStreamBasicDescription = AudioStreamBasicDescription()
-
-	let status = ExtAudioFileOpenURL(url as CFURL, &sourceFile)
-	let error = NSError(domain: NSOSStatusErrorDomain, code: Int(status), userInfo: nil)
-	print(error)
-
-	var thePropertySize: UInt32 = UInt32(MemoryLayout.stride(ofValue: srcFormat))
-
-	ExtAudioFileGetProperty(sourceFile!,
-		kExtAudioFileProperty_FileDataFormat,
-		&thePropertySize, &srcFormat)
-
-	print(srcFormat)
-}
-
-func convertAudio(_ url: URL, outputURL: URL) {
-	var error : OSStatus = noErr
-	var destinationFile : ExtAudioFileRef? = nil
-	var sourceFile : ExtAudioFileRef? = nil
-
-	var srcFormat : AudioStreamBasicDescription = AudioStreamBasicDescription()
-	var dstFormat : AudioStreamBasicDescription = AudioStreamBasicDescription()
-
-	ExtAudioFileOpenURL(url as CFURL, &sourceFile)
-
-	var thePropertySize: UInt32 = UInt32(MemoryLayout.stride(ofValue: srcFormat))
-
-	ExtAudioFileGetProperty(sourceFile!,
-		kExtAudioFileProperty_FileDataFormat,
-		&thePropertySize, &srcFormat)
-
-	dstFormat.mSampleRate = srcFormat.mSampleRate  //Set sample rate
-	dstFormat.mFormatID = kAudioFormatMPEG4AAC
-	dstFormat.mChannelsPerFrame = srcFormat.mChannelsPerFrame
-	dstFormat.mBitsPerChannel = srcFormat.mBitsPerChannel
-	dstFormat.mBytesPerPacket = 0//2 * dstFormat.mChannelsPerFrame
-	dstFormat.mBytesPerFrame = 0//2 * dstFormat.mChannelsPerFrame
-	dstFormat.mFramesPerPacket = 1
-	dstFormat.mFormatFlags = 0//kLinearPCMFormatFlagIsPacked | kAudioFormatFlagIsSignedInteger
-
-
-	// Create destination file
-	error = ExtAudioFileCreateWithURL(
-		outputURL as CFURL,
-		kAudioFormatMPEG4AAC,
-		&dstFormat,
-		nil,
-		AudioFileFlags.eraseFile.rawValue,
-		&destinationFile)
-	reportError(error: error)
-
-	error = ExtAudioFileSetProperty(sourceFile!,
-			kExtAudioFileProperty_ClientDataFormat,
-			thePropertySize,
-			&dstFormat)
-	reportError(error: error)
-
-	error = ExtAudioFileSetProperty(destinationFile!,
-									 kExtAudioFileProperty_ClientDataFormat,
-									thePropertySize,
-									&dstFormat)
-	reportError(error: error)
-
-	let bufferByteSize : UInt32 = 32768
-	var srcBuffer = [UInt8](repeating: 0, count: 32768)
-	var sourceFrameOffset : ULONG = 0
-
-	while(true){
-		var fillBufList = AudioBufferList(
-			mNumberBuffers: 1,
-			mBuffers: AudioBuffer(
-				mNumberChannels: 2,
-				mDataByteSize: UInt32(srcBuffer.count),
-				mData: &srcBuffer
-			)
-		)
-		var numFrames : UInt32 = 0
-
-		if(dstFormat.mBytesPerFrame > 0){
-			numFrames = bufferByteSize / dstFormat.mBytesPerFrame
-		}
-
-		error = ExtAudioFileRead(sourceFile!, &numFrames, &fillBufList)
-		reportError(error: error)
-
-		if(numFrames == 0){
-			error = noErr;
-			break;
-		}
-
-		sourceFrameOffset += numFrames
-		error = ExtAudioFileWrite(destinationFile!, numFrames, &fillBufList)
-		reportError(error: error)
-	}
-
-	error = ExtAudioFileDispose(destinationFile!)
-	reportError(error: error)
-	error = ExtAudioFileDispose(sourceFile!)
-	reportError(error: error)
-}
-
-func reportError(error: OSStatus) {
-	// Handle error
-	print(error)
-}
 
 extension ShareViewController : UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

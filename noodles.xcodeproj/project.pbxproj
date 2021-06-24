@@ -302,6 +302,7 @@
 		DB91BB1E2684B01300502F09 /* wincerts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wincerts.c; sourceTree = "<group>"; };
 		DB91BB1F2684B01300502F09 /* stream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stream.c; sourceTree = "<group>"; };
 		DB91C0772684C5DB00502F09 /* opus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opus.framework; path = "opus/Opus-iOS/opus.framework"; sourceTree = "<group>"; };
+		DB91C0832684C91000502F09 /* Import-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Import-Bridging-Header.h"; sourceTree = "<group>"; };
 		DB9FC8CB267E87B900C36F14 /* SharedFileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFileUtils.swift; sourceTree = "<group>"; };
 		DB9FC8D6267E8EAB00C36F14 /* Import.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Import.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9FC8D8267E8EAB00C36F14 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -784,6 +785,7 @@
 				DB413A072643D8BF0035D952 /* OpusTranscoder.h */,
 				DB9FC8DA267E8EAB00C36F14 /* MainInterface.storyboard */,
 				DB9FC8DD267E8EAB00C36F14 /* Info.plist */,
+				DB91C0832684C91000502F09 /* Import-Bridging-Header.h */,
 			);
 			path = ImportExtension;
 			sourceTree = "<group>";
@@ -1228,7 +1230,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "Noodles/Noodles-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ImportExtension/Import-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1284,7 +1286,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_BRIDGING_HEADER = "Noodles/Noodles-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ImportExtension/Import-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1368,6 +1370,7 @@
 				SYSTEM_HEADER_SEARCH_PATHS = (
 					opus/libogg/include/,
 					opus/opusfile/include/,
+					"opus/Opus-iOS/opus.framework/**",
 					"$(inherited)",
 				);
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1404,6 +1407,7 @@
 				SYSTEM_HEADER_SEARCH_PATHS = (
 					opus/libogg/include/,
 					opus/opusfile/include/,
+					"opus/Opus-iOS/opus.framework/**",
 					"$(inherited)",
 				);
 				TARGETED_DEVICE_FAMILY = 1;

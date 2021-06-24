@@ -125,6 +125,17 @@ class FileUtils {
 	}
 
 
+	/// Copy a `source` file to the `directory`, keep the file name, but if it already exists at destination then change it to `filename`
+	class func copy(_ source: URL, to directory: URL, fallback filename: String) -> URL? {
+
+		let fileManager = FileManager.default
+		let originalName = source.lastPathComponent
+		let targetFile = directory.appendingPathComponent(originalName)
+		let exists = fileManager.fileExists(atPath: targetFile.path)
+		return copy(source, to: directory, as: exists ? filename : originalName)
+	}
+
+
 	/// Move a `source` file to the `directory`, keep the file name
 	class func move(_ source: URL, to directory: URL) -> URL? {
 
