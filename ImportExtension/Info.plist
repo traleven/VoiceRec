@@ -32,7 +32,9 @@
 		$extensionItem.attachments,
 		$attachment,
 		ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.mpeg-4-audio"
+		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "com.apple.m4a-audio"
 		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "org.xiph.oga"
+		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.mp3"
 	).@count &gt; 0
 ).@count &gt; 0</string>
 		</dict>

@@ -7,12 +7,15 @@
 
 import UIKit
 import Social
+import AudioToolbox
 
 class ShareViewController: UIViewController {
 
-	fileprivate let m4aIdentifier = "public.mpeg-4-audio"
+	fileprivate let mpeg4aIdentifier = "public.mpeg-4-audio"
+	fileprivate let m4aIdentifier = "com.apple.m4a-audio"
 	fileprivate let oggIdentifier = "org.xiph.oga"
-	
+	fileprivate let mp3Identifier = "public.mp3"
+
 	private var items: [(NSItemProvider, URL?)] = []
 	private var inputItems: [NSExtensionItem] = []
 	@IBOutlet var tableView: UITableView?
@@ -33,7 +36,9 @@ class ShareViewController: UIViewController {
 
 			for itemProvider in attachments {
 				if loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: m4aIdentifier, loadCompletionHandler)
-					|| loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: oggIdentifier, loadCompletionHandler) {
+					|| loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: mpeg4aIdentifier, loadCompletionHandler)
+					|| loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: oggIdentifier, loadCompletionHandler)
+					|| loadInPlaceRepresentation(group: group, itemProvider: itemProvider, uti: mp3Identifier, loadCompletionHandler) {
 
 					inputItems.append(item)
 				}
@@ -86,14 +91,36 @@ class ShareViewController: UIViewController {
 		for itemProvider in items {
 			if loadFileRepresentation(group: group, itemProvider: itemProvider.0, uti: m4aIdentifier, {
 				if let url = $0 {
+					printFormatId(url)
 					_ = FileUtils.copy(url, to: directory)
+				}
+			}) {
+				continue
+			}
+			if loadFileRepresentation(group: group, itemProvider: itemProvider.0, uti: mpeg4aIdentifier, {
+				if let url = $0 {
+					printFormatId(url)
+					_ = FileUtils.copy(url, to: directory)
+				}
+			}) {
+				continue
+			}
+			if loadFileRepresentation(group: group, itemProvider: itemProvider.0, uti: mp3Identifier, {
+				if let url = $0 {
+					let group = DispatchGroup()
+					group.enter()
+					importAudio(mp3: url, m4a: directory.appendingPathComponent("\(UUID().uuidString).m4a"), {
+						group.leave()
+					})
+					group.wait()
 				}
 			}) {
 				continue
 			}
 			if loadFileRepresentation(group: group, itemProvider: itemProvider.0, uti: oggIdentifier, {
 				if let url = $0 {
-					importAudio(ogg: url, m4a: directory.appendingPathComponent("\(UUID().uuidString).m4a"))
+					importAudio(ogg: url, m4a: directory.appendingPathComponent("\(UUID().uuidString).m4a"), {
+					})
 				}
 			}) {
 				continue
@@ -123,7 +150,128 @@ class ShareViewController: UIViewController {
 	}
 }
 
-fileprivate func importAudio(ogg source: URL, m4a destination: URL) {
+fileprivate func importAudio(mp3 source: URL, m4a destination: URL, _ onComplete: (() -> Void)? = nil) {
+
+	//printFormatId(source)
+	if let converter = AVAudioFileConverter(inputFileURL: source, outputFileURL: destination) {
+		converter.convert(onComplete: { _ in
+			onComplete?()
+		})
+	}
+}
+
+fileprivate func importAudio(ogg source: URL, m4a destination: URL, _ onComplete: (() -> Void)? = nil) {
+
+	printFormatId(source)
+}
+
+func printFormatId(_ url: URL) {
+	var sourceFile : ExtAudioFileRef? = nil
+
+	var srcFormat : AudioStreamBasicDescription = AudioStreamBasicDescription()
+
+	let status = ExtAudioFileOpenURL(url as CFURL, &sourceFile)
+	let error = NSError(domain: NSOSStatusErrorDomain, code: Int(status), userInfo: nil)
+	print(error)
+
+	var thePropertySize: UInt32 = UInt32(MemoryLayout.stride(ofValue: srcFormat))
+
+	ExtAudioFileGetProperty(sourceFile!,
+		kExtAudioFileProperty_FileDataFormat,
+		&thePropertySize, &srcFormat)
+
+	print(srcFormat)
+}
+
+func convertAudio(_ url: URL, outputURL: URL) {
+	var error : OSStatus = noErr
+	var destinationFile : ExtAudioFileRef? = nil
+	var sourceFile : ExtAudioFileRef? = nil
+
+	var srcFormat : AudioStreamBasicDescription = AudioStreamBasicDescription()
+	var dstFormat : AudioStreamBasicDescription = AudioStreamBasicDescription()
+
+	ExtAudioFileOpenURL(url as CFURL, &sourceFile)
+
+	var thePropertySize: UInt32 = UInt32(MemoryLayout.stride(ofValue: srcFormat))
+
+	ExtAudioFileGetProperty(sourceFile!,
+		kExtAudioFileProperty_FileDataFormat,
+		&thePropertySize, &srcFormat)
+
+	dstFormat.mSampleRate = srcFormat.mSampleRate  //Set sample rate
+	dstFormat.mFormatID = kAudioFormatMPEG4AAC
+	dstFormat.mChannelsPerFrame = srcFormat.mChannelsPerFrame
+	dstFormat.mBitsPerChannel = srcFormat.mBitsPerChannel
+	dstFormat.mBytesPerPacket = 0//2 * dstFormat.mChannelsPerFrame
+	dstFormat.mBytesPerFrame = 0//2 * dstFormat.mChannelsPerFrame
+	dstFormat.mFramesPerPacket = 1
+	dstFormat.mFormatFlags = 0//kLinearPCMFormatFlagIsPacked | kAudioFormatFlagIsSignedInteger
+
+
+	// Create destination file
+	error = ExtAudioFileCreateWithURL(
+		outputURL as CFURL,
+		kAudioFormatMPEG4AAC,
+		&dstFormat,
+		nil,
+		AudioFileFlags.eraseFile.rawValue,
+		&destinationFile)
+	reportError(error: error)
+
+	error = ExtAudioFileSetProperty(sourceFile!,
+			kExtAudioFileProperty_ClientDataFormat,
+			thePropertySize,
+			&dstFormat)
+	reportError(error: error)
+
+	error = ExtAudioFileSetProperty(destinationFile!,
+									 kExtAudioFileProperty_ClientDataFormat,
+									thePropertySize,
+									&dstFormat)
+	reportError(error: error)
+
+	let bufferByteSize : UInt32 = 32768
+	var srcBuffer = [UInt8](repeating: 0, count: 32768)
+	var sourceFrameOffset : ULONG = 0
+
+	while(true){
+		var fillBufList = AudioBufferList(
+			mNumberBuffers: 1,
+			mBuffers: AudioBuffer(
+				mNumberChannels: 2,
+				mDataByteSize: UInt32(srcBuffer.count),
+				mData: &srcBuffer
+			)
+		)
+		var numFrames : UInt32 = 0
+
+		if(dstFormat.mBytesPerFrame > 0){
+			numFrames = bufferByteSize / dstFormat.mBytesPerFrame
+		}
+
+		error = ExtAudioFileRead(sourceFile!, &numFrames, &fillBufList)
+		reportError(error: error)
+
+		if(numFrames == 0){
+			error = noErr;
+			break;
+		}
+
+		sourceFrameOffset += numFrames
+		error = ExtAudioFileWrite(destinationFile!, numFrames, &fillBufList)
+		reportError(error: error)
+	}
+
+	error = ExtAudioFileDispose(destinationFile!)
+	reportError(error: error)
+	error = ExtAudioFileDispose(sourceFile!)
+	reportError(error: error)
+}
+
+func reportError(error: OSStatus) {
+	// Handle error
+	print(error)
 }
 
 extension ShareViewController : UITableViewDataSource {
@@ -160,7 +308,9 @@ SUBQUERY(
 		$extensionItem.attachments,
 		$attachment,
 		ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.mpeg-4-audio"
+		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "com.apple.m4a-audio"
 		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "org.xiph.oga"
+		|| ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.mp3"
 	).@count > 0
 ).@count > 0
 */

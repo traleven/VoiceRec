@@ -94,6 +94,18 @@
 		DB8AA9F7267788E5001A40ED /* LanguagesViewTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8AA9F6267788E5001A40ED /* LanguagesViewTableController.swift */; };
 		DB8AA9FA267788F8001A40ED /* TutorsViewTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8AA9F9267788F8001A40ED /* TutorsViewTableController.swift */; };
 		DB8AA9FD26778AAA001A40ED /* ProfileEditorDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8AA9FC26778AAA001A40ED /* ProfileEditorDirector.swift */; };
+		DB91B64026847E2C00502F09 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB41334D2643D7690035D952 /* AudioToolbox.framework */; };
+		DB91B6462684822600502F09 /* AudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB91B6452684812200502F09 /* AudioConverter.swift */; };
+		DB91B7832684A56700502F09 /* framing.c in Sources */ = {isa = PBXBuildFile; fileRef = DB91B6F92684A56600502F09 /* framing.c */; };
+		DB91B7852684A56700502F09 /* bitwise.c in Sources */ = {isa = PBXBuildFile; fileRef = DB91B6FB2684A56600502F09 /* bitwise.c */; };
+		DB91BB2D2684B01300502F09 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DB91BAF52684B01200502F09 /* README.md */; };
+		DB91BB482684B01300502F09 /* opusfile.c in Sources */ = {isa = PBXBuildFile; fileRef = DB91BB192684B01300502F09 /* opusfile.c */; };
+		DB91BB492684B01300502F09 /* info.c in Sources */ = {isa = PBXBuildFile; fileRef = DB91BB1A2684B01300502F09 /* info.c */; };
+		DB91BB4A2684B01300502F09 /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = DB91BB1C2684B01300502F09 /* internal.c */; };
+		DB91BB4B2684B01300502F09 /* http.c in Sources */ = {isa = PBXBuildFile; fileRef = DB91BB1D2684B01300502F09 /* http.c */; };
+		DB91BB4C2684B01300502F09 /* wincerts.c in Sources */ = {isa = PBXBuildFile; fileRef = DB91BB1E2684B01300502F09 /* wincerts.c */; };
+		DB91BB4D2684B01300502F09 /* stream.c in Sources */ = {isa = PBXBuildFile; fileRef = DB91BB1F2684B01300502F09 /* stream.c */; };
+		DB91C0502684BE5F00502F09 /* opus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB91C04F2684BE5F00502F09 /* opus.framework */; };
 		DB9FC8CC267E87B900C36F14 /* SharedFileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9FC8CB267E87B900C36F14 /* SharedFileUtils.swift */; };
 		DB9FC8D9267E8EAB00C36F14 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9FC8D8267E8EAB00C36F14 /* ShareViewController.swift */; };
 		DB9FC8DC267E8EAB00C36F14 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9FC8DA267E8EAB00C36F14 /* MainInterface.storyboard */; };
@@ -136,20 +148,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DB413A5B2643DA080035D952 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB413A562643DA080035D952 /* Ogg.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8D07F2C80486CC7A007CD1D0;
-			remoteInfo = Ogg;
-		};
-		DB413A5D2643DA080035D952 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB413A562643DA080035D952 /* Ogg.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 734FB2E50B18B33E00D561D7;
-			remoteInfo = "libogg (static)";
-		};
 		DB9FC8DE267E8EAB00C36F14 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DB4133272643D5650035D952 /* Project object */;
@@ -239,16 +237,6 @@
 		DB413A432643D8DA0035D952 /* DictionaryDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryDB.swift; sourceTree = "<group>"; };
 		DB413A442643D8DA0035D952 /* ArrayDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDB.swift; sourceTree = "<group>"; };
 		DB413A502643D8E40035D952 /* DefaultData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DefaultData; sourceTree = "<group>"; };
-		DB413A562643DA080035D952 /* Ogg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Ogg.xcodeproj; path = "opus/libogg-1.3.3/macosx/Ogg.xcodeproj"; sourceTree = "<group>"; };
-		DB413A602643DA170035D952 /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopus.a; path = opus/libOpus/libopus.a; sourceTree = "<group>"; };
-		DB413A732643DACA0035D952 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = internal.h; path = "opus/opusfile-0.11/src/internal.h"; sourceTree = SOURCE_ROOT; };
-		DB413A742643DACA0035D952 /* http.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = http.c; path = "opus/opusfile-0.11/src/http.c"; sourceTree = SOURCE_ROOT; };
-		DB413A752643DACA0035D952 /* wincerts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = wincerts.c; path = "opus/opusfile-0.11/src/wincerts.c"; sourceTree = SOURCE_ROOT; };
-		DB413A762643DACA0035D952 /* internal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = internal.c; path = "opus/opusfile-0.11/src/internal.c"; sourceTree = SOURCE_ROOT; };
-		DB413A772643DACA0035D952 /* stream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stream.c; path = "opus/opusfile-0.11/src/stream.c"; sourceTree = SOURCE_ROOT; };
-		DB413A782643DACA0035D952 /* opusfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = opusfile.c; path = "opus/opusfile-0.11/src/opusfile.c"; sourceTree = SOURCE_ROOT; };
-		DB413A792643DACA0035D952 /* winerrno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = winerrno.h; path = "opus/opusfile-0.11/src/winerrno.h"; sourceTree = SOURCE_ROOT; };
-		DB413A7A2643DACA0035D952 /* info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = info.c; path = "opus/opusfile-0.11/src/info.c"; sourceTree = SOURCE_ROOT; };
 		DB55A7F22664C93E00CD963E /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		DB55A7F72664F89900CD963E /* LessonPhrasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPhrasesViewController.swift; sourceTree = "<group>"; };
 		DB55A7FA2664F8B100CD963E /* LessonMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonMusicViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +259,35 @@
 		DB8AA9F6267788E5001A40ED /* LanguagesViewTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewTableController.swift; sourceTree = "<group>"; };
 		DB8AA9F9267788F8001A40ED /* TutorsViewTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorsViewTableController.swift; sourceTree = "<group>"; };
 		DB8AA9FC26778AAA001A40ED /* ProfileEditorDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorDirector.swift; sourceTree = "<group>"; };
+		DB91B6452684812200502F09 /* AudioConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioConverter.swift; sourceTree = "<group>"; };
+		DB91B6672684A56600502F09 /* ogg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ogg.h; sourceTree = "<group>"; };
+		DB91B6682684A56600502F09 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		DB91B6692684A56600502F09 /* config_types.h.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config_types.h.in; sourceTree = "<group>"; };
+		DB91B66A2684A56600502F09 /* os_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = os_types.h; sourceTree = "<group>"; };
+		DB91B66B2684A56600502F09 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		DB91B66F2684A56600502F09 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		DB91B6702684A56600502F09 /* configure.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = configure.in; sourceTree = "<group>"; };
+		DB91B6712684A56600502F09 /* libogg.spec.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libogg.spec.in; sourceTree = "<group>"; };
+		DB91B6732684A56600502F09 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		DB91B6F92684A56600502F09 /* framing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = framing.c; sourceTree = "<group>"; };
+		DB91B6FA2684A56600502F09 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		DB91B6FB2684A56600502F09 /* bitwise.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bitwise.c; sourceTree = "<group>"; };
+		DB91BAED2684B01200502F09 /* opusfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opusfile.h; sourceTree = "<group>"; };
+		DB91BAF52684B01200502F09 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DB91BAF92684B01200502F09 /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		DB91BAFC2684B01200502F09 /* win32utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = win32utf8.h; sourceTree = "<group>"; };
+		DB91BAFD2684B01200502F09 /* seeking_example.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = seeking_example.c; sourceTree = "<group>"; };
+		DB91BAFE2684B01200502F09 /* win32utf8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = win32utf8.c; sourceTree = "<group>"; };
+		DB91BAFF2684B01200502F09 /* opusfile_example.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = opusfile_example.c; sourceTree = "<group>"; };
+		DB91BB182684B01300502F09 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
+		DB91BB192684B01300502F09 /* opusfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = opusfile.c; sourceTree = "<group>"; };
+		DB91BB1A2684B01300502F09 /* info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = info.c; sourceTree = "<group>"; };
+		DB91BB1B2684B01300502F09 /* winerrno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winerrno.h; sourceTree = "<group>"; };
+		DB91BB1C2684B01300502F09 /* internal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = internal.c; sourceTree = "<group>"; };
+		DB91BB1D2684B01300502F09 /* http.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = http.c; sourceTree = "<group>"; };
+		DB91BB1E2684B01300502F09 /* wincerts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wincerts.c; sourceTree = "<group>"; };
+		DB91BB1F2684B01300502F09 /* stream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stream.c; sourceTree = "<group>"; };
+		DB91C04F2684BE5F00502F09 /* opus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opus.framework; path = "opus/Opus-iOS/opus.framework"; sourceTree = "<group>"; };
 		DB9FC8CB267E87B900C36F14 /* SharedFileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFileUtils.swift; sourceTree = "<group>"; };
 		DB9FC8D6267E8EAB00C36F14 /* Import.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Import.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9FC8D8267E8EAB00C36F14 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -327,6 +344,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB91B64026847E2C00502F09 /* AudioToolbox.framework in Frameworks */,
+				DB91C0502684BE5F00502F09 /* opus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,35 +629,11 @@
 		DB413A552643D9F10035D952 /* Opus */ = {
 			isa = PBXGroup;
 			children = (
-				DB413A712643DA570035D952 /* OpusFile */,
-				DB413A602643DA170035D952 /* libopus.a */,
-				DB413A562643DA080035D952 /* Ogg.xcodeproj */,
+				DB91C04F2684BE5F00502F09 /* opus.framework */,
+				DB91BAE32684B01200502F09 /* opusfile */,
+				DB91B6622684A56600502F09 /* libogg */,
 			);
 			name = Opus;
-			sourceTree = "<group>";
-		};
-		DB413A572643DA080035D952 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DB413A5C2643DA080035D952 /* Ogg.framework */,
-				DB413A5E2643DA080035D952 /* libogg.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		DB413A712643DA570035D952 /* OpusFile */ = {
-			isa = PBXGroup;
-			children = (
-				DB413A742643DACA0035D952 /* http.c */,
-				DB413A7A2643DACA0035D952 /* info.c */,
-				DB413A762643DACA0035D952 /* internal.c */,
-				DB413A732643DACA0035D952 /* internal.h */,
-				DB413A782643DACA0035D952 /* opusfile.c */,
-				DB413A772643DACA0035D952 /* stream.c */,
-				DB413A752643DACA0035D952 /* wincerts.c */,
-				DB413A792643DACA0035D952 /* winerrno.h */,
-			);
-			path = OpusFile;
 			sourceTree = "<group>";
 		};
 		DB493D152663FE2800F08BE9 /* Persistent */ = {
@@ -668,6 +663,97 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		DB91B6622684A56600502F09 /* libogg */ = {
+			isa = PBXGroup;
+			children = (
+				DB91B6652684A56600502F09 /* include */,
+				DB91B6F82684A56600502F09 /* src */,
+				DB91B66F2684A56600502F09 /* README */,
+				DB91B6702684A56600502F09 /* configure.in */,
+				DB91B6712684A56600502F09 /* libogg.spec.in */,
+				DB91B6732684A56600502F09 /* COPYING */,
+			);
+			name = libogg;
+			path = opus/libogg;
+			sourceTree = "<group>";
+		};
+		DB91B6652684A56600502F09 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				DB91B6662684A56600502F09 /* ogg */,
+				DB91B66B2684A56600502F09 /* Makefile.am */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		DB91B6662684A56600502F09 /* ogg */ = {
+			isa = PBXGroup;
+			children = (
+				DB91B6672684A56600502F09 /* ogg.h */,
+				DB91B6682684A56600502F09 /* Makefile.am */,
+				DB91B6692684A56600502F09 /* config_types.h.in */,
+				DB91B66A2684A56600502F09 /* os_types.h */,
+			);
+			path = ogg;
+			sourceTree = "<group>";
+		};
+		DB91B6F82684A56600502F09 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DB91B6F92684A56600502F09 /* framing.c */,
+				DB91B6FA2684A56600502F09 /* Makefile.am */,
+				DB91B6FB2684A56600502F09 /* bitwise.c */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		DB91BAE32684B01200502F09 /* opusfile */ = {
+			isa = PBXGroup;
+			children = (
+				DB91BAEC2684B01200502F09 /* include */,
+				DB91BAF52684B01200502F09 /* README.md */,
+				DB91BAF92684B01200502F09 /* COPYING */,
+				DB91BAFB2684B01200502F09 /* examples */,
+				DB91BB172684B01300502F09 /* src */,
+			);
+			name = opusfile;
+			path = opus/opusfile;
+			sourceTree = "<group>";
+		};
+		DB91BAEC2684B01200502F09 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				DB91BAED2684B01200502F09 /* opusfile.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		DB91BAFB2684B01200502F09 /* examples */ = {
+			isa = PBXGroup;
+			children = (
+				DB91BAFC2684B01200502F09 /* win32utf8.h */,
+				DB91BAFD2684B01200502F09 /* seeking_example.c */,
+				DB91BAFE2684B01200502F09 /* win32utf8.c */,
+				DB91BAFF2684B01200502F09 /* opusfile_example.c */,
+			);
+			path = examples;
+			sourceTree = "<group>";
+		};
+		DB91BB172684B01300502F09 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DB91BB182684B01300502F09 /* internal.h */,
+				DB91BB192684B01300502F09 /* opusfile.c */,
+				DB91BB1A2684B01300502F09 /* info.c */,
+				DB91BB1B2684B01300502F09 /* winerrno.h */,
+				DB91BB1C2684B01300502F09 /* internal.c */,
+				DB91BB1D2684B01300502F09 /* http.c */,
+				DB91BB1E2684B01300502F09 /* wincerts.c */,
+				DB91BB1F2684B01300502F09 /* stream.c */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		DB9FC8CA267E879700C36F14 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -681,6 +767,7 @@
 			children = (
 				DB9FC8E7267E8EB200C36F14 /* Import.entitlements */,
 				DB9FC8D8267E8EAB00C36F14 /* ShareViewController.swift */,
+				DB91B6452684812200502F09 /* AudioConverter.swift */,
 				DB9FC8DA267E8EAB00C36F14 /* MainInterface.storyboard */,
 				DB9FC8DD267E8EAB00C36F14 /* Info.plist */,
 			);
@@ -847,16 +934,11 @@
 			knownRegions = (
 				en,
 				Base,
+				English,
 			);
 			mainGroup = DB4133262643D5650035D952;
 			productRefGroup = DB4133302643D5650035D952 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = DB413A572643DA080035D952 /* Products */;
-					ProjectRef = DB413A562643DA080035D952 /* Ogg.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				DB41332E2643D5650035D952 /* Noodles */,
@@ -864,23 +946,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		DB413A5C2643DA080035D952 /* Ogg.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Ogg.framework;
-			remoteRef = DB413A5B2643DA080035D952 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DB413A5E2643DA080035D952 /* libogg.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libogg.a;
-			remoteRef = DB413A5D2643DA080035D952 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DB41332D2643D5650035D952 /* Resources */ = {
@@ -901,6 +966,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB91BB2D2684B01300502F09 /* README.md in Resources */,
 				DB9FC8DC267E8EAB00C36F14 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1025,15 +1091,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB91BB4B2684B01300502F09 /* http.c in Sources */,
 				DB6CD1EC267EA00F00E91F49 /* Model.swift in Sources */,
 				DB6CD1FE267EA0AB00E91F49 /* DispatchQueueUtils.swift in Sources */,
 				DB9FC8EE267E8F3400C36F14 /* SharedFileUtils.swift in Sources */,
+				DB91BB4D2684B01300502F09 /* stream.c in Sources */,
 				DB9FC8D9267E8EAB00C36F14 /* ShareViewController.swift in Sources */,
 				DB6CD1E9267E9FF500E91F49 /* Model.Broth.swift in Sources */,
+				DB91B7852684A56700502F09 /* bitwise.c in Sources */,
 				DB6CD1E6267E9FD400E91F49 /* MusicCell.swift in Sources */,
 				DB6CD1FB267EA05C00E91F49 /* GlobalIdentifiable.swift in Sources */,
+				DB91B6462684822600502F09 /* AudioConverter.swift in Sources */,
 				DB6CD201267EA0C300E91F49 /* DataUtils.swift in Sources */,
+				DB91BB4C2684B01300502F09 /* wincerts.c in Sources */,
+				DB91BB4A2684B01300502F09 /* internal.c in Sources */,
+				DB91BB482684B01300502F09 /* opusfile.c in Sources */,
+				DB91BB492684B01300502F09 /* info.c in Sources */,
 				DB6CD1EF267EA02500E91F49 /* PersistentObject.swift in Sources */,
+				DB91B7832684A56700502F09 /* framing.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1130,11 +1205,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"opus/libogg-1.3.3/include/ogg",
-					"opus/opusfile-0.11/include",
-					opus/libOpus/include/opus,
-				);
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1143,6 +1214,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "Noodles/Noodles-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -1185,17 +1257,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"opus/libogg-1.3.3/include/ogg",
-					"opus/opusfile-0.11/include",
-					opus/libOpus/include/opus,
-				);
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1203,6 +1272,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "Noodles/Noodles-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1274,6 +1344,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = P49RX2B23K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opus/Opus-iOS",
+				);
+				HEADER_SEARCH_PATHS = (
+					opus/opusfile/include,
+					"opus/Opus-iOS/dependencies/include/",
+					opus/libogg/include/ogg,
+				);
 				INFOPLIST_FILE = ImportExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1281,11 +1360,21 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opus/Opus-iOS/dependencies/lib",
+				);
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly.import;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					opus/libogg/include/,
+					opus/opusfile/include/,
+					"opus/Opus-iOS/dependencies/include/opus/",
+					"$(inherited)",
+				);
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1297,6 +1386,15 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = P49RX2B23K;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opus/Opus-iOS",
+				);
+				HEADER_SEARCH_PATHS = (
+					opus/opusfile/include,
+					"opus/Opus-iOS/dependencies/include/",
+					opus/libogg/include/ogg,
+				);
 				INFOPLIST_FILE = ImportExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1304,11 +1402,21 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/opus/Opus-iOS/dependencies/lib",
+				);
 				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dolgushyn.spokenly.import;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					opus/libogg/include/,
+					opus/opusfile/include/,
+					"opus/Opus-iOS/dependencies/include/opus/",
+					"$(inherited)",
+				);
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
