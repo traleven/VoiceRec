@@ -14,7 +14,7 @@ class PhraseEditDirector: DefaultDirector, AudioPlayerImplementation & AudioReco
 	var players: [URL: AudioPlayer] = [:]
 
 	func makeViewController(phrase: Model.Phrase, confirm: ((Model.Phrase?) -> Void)?) -> UIViewController {
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let storyboard = getStoryboard(name: "Kitchen", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "phrase.edit", creator: { (coder: NSCoder) -> PhraseEditViewController? in
 			return PhraseEditViewController(coder: coder, flow: self, content: phrase, applyHandle: confirm)
 		})

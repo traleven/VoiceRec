@@ -10,7 +10,7 @@ import UIKit
 class PatternSelectionDirector: DefaultDirector {
 
 	func makeViewController(current: Shape?, confirm: ((Shape) -> Void)?) -> UIViewController {
-		let storyboard = UIStoryboard(name: "Service", bundle: nil)
+		let storyboard = getStoryboard(name: "Service", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "service.patternSelector", creator: { (coder: NSCoder) -> PatternSelectionViewController? in
 			return PatternSelectionViewController(coder: coder, preselected: current, confirm: confirm)
 		})
@@ -21,7 +21,7 @@ class PatternSelectionDirector: DefaultDirector {
 class LanguageSelectionDirector: DefaultDirector {
 
 	func makeViewController(current: Language?, confirm: ((Language) -> Void)?) -> UIViewController {
-		let storyboard = UIStoryboard(name: "Service", bundle: nil)
+		let storyboard = getStoryboard(name: "Service", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "service.languageSelector", creator: { (coder: NSCoder) -> LanguageSelectionViewController? in
 			return LanguageSelectionViewController(coder: coder, preselected: current, confirm: confirm)
 		})
@@ -32,7 +32,7 @@ class LanguageSelectionDirector: DefaultDirector {
 class ProficiencySelectionDirector: DefaultDirector {
 
 	func makeViewController(current: String?, confirm: ((String) -> Void)?) -> UIViewController {
-		let storyboard = UIStoryboard(name: "Service", bundle: nil)
+		let storyboard = getStoryboard(name: "Service", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "service.proficiencySelector", creator: { (coder: NSCoder) -> ProficiencySelectionViewController? in
 			return ProficiencySelectionViewController(coder: coder, preselected: current, confirm: confirm)
 		})

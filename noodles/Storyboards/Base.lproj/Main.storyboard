@@ -3,6 +3,9 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Room Selection-->
@@ -15,5 +18,67 @@
             </objects>
             <point key="canvasLocation" x="-758" y="-48"/>
         </scene>
+        <!--Cooking Progress-->
+        <scene sceneID="zbA-F4-0EV">
+            <objects>
+                <viewController storyboardIdentifier="progress" title="Cooking Progress" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="L0x-i3-PJh" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="hqg-H7-3ne">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpD-rD-cck">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hKU-Jk-7jr">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Nrz-2e-dNT">
+                                            <rect key="frame" x="188.5" y="350.5" width="37" height="37"/>
+                                            <color key="color" name="PrimaryIcon"/>
+                                        </activityIndicatorView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fancy animation here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrC-q9-hpc">
+                                            <rect key="frame" x="126" y="427.5" width="162" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="PrimaryText"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="tintColor" name="AccentIcon"/>
+                                    <constraints>
+                                        <constraint firstItem="Nrz-2e-dNT" firstAttribute="centerX" secondItem="hKU-Jk-7jr" secondAttribute="centerX" id="GX6-ir-iCs"/>
+                                        <constraint firstItem="wrC-q9-hpc" firstAttribute="centerX" secondItem="hKU-Jk-7jr" secondAttribute="centerX" id="RZL-1F-5TB"/>
+                                        <constraint firstItem="Nrz-2e-dNT" firstAttribute="centerY" secondItem="hKU-Jk-7jr" secondAttribute="centerY" constant="-40" id="Tg8-7r-jXg"/>
+                                        <constraint firstItem="wrC-q9-hpc" firstAttribute="top" secondItem="Nrz-2e-dNT" secondAttribute="bottom" constant="40" id="cVR-QQ-jvB"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2ko-qK-flb"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="AccentIcon"/>
+                        <constraints>
+                            <constraint firstItem="zpD-rD-cck" firstAttribute="top" secondItem="2ko-qK-flb" secondAttribute="top" id="Jqn-C1-C2S"/>
+                            <constraint firstItem="2ko-qK-flb" firstAttribute="bottom" secondItem="zpD-rD-cck" secondAttribute="bottom" id="a2T-2S-ixa"/>
+                            <constraint firstItem="2ko-qK-flb" firstAttribute="trailing" secondItem="zpD-rD-cck" secondAttribute="trailing" id="bb0-fw-ihi"/>
+                            <constraint firstItem="zpD-rD-cck" firstAttribute="leading" secondItem="2ko-qK-flb" secondAttribute="leading" id="oKW-t0-YR3"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="agL-Ag-37u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="242" y="-48"/>
+        </scene>
     </scenes>
+    <resources>
+        <namedColor name="AccentIcon">
+            <color red="0.023529411764705882" green="0.46666666666666667" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryIcon">
+            <color red="0.6470588235294118" green="0.68235294117647061" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryText">
+            <color red="0.17647058823529413" green="0.19215686274509805" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

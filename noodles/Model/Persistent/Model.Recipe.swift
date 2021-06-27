@@ -12,9 +12,11 @@ extension Model {
 	/// to cook a `Bowl` of `Noodle`s
 	struct Recipe : Equatable, GlobalIdentifiable, IdInitializable, Traversable, Savable, Sequence, Collection {
 		var startIndex: Int { 0 }
-		var endIndex: Int { self.phraseCount - 1 }
-		func index(after i: Int) -> Int { (i + 1) % phraseCount }
-		func index(before i: Int) -> Int { (i + phraseCount - 1) % phraseCount }
+		var endIndex: Int { self.phraseCount }
+		func index(after i: Int) -> Int { i + 1 }
+		func index(before i: Int) -> Int { i - 1 }
+		func loop(after i: Int) -> Int { (i + 1) % phraseCount }
+		func loop(before i: Int) -> Int { (i + phraseCount - 1) % phraseCount }
 
 		static func getBy(id: URL) -> Self? {
 			return Self(id: id)

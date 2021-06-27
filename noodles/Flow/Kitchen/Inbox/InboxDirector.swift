@@ -15,7 +15,7 @@ class InboxDirector: DefaultDirector, AudioPlayerImplementation & AudioRecorderI
 
 	func makeViewController(id: URL) -> UIViewController {
 		
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let storyboard = getStoryboard(name: "Kitchen", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "inbox.list", creator: { (coder: NSCoder) -> InboxListViewController? in
 			return InboxListViewController(coder: coder, flow: self, id: id)
 		})
@@ -25,7 +25,7 @@ class InboxDirector: DefaultDirector, AudioPlayerImplementation & AudioRecorderI
 
 extension InboxDirector: InboxListViewFlowDelegate {
 	func openInboxFolder(url: URL) {
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let storyboard = getStoryboard(name: "Kitchen", bundle: nil)
 		let inboxViewController = storyboard.instantiateViewController(identifier: "inbox.list", creator: { (coder: NSCoder) -> InboxListViewController? in
 			return InboxListViewController(coder: coder, flow: self, id: url)
 		})

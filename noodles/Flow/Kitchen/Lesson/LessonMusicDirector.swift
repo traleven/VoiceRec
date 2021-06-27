@@ -13,7 +13,7 @@ class LessonsMusicDirector: DefaultDirector, AudioPlayerImplementation, LessonSa
 	var players: [URL: AudioPlayer] = [:]
 
 	func makeViewController(lesson: Model.Recipe, confirm: ((Model.Recipe) -> Void)?) -> (UIViewController, ((Model.Recipe) -> Void)?) {
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let storyboard = getStoryboard(name: "Kitchen", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "lesson.musicSelector", creator: { (coder: NSCoder) -> LessonMusicViewController? in
 			return LessonMusicViewController(coder: coder, flow: self, lesson: lesson, confirm: confirm)
 		})
@@ -57,7 +57,7 @@ extension LessonsMusicDirector: LessonMusicViewControlDelegate {
 	func play(_ phrase: Model.Phrase, of shape: Shape, with spices: Spices, progress: PlayerProgressCallback?, finish: PlayerResultCallback?) {
 
 		let noodle = Model.Noodle(phrase: phrase, shape: shape)
-		playAudio(noodle, at: phrase.id, with: spices.delayWithin, volume: spices.voiceVolume, progress: progress, finish: finish)
+		_ = playAudio(noodle, at: phrase.id, with: spices.delayWithin, volume: spices.voiceVolume, progress: progress, finish: finish)
 	}
 
 	func stop(_ phrase: Model.Phrase) {

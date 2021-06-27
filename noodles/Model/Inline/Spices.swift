@@ -15,4 +15,11 @@ struct Spices : Codable {
 	var delayBetween: Float = 3
 	var delayWithin: Float = 1
 	var randomize: Bool = true
+
+	var delayBetweenInterval: TimeInterval {
+		get { TimeInterval(delayBetween) }
+	}
+	var delayWithinInterval: TimeInterval {
+		get { TimeInterval(delayWithin) }
+	}
 }

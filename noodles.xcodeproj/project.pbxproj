@@ -43,7 +43,6 @@
 		DB413A0C2643D8BF0035D952 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A052643D8BF0035D952 /* AudioPlayer.swift */; };
 		DB413A0E2643D8BF0035D952 /* ExportComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A082643D8BF0035D952 /* ExportComposer.swift */; };
 		DB413A0F2643D8BF0035D952 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A092643D8BF0035D952 /* AudioRecorder.swift */; };
-		DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A0A2643D8BF0035D952 /* VoiceSequence.swift */; };
 		DB413A262643D8CD0035D952 /* Model.Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A122643D8CD0035D952 /* Model.Phrase.swift */; };
 		DB413A272643D8CD0035D952 /* Model.Broth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A132643D8CD0035D952 /* Model.Broth.swift */; };
 		DB413A282643D8CD0035D952 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB413A142643D8CD0035D952 /* Model.swift */; };
@@ -229,7 +228,6 @@
 		DB413A072643D8BF0035D952 /* OpusTranscoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpusTranscoder.h; sourceTree = "<group>"; };
 		DB413A082643D8BF0035D952 /* ExportComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExportComposer.swift; sourceTree = "<group>"; };
 		DB413A092643D8BF0035D952 /* AudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
-		DB413A0A2643D8BF0035D952 /* VoiceSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceSequence.swift; sourceTree = "<group>"; };
 		DB413A122643D8CD0035D952 /* Model.Phrase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Phrase.swift; sourceTree = "<group>"; };
 		DB413A132643D8CD0035D952 /* Model.Broth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.Broth.swift; sourceTree = "<group>"; };
 		DB413A142643D8CD0035D952 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -567,7 +565,6 @@
 				DB165761267B3C9900A45323 /* NowPlayingComposer.swift */,
 				DB413A082643D8BF0035D952 /* ExportComposer.swift */,
 				DB413A092643D8BF0035D952 /* AudioRecorder.swift */,
-				DB413A0A2643D8BF0035D952 /* VoiceSequence.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -1063,7 +1060,6 @@
 				DBCF76AB265FCF9D00D80A6B /* PhrasesListViewController.swift in Sources */,
 				DBAA69242679422C0079B78C /* LanguageSelectionViewController.swift in Sources */,
 				DB165725267B37D900A45323 /* EnabledItemCellViewDelegate.swift in Sources */,
-				DB413A102643D8BF0035D952 /* VoiceSequence.swift in Sources */,
 				DB1656F3267A841200A45323 /* LessonPlayerDirector.swift in Sources */,
 				DB91C0DA2684F80300502F09 /* ZipUtils.swift in Sources */,
 				DB413A4F2643D8DA0035D952 /* ArrayDB.swift in Sources */,

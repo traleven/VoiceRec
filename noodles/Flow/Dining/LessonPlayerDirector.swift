@@ -105,6 +105,29 @@ extension LessonPlayerDirector : LessonPlayerViewControlDelegate {
 	}
 
 
+	func export(_ lesson: Model.Recipe) {
+
+		let activityIndicator = makeLoadingViewController()
+		router.present(activityIndicator, onDismiss: nil)
+
+		let composer = ExportComposer()
+		composer.export(lesson: lesson, completionHandler: { [weak self] (url: URL, error: Error?) in
+			DispatchQueue.main.async {
+				self?.router.dismiss(animated: true) {
+					guard error == nil else {
+						print(error!)
+						return
+					}
+
+					let avc = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+					self?.router.present(avc) {
+					}
+				}
+			}
+		})
+	}
+
+
 	private func setupRemoteCommands() {
 		
 		// Construct lists of commands to be registered or disabled.

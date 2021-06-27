@@ -15,6 +15,7 @@ protocol Director {
 class DefaultDirector: NSObject, Director {
 
 	var router: Router
+	private static var storyboards: [String : UIStoryboard] = [:]
 
 	init(router: Router) {
 		self.router = router
@@ -26,5 +27,21 @@ class DefaultDirector: NSObject, Director {
 
 	func dismiss() {
 		router.dismiss(animated: true, completion: nil)
+	}
+
+	func makeLoadingViewController() -> UIViewController {
+		let storyboard = getStoryboard(name: "Main", bundle: nil)
+		let viewController = storyboard.instantiateViewController(identifier: "progress")
+		return viewController
+	}
+
+	func getStoryboard(name: String, bundle: Bundle?) -> UIStoryboard {
+		if let storyboard = Self.storyboards[name] {
+			return storyboard
+		}
+
+		let storyboard = UIStoryboard(name: name, bundle: bundle)
+		Self.storyboards[name] = storyboard
+		return storyboard
 	}
 }

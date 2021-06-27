@@ -64,7 +64,7 @@ class LiveComposer: Composer, AudioPlayerImplementation {
 		guard isPlaying else { return }
 
 		let lesson = lessonProvider()
-		let delay = Double(lesson.spices.delayBetween)
+		let delay = lesson.spices.delayBetweenInterval
 		timer = Timer.scheduledTimer(withTimeInterval: delay, repeats: false, block: { [weak self] _ in
 			guard let self = self, self.isPlaying else { return }
 
@@ -77,7 +77,7 @@ class LiveComposer: Composer, AudioPlayerImplementation {
 				let lesson = lessonProvider()
 				let spices = lesson.spices
 				let random = spices.randomize
-				let next = random ? Int.random(in: 0 ..< lesson.phraseCount) : lesson.index(after: idx)
+				let next = random ? Int.random(in: 0 ..< lesson.phraseCount) : lesson.loop(after: idx)
 				self?.playPhrase(lessonProvider, idx: next)
 			}
 		})

@@ -10,7 +10,7 @@ import UIKit
 class ProfileEditorDirector: DefaultDirector {
 
 	func makeViewController(user: Model.User, confirm: @escaping (Model.User?) -> Void) -> UIViewController {
-		let storyboard = UIStoryboard(name: "Service", bundle: nil)
+		let storyboard = getStoryboard(name: "Service", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "service.profileEditor", creator: { (coder: NSCoder) -> ProfileEditorViewController? in
 			return ProfileEditorViewController(coder: coder, flow: self, content: user, applyHandle: confirm)
 		})

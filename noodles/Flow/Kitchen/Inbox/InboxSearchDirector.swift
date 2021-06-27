@@ -16,7 +16,7 @@ class InboxSearchDirector: DefaultDirector, AudioPlayerImplementation & AudioRec
 
 	func makeViewController(onApply: ApplyHandler?) -> UIViewController {
 
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let storyboard = getStoryboard(name: "Kitchen", bundle: nil)
 		let navigation = storyboard.instantiateViewController(identifier: "navigation") as UINavigationController
 		let viewController = storyboard.instantiateViewController(identifier: "inbox.search", creator: { (coder: NSCoder) -> InboxSearchViewController? in
 			return InboxSearchViewController(coder: coder, flow: self, id: FileUtils.getDirectory(.inbox), onApply: onApply)
@@ -29,7 +29,7 @@ class InboxSearchDirector: DefaultDirector, AudioPlayerImplementation & AudioRec
 	func makeViewController(id: URL, onApply: ApplyHandler?) -> UIViewController {
 
 		let router = self.router
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let storyboard = getStoryboard(name: "Kitchen", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "inbox.search", creator: { (coder: NSCoder) -> InboxSearchViewController? in
 			return InboxSearchViewController(coder: coder, flow: self, id: id, onApply: { (egg: Model.Egg?) in
 				if let egg = egg {

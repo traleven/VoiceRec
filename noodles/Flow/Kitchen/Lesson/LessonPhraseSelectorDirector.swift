@@ -13,7 +13,7 @@ class LessonsPhraseSelectorDirector: DefaultDirector, AudioPlayerImplementation,
 	var players: [URL: AudioPlayer] = [:]
 
 	func makeViewController(lesson: Model.Recipe, confirm: @escaping (Model.Recipe) -> Void) -> UIViewController {
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let storyboard = getStoryboard(name: "Kitchen", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "lesson.phraseSelector", creator: { (coder: NSCoder) -> LessonPhraseSelectorViewController? in
 			return LessonPhraseSelectorViewController(coder: coder, flow: self, lesson: lesson, confirm: confirm)
 		})

@@ -14,7 +14,7 @@ class LessonPhrasesDirector: DefaultDirector, AudioPlayerImplementation, LessonS
 
 	func makeViewController(_ lesson: Model.Recipe) -> UIViewController {
 		
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let storyboard = getStoryboard(name: "Kitchen", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "lesson.phrases", creator: { (coder: NSCoder) -> LessonPhrasesViewController? in
 			return LessonPhrasesViewController(coder: coder, flow: self, lesson: lesson)
 		})
@@ -94,7 +94,7 @@ extension LessonPhrasesDirector : LessonPhrasesViewControlDelegate {
 
 		let phrase = Model.Phrase(id: phrase)
 		let noodle = Model.Noodle(phrase: phrase, shape: shape)
-		playAudio(noodle, with: spices.delayWithin, volume: spices.voiceVolume, progress: progress, finish: result)
+		_ = playAudio(noodle, with: spices.delayWithin, volume: spices.voiceVolume, progress: progress, finish: result)
 	}
 
 

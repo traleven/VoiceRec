@@ -9,41 +9,44 @@
 import UIKit
 import MediaPlayer
 
-class ExportComposer : NSObject {
+class ExportComposer : Composer {
 
-	var music: [URL]
-	var phrases: [String]
 	var audioMix: AVAudioMix?
 
-	init(withMusic:[URL], andPhrases: [String]) {
+	private func tryPlay(_ noodle: Model.Noodle, spices: Spices, into compositionTrack: AVMutableCompositionTrack, at:CMTime, before:CMTime, preferredTimescale: CMTimeScale) -> Bool {
 
-		music = withMusic
-		phrases = andPhrases
-	}
+		var position = at.isValid
+			? at + CMTime(seconds: spices.delayBetweenInterval + spices.delayWithinInterval, preferredTimescale: at.timescale)
+			: CMTime(seconds: spices.delayBetweenInterval, preferredTimescale: preferredTimescale)
 
+		for phrase in noodle {
 
-	var phraseIdx = -1
-	func nextPhrase() -> String {
+			let newAsset = AVURLAsset(url: phrase)
+			if position.seconds + newAsset.duration.seconds + spices.delayWithinInterval > before.seconds {
+				return false
+			}
 
-		if (Settings.phrase.random) {
-			return phrases.getRandom()!
-		} else {
-			phraseIdx = (phraseIdx + 1) % phrases.count
-			return phrases[phraseIdx]
+			let range = CMTimeRangeMake(start: CMTime.zero, duration: newAsset.duration)
+			if let track = newAsset.tracks(withMediaType: AVMediaType.audio).first {
+				try! compositionTrack.insertTimeRange(range, of: track, at: position)
+			}
+			position = position + CMTime(seconds: spices.delayWithinInterval, preferredTimescale: position.timescale)
+			position = position + newAsset.duration
+
 		}
+		return true
 	}
 
 
-	func compose() -> AVComposition {
+	private func compose(_ lesson: Model.Recipe) -> AVComposition {
 
-		phraseIdx = -1
 		let composition = AVMutableComposition()
 		let audioMix: AVMutableAudioMix = AVMutableAudioMix()
 		var audioMixParam: [AVMutableAudioMixInputParameters] = []
 
 		let musicTrack:AVMutableCompositionTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID:kCMPersistentTrackID_Invalid)!
 
-		for audioUrl in music.shuffled() {
+		if let audioUrl = lesson.music {
 
 			let newAsset = AVURLAsset(url: audioUrl)
 			let range = CMTimeRangeMake(start: CMTime.zero, duration: newAsset.duration)
@@ -55,17 +58,27 @@ class ExportComposer : NSObject {
 
 		let voiceTrack:AVMutableCompositionTrack = composition.addMutableTrack(withMediaType: AVMediaType.audio, preferredTrackID:kCMPersistentTrackID_Invalid)!
 
-		var phrase: VoiceSequence
-		repeat {
-			phrase = VoiceSequence(withPhrase: nextPhrase())
-		} while phrase.tryPlayInto(voiceTrack, at:voiceTrack.timeRange.end, before:musicTrack.timeRange.end)
+		let bowl = Model.Bowl(lesson: lesson)
+		for phrase in bowl {
+			let endOfVoice = voiceTrack.timeRange.end
+			let endOfMusic = musicTrack.timeRange.end
+			if !tryPlay(phrase,
+				spices: lesson.spices,
+				into: voiceTrack,
+				at: endOfVoice,
+				before: endOfMusic,
+				preferredTimescale: endOfMusic.timescale
+			) {
+				break
+			}
+		}
 
 		let musicParam: AVMutableAudioMixInputParameters = AVMutableAudioMixInputParameters(track: musicTrack)
 		musicParam.trackID = musicTrack.trackID
-		musicParam.setVolume(Settings.music.volume, at: CMTime.zero)
+		musicParam.setVolume(lesson.spices.musicVolume, at: CMTime.zero)
 		let voiceParam: AVMutableAudioMixInputParameters = AVMutableAudioMixInputParameters(track: voiceTrack)
 		voiceParam.trackID = voiceTrack.trackID
-		voiceParam.setVolume(Settings.voice.volume, at: CMTime.zero)
+		voiceParam.setVolume(lesson.spices.voiceVolume, at: CMTime.zero)
 
 		audioMixParam.append(musicParam)
 		audioMixParam.append(voiceParam)
@@ -74,30 +87,20 @@ class ExportComposer : NSObject {
 		self.audioMix = audioMix
 		return composition
 	}
-}
 
-//@IBAction func export() {
-//
-//	activityIndicator.startAnimating()
-//
-//	prepare_data()
-//
-//	let composer = ExportComposer(withMusic: buildMusicURLs(music), andPhrases: voice)
-//
-//	let resultFileName = Date().description + ".m4a"
-//	let destinationUrl = FileUtils.getDirectory("export").appendingPathComponent(resultFileName)
-//	do { try FileManager.default.removeItem(at: destinationUrl) } catch {}
-//
-//	let assetExport = AVAssetExportSession(asset: composer.compose(), presetName: AVAssetExportPresetAppleM4A)!
-//	assetExport.shouldOptimizeForNetworkUse = true
-//	assetExport.audioMix = composer.audioMix
-//	assetExport.outputFileType = AVFileType.m4a
-//	assetExport.outputURL = destinationUrl
-//
-//	assetExport.exportAsynchronously(completionHandler: {
-//		DispatchQueue.main.async {
-//			self.activityIndicator.stopAnimating()
-//			UIUtils.display_alert(at_view_controller: self, msg_title: "Mixture export: ".appending(assetExport.error?.localizedDescription ?? "OK"), msg_desc: "Export complete to: ".appending(destinationUrl.path), action_title: "OK")
-//		}
-//	})
-//}
+	func export(lesson: Model.Recipe, completionHandler: @escaping (URL, Error?) -> Void) {
+		guard  lesson.music != nil else { fatalError() }
+
+		let resultFile = FileUtils.getTempFile(withExtension: "m4a")
+
+		let assetExport = AVAssetExportSession(asset: self.compose(lesson), presetName: AVAssetExportPresetAppleM4A)!
+		assetExport.shouldOptimizeForNetworkUse = true
+		assetExport.audioMix = self.audioMix
+		assetExport.outputFileType = AVFileType.m4a
+		assetExport.outputURL = resultFile
+
+		assetExport.exportAsynchronously(completionHandler: {
+			completionHandler(resultFile, assetExport.error)
+		})
+	}
+}

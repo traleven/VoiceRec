@@ -13,7 +13,7 @@ class MusicDirector: DefaultDirector, AudioPlayerImplementation, LessonSaveImple
 	var players: [URL: AudioPlayer] = [:]
 
 	func makeViewController() -> UIViewController {
-		let storyboard = UIStoryboard(name: "Service", bundle: nil)
+		let storyboard = getStoryboard(name: "Service", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "service.music", creator: { (coder: NSCoder) -> MusicViewController? in
 			return MusicViewController(coder: coder, flow: self)
 		})

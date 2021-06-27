@@ -13,7 +13,7 @@ class LessonExportDirector: DefaultDirector, LessonSaveImplementation {
 	var composer: LiveComposer = LiveComposer()
 
 	func makeViewController(lesson: Model.Recipe, confirm: ((Model.Recipe) -> Void)?) -> UIViewController {
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let storyboard = getStoryboard(name: "Kitchen", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "lesson.export", creator: { (coder: NSCoder) -> LessonExportViewController? in
 			return LessonExportViewController(coder: coder, flow: self, lesson: lesson, confirm: confirm)
 		})
@@ -70,7 +70,7 @@ extension LessonExportDirector: LessonExportViewControlDelegate {
 
 	func bake(_ lesson: Model.Recipe) {
 
-		let storyboard = UIStoryboard(name: "Kitchen", bundle: nil)
+		let storyboard = getStoryboard(name: "Kitchen", bundle: nil)
 		let viewController = storyboard.instantiateViewController(identifier: "lesson.cooking")
 		router.present(viewController, onDismiss: nil)
 

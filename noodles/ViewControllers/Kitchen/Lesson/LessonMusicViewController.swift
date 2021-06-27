@@ -175,7 +175,7 @@ class LessonMusicViewController: NoodlesViewController {
 			return
 		}
 		let idx = lesson.firstIndex(of: phrase.id) ?? 1
-		let newIdx = lesson.index(before: idx)
+		let newIdx = lesson.loop(before: idx)
 		self.phrase = Model.Phrase(id: lesson[newIdx])
 		refresh()
 	}
@@ -190,7 +190,7 @@ class LessonMusicViewController: NoodlesViewController {
 			return
 		}
 		let idx = lesson.firstIndex(of: phrase.id) ?? -1
-		let newIdx = lesson.index(after: idx)
+		let newIdx = lesson.loop(after: idx)
 		self.phrase = Model.Phrase(id: lesson[newIdx])
 		refresh()
 	}

@@ -45,7 +45,7 @@
                                 <rect key="frame" x="0.0" y="250" width="414" height="563"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ocr-EW-c8Q" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="665"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="721"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xF9-pi-wtV">
                                                 <rect key="frame" x="8" y="8" width="57" height="20.5"/>
@@ -115,7 +115,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WDF-ld-jBi" customClass="SelfSizedTableView" customModule="Noodles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="179" width="414" height="169"/>
+                                                <rect key="frame" x="0.0" y="179" width="414" height="197"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="language.generic" id="wvr-af-Yaz" customClass="LanguageCell" customModule="Noodles" customModuleProvider="target">
@@ -269,13 +269,13 @@
                                                 </prototypes>
                                             </tableView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY TUTORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmC-5n-niC">
-                                                <rect key="frame" x="8" y="388" width="96" height="21"/>
+                                                <rect key="frame" x="8" y="416" width="96" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="SecondaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RUJ-pa-msr" customClass="SelfSizedTableView" customModule="Noodles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="417" width="414" height="122"/>
+                                                <rect key="frame" x="0.0" y="445" width="414" height="150"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tutor.generic" id="WDF-bM-3gQ" customClass="TutorCell" customModule="Noodles" customModuleProvider="target">
@@ -359,7 +359,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OUT-hX-2mg">
-                                                <rect key="frame" x="0.0" y="608" width="414" height="37"/>
+                                                <rect key="frame" x="0.0" y="664" width="414" height="37"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default repetition sequence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6PG-7C-ARw">
                                                         <rect key="frame" x="8" y="8" width="211" height="21"/>
@@ -395,7 +395,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREFERENCES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Swh-0c-2Bd">
-                                                <rect key="frame" x="8" y="579" width="115" height="21"/>
+                                                <rect key="frame" x="8" y="635" width="115" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="SecondaryText"/>
                                                 <nil key="highlightedColor"/>
@@ -662,7 +662,7 @@
                                 <rect key="frame" x="0.0" y="296" width="414" height="566"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxc-IL-h11" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="753.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="809.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXt-9E-TcZ">
                                                 <rect key="frame" x="8" y="8" width="57" height="20.5"/>
@@ -711,7 +711,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="692-ZK-f1H" customClass="SelfSizedTableView" customModule="Noodles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="189" width="414" height="170.5"/>
+                                                <rect key="frame" x="0.0" y="189" width="414" height="198.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="language.generic" id="YdA-SA-UkF" customClass="LanguageCell" customModule="Noodles" customModuleProvider="target">
@@ -868,7 +868,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upl-yl-SXE">
-                                                <rect key="frame" x="16" y="367.5" width="382" height="30"/>
+                                                <rect key="frame" x="16" y="395.5" width="382" height="30"/>
                                                 <state key="normal" title="+ Add language">
                                                     <color key="titleColor" name="SecondaryText"/>
                                                 </state>
@@ -877,13 +877,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY TUTORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xi1-jz-pTU">
-                                                <rect key="frame" x="8" y="437.5" width="96" height="21"/>
+                                                <rect key="frame" x="8" y="465.5" width="96" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="SecondaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HEL-vr-sXR" customClass="SelfSizedTableView" customModule="Noodles" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="466.5" width="414" height="123"/>
+                                                <rect key="frame" x="0.0" y="494.5" width="414" height="151"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tutor.generic" id="bh9-BI-B2t" customClass="TutorCell" customModule="Noodles" customModuleProvider="target">
@@ -969,7 +969,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cb9-8j-wLl">
-                                                <rect key="frame" x="16" y="597.5" width="382" height="30"/>
+                                                <rect key="frame" x="16" y="653.5" width="382" height="30"/>
                                                 <state key="normal" title="+ Add tutor">
                                                     <color key="titleColor" name="SecondaryText"/>
                                                 </state>
@@ -978,13 +978,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREFERENCES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp8-Bq-I7J">
-                                                <rect key="frame" x="8" y="667.5" width="115" height="21"/>
+                                                <rect key="frame" x="8" y="723.5" width="115" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" name="SecondaryText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5d-GL-6vG">
-                                                <rect key="frame" x="0.0" y="696.5" width="414" height="37"/>
+                                                <rect key="frame" x="0.0" y="752.5" width="414" height="37"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default repetition sequence" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-Jp-ZSm">
                                                         <rect key="frame" x="8" y="8" width="211" height="21"/>
@@ -1152,10 +1152,10 @@
             </objects>
             <point key="canvasLocation" x="2239.130434782609" y="-622.09821428571422"/>
         </scene>
-        <!--Repetition pattern-->
+        <!--Language selection-->
         <scene sceneID="BqK-cH-ea4">
             <objects>
-                <viewController storyboardIdentifier="service.languageSelector" title="Repetition pattern" id="OmR-GJ-wFw" customClass="LanguageSelectionViewController" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="service.languageSelector" title="Language selection" id="OmR-GJ-wFw" customClass="LanguageSelectionViewController" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="geu-2V-BZS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1213,10 +1213,10 @@
             </objects>
             <point key="canvasLocation" x="-20" y="806"/>
         </scene>
-        <!--Repetition pattern-->
+        <!--Proficiency selection-->
         <scene sceneID="k8X-Cs-IEO">
             <objects>
-                <viewController storyboardIdentifier="service.proficiencySelector" title="Repetition pattern" id="61D-3l-3zc" customClass="ProficiencySelectionViewController" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="service.proficiencySelector" title="Proficiency selection" id="61D-3l-3zc" customClass="ProficiencySelectionViewController" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="Mzx-g4-tgC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
