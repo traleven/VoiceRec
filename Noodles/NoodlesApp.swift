@@ -30,3 +30,7 @@ struct NoodlesApp: App {
         .modelContainer(sharedModelContainer)
     }
 }
+
+extension EnvironmentValues {
+    @Entry var style: Style = .init(font: .standard, color: .standard, palette: .standard)
+}
