@@ -15,15 +15,21 @@ struct Sortbar: View {
 
     var body: some View {
         HStack(alignment: .center) {
-            SortPill(title: title, direction: direction)
-            Spacer()
-            Image(systemName: "line.3.horizontal")
-                .resizable()
-                .frame(width: 24, height: 24)
+            HStack(alignment: .center, spacing: 8) {
+                SortPill(title: title, direction: direction)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+            HStack(alignment: .center, spacing: 8) {
+                // Display mode toggle
+                Image(systemName: "line.3.horizontal")
+                    .resizable()
+                    .frame(width: 24, height: 24)
+                    .hidden()
+            }
         }
-        .padding(.leading, 8)
+        .padding([.leading, .top], 8)
         .padding(.trailing, 16)
-        .padding(.top, 8)
         .padding(.bottom, 4)
         .frame(width: 393, alignment: .center)
     }

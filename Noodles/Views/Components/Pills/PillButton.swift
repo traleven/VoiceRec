@@ -12,6 +12,30 @@ struct PillButton<S: StringProtocol>: View {
 
     var action: @MainActor () -> Void
     var label: S
+    var icon: Image? = nil
+    var role: Role = .accent
+    
+    private var iconColor: Color {
+        switch role {
+        case .regular: return style.color.text.button.secondary
+        case .accent: return style.color.text.button.accent
+        case .noOutline: return style.color.text.button.secondary
+        }
+    }
+    private var labelColor: Color {
+        switch role {
+        case .regular: return style.color.text.button.secondary
+        case .accent: return style.color.text.button.accent
+        case .noOutline: return style.color.text.button.secondary
+        }
+    }
+    private var backgroundColor: Color {
+        switch role {
+        case .regular: return style.color.fill.button.secondary
+        case .accent: return style.color.fill.button.accent
+        case .noOutline: return style.palette.transparent
+        }
+    }
         
     var body: some View {
         Button(action: action, label: {
@@ -20,21 +44,36 @@ struct PillButton<S: StringProtocol>: View {
                 Text(label)
                     .font(style.font.body.labelSmall)
                     .multilineTextAlignment(.center)
-                    .foregroundColor(style.color.text.button.accent)
+                    .foregroundColor(labelColor)
                 
-                Image(systemName: "x.circle.fill")
-                    .resizable()
-                    .frame(width: 12, height: 12)
-                    .foregroundColor(style.color.icon.accent.foreground)
+                if let icon {
+                    icon
+                        .resizable()
+                        .frame(width: 12, height: 12)
+                        .foregroundColor(iconColor)
+                }
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 6)
-            .background(style.color.fill.button.accent)
+            .background(backgroundColor)
             .cornerRadius(8)
         })
     }
 }
 
+extension PillButton {
+    enum Role {
+        case regular, accent, noOutline
+    }
+}
+
 #Preview {
+    PillButton(action: {}, label: "Remove", icon: Image(systemName: "x.circle.fill"))
     PillButton(action: {}, label: "Remove")
+    Divider()
+    PillButton(action: {}, label: "Remove", icon: Image(systemName: "x.circle.fill"), role: .regular)
+    PillButton(action: {}, label: "Remove", role: .regular)
+    Divider()
+    PillButton(action: {}, label: "Remove", icon: Image(systemName: "x.circle.fill"), role: .noOutline)
+    PillButton(action: {}, label: "Remove", role: .noOutline)
 }

@@ -12,6 +12,6 @@ extension View {
         self
             .font(style.font)
             .kerning(style.letterSpacing)
-            .lineSpacing(style.lineHeight)
+            .lineSpacing(style.lineSpacing)
     }
 }

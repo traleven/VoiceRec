@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PrimaryButton<S: StringProtocol>: View {
     @Environment(\.style) private var style
+    @Environment(\.isEnabled) private var isEnabled
     
     let action: @MainActor () -> Void
     let label: S
@@ -21,7 +22,7 @@ struct PrimaryButton<S: StringProtocol>: View {
                 .padding(.horizontal, 0)
                 .padding(.vertical, 12)
                 .frame(width: 361, alignment: .center)
-                .background(style.color.fill.button.primary)
+                .background(style.color.fill.button.primary.opacity(isEnabled ? 1.0 : 0.5))
                 .cornerRadius(16)
         }
     }
@@ -29,4 +30,5 @@ struct PrimaryButton<S: StringProtocol>: View {
 
 #Preview {
     PrimaryButton(action: {}, label: "Done")
+    PrimaryButton(action: {}, label: "Done").disabled(true)
 }

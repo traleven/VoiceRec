@@ -34,7 +34,7 @@ extension ColorStyle {
                     primary: palette.black,
                     secondary: palette.greyDarkest,
                     selected: palette.brand.primary,
-                    disabled: palette.greyDarkest,
+                    disabled: palette.greyDark,
                     link: palette.brand.primary
                 ),
                 placeholder: .init(
@@ -67,12 +67,16 @@ extension ColorStyle {
                 ),
                 accent: .init(
                     foreground: palette.brand.primary,
-                    background: palette.brand.light,
+                    background: palette.brand.medium,
                     invert: palette.white
                 ),
                 selected: .init(
                     foreground: palette.brand.primary,
                     background: palette.brand.light
+                ),
+                disabled: .init(
+                    foreground: palette.greyDark,
+                    background: palette.greyLight
                 )
             ),
             state: .init(
@@ -126,15 +130,18 @@ struct ColorStyle {
             let primary, secondary, accent: Color
         }
     }
+    
     struct Line {
         let separator, divider, underline: Color
     }
+    
     struct Icon {
         let primary: Primary
         let secondary: Secondary
         let tertiary: Tertiary
         let accent: Accent
         let selected: Selected
+        let disabled: Disabled
         
         struct Primary {
             let foreground: Color
@@ -151,7 +158,11 @@ struct ColorStyle {
         struct Selected {
             let foreground, background: Color
         }
+        struct Disabled {
+            let foreground, background: Color
+        }
     }
+    
     struct State {
         let success, error, warning: Color
     }
