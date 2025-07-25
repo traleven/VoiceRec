@@ -20,17 +20,11 @@ struct ActivitySheet: View {
             Searchbar(text: $searchText)
             
             //LazyVStack(alignment: .leading, spacing: 0) {
-            List {
+            PlainList {
                 ForEach(items, id: \.self) { item in
                     ListItem(title: item, avatar: Image(systemName: "person.circle"), content: .check(selection(for: item)))
                 }
-                .listRowSeparator(.hidden)
-                .listRowBackground(style.palette.transparent)
-                .listRowInsets(.init())
-                .buttonStyle(.plain)
             }
-            .listStyle(.plain)
-            .padding(.horizontal, 0)
             .padding(.vertical, 12)
             .frame(maxWidth: .infinity, alignment: .topLeading)
             

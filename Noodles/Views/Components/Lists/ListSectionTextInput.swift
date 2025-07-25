@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PhraseSectionTextInput<Title: StringProtocol, Prompt: StringProtocol>: View {
+struct ListSectionTextInput<Title: StringProtocol, Prompt: StringProtocol>: View {
     var title: Title
     var prompt: Prompt
     
@@ -21,12 +21,12 @@ struct PhraseSectionTextInput<Title: StringProtocol, Prompt: StringProtocol>: Vi
 }
 
 #Preview {
-    PhraseSectionTextInput(
+    ListSectionTextInput(
         title: "Section heading",
         prompt: "Type here",
         text: .constant("")
     )
-    PhraseSectionTextInput(
+    ListSectionTextInput(
         title: "Section heading",
         prompt: "Type here",
         text: .constant("Something typed")

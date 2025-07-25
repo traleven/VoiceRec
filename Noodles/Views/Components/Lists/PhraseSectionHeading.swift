@@ -45,9 +45,13 @@ struct PhraseSectionHeading<Title: StringProtocol, Content: View>: View {
                 
                 if expanded {
                     content()
+                        .transition(.asymmetric(
+                            insertion: .move(edge: .top).combined(with: .opacity.animation(.easeIn)),
+                            removal: .move(edge: .top).combined(with: .opacity.animation(.easeOut))
+                        ))
                 }
             }
-            style.color.line.separator.frame(height: 1)
+            HSeparator()
         }
         .padding(.top, 12)
     }

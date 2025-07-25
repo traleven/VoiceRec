@@ -98,7 +98,7 @@ struct PhraseListItem<Title: StringProtocol, Subtitle: StringProtocol>: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            HStack(alignment: .top, spacing: 12) {
+            HStack(alignment: .center, spacing: 12) {
                 icon
                     .padding(2)
                 
@@ -122,9 +122,7 @@ struct PhraseListItem<Title: StringProtocol, Subtitle: StringProtocol>: View {
             .frame(alignment: .leading)
             
             if separator != .hidden {
-                Rectangle()
-                    .foregroundStyle(style.color.line.separator)
-                    .frame(height: 1)
+                HSeparator()
             }
         }
     }
@@ -157,5 +155,6 @@ extension PhraseListItem {
     Divider()
     PhraseListItem(title: "Primary phrase", action: .counter(0), separator: .hidden)
     PhraseListItem(title: "Primary phrase", action: .counter(5), separator: .hidden)
+    PhraseListItem(title: "Very long multiline primary phrase to test alignment", action: .counter(5), separator: .hidden)
     PhraseListItem(title: "Primary phrase", action: .counter(15), separator: .hidden)
 }

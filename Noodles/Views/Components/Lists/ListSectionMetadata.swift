@@ -7,22 +7,24 @@
 
 import SwiftUI
 
-struct PhraseSectionSublist<Title: StringProtocol>: View {
-    var title: Title
+struct ListSectionMetadata: View {
     var options: [(String, ListItem<String>.Content)]
     
     var body: some View {
-        PhraseSectionHeading(title: title) {
-            ForEach(options, id: \.0) { option in
-                ListItem(title: option.0, content: option.1)
+        VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .center, spacing: 0) {
+                ForEach(options, id: \.0) { option in
+                    ListItem(title: option.0, mode: .recessed, content: option.1)
+                }
             }
+            //HSeparator()
         }
+        .padding(.top, 12)
     }
 }
 
 #Preview {
-    PhraseSectionSublist(
-        title: "Section heading",
+    ListSectionMetadata(
         options: [
             ("Option 1", .check(.constant(false))),
             ("Option 2", .check(.constant(true))),

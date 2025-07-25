@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PhraseSectionMultiselect<Title: StringProtocol>: View {
+struct ListSectionMultiselect<Title: StringProtocol>: View {
     var title: Title
     var tags: [String]
             
@@ -19,7 +19,7 @@ struct PhraseSectionMultiselect<Title: StringProtocol>: View {
 }
 
 #Preview {
-    PhraseSectionMultiselect(
+    ListSectionMultiselect(
         title: "Section heading",
         tags: [ "Tag1", "Tag2", "AnotherTag", "Some other tag" ]
     )

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PhraseTextFragment<S: StringProtocol>: View {
+struct PhraseTextbar<S: StringProtocol>: View {
     @Environment(\.style) private var style
     
     var prompt: S
@@ -44,21 +44,21 @@ struct PhraseTextFragment<S: StringProtocol>: View {
 }
 
 #Preview {
-    PhraseTextFragment(
+    PhraseTextbar(
         prompt: "Type phrase",
         language: "🇬🇧",
         text: .constant("Hi, do you have majiang mian?"),
         transcript: "Romanization text"
     )
     
-    PhraseTextFragment(
+    PhraseTextbar(
         prompt: "Type phrase",
         language: "🇬🇧",
         text: .constant(""),
         transcript: "Romanization text"
     )
     
-    PhraseTextFragment(
+    PhraseTextbar(
         prompt: "Type phrase",
         language: "🇬🇧",
         text: .constant(""),

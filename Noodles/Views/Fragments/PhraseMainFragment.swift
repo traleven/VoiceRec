@@ -20,7 +20,7 @@ struct PhraseMainFragment: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 16) {
-                PhraseTextFragment(
+                PhraseTextbar(
                     prompt: "Type phrase",
                     language: language,
                     text: $text,
