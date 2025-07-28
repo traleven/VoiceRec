@@ -12,6 +12,10 @@ extension View {
     func plainButton(action: @escaping @MainActor () -> Void) -> some View {
         self.modifier(PlainButtonModifier(action: action))
     }
+
+    func plainButton(withAnimation action: @escaping @MainActor () -> Void) -> some View {
+        self.modifier(PlainButtonModifier(action: withAnimation { action }))
+    }
 }
 
 struct PlainButtonModifier: ViewModifier {
@@ -25,7 +29,7 @@ struct PlainButtonModifier: ViewModifier {
 
 #Preview {
     Text("Hello, world!")
-        .plainButton {
+        .plainButton(action: {
             print("Bzzt")
-        }
+        })
 }

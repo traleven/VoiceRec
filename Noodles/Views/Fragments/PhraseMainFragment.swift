@@ -6,25 +6,30 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct PhraseMainFragment: View {
     @Environment(\.style) private var style
     
-    var language: String
-    @Binding var text: String
-    var transcript: String
+    @ObservedObject var entry: Phrase.Entry
 
     var content: [CGFloat]?
     var duration: Duration?
+    
+    init(entry: Phrase.Entry, content: [CGFloat]? = nil, duration: Duration? = nil) {
+        self.entry = entry
+        self.content = content
+        self.duration = duration
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 16) {
                 PhraseTextbar(
                     prompt: "Type phrase",
-                    language: language,
-                    text: $text,
-                    transcript: transcript
+                    language: entry.language.icon,
+                    text: $entry.title,
+                    transcript: entry.subtitle
                 )
                 
                 PhraseAudiobar(
@@ -42,23 +47,28 @@ struct PhraseMainFragment: View {
 }
 
 #Preview {
-    PhraseMainFragment(
-        language: "🇬🇧",
-        text: .constant(""),
-        transcript: ""
-    )
-    Divider()
-    PhraseMainFragment(
-        language: "🇬🇧",
-        text: .constant("Hi, do you have majiang mian?"),
-        transcript: "Romanization text"
-    )
-    Divider()
-    PhraseMainFragment(
-        language: "🇬🇧",
-        text: .constant("Hi, do you have majiang mian?"),
-        transcript: "Romanization text",
-        content: Audiowaves.placeholder,
-        duration: .minutes(2).add(seconds: 15)
-    )
+    Group {
+        PhraseMainFragment(
+            entry: Phrase.Entry(language: Preview.language.en, title: "")
+        )
+        Divider()
+        PhraseMainFragment(
+            entry: Phrase.Entry(
+                language: Preview.language.en,
+                title: "Hi, do you have majiang mian?",
+                subtitle: "Romanization text"
+            )
+        )
+        Divider()
+        PhraseMainFragment(
+            entry: Phrase.Entry(
+                language: Preview.language.en,
+                title: "Hi, do you have majiang mian?",
+                subtitle: "Romanization text"
+            ),
+            content: Audiowaves.placeholder,
+            duration: .minutes(2).add(seconds: 15)
+        )
+    }
+    .modelContainer(.previewModelContainer)
 }

@@ -125,6 +125,17 @@ struct PhraseListItem<Title: StringProtocol, Subtitle: StringProtocol>: View {
                 HSeparator()
             }
         }
+        .padding(.horizontal, 16)
+    }
+}
+
+extension PhraseListItem where Title == String, Subtitle == String {
+    init(_ phrase: Phrase, for language: Language) {
+        let entry = phrase.entry(for: language)
+        self.init(
+            title: entry.title,
+            action: entry.audio != nil ? .play({}) : .record({})
+        )
     }
 }
 
@@ -147,12 +158,13 @@ extension PhraseListItem {
     PhraseListItem(title: "Primary phrase", action: .play({}), separator: .visible)
     PhraseListItem(title: "Primary phrase", subtitle: "Phrase secondary", action: .play({}))
     Divider()
+    
     PhraseListItem(title: "Primary phrase (record)", action: .record({}), separator: .hidden)
-    PhraseListItem(title: "Primary phrase (pause)", action: .pause({}), separator: .hidden)
-    Divider()
+    PhraseListItem(title: "Primary phrase (pause)", action: .pause({}), separator: .visible)
+    
     PhraseListItem(title: "Primary phrase", action: .check(.constant(false)), separator: .hidden)
-    PhraseListItem(title: "Primary phrase", action: .check(.constant(true)), separator: .hidden)
-    Divider()
+    PhraseListItem(title: "Primary phrase", action: .check(.constant(true)), separator: .visible)
+    
     PhraseListItem(title: "Primary phrase", action: .counter(0), separator: .hidden)
     PhraseListItem(title: "Primary phrase", action: .counter(5), separator: .hidden)
     PhraseListItem(title: "Very long multiline primary phrase to test alignment", action: .counter(5), separator: .hidden)

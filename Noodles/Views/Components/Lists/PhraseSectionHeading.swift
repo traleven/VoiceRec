@@ -33,11 +33,9 @@ struct PhraseSectionHeading<Title: StringProtocol, Content: View>: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 10, height: 10)
                         .foregroundStyle(style.color.icon.tertiary.foreground)
-                        .plainButton {
-                            withAnimation {
-                                expanded.toggle()
-                            }
-                        }
+                        .plainButton(withAnimation: {
+                            expanded.toggle()
+                        })
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
@@ -45,10 +43,7 @@ struct PhraseSectionHeading<Title: StringProtocol, Content: View>: View {
                 
                 if expanded {
                     content()
-                        .transition(.asymmetric(
-                            insertion: .move(edge: .top).combined(with: .opacity.animation(.easeIn)),
-                            removal: .move(edge: .top).combined(with: .opacity.animation(.easeOut))
-                        ))
+                        .transition(.opacity)
                 }
             }
             HSeparator()

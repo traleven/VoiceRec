@@ -12,28 +12,64 @@ struct ContentView: View {
     @State private var topLevelNavigation: NavigationPath = .init()
     @State private var currentTab: TabPage = .phrases
     
-    enum TabPage : Hashable {
+    enum TabPage : Hashable, CaseIterable {
         case phrases, lessons, player
     }
 
     var body: some View {
         NavigationStack(path: $topLevelNavigation) {
-            Tabbar(selection: $currentTab) {
-                Tab(value: .phrases) {
+            Tabbar(selection: $currentTab) { selection in
+                switch selection {
+                case .phrases:
                     PhrasesPage()
-                } label: { TabbarItem(title: "Phrases", icon: "ellipsis.bubble.fill") }
-                Tab(value: .lessons) {
+                        .transition(.opacity)
+                case .lessons:
                     LessonsPage()
-                } label: { TabbarItem(title: "Lessons", icon: "book") }
-//                Tab(value: .player) {
-//                    PlayerPage()
-//                } label: { TabbarItem(title: "Player", icon: "beats.headphones") }
+                        .transition(.opacity)
+                case .player:
+                    PlayerPage()
+                        .transition(.opacity)
+                }
+            }
+            .environment(\.navigate, NavigateAction(push: { command in
+                topLevelNavigation.append(command)
+            }))
+            .navigationDestination(for: EditCommand<Phrase>.self) { command in
+                PhraseDetailsPage(phrase: command.content)
+            }
+            .navigationDestination(for: EditCommand<Lesson>.self) { command in
+                LessonDetailsPage()
             }
         }
     }
 }
 
-#Preview {
+extension ContentView.TabPage: StringRepresentable {
+    var asString: some StringProtocol {
+        switch self {
+        case .phrases: "Phrases"
+        case .lessons: "Lessons"
+        case .player: "Player"
+        }
+    }
+}
+
+extension ContentView.TabPage: IconRepresentable {
+    var asIcon: String {
+        switch self {
+        case .phrases: "ellipsis.bubble.fill"
+        case .lessons: "book"
+        case .player: "beats.headphones"
+        }
+    }
+}
+
+#Preview("Full") {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(.previewModelContainer)
+}
+
+#Preview("Empty") {
+    ContentView()
+        .modelContainer(.previewEmptyModelContainer)
 }
