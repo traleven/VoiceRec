@@ -71,6 +71,7 @@ final class Phrase {
     
     var created: Date
     var modified: Date?
+    var sortIndex: Date { modified ?? created }
     
     init(
         entries: [Entry] = [],

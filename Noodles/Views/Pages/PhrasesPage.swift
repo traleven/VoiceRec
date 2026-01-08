@@ -9,9 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct PhrasesPage: View {
-    @Environment(\.navigate) var navigate
-    @Environment(\.nativeLanguage) var nativeLanguage
-    @Query private var phrases: [Phrase]
+    @Environment(\.navigate) private var navigate
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.nativeLanguage) private var nativeLanguage
+    
+    @Query()
+    private var phrases: [Phrase]
     
     @State var searchText: String = ""
     @State var inputText: String = ""
@@ -29,7 +32,7 @@ struct PhrasesPage: View {
             } else {
                 if let nativeLanguage {
                     PlainList {
-                        ForEach(phrases) { phrase in
+                        ForEach(phrases.sorted(by: { $0.sortIndex > $1.sortIndex })) { phrase in
                             PhraseListItem(phrase, for: nativeLanguage)
                                 .plainButton(withAnimation: {
                                     navigate(to: EditCommand(phrase))
@@ -42,7 +45,13 @@ struct PhrasesPage: View {
                 }
             }
         }, input: {
-            Inputbar(text: $inputText)
+            Inputbar(text: $inputText, language: nativeLanguage!) { text, language in
+                let newPhrase = Phrase(entries: [
+                    Phrase.Entry(language: language, title: text)
+                ])
+                modelContext.insert(newPhrase)
+                inputText = ""
+            }
         })
     }
 }

@@ -134,6 +134,7 @@ extension PhraseListItem where Title == String, Subtitle == String {
         let entry = phrase.entry(for: language)
         self.init(
             title: entry.title,
+            subtitle: phrase.sortIndex.formatted(),
             action: entry.audio != nil ? .play({}) : .record({})
         )
     }

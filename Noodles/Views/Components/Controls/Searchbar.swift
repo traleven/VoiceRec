@@ -40,8 +40,10 @@ struct Searchbar: View {
                 
                 if focus == .textField || !text.isEmpty {
                     Button(action: {
+                        if text.isEmpty {
+                            focus = nil
+                        }
                         self.text = ""
-                        //focus = .textField
                     }) {
                         Image(systemName: "xmark.circle.fill")
                             .resizable()

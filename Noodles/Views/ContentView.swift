@@ -67,9 +67,13 @@ extension ContentView.TabPage: IconRepresentable {
 #Preview("Full") {
     ContentView()
         .modelContainer(.previewModelContainer)
+        .environment(\.nativeLanguage, Preview.language.en)
+        .environment(\.targetLanguage, Preview.language.zh)
 }
 
 #Preview("Empty") {
     ContentView()
         .modelContainer(.previewEmptyModelContainer)
+        .environment(\.nativeLanguage, Preview.language.en)
+        .environment(\.targetLanguage, Preview.language.zh)
 }
