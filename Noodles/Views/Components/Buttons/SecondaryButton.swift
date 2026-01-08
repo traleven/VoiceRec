@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NoodlesDesignSystem
 
 struct SecondaryButton<S: StringProtocol>: View {
     @Environment(\.style) private var style

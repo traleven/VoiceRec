@@ -59,6 +59,6 @@ fileprivate enum TabbarPreviewTabs : CaseIterable, StringRepresentable, IconRepr
 //        }, label: { TabbarItem(title: "Tzzp", icon: "minus") })
 //    }
     Tabbar(selection: .constant(TabbarPreviewTabs.a)) { selection in
-        Text("\(selection)")
+        Text(verbatim: "\(selection)")
     }
 }

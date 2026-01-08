@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NoodlesDesignSystem
 
 final class Activitybar {
     private init() {}

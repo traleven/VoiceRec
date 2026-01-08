@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NoodlesDesignSystem
 
 struct EmptyPageButton<Title: StringProtocol>: View {
     @Environment(\.style) private var style

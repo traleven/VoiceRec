@@ -7,10 +7,12 @@
 
 import SwiftUI
 import SwiftData
+import FontInter
+import NoodlesDesignSystem
+import NoodlesThemeStandard
 
 @main
 struct NoodlesApp: App {
-
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -21,7 +23,7 @@ struct NoodlesApp: App {
 }
 
 extension EnvironmentValues {
-    @Entry var style: Style = .init(font: .standard, color: .standard, palette: .standard)
+    @Entry var style: Style = .standard
     @Entry var navigate: NavigateAction = .init(push: { _ in })
     @Entry var nativeLanguage: Language?
     @Entry var targetLanguage: Language?

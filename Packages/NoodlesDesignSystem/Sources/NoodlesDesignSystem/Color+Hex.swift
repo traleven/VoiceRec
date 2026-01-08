@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Color {
-    init(_ hex: String, opacity: Double) {
+    public init(_ hex: String, opacity: Double) {
         let hex = Int(hex.trimmingCharacters(in: ["#"]).capitalized, radix: 16)!
         self.init(
             red: Double((hex >> 16) & 0xFF) / 255.0,
@@ -18,7 +18,7 @@ extension Color {
         )
     }
     
-    init(_ hex: String) {
+    public init(_ hex: String) {
         let hex = Int(hex.trimmingCharacters(in: ["#"]).capitalized, radix: 16)!
         self.init(
             red: Double((hex >> 16) & 0xFF) / 255.0,

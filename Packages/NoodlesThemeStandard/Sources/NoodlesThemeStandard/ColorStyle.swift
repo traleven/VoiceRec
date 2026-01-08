@@ -9,5 +9,5 @@ import SwiftUI
 import NoodlesDesignSystem
 
 extension ColorStyle {
-    static let standard = ColorStyle(palette: .standard)    
+    public static let standard = ColorStyle(palette: .standard)    
 }

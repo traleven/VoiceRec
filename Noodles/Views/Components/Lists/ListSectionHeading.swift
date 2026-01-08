@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NoodlesDesignSystem
 
 struct ListSectionHeading<Title: StringProtocol>: View {
     @Environment(\.style) private var style

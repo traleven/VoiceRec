@@ -9,7 +9,7 @@ import SwiftUI
 import NoodlesDesignSystem
 
 extension FontStyle {
-    static let standard = FontStyle(
+    public static let standard = FontStyle(
         heading: .init(
             displayTitle: .init("InterDisplay-Bold",     size: 34, weight: .bold,     lineHeight: 41, letterSpacing: -0.85),
             title1:       .init("InterDisplay-Bold",     size: 28, weight: .bold,     lineHeight: 34, letterSpacing: -0.70),

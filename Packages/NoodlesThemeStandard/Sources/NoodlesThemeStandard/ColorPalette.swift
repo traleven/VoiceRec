@@ -10,7 +10,7 @@ import SwiftUI
 import NoodlesDesignSystem
 
 extension ColorPalette {
-    static let standard = ColorPalette(
+    public static let standard = ColorPalette(
         transparent: Color("#FFFFFF", opacity: 0.0),
         white: Color("#FFFFFF"),
         greyLight: Color("#F2F2F2"),
