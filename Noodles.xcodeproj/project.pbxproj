@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C90B3F52F10249E000CB4CE /* NoodlesThemeStandard in Frameworks */ = {isa = PBXBuildFile; productRef = 1C90B3F42F10249E000CB4CE /* NoodlesThemeStandard */; };
+		1C90B3F82F102820000CB4CE /* NoodlesDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 1C90B3F72F102820000CB4CE /* NoodlesDesignSystem */; };
+		1C90B3FA2F102866000CB4CE /* NoodlesUIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 1C90B3F92F102866000CB4CE /* NoodlesUIComponents */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C90B3F82F102820000CB4CE /* NoodlesDesignSystem in Frameworks */,
+				1C90B3FA2F102866000CB4CE /* NoodlesUIComponents in Frameworks */,
 				1C90B3F52F10249E000CB4CE /* NoodlesThemeStandard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +102,8 @@
 			name = Noodles;
 			packageProductDependencies = (
 				1C90B3F42F10249E000CB4CE /* NoodlesThemeStandard */,
+				1C90B3F72F102820000CB4CE /* NoodlesDesignSystem */,
+				1C90B3F92F102866000CB4CE /* NoodlesUIComponents */,
 			);
 			productName = Noodles;
 			productReference = 1C2703162E15BD1100F6AB97 /* Noodles.app */;
@@ -364,6 +370,14 @@
 		1C90B3F42F10249E000CB4CE /* NoodlesThemeStandard */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NoodlesThemeStandard;
+		};
+		1C90B3F72F102820000CB4CE /* NoodlesDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NoodlesDesignSystem;
+		};
+		1C90B3F92F102866000CB4CE /* NoodlesUIComponents */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NoodlesUIComponents;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
