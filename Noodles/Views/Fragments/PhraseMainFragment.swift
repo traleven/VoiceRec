@@ -7,6 +7,8 @@
 
 import SwiftUI
 import SwiftData
+import NoodlesDataModel
+import NoodlesUIComponents
 
 struct PhraseMainFragment: View {
     @Environment(\.style) private var style
@@ -26,13 +28,15 @@ struct PhraseMainFragment: View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 16) {
                 PhraseTextbar(
+                    style: style,
                     prompt: "Type phrase",
-                    language: entry.language.icon,
                     text: $entry.title,
+                    language: entry.language.icon,
                     transcript: entry.subtitle
                 )
                 
                 PhraseAudiobar(
+                    style: style,
                     content: content,
                     duration: duration
                 )

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import NoodlesDataModel
+import NoodlesUIComponents
 
 struct LessonContentFragment: View {
     @Environment(\.style) private var style
@@ -31,7 +33,7 @@ struct LessonContentFragment: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
                         ForEach(Array(content.indices), id: \.self) { index in
-                            PhraseListItem(title: content[index], action: .counter(index + 1))
+                            PhraseListItem(style: style, title: content[index], action: .counter(index + 1))
                         }
                     }
                     .padding(0)

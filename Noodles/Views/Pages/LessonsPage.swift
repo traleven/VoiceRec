@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NoodlesUIComponents
 
 struct LessonsPage: View {
     @State var searchText: String = ""

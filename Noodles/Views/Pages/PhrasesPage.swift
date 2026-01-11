@@ -7,8 +7,11 @@
 
 import SwiftUI
 import SwiftData
+import NoodlesDataModel
+import NoodlesUIComponents
 
 struct PhrasesPage: View {
+    @Environment(\.style) private var style
     @Environment(\.navigate) private var navigate
     @Environment(\.modelContext) private var modelContext
     @Environment(\.nativeLanguage) private var nativeLanguage
@@ -31,9 +34,9 @@ struct PhrasesPage: View {
                 EmptyPage(title: "Create phrase", icon: "plus.circle")
             } else {
                 if let nativeLanguage {
-                    PlainList {
+                    PlainList(style: style) {
                         ForEach(phrases.sorted(by: { $0.sortIndex > $1.sortIndex })) { phrase in
-                            PhraseListItem(phrase, for: nativeLanguage)
+                            PhraseListItem(style: style, phrase, for: nativeLanguage)
                                 .plainButton(withAnimation: {
                                     navigate(to: EditCommand(phrase))
                                 })
@@ -45,7 +48,7 @@ struct PhrasesPage: View {
                 }
             }
         }, input: {
-            Inputbar(text: $inputText, language: nativeLanguage!) { text, language in
+            Inputbar(style: style, text: $inputText, language: nativeLanguage!) { text, language in
                 let newPhrase = Phrase(entries: [
                     Phrase.Entry(language: language, title: text)
                 ])

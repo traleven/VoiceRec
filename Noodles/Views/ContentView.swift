@@ -7,8 +7,11 @@
 
 import SwiftUI
 import SwiftData
+import NoodlesDataModel
+import NoodlesUIComponents
 
 struct ContentView: View {
+    @Environment(\.style) private var style
     @State private var topLevelNavigation: NavigationPath = .init()
     @State private var currentTab: TabPage = .phrases
     
@@ -18,7 +21,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack(path: $topLevelNavigation) {
-            Tabbar(selection: $currentTab) { selection in
+            Tabbar(style: style, selection: $currentTab) { selection in
                 switch selection {
                 case .phrases:
                     PhrasesPage()

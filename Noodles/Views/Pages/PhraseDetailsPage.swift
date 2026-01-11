@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import NoodlesDataModel
+import NoodlesUIComponents
 
 struct PhraseDetailsPage: View {
     @Environment(\.style) private var style
@@ -24,7 +26,7 @@ struct PhraseDetailsPage: View {
                         ContentUnavailableView.error("Somehow your native language is not set on your profile")
                     }
                     
-                    HSeparator()
+                    HSeparator(style: style)
                     
                     if let targetLanguage {
                         PhraseMainFragment(entry: phrase.entry(for: targetLanguage))
@@ -36,20 +38,20 @@ struct PhraseDetailsPage: View {
                     
                     if let targetLanguage {
                         @Bindable var entry = phrase.entry(for: targetLanguage)
-                        ListSectionTextInput(title: "Notes", prompt: "Type here", text: $entry.notes)
+                        ListSectionTextInput(style: style, title: "Notes", prompt: "Type here", text: $entry.notes)
                     } else {
-                        PhraseSectionHeading(title: "Notes") {
+                        PhraseSectionHeading(style: style, title: "Notes") {
                             ContentUnavailableView.error("Somehow your target language is not set on your profile")
                         }
                     }
                     
-                    ListSectionMultiselect(title: "Tags", tags: phrase.tags)
+                    ListSectionMultiselect(style: style, title: "Tags", tags: phrase.tags)
                     
-                    ListSectionMultiselect(title: "Lessons", tags: phrase.lessons.map { $0.title })
+                    ListSectionMultiselect(style: style, title: "Lessons", tags: phrase.lessons.map { $0.title })
                     
-                    ListSectionMultiselect(title: "Grammar", tags: phrase.grammar)
+                    ListSectionMultiselect(style: style, title: "Grammar", tags: phrase.grammar)
                     
-                    ListSectionSublist(title: "Context", options: [
+                    ListSectionSublist(style: style, title: "Context", options: [
                         ("Date encountered", .pill(phrase.dateEncountered?.formatted() ?? "Select")),
                         ("Person quoted", .pill(phrase.personQuoted?.name ?? "Select")),
                         ("Location", .pill(phrase.location.isEmpty ? "Select" : phrase.location)),
@@ -57,14 +59,14 @@ struct PhraseDetailsPage: View {
                         ("Honorifics", .pill(phrase.honorifics.isEmpty ? "Regular" : phrase.honorifics)),
                     ])
                     
-                    ListSectionSublist(title: "Learning status", options: [
+                    ListSectionSublist(style: style, title: "Learning status", options: [
                         ("Still learning", .check(bindLearningStatus(phrase, value: .learning))),
                         ("Mastered", .check(bindLearningStatus(phrase, value: .mastered))),
                     ])
                     
                     Spacer(minLength: 8)
 
-                    ListSectionMetadata(options: [
+                    ListSectionMetadata(style: style, options: [
                         ("Date created", .label(phrase.created.formatted())),
                         ("Last edited", .label((phrase.modified ?? phrase.created).formatted())),
                     ])

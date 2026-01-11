@@ -6,23 +6,26 @@
 //
 
 import SwiftUI
+import NoodlesUIComponents
 
 struct PageControlsFragment: View {
+    @Environment(\.style) private var style
+    
     @Binding var searchText: String
     var mode: Mode = .standard
     
     var body: some View {
         VStack {
-            Searchbar(text: $searchText)
+            Searchbar(style: style, text: $searchText)
             if mode == .standard {
-                Filterbar()
+                Filterbar(style: style)
             }
             if mode == .multiselect {
-                Multiselectbar()
+                Multiselectbar(style: style)
             }
             Divider()
             if mode == .standard {
-                Sortbar(title: "Recent")
+                Sortbar(style: style, title: "Recent")
             }
         }
     }

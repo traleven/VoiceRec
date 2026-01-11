@@ -7,7 +7,7 @@
 
 import SwiftUI
 import SwiftData
-import FontInter
+import NoodlesDataModel
 import NoodlesDesignSystem
 import NoodlesThemeStandard
 

@@ -4,35 +4,29 @@
 import PackageDescription
 
 let package = Package(
-    name: "NoodlesUIComponents",
+    name: "NoodlesPreviewContent",
     platforms: [
         .iOS(.v18),
-        .visionOS(.v1),
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "NoodlesUIComponents",
-            targets: ["NoodlesUIComponents"]
+            name: "NoodlesPreviewContent",
+            targets: ["NoodlesPreviewContent"]
         ),
     ],
     dependencies: [
         .package(name: "NoodlesDataModel", path: "../NoodlesDataModel"),
-        .package(name: "NoodlesPreviewContent", path: "../NoodlesPreviewContent"),
-        .package(name: "NoodlesDesignSystem", path: "../NoodlesDesignSystem"),
-        .package(name: "NoodlesThemeStandard", path: "../NoodlesThemeStandard"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "NoodlesUIComponents",
+            name: "NoodlesPreviewContent",
             dependencies: [
                 .byName(name: "NoodlesDataModel"),
-                .byName(name: "NoodlesPreviewContent"),
-                .byName(name: "NoodlesDesignSystem"),
-                .byName(name: "NoodlesThemeStandard"),
             ],
         ),
+
     ]
 )
