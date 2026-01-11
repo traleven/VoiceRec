@@ -13,7 +13,7 @@ extension ColorPalette {
     public static let standard = ColorPalette(
         transparent: Color("#FFFFFF", opacity: 0.0),
         white: Color("#FFFFFF"),
-        greyLight: Color("#F2F2F2"),
+        greyLight: Color("#F3F4F6"),
         greyMedium: Color("#EAEAEA"),
         greyDark: Color("#CCCCCC"),
         greyDarkest: Color("#7B7B7B"),

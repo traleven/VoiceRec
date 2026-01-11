@@ -47,7 +47,7 @@ extension ColorStyle {
             ),
             line: .init(
                 separator: palette.greyMedium,
-                divider: palette.greyMedium,
+                divider: palette.greyDark,
                 underline: palette.black
             ),
             icon: .init(
