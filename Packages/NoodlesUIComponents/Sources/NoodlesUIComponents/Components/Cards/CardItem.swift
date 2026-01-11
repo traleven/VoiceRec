@@ -22,7 +22,7 @@ struct CardItem<Title: StringProtocol>: View {
         XLayout(direction: direction, spacing: 12) {
             VStack(alignment: .center, spacing: 8) {
                 Text(icon)
-                    .font(direction == .horizontal ? style.font.heading.title1 : style.font.body.emojiXL)
+                    .font(direction == .horizontal ? style.font.heading.title1 : style.font.other.emojiXL)
                     .multilineTextAlignment(.center)
                     .foregroundColor(style.color.text.regular.primary)
             }

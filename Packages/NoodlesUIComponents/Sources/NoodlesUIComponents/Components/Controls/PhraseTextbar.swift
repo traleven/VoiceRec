@@ -29,7 +29,7 @@ public struct PhraseTextbar<S: StringProtocol>: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(language)
-                .font(style.font.body.emoji)
+                .font(style.font.other.emoji)
                 .multilineTextAlignment(.center)
                 .frame(height: 32, alignment: .center)
                 .frame(maxWidth: .infinity, alignment: .leading)
