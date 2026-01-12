@@ -6,26 +6,28 @@
 //
 
 import SwiftUI
+import NoodlesDesignSystem
 
-public struct Navbar: ToolbarContent {
+public struct Navbar: View {
+    private let style: Style
     
     public var mode: Mode = .regular
     
-    public init(mode: Mode) {
+    public init(style: Style, mode: Mode) {
+        self.style = style
         self.mode = mode
     }
     
-    @ToolbarContentBuilder
-    public var body: some ToolbarContent {
-        ToolbarItemGroup(placement: .topBarLeading) {
+    @ViewBuilder
+    public var body: some View {
+        HStack(spacing: 0) {
             if mode == .lesson || mode == .phrase || mode == .other {
                 Button(action: {}, label: { Image(systemName: "chevron.left") })
             }
             if mode == .regular || mode == .legacy {
                 Button(action: {}, label: { Image(systemName: "person.circle") })
             }
-        }
-        ToolbarItemGroup(placement: .principal) {
+
             if mode == .regular {
                 Text("Title")
             }
@@ -33,8 +35,9 @@ public struct Navbar: ToolbarContent {
                 TextField("Title", text: .constant("Bzzt"), prompt: Text("Prompt"), axis: .horizontal)
                     .textFieldStyle(.roundedBorder)
             }
-        }
-        ToolbarItemGroup(placement: .topBarTrailing) {
+            
+            Spacer()
+
             if mode == .lesson || mode == .phrase {
                 Button(action: {}, label: { Image(systemName: "heart") })
             }
@@ -67,31 +70,31 @@ extension Navbar {
     NavigationStack {
         Text("Default")
         .toolbar(content: {
-            Navbar(mode: .regular)
+            Navbar(style: .standard, mode: .regular)
         })
     }
     NavigationStack {
         Text("Lesson")
         .toolbar(content: {
-            Navbar(mode: .lesson)
+            Navbar(style: .standard, mode: .lesson)
         })
     }
     NavigationStack {
         Text("Phrase")
         .toolbar(content: {
-            Navbar(mode: .phrase)
+            Navbar(style: .standard, mode: .phrase)
         })
     }
     NavigationStack {
         Text("Other")
         .toolbar(content: {
-            Navbar(mode: .other)
+            Navbar(style: .standard, mode: .other)
         })
     }
     NavigationStack {
         Text("Legacy")
         .toolbar(content: {
-            Navbar(mode: .legacy)
+            Navbar(style: .standard, mode: .legacy)
         })
     }
 }

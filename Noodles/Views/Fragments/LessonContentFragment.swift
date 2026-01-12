@@ -11,12 +11,17 @@ import NoodlesUIComponents
 
 struct LessonContentFragment: View {
     @Environment(\.style) private var style
-    
+    @Environment(\.navigate) private var navigate
+
     var content: [String]
     
     var body: some View {
         if content.isEmpty {
-            EmptyPage(title: "Add phrase")
+            EmptyPageContent(
+                style: style,
+                title: "Add phrase",
+                action: openNewLesson,
+            )
         } else {
             VStack(alignment: .center, spacing: 0) {
                 VStack(alignment: .leading, spacing: 16) {
@@ -33,7 +38,11 @@ struct LessonContentFragment: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
                         ForEach(Array(content.indices), id: \.self) { index in
-                            PhraseListItem(style: style, title: content[index], action: .counter(index + 1))
+                            PhraseListItem(
+                                style: style,
+                                title: content[index],
+                                action: .counter(index + 1),
+                            )
                         }
                     }
                     .padding(0)
@@ -48,6 +57,10 @@ struct LessonContentFragment: View {
             .padding(0)
             .frame(width: 393, height: 546, alignment: .top)
         }
+    }
+    
+    func openNewLesson() {
+        print("TODO: create a new lesson and open it in LessonDetails view")
     }
 }
 

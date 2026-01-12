@@ -9,12 +9,21 @@ import SwiftUI
 
 extension View {
     @ViewBuilder
-    public func plainButton(action: @escaping @MainActor () -> Void) -> some View {
+    func plainButton(action: @escaping @MainActor () -> Void) -> some View {
         self.modifier(PlainButtonModifier(action: action))
     }
 
-    public func plainButton(withAnimation action: @escaping @MainActor () -> Void) -> some View {
+    func plainButton(withAnimation action: @escaping @MainActor () -> Void) -> some View {
         self.modifier(PlainButtonModifier(action: withAnimation { action }))
+    }
+    
+    @ViewBuilder
+    func plainButton(action: (@MainActor () -> Void)?) -> some View {
+        if let action {
+            self.modifier(PlainButtonModifier(action: action))
+        } else {
+            self
+        }
     }
 }
 

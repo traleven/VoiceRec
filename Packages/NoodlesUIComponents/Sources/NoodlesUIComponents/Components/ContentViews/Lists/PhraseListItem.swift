@@ -11,12 +11,13 @@ import NoodlesDesignSystem
 import NoodlesThemeStandard
 
 public struct PhraseListItem<Title: StringProtocol, Subtitle: StringProtocol>: View {
-    public let style: Style
+    let style: Style
 
-    public var title: Title
-    public var subtitle: Subtitle? = nil
-    public var action: Action
-    public var separator: Visibility = .visible
+    let title: Title
+    let subtitle: Subtitle?
+    let action: Action
+    let separator: Visibility
+    let open: (@MainActor () -> Void)?
     
     @ViewBuilder
     var icon: some View {
@@ -99,12 +100,20 @@ public struct PhraseListItem<Title: StringProtocol, Subtitle: StringProtocol>: V
         }
     }
     
-    public init(style: Style, title: Title, subtitle: Subtitle? = nil, action: Action, separator: Visibility = .visible) {
+    public init(
+        style: Style,
+        title: Title,
+        subtitle: Subtitle? = nil,
+        action: Action,
+        separator: Visibility = .visible,
+        open: (@MainActor () -> Void)?
+    ) {
         self.style = style
         self.title = title
         self.subtitle = subtitle
         self.action = action
         self.separator = separator
+        self.open = open
     }
     
     public var body: some View {
@@ -137,24 +146,33 @@ public struct PhraseListItem<Title: StringProtocol, Subtitle: StringProtocol>: V
             }
         }
         .padding(.horizontal, 16)
+        .plainButton(action: open)
     }
 }
 
 extension PhraseListItem where Title == String, Subtitle == String {
-    public init(style: Style, _ phrase: Phrase, for language: Language) {
+    public init(style: Style, phrase: Phrase, for language: Language, open: @escaping @MainActor () -> Void) {
         let entry = phrase.entry(for: language)
         self.init(
             style: style,
             title: entry.title,
             subtitle: phrase.sortIndex.formatted(),
-            action: entry.audio != nil ? .play({}) : .record({})
+            action: entry.audio != nil ? .play({}) : .record({}),
+            open: open
         )
     }
 }
 
 extension PhraseListItem where Subtitle == String {
-    public init(style: Style, title: Title, action: Action, separator: Visibility = .visible) {
-        self.init(style: style, title: title, subtitle: nil, action: action, separator: separator)
+    public init(style: Style, title: Title, action: Action, separator: Visibility = .visible, open: (@MainActor () -> Void)? = nil) {
+        self.init(
+            style: style,
+            title: title,
+            subtitle: nil,
+            action: action,
+            separator: separator,
+            open: open
+        )
     }
 }
 
@@ -167,19 +185,19 @@ extension PhraseListItem {
 }
 
 #Preview {
-    PhraseListItem(style: .standard, title: "Primary phrase", action: .play({}), separator: .hidden)
-    PhraseListItem(style: .standard, title: "Primary phrase", action: .play({}), separator: .visible)
-    PhraseListItem(style: .standard, title: "Primary phrase", subtitle: "Phrase secondary", action: .play({}))
+    PhraseListItem(style: .standard, title: "Primary phrase", action: .play({}), separator: .hidden, open: {})
+    PhraseListItem(style: .standard, title: "Primary phrase", action: .play({}), separator: .visible, open: {})
+    PhraseListItem(style: .standard, title: "Primary phrase", subtitle: "Phrase secondary", action: .play({}), open: {})
     Divider()
     
-    PhraseListItem(style: .standard, title: "Primary phrase (record)", action: .record({}), separator: .hidden)
-    PhraseListItem(style: .standard, title: "Primary phrase (pause)", action: .pause({}), separator: .visible)
+    PhraseListItem(style: .standard, title: "Primary phrase (record)", action: .record({}), separator: .hidden, open: {})
+    PhraseListItem(style: .standard, title: "Primary phrase (pause)", action: .pause({}), separator: .visible, open: {})
     
-    PhraseListItem(style: .standard, title: "Primary phrase", action: .check(.constant(false)), separator: .hidden)
-    PhraseListItem(style: .standard, title: "Primary phrase", action: .check(.constant(true)), separator: .visible)
+    PhraseListItem(style: .standard, title: "Primary phrase", action: .check(.constant(false)), separator: .hidden, open: {})
+    PhraseListItem(style: .standard, title: "Primary phrase", action: .check(.constant(true)), separator: .visible, open: {})
     
-    PhraseListItem(style: .standard, title: "Primary phrase", action: .counter(0), separator: .hidden)
-    PhraseListItem(style: .standard, title: "Primary phrase", action: .counter(5), separator: .hidden)
-    PhraseListItem(style: .standard, title: "Very long multiline primary phrase to test alignment", action: .counter(5), separator: .hidden)
-    PhraseListItem(style: .standard, title: "Primary phrase", action: .counter(15), separator: .hidden)
+    PhraseListItem(style: .standard, title: "Primary phrase", action: .counter(0), separator: .hidden, open: {})
+    PhraseListItem(style: .standard, title: "Primary phrase", action: .counter(5), separator: .hidden, open: {})
+    PhraseListItem(style: .standard, title: "Very long multiline primary phrase to test alignment", action: .counter(5), separator: .hidden, open: {})
+    PhraseListItem(style: .standard, title: "Primary phrase", action: .counter(15), separator: .hidden, open: {})
 }

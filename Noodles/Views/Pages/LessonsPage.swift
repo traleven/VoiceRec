@@ -9,16 +9,19 @@ import SwiftUI
 import NoodlesUIComponents
 
 struct LessonsPage: View {
+    @Environment(\.style) private var style
     @State var searchText: String = ""
 
     var body: some View {
-        PageLayout(toolbar: {
-            Navbar(mode: .regular)
-        }, controls: {
+        VStack(spacing: 0) {
+            // controls
             PageControlsFragment(searchText: $searchText, mode: .standard)
-        }, content: {
+            
+            // content
             List {}
-        })
+        }.toolbar {
+            Navbar(style: style, mode: .regular)
+        }
     }
 }
 

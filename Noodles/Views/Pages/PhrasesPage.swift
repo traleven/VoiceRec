@@ -23,31 +23,48 @@ struct PhrasesPage: View {
     @State var inputText: String = ""
     
     var body: some View {
-        PageLayout(toolbar: {
-            Navbar(mode: .regular)
-        }, controls: {
-            if !phrases.isEmpty {
-                PageControlsFragment(searchText: $searchText, mode: .standard)
-            }
-        }, content: {
-            if phrases.isEmpty {
-                EmptyPage(title: "Create phrase", icon: "plus.circle")
-            } else {
-                if let nativeLanguage {
-                    PlainList(style: style) {
-                        ForEach(phrases.sorted(by: { $0.sortIndex > $1.sortIndex })) { phrase in
-                            PhraseListItem(style: style, phrase, for: nativeLanguage)
-                                .plainButton(withAnimation: {
-                                    navigate(to: EditCommand(phrase))
-                                })
-                        }
-                    }
-                } else {
-                    ContentUnavailableView
-                        .error("Somehow there is no language set in your profile")
+        VStack(spacing: 0) {
+            Navbar(style: style, mode: .regular)
+            
+            // controls
+            VStack(spacing: 0) {
+                if !phrases.isEmpty {
+                    PageControlsFragment(
+                        searchText: $searchText,
+                        mode: .standard
+                    )
                 }
             }
-        }, input: {
+
+            // content
+            if phrases.isEmpty {
+                EmptyPageContent(
+                    style: style,
+                    title: "Create phrase",
+                    icon: "plus.circle",
+                    action: openNewPhrase
+                )
+            } else if let nativeLanguage {
+                PlainList(style: style) {
+                    ForEach(phrases.sorted(by: { $0.sortIndex > $1.sortIndex })) { phrase in
+                        PhraseListItem(
+                            style: style,
+                            phrase: phrase,
+                            for: nativeLanguage,
+                            open: { withAnimation {
+                                navigate(
+                                    to: EditCommand(phrase)
+                                )
+                            }}
+                        )
+                    }
+                }
+            } else {
+                ContentUnavailableView
+                    .error("Somehow there is no language set in your profile")
+            }
+            
+            // input
             Inputbar(style: style, text: $inputText, language: nativeLanguage!) { text, language in
                 let newPhrase = Phrase(entries: [
                     Phrase.Entry(language: language, title: text)
@@ -55,7 +72,11 @@ struct PhrasesPage: View {
                 modelContext.insert(newPhrase)
                 inputText = ""
             }
-        })
+        }
+    }
+    
+    private func openNewPhrase() {
+        print("TODO: Create a new phrase and open it in a PhraseDetails view")
     }
 }
 
