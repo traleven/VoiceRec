@@ -45,6 +45,7 @@ extension Language {
 		"ukr":    Language(code: "ukr",    name: "Ukrainian", flag: .Ukraine),
 		"jpn":    Language(code: "jpn",    name: "Japanese",  flag: .Japan),
 		"spa-ES": Language(code: "spa-ES", name: "Spanish",   flag: .Spain),
+		"deu-DE": Language(code: "deu-DE", name: "German",    flag: .Germany),
 	]
 
 	static var supportedLanguages: [Language] {
